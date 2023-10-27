@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"hello":"world"}
+    return {"hello": "world"}
 
 # 면접 유형 등록
 @app.post("/interview/{user_id}")

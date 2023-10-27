@@ -2,11 +2,11 @@ from typing import List
 
 from sqlalchemy import Boolean, String, ForeignKey
 from sqlalchemy.dialects.mysql import TIMESTAMP,BIGINT
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, mapped_column, Mapped
+from sqlalchemy.orm import relationship, mapped_column, Mapped, DeclarativeBase
 import datetime
 
-Base = declarative_base()
+class Base(DeclarativeBase):
+    pass
 
 class User(Base):
     __tablename__ = "user"
