@@ -178,4 +178,5 @@ Temporary Items
 *.properties
 .gradle
 *.yml
+build/
 BE/interview/.gitignore
