@@ -13,7 +13,7 @@ public class Report {
 
     @Id
     private String id;
-    private List<Interview> Interviews = new ArrayList<>();
+    private List<Interview> interviews = new ArrayList<>();
     private int eyeTrackingViolationCount;
 
 }
