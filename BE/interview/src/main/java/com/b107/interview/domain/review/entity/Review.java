@@ -1,5 +1,6 @@
 package com.b107.interview.domain.review.entity;
 
+import com.b107.interview.domain.resume.entity.Resume;
 import com.b107.interview.domain.user.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,8 @@ public class Review {
     @Column(length = 30, nullable = false)
     private String reviewCompanyName;
 
-    @Column(length = 4, nullable = false)
-    private String reviewYear;
+    @Column(nullable = false)
+    private Short reviewYear;
 
     @Column(length = 3, nullable = false)
     private String reviewQuarter;
@@ -43,4 +44,8 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToOne
+    @JoinColumn(name = "resume_id")
+    private Resume resume;
 }
