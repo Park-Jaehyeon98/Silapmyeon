@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Springboot build') {
             steps {
-                dir('BE'){
+                dir('BE/interview'){
                     sh '''
                     echo 'springboot build'
                     chmod +x gradlew 
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Dockerimage build') {
             steps {
-                dir('BE'){
+                dir('BE/interview'){
                     sh '''
                     echo 'Dockerimage build'
                     docker build -t docker-springboot:0.0.1 .
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                dir('BE'){
+                dir('BE/interview'){
                     sh '''
                     echo 'Deploy' 
 	                docker stop springboot
