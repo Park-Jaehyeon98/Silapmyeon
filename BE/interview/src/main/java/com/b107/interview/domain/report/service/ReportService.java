@@ -16,6 +16,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ReportService {
 
+    private static final String NOT_FOUND_REPORT = "레포트가 존재하지 않습니다.";
+
     private final ReportRepository reportRepository;
 
     @Transactional
@@ -33,25 +35,28 @@ public class ReportService {
 
     public ReportResponse getReportDetailsById(String id) {
         Report report = reportRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("해당 레포트가 존재하지 않습니다."));
+                .orElseThrow(() -> new RuntimeException(NOT_FOUND_REPORT));
 
         return ReportResponse.from(report);
     }
 
 
     public List<ReportResponse> getReportsByUserId(Long userId) {
-
         //체크 로직
-        return reportRepository.findByUserId(userId)
-                .orElseThrow(() -> new RuntimeException("해당 유저의 레포트가 존재하지 않습니다."))
-                .stream()
+        List<Report> reports = reportRepository.findByUserId(userId);
+
+        if (reports.isEmpty()) {
+            throw new RuntimeException(NOT_FOUND_REPORT);
+        }
+
+        return reports.stream()
                 .map(ReportResponse::from)
                 .collect(Collectors.toList());
     }
 
     public void deleteReport(String id) {
         if (!reportRepository.existsById(id)) {
-            throw new RuntimeException("존재하지 않는 레포트 입니다.");
+            throw new RuntimeException(NOT_FOUND_REPORT);
         }
         reportRepository.deleteById(id);
     }
