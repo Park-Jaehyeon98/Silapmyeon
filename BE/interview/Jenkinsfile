@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Springboot build') {
             steps {
-                dir('interview'){
+                dir('BE'){
                     sh '''
                     echo 'springboot build'
                     chmod +x gradlew 
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Dockerimage build') {
             steps {
-                dir('interview'){
+                dir('BE'){
                     sh '''
                     echo 'Dockerimage build'
                     docker build -t docker-springboot:0.0.1 .//도커 이미지파일 빌드
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                dir('interview'){
+                dir('BE'){
                     sh '''
                     echo 'Deploy' //배포
 												// 스프링 구동
