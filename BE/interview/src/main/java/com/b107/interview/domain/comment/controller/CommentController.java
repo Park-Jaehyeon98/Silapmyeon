@@ -17,7 +17,7 @@ public class CommentController {
     private final CommentService commentService;
 
     //댓글 작성
-    @GetMapping("/comments")
+    @PostMapping("/comments")
     public ResponseEntity<CommentResponse> registComment(@RequestBody CommentRequest request){
         Comment comment = commentService.save(request);
         CommentResponse response = new CommentResponse(comment);

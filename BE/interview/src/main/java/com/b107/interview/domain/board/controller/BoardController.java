@@ -46,16 +46,15 @@ public class BoardController {
     public ResponseEntity<BoardResponse> findBoard(@PathVariable Long id){
         BoardResponse boardResponse = boardService.findBoard(id);
 
-
         return ResponseEntity.ok()
                 .body(boardResponse);
     }
+
 
     //게시판 글 삭제
     @DeleteMapping("/boards/{id}")
     public ResponseEntity<Void> deleteBoard(@PathVariable Long id){
         boardService.deleteBoard(id);
-
 
         return ResponseEntity.ok()
                 .build();
@@ -63,8 +62,8 @@ public class BoardController {
 
     //게시판 글 수정
     @PutMapping("/boards/{id}")
-    public ResponseEntity<Board> updateBoard(@PathVariable Long id, @RequestBody UpdateBoardRequest request){
-        Board updateBoard = boardService.update(id,request);
+    public ResponseEntity<BoardResponse> updateBoard(@PathVariable Long id, @RequestBody UpdateBoardRequest request){
+        BoardResponse updateBoard = boardService.update(id,request);
 
         return ResponseEntity.ok()
                 .body(updateBoard);

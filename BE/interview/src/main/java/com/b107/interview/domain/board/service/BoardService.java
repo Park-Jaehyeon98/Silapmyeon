@@ -1,5 +1,6 @@
 package com.b107.interview.domain.board.service;
 
+import com.b107.interview.domain.board.dto.BoardAllResponse;
 import com.b107.interview.domain.board.dto.BoardRequest;
 import com.b107.interview.domain.board.dto.BoardResponse;
 import com.b107.interview.domain.board.dto.UpdateBoardRequest;
@@ -41,6 +42,7 @@ public class BoardService {
     }
 
     //게시글 상세 조회
+    @Transactional
     public BoardResponse findBoard(Long id){
         Board board = boardRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("not find :"+id));
@@ -55,22 +57,29 @@ public class BoardService {
     }
 
     //게시글 삭제
+    @Transactional
     public void deleteBoard(Long id){
 
         Board board = boardRepository.findById(id)
                         .orElseThrow(()-> new IllegalArgumentException("not find:"+id));
+
         commentService.deleteAllByBoard(board);
         boardRepository.deleteById(id);
     }
 
     //게시글 수정
     @Transactional
-    public Board update(Long id, UpdateBoardRequest request){
+    public BoardResponse update(Long id, UpdateBoardRequest request){
         Board board = boardRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("not find" + id));
 
         board.update(request.getTitle(),request.getContent());
-        return board;
+
+        List<CommentResponse> comments = commentService.findAllByBoard(board)
+                .stream()
+                .map(CommentResponse::new)
+                .collect(Collectors.toList());
+        return new BoardResponse(board,comments);
     }
 
 
