@@ -30,6 +30,9 @@ public class Comment extends Auditable {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public void update(String commentContent){
+        this.commentContent = commentContent;
+    }
 
     public void setCommentContent(String commentContent){
         this.commentContent = commentContent;

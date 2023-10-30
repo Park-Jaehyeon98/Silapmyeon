@@ -1,9 +1,11 @@
 package com.b107.interview.domain.comment.service;
 
 import com.b107.interview.domain.board.dto.BoardResponse;
+import com.b107.interview.domain.board.dto.UpdateBoardRequest;
 import com.b107.interview.domain.board.entity.Board;
 import com.b107.interview.domain.board.repository.BoardRepository;
 import com.b107.interview.domain.comment.dto.CommentRequest;
+import com.b107.interview.domain.comment.dto.CommentResponse;
 import com.b107.interview.domain.comment.entity.Comment;
 import com.b107.interview.domain.comment.mapper.CommentMapper;
 import com.b107.interview.domain.comment.repository.CommentRepository;
@@ -62,4 +64,14 @@ public class CommentService {
          commentRepository.deleteAllByBoard(board);
     }
 
+    //댓글 수정
+    @Transactional
+    public Comment update(Long id, CommentRequest request) {
+        Comment comment = commentRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("not found comment"));
+
+        comment.update(request.getContent());
+
+        return comment;
+     }
 }

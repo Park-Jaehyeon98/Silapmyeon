@@ -5,7 +5,6 @@ import com.b107.interview.domain.board.dto.BoardRequest;
 import com.b107.interview.domain.board.dto.BoardResponse;
 import com.b107.interview.domain.board.dto.UpdateBoardRequest;
 import com.b107.interview.domain.board.entity.Board;
-import com.b107.interview.domain.board.mapper.BoardMapper;
 import com.b107.interview.domain.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

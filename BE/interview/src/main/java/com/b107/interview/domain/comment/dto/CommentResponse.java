@@ -7,10 +7,12 @@ import lombok.Getter;
 public class CommentResponse {
     private final String content;
     private final String nickname;
+    private final Long userid;
 
     public CommentResponse(Comment comment){
         this.content = comment.getCommentContent();
         this.nickname = comment.getUser().getUserNickname();
+        this.userid = comment.getUser().getUserId();
     }
 
 
