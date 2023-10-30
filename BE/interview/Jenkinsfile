@@ -18,7 +18,7 @@ pipeline {
                 dir('BE/interview'){
                     sh '''
                     echo 'Dockerimage build'
-                    docker build -t docker-springboot:0.0.1
+                    docker build -t docker-springboot:0.0.1 .
                     '''
                 }
             }
