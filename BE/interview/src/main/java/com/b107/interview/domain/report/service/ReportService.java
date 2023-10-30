@@ -54,10 +54,13 @@ public class ReportService {
                 .collect(Collectors.toList());
     }
 
-    public void deleteReport(String id) {
+    public boolean deleteReport(String id) {
         if (!reportRepository.existsById(id)) {
             throw new RuntimeException(NOT_FOUND_REPORT);
         }
+
         reportRepository.deleteById(id);
+
+        return true;
     }
 }
