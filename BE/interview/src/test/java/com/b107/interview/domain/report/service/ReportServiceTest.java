@@ -32,7 +32,7 @@ class ReportServiceTest {
     private ReportRepository reportRepository;
 
     @Test
-    @DisplayName("리포트를 DB에 저장한다.")
+    @DisplayName("리포트를 저장한다.")
     void createReport() {
         // given
         List<Interview> interviews = List.of(Interview.of("test question1", "test answer1"),
