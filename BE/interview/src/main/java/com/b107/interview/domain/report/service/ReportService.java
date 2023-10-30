@@ -43,6 +43,7 @@ public class ReportService {
 
         //체크 로직
         return reportRepository.findByUserId(userId)
+                .orElseThrow(() -> new RuntimeException("해당 유저의 레포트가 존재하지 않습니다."))
                 .stream()
                 .map(ReportResponse::from)
                 .collect(Collectors.toList());
