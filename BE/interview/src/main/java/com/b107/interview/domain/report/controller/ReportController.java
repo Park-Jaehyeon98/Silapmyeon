@@ -32,7 +32,7 @@ public class ReportController {
                 .body(reportService.getReportDetailsById(id));
     }
 
-    @GetMapping("/list/{user-id}")
+    @GetMapping("/list/{userId}")
     public ResponseEntity<Object> getReportsByUserId(@PathVariable Long userId) {
         List<ReportResponse> reports = reportService.getReportsByUserId(userId);
         return ResponseEntity.ok()
