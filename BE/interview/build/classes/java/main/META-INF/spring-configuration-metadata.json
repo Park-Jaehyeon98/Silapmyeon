@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "spring.jwt",
+      "type": "com.b107.interview.commons.properties.JwtProperties",
+      "sourceType": "com.b107.interview.commons.properties.JwtProperties"
+    },
+    {
+      "name": "url",
+      "type": "com.b107.interview.commons.properties.UrlProperties",
+      "sourceType": "com.b107.interview.commons.properties.UrlProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.b107.interview.commons.properties.JwtProperties"
+    },
+    {
+      "name": "url.backend",
+      "type": "java.lang.String",
+      "sourceType": "com.b107.interview.commons.properties.UrlProperties"
+    },
+    {
+      "name": "url.frontend",
+      "type": "java.lang.String",
+      "sourceType": "com.b107.interview.commons.properties.UrlProperties"
+    }
+  ],
+  "hints": []
+}
