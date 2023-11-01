@@ -175,7 +175,8 @@ Temporary Items
 
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij,macos
 .idea
-*.properties
+application.properties
 .gradle
 *.yml
+build/
 BE/interview/.gitignore
