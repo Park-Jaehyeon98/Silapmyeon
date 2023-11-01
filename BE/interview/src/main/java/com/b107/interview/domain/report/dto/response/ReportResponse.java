@@ -2,6 +2,7 @@ package com.b107.interview.domain.report.dto.response;
 
 import com.b107.interview.domain.report.entity.Interview;
 import com.b107.interview.domain.report.entity.Report;
+import com.b107.interview.util.DateTimeConverter;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -36,6 +37,9 @@ public class ReportResponse {
     }
 
     public static ReportResponse from(Report report) {
-        return ReportResponse.of(report.getId(), report.getUserId(), report.getInterviews(), report.getEyeTrackingViolationCount(), report.getScenarioUrl(), report.getCreatedDate());
+        return ReportResponse.of(report.getId(), report.getUserId(),
+                report.getInterviews(), report.getEyeTrackingViolationCount(),
+                report.getScenarioUrl(), DateTimeConverter.toString(report.getCreatedDate()),
+                DateTimeConverter.toString(report.getLastModifiedDate()));
     }
 }
