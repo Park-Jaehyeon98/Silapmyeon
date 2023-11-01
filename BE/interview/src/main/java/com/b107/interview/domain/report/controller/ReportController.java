@@ -22,6 +22,7 @@ public class ReportController {
 
     @PostMapping
     public ResponseEntity<Object> postReport(@Valid @RequestBody ReportRequest reportRequest) {
+        log.info("[post] 레포트 생성");
         reportService.createReport(reportRequest, "임시Url");
         return ResponseEntity.ok().build();
     }
@@ -39,7 +40,7 @@ public class ReportController {
                 .body(reports);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteReportById(@PathVariable String id) {
         reportService.deleteReport(id);
         return ResponseEntity.ok()
