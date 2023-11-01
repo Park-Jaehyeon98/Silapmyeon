@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class DateTimeConverter {
 
     public static String toString(LocalDateTime dateTime) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-ddHH-mm-ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
         return formatter.format(dateTime);
     }
 }
