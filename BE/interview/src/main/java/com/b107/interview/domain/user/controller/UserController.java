@@ -41,4 +41,9 @@ public class UserController {
         return new ResponseEntity<>(userResDto, HttpStatus.OK);
     }
 
+    @DeleteMapping
+    public ResponseEntity<?> deleteUser() {
+        userService.deleteUser(SecurityUtils.getUser());
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

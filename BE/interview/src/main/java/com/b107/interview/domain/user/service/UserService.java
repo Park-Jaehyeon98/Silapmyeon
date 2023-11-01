@@ -51,4 +51,14 @@ public class UserService {
 
         return findUser;
     }
+
+    // 회원 탈퇴
+    public void deleteUser(SecurityUserDto user) {
+        Optional<User> optionalUser = userRepository.findByUserId(user.getUserId());
+        if (optionalUser.isEmpty()) {
+            throw new RuntimeException("존재하지 않는 회원입니다.");
+        }
+        User findUser = optionalUser.get();
+        userRepository.delete(findUser);
+    }
 }
