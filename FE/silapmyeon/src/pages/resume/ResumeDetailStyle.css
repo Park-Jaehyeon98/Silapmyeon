@@ -1,0 +1,92 @@
+.title{
+    /* 큰 제목 */
+    
+        /* position: absolute; */
+        width: 487px;
+        height: 45px;
+        left: 367px;
+        top: 209px;
+    
+    
+    
+        /* SSAFY 자소서 */
+    
+        /* position: absolute; */
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+    
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 48px;
+    
+        color: #4962A2;
+}
+
+.interviewDate{
+    /* 날짜 */
+    
+        /* position: absolute; */
+        width: 220px;
+        height: 24px;
+        left: 1104px;
+        top: 230px;
+    
+    
+    
+        /* 면접일 */
+    
+        /* position: absolute; */
+        left: 9.09%;
+        right: 61.82%;
+        top: 0%;
+        bottom: 0%;
+    
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+    
+        color: #000000;
+    
+    
+    
+        /* 2023-01-11 */
+    
+        /* position: absolute; */
+        left: 45.45%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+    
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+    
+        color: #828282;
+}
+
+.content{
+    /* Rectangle 107 */
+    
+        box-sizing: border-box;
+    
+        /* position: absolute; */
+        left: 6.18%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+    
+        background: #FFFFFF;
+        border: 1px solid #494CA2;
+}

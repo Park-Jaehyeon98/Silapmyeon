@@ -1,0 +1,121 @@
+
+.title{
+    /* 큰 제목 */
+    /* position: absolute; */
+        width: 487px;
+        height: 45px;
+        left: 418px;
+        top: 180px;
+
+        /* SSAFY 자소서 */
+        
+            /* position: absolute; */
+            left: 0%;
+            right: 0%;
+            top: 0%;
+            bottom: 0%;
+        
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 48px;
+        
+            color: #4962A2;
+}
+
+.top{
+    /* Group 172 */
+    
+        /* position: absolute; */
+        width: 896px;
+        height: 52px;
+        left: 418px;
+        top: 274px;
+    
+        /* Rectangle 112 */
+    
+        /* position: absolute; */
+        /* width: 896px;
+        height: 52px;
+        left: 418px;
+        top: 274px;
+     */
+        background: #E3E7F1;
+        border-radius: 10px;    
+}
+
+.companyName{
+    /* 기업명 */
+    
+        /* position: absolute; */
+        width: 40px;
+        height: 20px;
+        left: 496px;
+        top: 290px;
+    
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+    
+        color: #000000;
+}
+
+.num{
+    /* 번호 */
+    
+        /* position: absolute; */
+        width: 40px;
+        height: 20px;
+        left: 430px;
+        top: 290px;
+    
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+    
+        color: #000000;
+}
+
+.interview{
+    /* 면접일 */
+    
+        /* position: absolute; */
+        width: 40px;
+        height: 20px;
+        left: 1104px;
+        top: 290px;
+    
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+    
+        color: #000000;
+}
+
+.create{
+    /* 작성일 */
+    
+        /* position: absolute; */
+        width: 40px;
+        height: 20px;
+        left: 1228px;
+        top: 290px;
+    
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+    
+        color: #000000;
+}
+
+
