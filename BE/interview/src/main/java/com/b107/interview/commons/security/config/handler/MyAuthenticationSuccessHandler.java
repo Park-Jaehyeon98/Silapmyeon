@@ -55,16 +55,15 @@ public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
         // accessToken을 쿼리스트링에 담는 url을 만들어준다.
         String targetUrl = UriComponentsBuilder.fromUriString(uriProperties.getFrontend() + "/loginSuccess")
                 .queryParam("accessToken", token.getAccessToken())
+                .queryParam("refreshToken", token.getRefreshToken())
                 .build()
                 .encode(StandardCharsets.UTF_8)
                 .toUriString();
 
         // 로그인 확인 페이지로 리다이렉트 시킨다.
-//        System.out.println("redirect ---------------> " + targetUrl);
-//        response.addHeader(JwtProperties.HEADER_STRING, token.getAccessToken());
-//        getRedirectStrategy().sendRedirect(request, response, targetUrl);
-
-        writeTokenResponse(response, token);
+        System.out.println("redirect ---------------> " + targetUrl);
+//        writeTokenResponse(response, token);
+        getRedirectStrategy().sendRedirect(request, response, targetUrl);
     }
 
     private void writeTokenResponse(HttpServletResponse response, GeneratedToken token)
