@@ -12,4 +12,6 @@ import org.springframework.stereotype.Component;
 public class JwtProperties {
     public static final String HEADER_STRING = "Authorization";
     private String secret;
+    private Long atkLive;
+    private Long rtkLive;
 }

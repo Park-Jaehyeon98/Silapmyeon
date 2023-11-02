@@ -8,7 +8,7 @@ public class GeneratedToken {
     private String accessToken;
 
     public GeneratedToken(String accessToken, String refreshToken) {
-        this.accessToken = accessToken;
+        this.accessToken = "Bearer " + accessToken;
         this.refreshToken = refreshToken;
     }
 }

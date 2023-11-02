@@ -1,53 +1,36 @@
 package com.b107.interview.domain.user.controller;
 
-import com.b107.interview.commons.security.dto.RefreshToken;
 import com.b107.interview.commons.security.service.JwtUtil;
 import com.b107.interview.commons.support.StatusResponseDto;
-import com.b107.interview.domain.user.dto.response.TokenResponseStatus;
-import com.b107.interview.domain.user.repository.RefreshTokenRepository;
-import com.b107.interview.domain.user.service.RefreshTokenService;
+import com.b107.interview.domain.user.entity.User;
+import com.b107.interview.domain.user.service.UserService;
+import com.b107.interview.util.SecurityUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @RequiredArgsConstructor
 public class AuthController {
-    private final RefreshTokenRepository tokenRepository;
-    private final RefreshTokenService tokenService;
     private final JwtUtil jwtUtil;
+    private final UserService userService;
 
     @PostMapping("/token/logout")
-    public ResponseEntity<StatusResponseDto> logout(@RequestHeader("Authorization") final String accessToken) {
+    public ResponseEntity<StatusResponseDto> logout(@RequestHeader("Authorization") String bearerAtk) {
 
-        // 엑세스 토큰으로 현재 Redis 정보 삭제
-        tokenService.removeRefreshToken(accessToken);
+        User user = userService.readUser(SecurityUtils.getUser());
+
+        jwtUtil.setBlackListAccessToken(bearerAtk);
+        jwtUtil.deleteRefreshToken(user);
         return ResponseEntity.ok(StatusResponseDto.addStatus(200));
     }
 
-    @PostMapping("/token/refresh")
-    public ResponseEntity<TokenResponseStatus> refresh(@RequestHeader("Authorization") final String accessToken) {
 
-        // 액세스 토큰으로 Refresh 토큰 객체를 조회
-        Optional<RefreshToken> refreshToken = tokenRepository.findByAccessToken(accessToken);
-
-        // RefreshToken이 존재하고 유효하다면 실행
-        if (refreshToken.isPresent() && jwtUtil.verifyToken(refreshToken.get().getRefreshToken())) {
-            // RefreshToken 객체를 꺼내온다.
-            RefreshToken resultToken = refreshToken.get();
-            // 권한과 아이디를 추출해 새로운 액세스토큰을 만든다.
-            String newAccessToken = jwtUtil.generateAccessToken(resultToken.getId(), jwtUtil.getRole(resultToken.getRefreshToken()));
-            // 액세스 토큰의 값을 수정해준다.
-            resultToken.updateAccessToken(newAccessToken);
-            tokenRepository.save(resultToken);
-            // 새로운 액세스 토큰을 반환해준다.
-            return ResponseEntity.ok(TokenResponseStatus.addStatus(200, newAccessToken));
-        }
-
-        return ResponseEntity.badRequest().body(TokenResponseStatus.addStatus(400, null));
+    @PostMapping("/token/reissue")
+    public ResponseEntity<?> reissue() throws Exception {
+        return new ResponseEntity<>(jwtUtil.reissueAtk(SecurityUtils.getUser()), HttpStatus.OK);
     }
 }

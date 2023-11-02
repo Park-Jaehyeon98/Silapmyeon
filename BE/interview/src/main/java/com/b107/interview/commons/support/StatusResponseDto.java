@@ -15,8 +15,13 @@ public class StatusResponseDto {
         this.status = status;
     }
 
+
     public static StatusResponseDto addStatus(Integer status) {
         return new StatusResponseDto(status);
+    }
+
+    public static StatusResponseDto addStatus(Integer status, Object data) {
+        return new StatusResponseDto(status, data);
     }
 
     public static StatusResponseDto success() {

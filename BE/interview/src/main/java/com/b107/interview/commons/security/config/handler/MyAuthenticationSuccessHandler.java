@@ -1,9 +1,9 @@
 package com.b107.interview.commons.security.config.handler;
 
-import com.b107.interview.commons.properties.JwtProperties;
 import com.b107.interview.commons.properties.UrlProperties;
 import com.b107.interview.commons.security.dto.GeneratedToken;
 import com.b107.interview.commons.security.service.JwtUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -21,6 +21,7 @@ import java.nio.charset.StandardCharsets;
 public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final JwtUtil jwtUtil;
     private final UrlProperties uriProperties;
+    private final ObjectMapper objectMapper;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
@@ -37,6 +38,7 @@ public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
 
         // JWT에 넣을 userId (CustomOAuth2UserService에서 세팅)
         Long userId = oAuth2User.getAttribute("userId");
+        String userEmail = oAuth2User.getAttribute("userEmail");
 
         System.out.println(email + "// " + provider + "//" + isExist + "// userId: " + userId);
         // OAuth2User로 부터 Role을 얻어온다.
@@ -47,7 +49,7 @@ public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
 
 
         // 회원이 존재하면 jwt token 발행을 시작한다.
-        GeneratedToken token = jwtUtil.generateToken(userId, role);
+        GeneratedToken token = jwtUtil.generateToken(userId, userEmail, role);
 
         System.out.println("accesstoken: " + token.getAccessToken());
         // accessToken을 쿼리스트링에 담는 url을 만들어준다.
@@ -58,8 +60,23 @@ public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSucce
                 .toUriString();
 
         // 로그인 확인 페이지로 리다이렉트 시킨다.
-        System.out.println("redirect ---------------> " + targetUrl);
-        response.addHeader(JwtProperties.HEADER_STRING, token.getAccessToken());
-        getRedirectStrategy().sendRedirect(request, response, targetUrl);
+//        System.out.println("redirect ---------------> " + targetUrl);
+//        response.addHeader(JwtProperties.HEADER_STRING, token.getAccessToken());
+//        getRedirectStrategy().sendRedirect(request, response, targetUrl);
+
+        writeTokenResponse(response, token);
+    }
+
+    private void writeTokenResponse(HttpServletResponse response, GeneratedToken token)
+            throws IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
+        response.addHeader("Authorization", token.getAccessToken());
+        response.addHeader("Refresh", token.getRefreshToken());
+        response.setContentType("application/json;charset=UTF-8");
+
+        var writer = response.getWriter();
+        writer.println(objectMapper.writeValueAsString(token));
+        writer.flush();
     }
 }
