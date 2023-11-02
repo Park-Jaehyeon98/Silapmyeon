@@ -1,110 +1,106 @@
 .item {
-    /* Group 174 */
+  /* Group 174 */
 
-    /* position: absolute; */
-    width: 896px;
-    height: 52px;
-    left: 418px;
-    top: 336px;
+  /* position: absolute; */
+  width: 896px;
+  height: 52px;
+  left: 418px;
+  top: 336px;
 
+  /* Rectangle 111 */
 
+  box-sizing: border-box;
 
-    /* Rectangle 111 */
-
-    box-sizing: border-box;
-
-    /* position: absolute; */
-    /* width: 896px;
+  /* position: absolute; */
+  /* width: 896px;
     height: 52px;
     left: 418px;
     top: 336px; */
 
-    background: #FFFFFF;
-    border-bottom: 2px solid #8186D5;
+  background: #ffffff;
+  border-bottom: 2px solid #8186d5;
 
+  /* Group 173 */
 
-    /* Group 173 */
-
-    /* position: absolute; */
-    /* width: 856px;
+  /* position: absolute; */
+  /* width: 856px;
     height: 24px;
     left: 443px;
     top: 350px; */
-
 }
 
-.num{
-    /* 1 */
-    
-        /* position: absolute; */
-        /* width: 8px;
+.num {
+  /* 1 */
+
+  /* position: absolute; */
+  /* width: 8px;
         height: 24px;
         left: 443px;
         top: 350px; */
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        /* identical to box height, or 150% */
-    
-        color: #000000;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  color: #000000;
 }
 
-.name{
-    /* 하나은행 */
-    
-        /* position: absolute; */
-        width: 59px;
-        height: 24px;
-        left: 496px;
-        top: 350px;
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        /* identical to box height, or 150% */
-    
-        color: #000000;
+.name {
+  /* 하나은행 */
+
+  /* position: absolute; */
+  width: 59px;
+  height: 24px;
+  left: 496px;
+  top: 350px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  color: #000000;
 }
 
-.inteview{
-    /* 2023-10-10 */
-    
-        /* position: absolute; */
-        width: 90px;
-        height: 24px;
-        left: 1084px;
-        top: 350px;
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        /* identical to box height, or 150% */
-    
-        color: #000000;
+.inteview {
+  /* 2023-10-10 */
+
+  /* position: absolute; */
+  width: 90px;
+  height: 24px;
+  left: 1084px;
+  top: 350px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  color: #000000;
 }
 
-.create{
-    /* 2023-09-10 */
-    
-        /* position: absolute; */
-        /* width: 92px;
+.create {
+  /* 2023-09-10 */
+
+  /* position: absolute; */
+  /* width: 92px;
         height: 24px;
         left: 1207px;
         top: 350px; */
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        /* identical to box height, or 150% */
-    
-        color: #000000;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  color: #000000;
 }

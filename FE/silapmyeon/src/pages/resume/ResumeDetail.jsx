@@ -1,7 +1,7 @@
 import axios from "../../api/api";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./ResumeDetailStyle.css"
+import "./ResumeDetailStyle.css";
 
 function ResumeDetail() {
   const [resume, setResume] = useState(null);
@@ -19,10 +19,15 @@ function ResumeDetail() {
 
   return (
     <div>
-      {resume === null ? null :  (
+      {resume === null ? null : (
         <div>
-          <h2 className="title">{resume.companyName} 자소서</h2>
-          <h2 className="interviewDate">면접일 {resume.interviewDate}</h2>
+          <div className="detailTitle">
+            <div className="detailTitleText">{resume.companyName} 자소서</div>
+          </div>
+          <div className="detailInterviewDate">
+            <div className="detailInterview">면접일 </div>
+            <div className="detailDate">{resume.interviewDate} </div>
+          </div>
           {resume.resumeItems.map((resumeItem, idx) => (
             <div key={idx} className="content">
               <h2>{resumeItem.resumeQuestion}</h2>
