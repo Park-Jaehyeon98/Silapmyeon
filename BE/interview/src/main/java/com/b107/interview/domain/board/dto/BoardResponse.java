@@ -6,6 +6,7 @@ import com.b107.interview.domain.comment.entity.Comment;
 import com.b107.interview.domain.user.entity.User;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -17,7 +18,9 @@ public class BoardResponse {
     private final String nickname;
     private final Long userId;
     private final String reportId;
+    private final LocalDateTime createdTime;
     private final List<CommentResponse> comments;
+
 
 
     public BoardResponse(Board board,List<CommentResponse> comments){
@@ -29,12 +32,7 @@ public class BoardResponse {
         this.userId = board.getUser().getUserId();
         this.reportId = board.getReportId();
         this.comments = comments;
+        this.createdTime = board.getCreatedTime();
     }
-
-
-
-
-
-
 }
 
