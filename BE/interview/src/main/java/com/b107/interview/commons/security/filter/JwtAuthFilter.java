@@ -98,48 +98,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             throw new JwtException("유효하지 않은 토큰입니다.");
         }
 
-        ///////////////////////////////////
-
-
-//        if (!jwtUtil.verifyToken(token)) {
-//            throw new JwtException("Token 만료!");
-//        }
-//
-//        Subject subject = jwtUtil.getSubject(token);
-//        String requestURI = request.getRequestURI();
-//        if (subject.getType().equals("RTK") && !requestURI.equals("/token/reissue")) {
-//            throw new JwtException("토큰을 확인하세요.");
-//        }
-
-
-//        Optional<RefreshToken> refreshToken = refreshTokenRepository.findByAccessToken(accessToken);
-//        if (refreshToken.isEmpty()) {
-//            throw new JwtException("유효하지 않은 Access Token");
-//        }
-//        // AccessToken을 검증하고, 만료되었을경우 예외를 발생시킨다.
-//        if (!jwtUtil.verifyToken(accessToken)) {
-//            throw new JwtException("Access Token 만료!");
-//        }
-
-
-        // AccessToken 내부의 payload에 있는 userId로 user를 조회한다. 없다면 예외를 발생시킨다 -> 정상 케이스가 아님
-//        System.out.println("jwtUtil.getUid(atc):" + jwtUtil.getSubject(token).getUserId());
-//        User findUser = userRepository.findByUserId(jwtUtil.getSubject(token).getUserId())
-//                .orElseThrow(IllegalStateException::new);
-//
-//        // SecurityContext에 등록할 User 객체를 만들어준다.
-//        SecurityUserDto userDto = SecurityUserDto.builder()
-//                .userId(findUser.getUserId())
-//                .email(findUser.getUserEmail())
-//                .role("ROLE_".concat(findUser.getRole()))
-//                .nickname(findUser.getUserNickname())
-//                .build();
-//
-//        // SecurityContext에 인증 객체를 등록해준다.
-//        Authentication auth = getAuthentication(userDto);
-//        SecurityContextHolder.getContext().setAuthentication(auth);
-
-
         filterChain.doFilter(request, response);
     }
 
