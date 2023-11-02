@@ -177,6 +177,6 @@ Temporary Items
 .idea
 application.properties
 .gradle
-application.yml
+*.yml
 build/
 BE/interview/.gitignore
