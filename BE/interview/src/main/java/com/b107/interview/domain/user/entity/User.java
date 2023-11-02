@@ -7,6 +7,7 @@ import com.b107.interview.domain.review.entity.Review;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +31,11 @@ public class User {
 
     @Column(length = 255, nullable = true)
     private String userProfileUrl;
+
+    //------------소셜 로그인 관련
+    private String role; // ROLE_USER, ROLE_ADMIN
+    private String provider;
+    private String providerId;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
