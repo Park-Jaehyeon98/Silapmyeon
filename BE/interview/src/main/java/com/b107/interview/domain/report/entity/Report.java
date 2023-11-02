@@ -14,13 +14,15 @@ public class Report extends MongoAuditable {
     @Id
     private String id;
     private Long userId;
+    private String company;
     private List<Interview> interviews;
     private int eyeTrackingViolationCount;
     private String scenarioUrl;
 
-    public static Report of(Long userId, List<Interview> interviews, int eyeTrackingViolationCount, String scenarioUrl) {
+    public static Report of(Long userId, List<Interview> interviews, int eyeTrackingViolationCount, String scenarioUrl, String company) {
         return Report.builder()
                 .userId(userId)
+                .company(company)
                 .interviews(interviews)
                 .eyeTrackingViolationCount(eyeTrackingViolationCount)
                 .scenarioUrl(scenarioUrl)

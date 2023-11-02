@@ -26,7 +26,8 @@ public class ReportService {
                 reportRequest.getUserId(),
                 reportRequest.getInterviews(),
                 reportRequest.getEyeTrackingViolationCount(),
-                scenarioUrl
+                scenarioUrl,
+                reportRequest.getCompany()
                 );
 
         return reportRepository.save(report);

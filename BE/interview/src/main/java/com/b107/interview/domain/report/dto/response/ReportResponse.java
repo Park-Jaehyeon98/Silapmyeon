@@ -12,6 +12,7 @@ import java.util.List;
 public class ReportResponse {
     private String id;
     private Long userId;
+    private String company;
     private List<Interview> interviews;
     private int eyeTrackingViolationCount;
     private String scenarioUrl;
@@ -19,6 +20,7 @@ public class ReportResponse {
     private String modifiedTime;
 
     public static ReportResponse of(String id, Long userId,
+                                    String company,
                                     List<Interview> interviews,
                                     int eyeTrackingViolationCount,
                                     String scenarioUrl,
@@ -28,6 +30,7 @@ public class ReportResponse {
         return ReportResponse.builder()
                 .id(id)
                 .userId(userId)
+                .company(company)
                 .interviews(interviews)
                 .eyeTrackingViolationCount(eyeTrackingViolationCount)
                 .scenarioUrl(scenarioUrl)
@@ -37,9 +40,14 @@ public class ReportResponse {
     }
 
     public static ReportResponse from(Report report) {
-        return ReportResponse.of(report.getId(), report.getUserId(),
-                report.getInterviews(), report.getEyeTrackingViolationCount(),
-                report.getScenarioUrl(), DateTimeConverter.toString(report.getCreatedDate()),
+        return ReportResponse.of(
+                report.getId(),
+                report.getUserId(),
+                report.getCompany(),
+                report.getInterviews(),
+                report.getEyeTrackingViolationCount(),
+                report.getScenarioUrl(),
+                DateTimeConverter.toString(report.getCreatedDate()),
                 DateTimeConverter.toString(report.getLastModifiedDate()));
     }
 }
