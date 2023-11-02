@@ -16,7 +16,9 @@ public class BoardResponse {
     private final Long hit;
     private final String nickname;
     private final Long userId;
+    private final String reportId;
     private final List<CommentResponse> comments;
+
 
     public BoardResponse(Board board,List<CommentResponse> comments){
         this.boardId = board.getBoardId();
@@ -25,6 +27,7 @@ public class BoardResponse {
         this.hit = board.getBoardHit();
         this.nickname = board.getUser().getUserNickname();
         this.userId = board.getUser().getUserId();
+        this.reportId = board.getReportId();
         this.comments = comments;
     }
 

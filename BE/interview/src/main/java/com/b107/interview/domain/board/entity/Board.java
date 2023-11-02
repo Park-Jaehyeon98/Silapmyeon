@@ -27,6 +27,9 @@ public class Board extends Auditable {
     @Column(nullable = false)
     private Long boardHit;
 
+    @Column
+    private String reportId;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -39,9 +42,11 @@ public class Board extends Auditable {
     public void setBoardTitle(String boardTitle) {
         this.boardTitle = boardTitle;
     }
-
     public void setBoardContent(String boardContent) {
         this.boardContent = boardContent;
+    }
+    public void setReportId(String report_id){
+        this.reportId = report_id;
     }
 
     //처음 커뮤니티 등록할때 user객체, 조회수 0으로
@@ -51,9 +56,10 @@ public class Board extends Auditable {
     }
 
     //글 수정 하기
-    public void update(String title, String content){
+    public void update(String title, String content,String reportId){
         this.boardTitle = title;
         this.boardContent = content;
+        this.reportId = reportId;
     }
     //조회수 증가
     public void hits(long hits){

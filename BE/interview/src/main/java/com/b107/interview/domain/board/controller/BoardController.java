@@ -1,11 +1,10 @@
 package com.b107.interview.domain.board.controller;
 
-import com.b107.interview.domain.board.dto.BoardAllResponse;
-import com.b107.interview.domain.board.dto.BoardRequest;
-import com.b107.interview.domain.board.dto.BoardResponse;
-import com.b107.interview.domain.board.dto.UpdateBoardRequest;
+import com.b107.interview.domain.board.dto.*;
 import com.b107.interview.domain.board.entity.Board;
 import com.b107.interview.domain.board.service.BoardService;
+import com.b107.interview.domain.report.dto.response.ReportResponse;
+import com.b107.interview.domain.report.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +17,7 @@ import java.util.stream.Collectors;
 public class BoardController {
 
     private final BoardService boardService;
+    private final ReportService reportService;
 
     //게시판 글 작성
     @PostMapping("/boards")
@@ -43,11 +43,18 @@ public class BoardController {
 
     //게시판 글 상세 조회
     @GetMapping("/boards/{id}")
-    public ResponseEntity<BoardResponse> findBoard(@PathVariable Long id){
+    public ResponseEntity<BoardResponseWrapper> findBoard(@PathVariable Long id){
         BoardResponse boardResponse = boardService.findBoard(id);
+        String boardId = boardResponse.getReportId();
+        ReportResponse reportResponse = null;
 
+        if(boardId !=null){
+            reportResponse = reportService.getReportDetailsById(boardId);
+        }
+
+        BoardResponseWrapper response = new BoardResponseWrapper(boardResponse,reportResponse);
         return ResponseEntity.ok()
-                .body(boardResponse);
+                .body(response);
     }
 
 

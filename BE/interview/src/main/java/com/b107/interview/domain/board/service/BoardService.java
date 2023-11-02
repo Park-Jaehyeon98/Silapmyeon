@@ -73,7 +73,7 @@ public class BoardService {
         Board board = boardRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("not find" + id));
 
-        board.update(request.getTitle(),request.getContent());
+        board.update(request.getTitle(),request.getContent(),request.getPostId());
 
         List<CommentResponse> comments = commentService.findAllByBoard(board)
                 .stream()

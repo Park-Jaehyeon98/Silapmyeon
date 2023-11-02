@@ -6,4 +6,5 @@ import lombok.Getter;
 public class UpdateBoardRequest {
     private String title;
     private String content;
+    private String postId;
 }

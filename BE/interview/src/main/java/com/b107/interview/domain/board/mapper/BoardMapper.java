@@ -10,6 +10,7 @@ public interface BoardMapper {
 
     @Mapping(target = "boardTitle",source = "title")
     @Mapping(target = "boardContent",source = "content")
+    @Mapping(target = "reportId", source = "reportId")
     @Mapping(target = "comments", ignore = true)
     Board boardRequestToBoard(BoardRequest boardRequest);
 
