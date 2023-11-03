@@ -1,0 +1,72 @@
+.container {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  color: #4962A2;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.subHeader {
+  font-size: 18px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  width: 130px;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Increase size by 5% */
+}
+
+.clip {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -20px;    /* Move up by 10px outside the .card */
+  left: -20px;
+}
+
+.text {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.searchInput {
+  font-size: 16px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: #007bff;
+  }
+}

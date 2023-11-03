@@ -1,7 +1,9 @@
 // FetchData.js
 import React, { useState, useEffect } from 'react';
-import { getReportsByUserId } from '../../api'; // api.js에서 함수를 임포트
+import { getReportsByUserId } from '../../api/report'; // api.js에서 함수를 임포트
 import { useParams } from 'react-router-dom';
+import styles from '../../styles/reportList.module.css'
+import clip from '../../assets/clip.png'
 
 const ReportListView = () => {
   const [data, setData] = useState(null);
@@ -39,15 +41,28 @@ const ReportListView = () => {
 
   // 데이터를 카드 형식으로 렌더링
   return (
-    <div>
-      {data.map((item, index) => (
-        <div key={index} className="card">
-          <div className="card-body" style={"border-line: solid"}>
-            <h5 className="card-title">{item.company}</h5>
-            <p className="card-text">{item.createdTime}</p>
+    <div className={styles.container}>
+      <div className={styles.header}>실전 연습 레포트</div>
+      <div className={styles.subHeader}>
+        🔍 
+        <input 
+          type="text" 
+          placeholder="기업명 검색" 
+          className={styles.searchInput}
+        />
+      </div>
+      <div className={styles.grid}>
+        {data.map((item, index) => (
+          <div className={styles.card} key={index}>
+            <img src={clip} alt="clip" className={styles.clip}/>
+            <div className={styles.text}>
+              <p>{item.company}</p>
+              <p>REPORT</p>
+            </div>
+            <div className={styles.date}>{item.createdTime}</div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
