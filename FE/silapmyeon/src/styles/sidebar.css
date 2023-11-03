@@ -1,11 +1,8 @@
-
 .sidebar {
     flex-direction: column;
     background-color: #E3E7F1;
     left: 0%;
     width: 272px;
-    height: 100vh;
-
 }
 .img{
     text-align: center;
@@ -21,6 +18,8 @@
 }
 
 .sidebarText{
+    display: block;
+    text-decoration: none;
     text-align: left;
     margin-left: 31px;
     margin-top: 30px;
