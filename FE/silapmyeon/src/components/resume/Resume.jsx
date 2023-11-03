@@ -1,15 +1,23 @@
-import "./ResumeStyle.css";
+import styles from "./ResumeStyle.module.css";
 import { Link } from "react-router-dom";
 
-function Resume({ resumeId, companyName, interviewDate, createdTime, modifiedTime, reviewId }) {
+function Resume({
+  resumeId,
+  companyName,
+  interviewDate,
+  createdTime,
+  modifiedTime,
+  reviewId,
+  idx,
+}) {
   return (
-    <tr className="item">
-      <td className="num">{resumeId}</td>
-      <td className="name">
+    <tr className={styles.item}>
+      <td className={styles.num}>{idx + 1}</td>
+      <td className={styles.name}>
         <Link to={`${resumeId}`}>{companyName}</Link>
       </td>
-      <td className="interview">{interviewDate}</td>
-      <td className="create">{createdTime}</td>
+      <td className={styles.interview}>{interviewDate}</td>
+      <td className={styles.create}>{createdTime}</td>
     </tr>
   );
 }

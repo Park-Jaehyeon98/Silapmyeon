@@ -1,7 +1,7 @@
 import axios from "../../api/api";
 import { useState, useEffect } from "react";
 import Resume from "../../components/resume/Resume";
-import "./ResumeListStyle.css";
+import styles from "./ResumeListStyle.module.css";
 import { Link } from "react-router-dom";
 
 function ResumeList() {
@@ -17,39 +17,32 @@ function ResumeList() {
   }, []);
 
   return (
-    <div>
-      <div className="resumeTitle">
-        <div className="resumeTitleText">나의 자기소개서</div>
+    <div style={{ height: "100vh" }}>
+      <div className={styles.resumeTitle}>
+        <div className={styles.resumeTitleText}>나의 자기소개서</div>
       </div>
       <Link to={"create"}>
-        <button className="plus">+</button>
+        <button className={styles.plus}>+</button>
       </Link>
       <table
         style={{
           borderCollapse: "collapse",
           width: "896px",
-          left: "418px",
-          top: "274px",
-          position: "absolute",
+          left: "0%",
+          marginTop: "50px",
+          position: "relative",
         }}
       >
         <thead>
-          <tr className="tableHeader">
-            <th className="number">번호</th>
-            <th className="companyName">기업명</th>
-            <th className="interviewDate">면접일</th>
-            <th className="createdDate">작성일</th>
+          <tr className={styles.tableHeader}>
+            <th className={styles.number}>번호</th>
+            <th className={styles.companyName}>기업명</th>
+            <th className={styles.interviewDate}>면접일</th>
+            <th className={styles.createdDate}>작성일</th>
           </tr>
         </thead>
-        <tbody
-          style={{
-            left: "418px",
-            top: "336px",
-            width: "896px",
-            position: "fixed",
-          }}
-        >
-          {resumes.map((resume) => (
+        <tbody>
+          {resumes.map((resume, idx) => (
             <Resume
               key={resume.resumeId}
               resumeId={resume.resumeId}
@@ -58,6 +51,7 @@ function ResumeList() {
               createdTime={resume.createdTime}
               modifiedTime={resume.modifiedTime}
               reviewId={resume.reviewId}
+              idx={idx}
             />
           ))}
         </tbody>

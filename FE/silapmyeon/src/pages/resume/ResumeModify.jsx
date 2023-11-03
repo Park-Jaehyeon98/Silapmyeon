@@ -1,5 +1,5 @@
 function ResumeModify() {
-  return <div></div>;
+  return <div style={{ height: "100vh" }}></div>;
 }
 
 export default ResumeModify;
