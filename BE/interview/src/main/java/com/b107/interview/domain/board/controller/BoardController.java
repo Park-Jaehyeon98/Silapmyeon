@@ -6,6 +6,10 @@ import com.b107.interview.domain.board.service.BoardService;
 import com.b107.interview.domain.report.dto.response.ReportResponse;
 import com.b107.interview.domain.report.service.ReportService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,11 +35,9 @@ public class BoardController {
 
     //게시판 글 전체 조회
     @GetMapping("/boards")
-    public ResponseEntity<List<BoardAllResponse>> findAllBoards(){
-        List<BoardAllResponse> boards = boardService.findAll()
-                .stream()
-                .map(BoardAllResponse::new)
-                .collect(Collectors.toList());
+    public ResponseEntity<Page<BoardAllResponse>> findAllBoards(@PageableDefault(sort = "boardId", direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<BoardAllResponse> boards = boardService.findAll(pageable)
+                .map(BoardAllResponse::new);
 
         return ResponseEntity.ok()
                 .body(boards);
