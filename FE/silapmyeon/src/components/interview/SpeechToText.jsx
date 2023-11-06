@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import { useRecoilState } from "recoil";
+import { completeSpeech } from "../../atoms/atoms";
 import "./SpeechToText.module.css";
 
 function SpeechToText() {
@@ -14,6 +16,9 @@ function SpeechToText() {
   const [microphoneOn, setMicrophoneOn] = useState(false);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [timerInterval, setTimerInterval] = useState(null);
+
+  const [completeSpeechState, setCompleteSpeechState] =
+    useRecoilState(completeSpeech);
 
   const requestMicrophonePermission = async () => {
     try {
@@ -33,6 +38,10 @@ function SpeechToText() {
     const remainingSeconds = (seconds % 60).toString().padStart(2, "0");
     return `${minutes}:${remainingSeconds}`;
   };
+
+  useEffect(() => {
+    handleStartListening();
+  }, [completeSpeechState]);
 
   useEffect(() => {
     if (!browserSupportsSpeechRecognition) {

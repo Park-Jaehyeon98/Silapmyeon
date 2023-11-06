@@ -1,6 +1,8 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
+import { useRecoilState } from "recoil";
 import Webcam from "react-webcam";
 import AltCam from "./cam.png";
+import { camState } from "../../atoms/atoms";
 
 function Preparation() {
   const videoConstraints = {
@@ -10,7 +12,7 @@ function Preparation() {
   };
 
   const webcamRef = useRef(null);
-  const [useCam, setUseCam] = useState(true);
+  const [useCam, setUseCam] = useRecoilState(camState);
 
   const handleCam = () => {
     setUseCam((prev) => !prev);
@@ -30,7 +32,7 @@ function Preparation() {
           videoConstraints={videoConstraints}
         ></Webcam>
       ) : (
-        <img width={640} height={360} src={AltCam} />
+        <img width={640} height={360} src={AltCam} alt="cam" />
       )}
       <button onClick={handleCam}>{useCam ? "Off" : "On"}</button>
       <audio></audio>
