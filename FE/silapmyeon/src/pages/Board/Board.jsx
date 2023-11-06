@@ -71,7 +71,7 @@ function Board(){
 
             <div className="cards">
                 {cards.map(cardData => (
-                    <Link to ="/board/detail" key = {cardData.id}>
+                    <Link to ="/board/detail" key = {cardData.id} className ="cardLink">
                     <Card card = {cardData} user={user}></Card>
                     </Link>
                 ))}

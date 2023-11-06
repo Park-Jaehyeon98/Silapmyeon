@@ -14,7 +14,7 @@ function Card({card,user}){
                 <div className="content">{card.content}</div>
                 <div className="smallInfo">
                     <div className="date">{date}</div>
-                    <div className="hits">조회수:{card.hit}</div>
+                    <div className="hits">조회수 {card.hit}</div>
                 </div>
                 <div className="info">
                     <div className="user">

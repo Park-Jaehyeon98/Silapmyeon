@@ -9,6 +9,9 @@
 
 
 }
+.cardLink{
+    text-decoration:none;
+}
 .head{
     color:#494CA2;
     font-style: normal;
