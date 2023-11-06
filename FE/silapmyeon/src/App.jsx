@@ -7,6 +7,7 @@ import Header from "./components/commons/Header";
 import Home from "./pages/Home/Home";
 import TypeSelect from "./components/interview/TypeSelect";
 import Preparation from "./components/interview/Preparation";
+import Practice from "./components/interview/Practice";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Home />
           <TypeSelect />
           <Preparation />
+          <Practice />
         </div>
       </div>
     </div>

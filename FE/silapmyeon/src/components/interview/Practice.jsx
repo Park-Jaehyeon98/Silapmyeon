@@ -1,8 +1,10 @@
 import { useState, useRef } from "react";
 import Webcam from "react-webcam";
 import AltCam from "./cam.png";
+import SpeechToText from "./SpeechToText";
+import TextToSpeech from "./TextToSpeech";
 
-function Preparation() {
+function Practice() {
   const videoConstraints = {
     width: 640,
     height: 360,
@@ -12,14 +14,11 @@ function Preparation() {
   const webcamRef = useRef(null);
   const [useCam, setUseCam] = useState(true);
 
-  const handleCam = () => {
-    setUseCam((prev) => !prev);
-  };
-
   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {});
 
   return (
     <div>
+      <h1>연습</h1>
       {useCam ? (
         <Webcam
           audio={false}
@@ -32,13 +31,10 @@ function Preparation() {
       ) : (
         <img width={640} height={360} src={AltCam} />
       )}
-      <button onClick={handleCam}>{useCam ? "Off" : "On"}</button>
-      <audio></audio>
-      <br />
-      <button>다음</button>
-      <button>나가기</button>
+      <SpeechToText />
+      <TextToSpeech />
     </div>
   );
 }
 
-export default Preparation;
+export default Practice;
