@@ -11,7 +11,7 @@ pipeline {
                 sshagent(credentials: ['jenkins_token']) {
                     sh '''
                         ssh -o StrictHostKeyChecking=no ubuntu@ip-172-26-2-92
-                        scp -r /var/jenkins_home/workspace/silapmyeon-FastAPI/FastAPI/ ubuntu@ip-172-26-2-92:/home/ubuntu/FastAPI/
+                        scp -r /jenkins/workspace/silapmyeon-FastAPI/FastAPI/ ubuntu@ip-172-26-2-92:/home/ubuntu/FastAPI/
                         ssh -t ubuntu@ip-172-26-2-92 ./deploy_fastapi.sh
                     '''
                 }
