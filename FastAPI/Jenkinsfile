@@ -11,13 +11,13 @@ pipeline {
                 sshagent(credentials: ['jenkins_token']) {
                     sh '''
                         echo "Connecting to remote server"
-                        ssh -o StrictHostKeyChecking=no ubuntu@ip-172-26-2-92
+                        ssh -o StrictHostKeyChecking=no ubuntu@3.36.76.73
 
                         echo "Copying code to remote server"
-                        scp -r /jenkins/workspace/silapmyeon-FastAPI/FastAPI/ ubuntu@ip-172-26-2-92:/home/ubuntu/FastAPI/
+                        scp -r /jenkins/workspace/silapmyeon-FastAPI/FastAPI/ ubuntu@3.36.76.73:/home/ubuntu/fastapi/
 
                         echo "Executing deploy script on remote server"
-                        ssh -t ubuntu@ip-172-26-2-92 ./deploy_fastapi.sh
+                        ssh -t ubuntu@3.36.76.73 ./deploy_fastapi.sh
                     '''
                 }
             }
