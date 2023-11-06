@@ -2,6 +2,8 @@ FROM python:3.9
 
 COPY ./FastAPI/requirements.txt /fastapi/requirements.txt
 
+RUN ls -al
+
 RUN pip install --upgrade pip
 
 RUN apt-get update
