@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Deployment') {
             steps {
-                sshagent(credentials: ['jenkins_token']) {
+                sshagent(credentials: ['ssh_key']) {
                     sh '''
                         echo "Connecting to remote server"
                         ssh -o StrictHostKeyChecking=no ubuntu@3.36.76.73
