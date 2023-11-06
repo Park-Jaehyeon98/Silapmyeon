@@ -88,7 +88,7 @@
   bottom: 0%;
 
   background: #ffffff;
-  border: 1px solid #494ca2;
+  border: 2px solid #494ca2;
 }
 
 .question {
@@ -229,8 +229,21 @@ top: 1.57%;
 bottom: 87.19%; */
   width: 60px;
   height: 50px;
-  border: none;
-  color: white;
+  border-color: #494ca2;
+  border-width: 1px;
+  background: white;
 
-  background: #494ca2;
+  color: #494ca2;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.selectedButton {
+  width: 60px;
+  height: 50px;
+  border-color: #494ca2;
+  background-color: #494ca2; /* Change to the desired color */
+  color: white; /* Change text color if needed */
+  font-weight: bold;
+  font-size: medium;
 }

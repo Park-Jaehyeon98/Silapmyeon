@@ -144,7 +144,26 @@
   position: absolute;
   width: 55px;
   height: 52px;
-  left: 45%;
+  left: 41%;
+  margin-top: 5%;
+
+  /* Rectangle 102 */
+
+  background: #494ca2;
+  border-radius: 10px;
+  color: white;
+  border: none;
+
+  font-size: 40px;
+}
+
+.itemMinus {
+  /* 추가 button */
+
+  position: absolute;
+  width: 55px;
+  height: 52px;
+  left: 49%;
   margin-top: 5%;
 
   /* Rectangle 102 */
