@@ -35,7 +35,8 @@ public class BoardController {
 
     //게시판 글 전체 조회
     @GetMapping("/boards")
-    public ResponseEntity<Page<BoardAllResponse>> findAllBoards(@PageableDefault(sort = "boardId", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<Page<BoardAllResponse>> findAllBoards(@PageableDefault(sort = "boardId", direction = Sort.Direction.DESC, size = 9) Pageable pageable) {
+
         Page<BoardAllResponse> boards = boardService.findAll(pageable)
                 .map(BoardAllResponse::new);
 

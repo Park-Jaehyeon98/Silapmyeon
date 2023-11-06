@@ -25,7 +25,7 @@ public class BoardAllResponse {
         this.nickname = board.getUser().getUserNickname();
         this.createdTime = board.getCreatedTime();
         this.imgUrl = board.getUser().getUserProfileUrl();
-        this.commentCnt = board.getComments().size();
+        this.commentCnt = board.getComments() ==null ? 0:board.getComments().size();
     }
 }
 
