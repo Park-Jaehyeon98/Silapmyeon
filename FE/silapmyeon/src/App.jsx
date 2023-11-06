@@ -9,6 +9,7 @@ import ResumeList from "./pages/resume/ResumeList";
 import ResumeDetail from "./pages/resume/ResumeDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ResumeCreate from "./pages/resume/ResumeCreate";
+import ResumeModify from "./pages/resume/ResumeModify";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Routes>
               <Route path="/resume" element={<ResumeList />} />
               <Route path="/resume/:resumeId" element={<ResumeDetail />} />
+              <Route path="/resume/:resumeId/modify" element={<ResumeModify />} />
               <Route path="/resume/create" element={<ResumeCreate />} />
             </Routes>
           </div>

@@ -1,27 +1,34 @@
 import axios from "../../api/api";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./ResumeDetailStyle.module.css";
 
 function ResumeDetail() {
-  const jwt = {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo5LFwidXNlckVtYWlsXCI6XCJva2lwMDQyOEBnbWFpbC5jb21cIixcInJvbGVcIjpcIlJPTEVfVVNFUlwiLFwidHlwZVwiOlwiQVRLXCJ9IiwiaWF0IjoxNjk5MDg0MjA3LCJleHAiOjE3MDAyOTM4MDd9.KobaflC8-JxlhQBjHm32QzkFpqzKtixaW6hM247e2Qo",
-    },
-  };
   const [resume, setResume] = useState(null);
   const { resumeId } = useParams();
+  const navigate = useNavigate();
 
   const getResume = async () => {
-    const res = await axios.get(`/resume/${resumeId}`, jwt);
+    const res = await axios.get(`/resume/${resumeId}`);
     console.log(res.data);
     setResume(res.data);
+  };
+
+  const removeResume = async () => {
+    if (window.confirm("자기소개서를 삭제하시겠습니까?")) {
+      const res = await axios.delete(`/resume/${resumeId}`);
+      console.log(res.data);
+      navigate("/resume");
+    }
   };
 
   const [num, setNum] = useState(0);
   const changeNum = (n) => {
     setNum(n);
+  };
+
+  const navigateToModify = () => {
+    navigate("modify", { state: { resume } });
   };
 
   useEffect(() => {
@@ -57,8 +64,12 @@ function ResumeDetail() {
               <div className={styles.answer}>{resume.resumeItems[num].resumeAnswer}</div>
             </div>
           </div>
-          <button className={styles.modify}>수정</button>
-          <button className={styles.delete}>삭제</button>
+          <button className={styles.modify} onClick={navigateToModify}>
+            수정
+          </button>
+          <button className={styles.delete} onClick={removeResume}>
+            삭제
+          </button>
         </div>
       )}
     </div>

@@ -5,18 +5,12 @@ import styles from "./ResumeListStyle.module.css";
 import { Link } from "react-router-dom";
 
 function ResumeList() {
-  const jwt = {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo5LFwidXNlckVtYWlsXCI6XCJva2lwMDQyOEBnbWFpbC5jb21cIixcInJvbGVcIjpcIlJPTEVfVVNFUlwiLFwidHlwZVwiOlwiQVRLXCJ9IiwiaWF0IjoxNjk5MDg0MjA3LCJleHAiOjE3MDAyOTM4MDd9.KobaflC8-JxlhQBjHm32QzkFpqzKtixaW6hM247e2Qo",
-    },
-  };
   const [resumes, setResumes] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 
   const getResumes = async (page) => {
-    const res = await axios.get(`/resume?page=${page}`, jwt);
+    const res = await axios.get(`/resume?page=${page}`);
     console.log(res.data.content);
     console.log(res.data);
     setResumes(res.data.content);
