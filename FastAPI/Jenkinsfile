@@ -23,7 +23,7 @@
                             ssh ubuntu@3.36.76.73 "mkdir -p /home/ubuntu/fastapi"
 
                             echo "Copying code to remote server"
-                            scp -r $WORKSPACE/silapmyeon-FastAPI/FastAPI/* ubuntu@3.36.76.73:/home/ubuntu/fastapi/
+                            scp -r $WORKSPACE/FastAPI/* ubuntu@3.36.76.73:/home/ubuntu/fastapi/
 
                             echo "Executing deploy script on remote server"
                             ssh -t ubuntu@3.36.76.73 "./deploy_fastapi.sh"
