@@ -18,10 +18,10 @@ function Card({card,user}){
                 </div>
                 <div className="info">
                     <div className="user">
-                        {/* <img className="boardImg" src={user.userProfileUrl} ></img> */}
+                        <img className="boardImg" src={card.imgUrl} ></img> 
                         <div className="nickname">{card.nickname}</div>
                     </div>
-                    <div className="comments">댓글 </div>
+                    <div className="comments">댓글 {card.commentCnt}</div>
                 </div>
                 </div>
             </div>

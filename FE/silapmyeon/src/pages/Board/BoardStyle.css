@@ -1,6 +1,6 @@
 .board {
 
-    height: 100vh;
+
 
 }
 .cards{
@@ -75,4 +75,16 @@
     border-radius: 10px;
 
 
+}
+.pagenation{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 430px;
+
+}
+
+.pagenation button{
+    margin: 0 10px;
+    border-radius: 10px;
+    font-weight:550;
 }

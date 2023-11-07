@@ -7,17 +7,24 @@ function Board(){
     const [cards, setCards] = useState([]);
     const [user,setUser]= useState(null);
     const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo4LFwidXNlckVtYWlsXCI6XCJhZGgzNTc2QGdtYWlsLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTg5NzQwOTQsImV4cCI6MTcwMDE4MzY5NH0.xNeaWic-4X_r1MG3YAueEne0GL2Mpoo4JruII7UATt0';
+    const [pageInfo, setPageInfo] = useState({
+        pageNumber :0,
+        pageSize : 9,
 
+    });
     const [searchText, setSearchText] = useState('');
-
+    const [first,setFirst] = useState('true');
+    const[last,setLast] = useState('false')
     const handleSearch =() =>{
         //여기다 검색  api 작성 하면 됨
 
         
     };
 
+
+
     useEffect(()=>{
-        fetch('https://k9b107a.p.ssafy.io/api/boards',{
+        fetch('https://k9b107a.p.ssafy.io/api/boards?page='+pageInfo.pageNumber,{
             method:'GET',
             headers:{
                 'Authorization': `Bearer ${accessToken}`
@@ -25,8 +32,13 @@ function Board(){
         })
             .then(response => response.json())
             .then(data =>{
-                data.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
-                setCards(data) 
+                const {content,pageable,first,last} = data;
+                content.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
+                console.log()
+                setCards(content);
+                setPageInfo(pageable);
+                setFirst(first);
+                setLast(last);
             })
             .catch(error =>{
                 console.error('Board api호출 오류',error);
@@ -46,7 +58,7 @@ function Board(){
                     console.error('user api호출 오류',error);
                 });
 
-    },[]);
+    },[pageInfo.pageNumber]);
     
     return(
         <div className="board">
@@ -68,14 +80,29 @@ function Board(){
                         <button className="button">글 작성하기</button>
                     </Link>
             </div>
-
             <div className="cards">
                 {cards.map(cardData => (
-                    <Link to ="/board/detail" key = {cardData.id} className ="cardLink">
+                    <Link to ={`/community/detail/${cardData.boardId}`} className ="cardLink">
                     <Card card = {cardData} user={user}></Card>
                     </Link>
                 ))}
             </div>
+
+{/* 페이지네이션 버튼 */}
+
+<div className="pagenation">
+    <button onClick={() => setPageInfo({ ...pageInfo, pageNumber: pageInfo.pageNumber - 1 })} disabled={first}>
+        이전
+    </button>
+    <span>
+        {pageInfo.pageNumber + 1}
+    </span>
+    <button onClick={() => setPageInfo({ ...pageInfo, pageNumber: pageInfo.pageNumber + 1 })} disabled={last}>
+        다음
+    </button>
+</div>
+
+
         </div>
     );
 

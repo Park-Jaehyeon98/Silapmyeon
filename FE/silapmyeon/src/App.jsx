@@ -14,13 +14,15 @@ function App() {
         <Header />
         <div className='main'>
           <Side />
+
           <div className='page'>
               <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/community" element={<Board/>}/>
-                <Route path='/community/detail' element={<BoardDetail/>}></Route>
+                <Route path='/community/detail/:boardId' element={<BoardDetail/>}></Route>
               </Routes>
-          </div>
+
+  </div>
         </div>
       </div>
     </BrowserRouter>

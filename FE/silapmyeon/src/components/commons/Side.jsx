@@ -29,8 +29,8 @@ function Side(){
     return (
             <div className="sidebar">
                 <div className="img">
-                    {/* <img className="profileImg" src={user.userProfileUrl}>
-                    </img> */}
+                    <img className="profileImg" >
+                    </img>
                 </div>
                 <div className="sidebarText">모의면접</div>
                 <div className="sidebarText">마이페이지

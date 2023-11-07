@@ -1,12 +1,14 @@
 .App {
   display: flex;
   flex-direction: column;
+
   
 }
 
 .main{
   display: flex;
-  flex:1,
+  min-height: 100vh;
+  /* height: 100vh; */
 
 }
 .page{
@@ -15,4 +17,6 @@
   padding: 30px;
   margin-top: 5%;
   margin-left: 5%;
+  
+  
 }

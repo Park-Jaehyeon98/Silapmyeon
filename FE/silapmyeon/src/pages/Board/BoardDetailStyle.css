@@ -1,0 +1,65 @@
+.boardLine{
+    width: 1100px;
+    left: 309px;
+    top: 367px;
+    border: 3px solid #494CA2;
+
+}
+
+.boardTitle{
+    
+    width: 1034px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 61px;
+    color: #000000;
+    padding: 5px;
+
+}
+
+.boardInfo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+
+
+    color: #828282;
+
+}
+
+.boardDate{
+    width: 109px;
+    height: 18px;
+    margin-left: auto;
+    padding: 5px;
+
+
+}
+
+.boardHits{
+    width: 106px;
+    height: 18px;
+    padding: 5px;
+
+
+}
+
+.boardContent{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 24px;
+
+}
+.boardMiddle{
+    padding: 50px;
+
+}
