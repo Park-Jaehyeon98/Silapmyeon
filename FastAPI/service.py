@@ -14,7 +14,7 @@ load_dotenv()
 config = Config(".env")
 
 openai.api_key = config('CHATGPT_API_KEY')
-DB_URL = config('DB_URL_LOCAL')
+DB_URL = config('DB_URL_PROD')
 GPT_MODEL = config('GPT_MODEL')
 
 engine = create_engine(DB_URL, echo=True)
