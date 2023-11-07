@@ -12,6 +12,7 @@ origins = [
     "http://localhost",
     "https://k9b107a.p.ssafy.io",
     "https://k9b107.p.ssafy.io",
+    "https://silapmyeon.com",
 ]
 
 app.add_middleware(
