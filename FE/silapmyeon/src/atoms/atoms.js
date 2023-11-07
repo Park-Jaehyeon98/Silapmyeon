@@ -14,3 +14,13 @@ export const completeSpeech = atom({
   key: "completeSpeech",
   default: false,
 });
+
+export const tts = atom({
+  key: "tts",
+  default: false,
+});
+
+export const stt = atom({
+  key: "stt",
+  default: false,
+});

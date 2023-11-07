@@ -70,10 +70,6 @@ async def attitude_question(resume_id: int):
     print("complete")
 
     qlist = chat_completion.choices[0].message["content"].split('-')
-    for i in range(len(qlist)):
-        if ":" in qlist[i]:
-            index = qlist[i].find(":")
-            qlist[i] = qlist[i][index + 1:]
 
     return qlist
 
@@ -89,20 +85,14 @@ async def tech_question():
     prompt = [
         {"role": "system", "content": "당신은 세계 최고의 it기업 면접관입니다. "
                                       "당신은 computer science에 관한 질문을 할 수 있습니다. 면접에서 나올만 한 질문을 해주세요."},
-        {"role": "user", "content": "computer science 관련 질문 중 운영체제, 데이터베이스, 네트워크, 알고리즘과 자료구조, 컴퓨터 구조, 소프트웨어 공학에 대한 자세한 질문 다섯 가지를 각각 50자 이내로 해주세요."
-                                                                                         "불필요한 단어 없이 바로 질문 해주세요. 질문은 '-'으로 구분해주세요."},
+        {"role": "user", "content": "computer science 관련 질문 중 운영체제, 데이터베이스, 네트워크, 알고리즘과 자료구조, 컴퓨터 구조, 소프트웨어 공학에 대한 자세한 질문 총 다섯 가지를 각각 100자 이내로 해주세요."
+                                                                                         "질문은 '-'으로 시작하고 분야를 구분하지 말아주세요."},
     ]
 
     chat_completion = openai.ChatCompletion.create(model=GPT_MODEL, messages=prompt)
     print("complete")
 
-    qlist = chat_completion.choices[0].message["content"].split('-')
-    for i in range(len(qlist)):
-        if ":" in qlist[i]:
-            index = qlist[i].find(":")
-            qlist[i] = qlist[i][index + 1:]
-
-    return qlist
+    return chat_completion.choices[0].message["content"].split('-')
 
 async def resume_question(resume_id: int):
     resume = session.execute(select(Resume).where(Resume.resume_id == resume_id)).scalar()
@@ -130,10 +120,6 @@ async def resume_question(resume_id: int):
     print("complete")
 
     qlist = chat_completion.choices[0].message["content"].split('-')
-    for i in range(len(qlist)):
-        if ":" in qlist[i]:
-            index = qlist[i].find(":")
-            qlist[i] = qlist[i][index+1:]
 
     return qlist
 

@@ -25,7 +25,7 @@ function TypeSelect() {
       .get("https://k9b107a.p.ssafy.io/api/resume?page=0&size=10", {
         headers: {
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjoxMixcInVzZXJFbWFpbFwiOlwiemx6bF8zMjFAbmF2ZXIuY29tXCIsXCJyb2xlXCI6XCJST0xFX1VTRVJcIixcInR5cGVcIjpcIkFUS1wifSIsImlhdCI6MTY5ODk5MjY4NSwiZXhwIjoxNzAwMjAyMjg1fQ.snFSHtlVYIAXTrKgycSVhwzg6UpQKqolioHHmoyC_mA",
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo5LFwidXNlckVtYWlsXCI6XCJva2lwMDQyOEBnbWFpbC5jb21cIixcInJvbGVcIjpcIlJPTEVfVVNFUlwiLFwidHlwZVwiOlwiQVRLXCJ9IiwiaWF0IjoxNjk5MzE5MzE3LCJleHAiOjE3MDA1Mjg5MTd9.lEnScHqHYfTPgwbLH_TAA8PViRf1aZtC-DTc67xHAwk",
         },
       })
       .then((response) => {
@@ -72,7 +72,7 @@ function TypeSelect() {
           <option value={0}>자소서 선택</option>
           {resumeList.map((item, index) => (
             <option key={index} value={item.resumeId}>
-              {item.companyName}
+              {item.companyName}&nbsp;&nbsp;&nbsp;&nbsp;{item.interviewDate}
             </option>
           ))}
         </select>

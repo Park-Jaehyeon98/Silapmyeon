@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { completeSpeech } from "../../atoms/atoms";
+import { completeSpeech, tts, questionCount } from "../../atoms/atoms";
 import "./TextToSpeech.module.css"; // CSS 파일 경로에 주의
 
-function TextToSpeech({ question }) {
+const TextToSpeech = ({ question }) => {
   const synthesis = window.speechSynthesis;
 
   const [completeSpeechState, setCompleteSpeechState] =
     useRecoilState(completeSpeech);
+  const [ttsState, setTtsState] = useRecoilState(tts);
+  const [qCount, setQCount] = useRecoilState(questionCount);
 
   const speakText = () => {
+    console.log("tts");
     if (synthesis.speaking) {
       synthesis.cancel();
     }
@@ -18,11 +21,18 @@ function TextToSpeech({ question }) {
     utterance.lang = "ko-KR";
     utterance.addEventListener("end", (event) => {
       console.log("ok");
-      setCompleteSpeechState((prev) => !prev);
+      setCompleteSpeechState(true);
+      setTtsState(false);
     });
 
     synthesis.speak(utterance);
   };
+
+  useEffect(() => {
+    if (ttsState) {
+      speakText();
+    }
+  }, [ttsState]);
 
   return (
     <div className="text-to-speech">
@@ -37,6 +47,6 @@ function TextToSpeech({ question }) {
       </button>
     </div>
   );
-}
+};
 
 export default TextToSpeech;

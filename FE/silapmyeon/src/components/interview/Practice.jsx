@@ -5,7 +5,13 @@ import Webcam from "react-webcam";
 import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
-import { camState, questionCount } from "../../atoms/atoms";
+import {
+  camState,
+  questionCount,
+  tts,
+  stt,
+  completeSpeech,
+} from "../../atoms/atoms";
 
 function Practice() {
   const videoConstraints = {
@@ -18,15 +24,27 @@ function Practice() {
 
   const [useCam, setUseCam] = useRecoilState(camState);
   const [qCount, setQCount] = useRecoilState(questionCount);
+  const [ttsState, setTtsState] = useRecoilState(tts);
+  const [sttState, setSttState] = useRecoilState(stt);
+  const [completeSpeechState, setCompleteSpeechState] =
+    useRecoilState(completeSpeech);
 
   const [question, setQuestion] = useState();
-
   const [isLoading, setIsLoading] = useState(true);
 
   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {});
 
   function handleNextButton() {
     setQCount((prev) => prev + 1);
+    setTtsState(true);
+    setSttState(true);
+    setCompleteSpeechState(false);
+  }
+
+  function handleReplay() {
+    setTtsState(true);
+    setSttState(true);
+    setCompleteSpeechState(false);
   }
 
   useEffect(() => {
@@ -58,11 +76,14 @@ function Practice() {
       </div>
       {qCount !== 0 ? <SpeechToText /> : null}
       {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
-      <button>다시하기</button>
+      <button onClick={handleReplay}>다시하기</button>
       {qCount === 5 ? (
         <button>종료</button>
       ) : (
-        <button onClick={handleNextButton} disabled={isLoading ? true : false}>
+        <button
+          onClick={handleNextButton}
+          disabled={isLoading || ttsState ? true : false}
+        >
           {qCount !== 0 ? "다음" : "시작"}
         </button>
       )}

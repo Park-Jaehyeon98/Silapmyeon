@@ -3,7 +3,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import { useRecoilState } from "recoil";
-import { completeSpeech } from "../../atoms/atoms";
+import { completeSpeech, stt } from "../../atoms/atoms";
 import "./SpeechToText.module.css";
 
 function SpeechToText() {
@@ -19,6 +19,7 @@ function SpeechToText() {
 
   const [completeSpeechState, setCompleteSpeechState] =
     useRecoilState(completeSpeech);
+  const [sttState, setSttState] = useRecoilState(stt);
 
   const requestMicrophonePermission = async () => {
     try {
@@ -40,8 +41,16 @@ function SpeechToText() {
   };
 
   useEffect(() => {
-    handleStartListening();
+    if (completeSpeechState) {
+      handleStartListening();
+    }
   }, [completeSpeechState]);
+
+  useEffect(() => {
+    if (sttState) {
+      handleResetTranscript();
+    }
+  }, [sttState]);
 
   useEffect(() => {
     if (!browserSupportsSpeechRecognition) {
@@ -54,6 +63,7 @@ function SpeechToText() {
 
   const handleStartListening = () => {
     if (microphoneOn && !timerInterval) {
+      //resetTranscript();
       console.log("음성 시작");
       SpeechRecognition.startListening({ continuous: true, language: "ko-KR" });
 
@@ -83,6 +93,8 @@ function SpeechToText() {
 
     // 리셋 버튼을 누르면 음성 입력을 중지
     handleStopListening();
+
+    setSttState(false);
   };
 
   useEffect(() => {
