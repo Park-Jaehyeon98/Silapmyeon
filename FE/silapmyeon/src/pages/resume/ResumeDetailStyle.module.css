@@ -1,0 +1,249 @@
+.title {
+  /* 큰 제목 */
+
+  position: absolute;
+  width: 487px;
+  height: 45px;
+  left: 367px;
+  top: 209px;
+}
+
+.titleText {
+  /* SSAFY 자소서 */
+
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+
+  color: #4962a2;
+}
+
+.interviewDate {
+  /* 날짜 */
+
+  position: absolute;
+  width: 220px;
+  height: 24px;
+  left: 1104px;
+  top: 230px;
+}
+
+.interview {
+  /* 면접일 */
+
+  position: absolute;
+  left: 9.09%;
+  right: 61.82%;
+  top: 0%;
+  bottom: 0%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.date {
+  /* 2023-01-11 */
+
+  position: absolute;
+  left: 45.45%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #828282;
+}
+
+.content {
+  /* Rectangle 107 */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  left: 6.18%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  background: #ffffff;
+  border: 2px solid #494ca2;
+}
+
+.question {
+  /* 해당 직무에 지원한 이유 및 직무 수행을 위해 본인이 갖추고 있는 역량을 기술하시오. 해당 직무에 지원한 이유 및 직무 수행을 위해 본인이 갖추고 있는 역량을 기술하시오. */
+
+  position: absolute;
+  left: 8.69%;
+  right: 1.68%;
+  top: 2.25%;
+  bottom: 78.88%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+  /* or 160% */
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.answer {
+  /* 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. 자소서 답변입니다. */
+
+  position: absolute;
+  left: 9.01%;
+  right: 1.36%;
+  top: 25.17%;
+  bottom: 11.91%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* or 150% */
+
+  color: #000000;
+}
+
+.box {
+  /* 자소서 내용 */
+
+  position: absolute;
+  width: 955px;
+  height: 445px;
+  left: 367px;
+  top: 313px;
+}
+
+.modify {
+  /* 수정 button */
+
+  position: absolute;
+  width: 131px;
+  height: 52px;
+  left: 1025px;
+  top: 835px;
+
+  /* Rectangle 100 */
+  /* 
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%; */
+
+  background: #494ca2;
+  border-radius: 10px;
+  border: none;
+
+  /* 수정 */
+
+  /* position: absolute;
+left: 32.82%;
+right: 32.82%;
+top: 23.08%;
+bottom: 21.15%; */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+
+.delete {
+  /* 삭제 button */
+
+  position: absolute;
+  width: 131px;
+  height: 52px;
+  left: 1183px;
+  top: 835px;
+
+  /* Rectangle 101 */
+
+  /* position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%; */
+
+  background: #ef5c41;
+  border-radius: 10px;
+  border: none;
+
+  /* 삭제 */
+
+  /* position: absolute;
+left: 32.82%;
+right: 32.82%;
+top: 23.08%;
+bottom: 21.15%; */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+
+.button {
+  /* Rectangle 106 */
+
+  /* position: absolute;
+left: 0%;
+right: 93.72%;
+top: 1.57%;
+bottom: 87.19%; */
+  width: 60px;
+  height: 50px;
+  border-color: #494ca2;
+  border-width: 1px;
+  background: white;
+
+  color: #494ca2;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.selectedButton {
+  width: 60px;
+  height: 50px;
+  border-color: #494ca2;
+  background-color: #494ca2; /* Change to the desired color */
+  color: white; /* Change text color if needed */
+  font-weight: bold;
+  font-size: medium;
+}

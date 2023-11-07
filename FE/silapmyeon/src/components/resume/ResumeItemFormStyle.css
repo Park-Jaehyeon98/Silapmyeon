@@ -1,0 +1,105 @@
+.q {
+  /* Q1 */
+
+  /* position: absolute; */
+  left: 0%;
+  right: 82.27%;
+  top: 5.05%;
+  bottom: 70.71%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.qInput,
+.qInput:focus {
+  /* Rectangle 87 */
+
+  box-sizing: border-box;
+
+  /* position: absolute; */
+  left: 0%;
+  right: 0%;
+  top: 39.39%;
+  bottom: 12.12%;
+  width: 897px;
+  height: 50px;
+
+  background: #ffffff;
+  border: 2px solid #8186d5;
+  border-radius: 10px;
+
+  margin-top: 1%;
+  outline: none;
+
+  /* 자기소개서 질문을 입력하세요. */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.a {
+  /* A1 */
+
+  /* position: absolute; */
+  left: 0%;
+  right: 89.29%;
+  top: 0.59%;
+  bottom: 92.38%;
+  margin-top: 3%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.aInput,
+.aInput:focus {
+  /* Rectangle 88 */
+
+  box-sizing: border-box;
+
+  /* position: absolute; */
+  left: 0%;
+  right: 0%;
+  top: 10.56%;
+  bottom: 0%;
+  width: 896px;
+  height: 300px;
+
+  background: #ffffff;
+  border: 2px solid #8186d5;
+  border-radius: 10px;
+  margin-top: 1%;
+  outline: none;
+
+  /* 자기소개서 답변을 입력하세요. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+
+  color: black;
+}
