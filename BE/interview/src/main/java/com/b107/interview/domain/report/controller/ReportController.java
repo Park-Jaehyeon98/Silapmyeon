@@ -2,6 +2,7 @@ package com.b107.interview.domain.report.controller;
 
 import com.b107.interview.domain.report.dto.request.ReportRequest;
 import com.b107.interview.domain.report.dto.response.ReportResponse;
+import com.b107.interview.domain.report.dto.response.ReportsResponse;
 import com.b107.interview.domain.report.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -44,7 +45,7 @@ public class ReportController {
     @GetMapping("/list/{userId}")
     public ResponseEntity<Object> getReportsByUserId(@PathVariable Long userId) {
         log.info("[get] " + userId + " 레포트 목록 조회");
-        List<ReportResponse> reports = reportService.getReportsByUserId(userId);
+        List<ReportsResponse> reports = reportService.getReportsByUserId(userId);
         return ResponseEntity.ok()
                 .body(reports);
     }

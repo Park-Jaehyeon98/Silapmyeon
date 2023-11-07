@@ -4,6 +4,7 @@ import com.b107.interview.commons.image.S3Service;
 import com.b107.interview.domain.report.dto.request.InterviewRequest;
 import com.b107.interview.domain.report.dto.request.ReportRequest;
 import com.b107.interview.domain.report.dto.response.ReportResponse;
+import com.b107.interview.domain.report.dto.response.ReportsResponse;
 import com.b107.interview.domain.report.entity.Interview;
 import com.b107.interview.domain.report.entity.Report;
 import com.b107.interview.domain.report.repository.ReportRepository;
@@ -63,7 +64,7 @@ public class ReportService {
     }
 
 
-    public List<ReportResponse> getReportsByUserId(Long userId) {
+    public List<ReportsResponse> getReportsByUserId(Long userId) {
         //체크 로직
         List<Report> reports = reportRepository.findByUserId(userId);
 
@@ -72,7 +73,7 @@ public class ReportService {
         }
 
         return reports.stream()
-                .map(ReportResponse::from)
+                .map(ReportsResponse::from)
                 .collect(Collectors.toList());
     }
 
