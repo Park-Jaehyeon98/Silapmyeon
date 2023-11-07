@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Transactional
@@ -21,7 +22,7 @@ public class ReviewService {
 
     //면접 후기 작성
     public Review createReview(Review review) {
-        Resume foundResume = resumeService.readResume(review.getResume().getResumeId());
+        Resume foundResume = resumeService.readResume(review.getResume().getResumeId(), review.getUser().getUserId());
 
         review.setReviewCompanyName(foundResume.getCompanyName());
         review.setReviewYear((short) foundResume.getInterviewDate().getYear());
@@ -32,9 +33,9 @@ public class ReviewService {
 
     //면접 후기 수정
     public Review updateReview(Review review, Long reviewId) {
-        Review foundReview = readReview(reviewId);
+        Review foundReview = readReview(reviewId, review.getUser().getUserId());
 
-        Resume foundResume = resumeService.readResume(review.getResume().getResumeId());
+        Resume foundResume = resumeService.readResume(foundReview.getResume().getResumeId(), review.getUser().getUserId());
 
         foundReview.setReviewCompanyName(foundResume.getCompanyName());
         foundReview.setReviewYear((short) foundResume.getInterviewDate().getYear());
@@ -50,22 +51,29 @@ public class ReviewService {
     }
 
     //면접 후기 조회
-    public Review readReview(Long reviewId) {
+    public Review readReview(Long reviewId, Long userId) {
         Optional<Review> optionalReview = reviewRepository.findById(reviewId);
         if (optionalReview.isEmpty()) {
             throw new RuntimeException("존재하지 않는 면접 후기입니다.");
         }
+
+        Review review = optionalReview.get();
+
+        if (!Objects.equals(review.getUser().getUserId(), userId)) {
+            throw new RuntimeException("권한이 없는 사용자입니다.");
+        }
+
         return optionalReview.get();
     }
 
     //면접 후기 페이지 조회
-    public Page<Review> readReviews(Pageable pageable) {
-        return reviewRepository.findAll(pageable);
+    public Page<Review> readReviews(Pageable pageable, Long userId) {
+        return reviewRepository.findAllByUserId(pageable, userId);
     }
 
     //면접 후기 삭제
-    public void deleteReview(Long reviewId) {
-        Review foundReview = readReview(reviewId);
+    public void deleteReview(Long reviewId, Long userId) {
+        Review foundReview = readReview(reviewId, userId);
         foundReview.getResume().setReview(null);
     }
 
