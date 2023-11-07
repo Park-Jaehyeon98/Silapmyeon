@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import axios from "axios";
+import axios from "../../api/api";
 import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
@@ -37,7 +37,7 @@ function Mock() {
   };
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/interview/" + "1").then((response) => {
+    axios.get("/interview/" + "1").then((response) => {
       console.log(response.data.question);
       setQuestion(response.data.question);
       setIsLoading((prev) => !prev);
