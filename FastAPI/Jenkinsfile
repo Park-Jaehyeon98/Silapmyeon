@@ -14,7 +14,7 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no ubuntu@3.36.76.73
 
                         echo "Copying code to remote server"
-                        scp -r ./jenkins/workspace/silapmyeon-FastAPI/FastAPI/ ubuntu@3.36.76.73:/home/ubuntu/fastapi/
+                        scp -r /jenkins/workspace/silapmyeon-FastAPI/ ubuntu@3.36.76.73:/home/ubuntu/fastapi/
 
                         echo "Executing deploy script on remote server"
                         ssh -t ubuntu@3.36.76.73 ./deploy_fastapi.sh
