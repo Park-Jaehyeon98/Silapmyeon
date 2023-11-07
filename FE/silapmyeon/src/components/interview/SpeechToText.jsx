@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import { completeSpeech, stt } from "../../atoms/atoms";
 import "./SpeechToText.module.css";
 
-function SpeechToText() {
+function SpeechToText({ onData }) {
   const {
     transcript,
     listening,
@@ -30,14 +30,6 @@ function SpeechToText() {
     } catch (error) {
       console.error("마이크 권한을 얻지 못했습니다.", error);
     }
-  };
-
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60)
-      .toString()
-      .padStart(2, "0");
-    const remainingSeconds = (seconds % 60).toString().padStart(2, "0");
-    return `${minutes}:${remainingSeconds}`;
   };
 
   useEffect(() => {
@@ -98,17 +90,21 @@ function SpeechToText() {
   };
 
   useEffect(() => {
+    onData(elapsedSeconds);
+  }, [elapsedSeconds]);
+
+  useEffect(() => {
     console.log("Transcript:", transcript);
   }, [transcript]);
 
   return (
     <div>
+      <div>{transcript}</div>
       <p>마이크: {microphoneOn ? (listening ? "켜짐" : "꺼짐") : "꺼짐"}</p>
-      <p>타이머: {formatTime(elapsedSeconds)}</p>
-      <button onClick={handleStartListening}>시작</button>
+
+      {/* <button onClick={handleStartListening}>시작</button> */}
       <button onClick={handleStopListening}>정지</button>
-      <button onClick={handleResetTranscript}>리셋</button>
-      <p>음성 입력: {transcript}</p>
+      {/* <button onClick={handleResetTranscript}>리셋</button> */}
     </div>
   );
 }

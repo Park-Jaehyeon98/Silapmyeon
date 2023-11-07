@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import TypeSelect from "./components/interview/TypeSelect";
 import Preparation from "./components/interview/Preparation";
 import Practice from "./components/interview/Practice";
+import Mock from "./components/interview/Mock";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <TypeSelect />
           <Preparation />
           <Practice />
+          {/* <Mock /> */}
         </div>
       </div>
     </div>

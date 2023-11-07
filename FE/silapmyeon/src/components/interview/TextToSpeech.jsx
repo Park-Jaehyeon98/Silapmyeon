@@ -36,15 +36,11 @@ const TextToSpeech = ({ question }) => {
 
   return (
     <div className="text-to-speech">
-      <textarea
-        className="text-input"
-        value={question}
-        placeholder="변환할 한국어 텍스트를 입력하세요."
-        readOnly
-      />
-      <button className="speak-button" onClick={speakText}>
+      <div>{question}</div>
+      <br />
+      {/* <button className="speak-button" onClick={speakText}>
         음성으로 변환
-      </button>
+      </button> */}
     </div>
   );
 };
