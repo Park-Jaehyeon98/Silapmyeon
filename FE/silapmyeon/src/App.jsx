@@ -27,7 +27,10 @@ function App() {
             <Routes>
               <Route path="/resume" element={<ResumeList />} />
               <Route path="/resume/:resumeId" element={<ResumeDetail />} />
-              <Route path="/resume/:resumeId/modify" element={<ResumeModify />} />
+              <Route
+                path="/resume/:resumeId/modify"
+                element={<ResumeModify />}
+              />
               <Route path="/resume/create" element={<ResumeCreate />} />
             </Routes>
           </div>
