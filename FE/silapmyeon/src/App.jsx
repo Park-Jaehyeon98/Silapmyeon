@@ -10,6 +10,10 @@ import ResumeDetail from "./pages/resume/ResumeDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ResumeCreate from "./pages/resume/ResumeCreate";
 import ResumeModify from "./pages/resume/ResumeModify";
+import TypeSelect from "./components/interview/TypeSelect";
+import Preparation from "./components/interview/Preparation";
+import Mock from "./components/interview/Mock";
+import Practice from "./components/interview/Practice";
 
 function App() {
   return (
@@ -32,6 +36,13 @@ function App() {
                 element={<ResumeModify />}
               />
               <Route path="/resume/create" element={<ResumeCreate />} />
+            </Routes>
+            {/* 면접 */}
+            <Routes>
+              <Route path="/interview" element={<TypeSelect />} />
+              <Route path="/interview/preparation" element={<Preparation />} />
+              <Route path="/interview/practice" element={<Practice />} />
+              <Route path="/interview/mock" element={<Mock />} />
             </Routes>
           </div>
         </div>
