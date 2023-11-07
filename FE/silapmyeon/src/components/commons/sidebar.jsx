@@ -18,7 +18,9 @@ function sidebar() {
           <div className="sidebarSmallText">자소서</div>
         </Link>
         <div className="sidebarSmallText">면접 리포트</div>
-        <div className="sidebarSmallText">면접 후기</div>
+        <Link to={"/review"} style={{ textDecoration: "none", color: "black" }}>
+          <div className="sidebarSmallText">면접 후기</div>
+        </Link>
       </div>
       <div className="sidebarText">면접 공유</div>
     </div>
