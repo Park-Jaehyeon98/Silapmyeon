@@ -90,7 +90,7 @@ public class S3Service {
         }
     }
 
-    public String generateUniqueFileName(String originalFileName) {
+    private String generateUniqueFileName(String originalFileName) {
         UUID uuid = UUID.randomUUID();
 
         String extension = "";
