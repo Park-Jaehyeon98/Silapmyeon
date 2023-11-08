@@ -2,7 +2,7 @@ import axios from "axios";
 
 const jwt = {
   Authorization:
-    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo5LFwidXNlckVtYWlsXCI6XCJva2lwMDQyOEBnbWFpbC5jb21cIixcInJvbGVcIjpcIlJPTEVfVVNFUlwiLFwidHlwZVwiOlwiQVRLXCJ9IiwiaWF0IjoxNjk5MzQ0NTQyLCJleHAiOjE3MDA1NTQxNDJ9.3y_68Q1WIih3Up5oOhJfO7Mafi9NUIM-EhpozT0dVe8",
+    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo5LFwidXNlckVtYWlsXCI6XCJva2lwMDQyOEBnbWFpbC5jb21cIixcInJvbGVcIjpcIlJPTEVfVVNFUlwiLFwidHlwZVwiOlwiQVRLXCJ9IiwiaWF0IjoxNjk5NDA1MTI0LCJleHAiOjE3MDA2MTQ3MjR9.9Ey4DXj63_4AOd3OAC6SQ5ICmvc0xnWLifgwlMyLwJg",
 };
 
 const instance = axios.create({

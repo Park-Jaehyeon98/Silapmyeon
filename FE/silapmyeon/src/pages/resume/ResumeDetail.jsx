@@ -52,7 +52,9 @@ function ResumeDetail() {
               <div>
                 <button
                   key={idx}
-                  className={`${styles.button} ${num == idx ? styles.selectedButton : ""}`}
+                  className={`${styles.button} ${
+                    num == idx ? styles.selectedButton : ""
+                  }`}
                   onClick={() => changeNum(idx)}
                 >
                   {idx + 1}
@@ -60,8 +62,12 @@ function ResumeDetail() {
               </div>
             ))}
             <div className={styles.content}>
-              <div className={styles.question}>{resume.resumeItems[num].resumeQuestion}</div>
-              <div className={styles.answer}>{resume.resumeItems[num].resumeAnswer}</div>
+              <div className={styles.question}>
+                {resume.resumeItems[num].resumeQuestion}
+              </div>
+              <div className={styles.answer}>
+                {resume.resumeItems[num].resumeAnswer}
+              </div>
             </div>
           </div>
           <button className={styles.modify} onClick={navigateToModify}>

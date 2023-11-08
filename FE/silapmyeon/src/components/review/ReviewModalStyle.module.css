@@ -1,0 +1,12 @@
+.selectedPage {
+  color: #494ca2;
+  font-weight: bold;
+  font-size: large;
+}
+
+.pageNums {
+  /* position: absolute; */
+  /* margin-top: 60px; */
+  /* left: 720px; */
+  font-size: medium;
+}

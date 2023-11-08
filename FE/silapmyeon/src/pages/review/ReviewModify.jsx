@@ -94,7 +94,11 @@ function ReviewModify() {
         <div>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
         <input value={reviewQuestion} onChange={handleReviewQuestion} />
         <div>자유롭게 면접 후기를 남겨주세요.</div>
-        <textarea value={reviewContent} onChange={handleReviewContent} />
+        <textarea
+          value={reviewContent}
+          onChange={handleReviewContent}
+          style={{ resize: "none" }}
+        />
         <button onClick={modifyReview}>완료</button>
       </div>
     </div>

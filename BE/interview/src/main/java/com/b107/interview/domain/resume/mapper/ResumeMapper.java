@@ -12,9 +12,7 @@ public interface ResumeMapper {
     @Mapping(source = "user", target = "user.userId")
     Resume resumeReqDtoToResume(ResumeReqDto resumeReqDto);
 
-    @Mapping(source = "review.reviewId", target = "reviewId")
     ResumeResDto resumeToResumeResDto(Resume resume);
 
-    @Mapping(source = "review.reviewId", target = "reviewId")
     ResumeSimpleResDto resumeToResumeSimpleResDto(Resume resume);
 }

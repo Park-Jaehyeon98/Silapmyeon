@@ -74,7 +74,7 @@ public class ReviewService {
     //면접 후기 삭제
     public void deleteReview(Long reviewId, Long userId) {
         Review foundReview = readReview(reviewId, userId);
-        foundReview.getResume().setReview(null);
+        reviewRepository.delete(foundReview);
     }
 
     //분기 설정

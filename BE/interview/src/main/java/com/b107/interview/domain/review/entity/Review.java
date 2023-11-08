@@ -45,7 +45,7 @@ public class Review {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "resume_id")
     private Resume resume;
 }
