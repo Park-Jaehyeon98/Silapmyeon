@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import EasySeeso from "seeso/easy-seeso";
 import Webcam from "react-webcam";
 import styled from "styled-components";
@@ -23,10 +23,12 @@ const Eyetracking = () => {
 
       // Seeso 초기화 및 설정
       await seesoRef.current.init(
-        "라이센스 키 넣기",
+        "YOUR_API_KEY", // 여기에 실제 API 키를 설정해야 합니다.
         () => {
           // Seeso 초기화 성공 콜백
           console.log("Seeso initialized successfully.");
+          // Seeso 초기화 후 webcam을 렌더링
+          renderWebcam();
         },
         () => {
           // Seeso 초기화 실패 콜백
@@ -48,8 +50,16 @@ const Eyetracking = () => {
       );
     }
 
+    // Seeso 초기화 함수 호출
     initializeSeeso();
   }, []);
+
+  // Webcam을 렌더링하는 함수
+  const renderWebcam = () => {
+    if (webcamRef.current) {
+      webcamRef.current.video = webcamRef.current.getCanvas();
+    }
+  };
 
   return (
     <>
@@ -74,6 +84,7 @@ const Eyetracking = () => {
               left: "50%",
               transform: "translate(-50%, -50%)",
             }}
+            audio={false} // 오디오 캡처 여부 설정 (true 또는 false)
           />
         )}
       </WaitScreen>
