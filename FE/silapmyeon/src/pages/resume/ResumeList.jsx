@@ -50,7 +50,9 @@ function ResumeList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+        className={`${styles.pageNum} ${
+          currentPage == index ? styles.selectedPage : ""
+        }`}
       >
         {index + 1}
       </a>
@@ -61,7 +63,11 @@ function ResumeList() {
       style={{
         fontWeight: "bold",
       }}
-      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
     >
       다음
     </a>

@@ -17,15 +17,6 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
 
-    @Column(length = 30, nullable = false)
-    private String reviewCompanyName;
-
-    @Column(nullable = false)
-    private Short reviewYear;
-
-    @Column(length = 3, nullable = false)
-    private String reviewQuarter;
-
     @Column(length = 3, nullable = false)
     private String employmentType;
 
@@ -45,7 +36,7 @@ public class Review {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "resume_id")
     private Resume resume;
 }
