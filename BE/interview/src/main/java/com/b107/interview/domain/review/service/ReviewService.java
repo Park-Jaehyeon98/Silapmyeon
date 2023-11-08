@@ -23,23 +23,13 @@ public class ReviewService {
     //면접 후기 작성
     public Review createReview(Review review) {
         Resume foundResume = resumeService.readResume(review.getResume().getResumeId(), review.getUser().getUserId());
-
-        review.setReviewCompanyName(foundResume.getCompanyName());
-        review.setReviewYear((short) foundResume.getInterviewDate().getYear());
-        review.setReviewQuarter(setQuarter(foundResume.getInterviewDate().getMonthValue()));
-
+        review.setResume(foundResume);
         return reviewRepository.save(review);
     }
 
     //면접 후기 수정
     public Review updateReview(Review review, Long reviewId) {
         Review foundReview = readReview(reviewId, review.getUser().getUserId());
-
-        Resume foundResume = resumeService.readResume(foundReview.getResume().getResumeId(), review.getUser().getUserId());
-
-        foundReview.setReviewCompanyName(foundResume.getCompanyName());
-        foundReview.setReviewYear((short) foundResume.getInterviewDate().getYear());
-        foundReview.setReviewQuarter(setQuarter(foundResume.getInterviewDate().getMonthValue()));
 
         foundReview.setEmploymentType(review.getEmploymentType());
         foundReview.setReviewOrder(review.getReviewOrder());
@@ -75,17 +65,5 @@ public class ReviewService {
     public void deleteReview(Long reviewId, Long userId) {
         Review foundReview = readReview(reviewId, userId);
         reviewRepository.delete(foundReview);
-    }
-
-    //분기 설정
-    private String setQuarter(int month) {
-        StringBuilder quarter = new StringBuilder("분기");
-
-        if (month <= 3) quarter.insert(0, 1);
-        else if (month <= 6) quarter.insert(0, 2);
-        else if (month <= 9) quarter.insert(0, 3);
-        else quarter.insert(0, 4);
-
-        return quarter.toString();
     }
 }

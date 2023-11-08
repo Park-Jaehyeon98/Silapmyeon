@@ -17,15 +17,6 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
 
-    @Column(length = 30, nullable = false)
-    private String reviewCompanyName;
-
-    @Column(nullable = false)
-    private Short reviewYear;
-
-    @Column(length = 3, nullable = false)
-    private String reviewQuarter;
-
     @Column(length = 3, nullable = false)
     private String employmentType;
 
