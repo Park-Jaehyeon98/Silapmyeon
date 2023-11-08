@@ -7,18 +7,13 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { RecoilRoot } from 'recoil';
 
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
   <RecoilRoot>
-    <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>
+    <App />
   </RecoilRoot>
-  
 );
 
 // If you want to start measuring performance in your app, pass a function

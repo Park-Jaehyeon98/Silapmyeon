@@ -1,0 +1,34 @@
+.text-to-speech {
+  margin: 0 auto; /* 수평 가운데 정렬 */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  width: 50px; /* 원하는 너비 지정 */
+  text-align: center; /* 내용 가운데 정렬 */
+  position: absolute; /* 절대 위치 지정 */
+  top: 50%; /* 화면 상단에서 50% 떨어진 위치 */
+  left: 50%; /* 화면 왼쪽에서 50% 떨어진 위치 */
+  transform: translate(-40%, -60%); /* 중앙으로 이동 */
+}
+
+.text-input {
+  width: 20%;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.speak-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.speak-button:hover {
+  background-color: #0056b3;
+}

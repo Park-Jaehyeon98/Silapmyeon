@@ -1,10 +1,27 @@
 from fastapi import FastAPI, HTTPException, Request, Depends
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from request.InterviewTypeRequest import InterviewTypeRequest
 from request.Answer import Answer
 from service import *
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:3000",
+    "http://localhost",
+    "https://k9b107a.p.ssafy.io",
+    "https://k9b107.p.ssafy.io",
+    "https://silapmyeon.com",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
