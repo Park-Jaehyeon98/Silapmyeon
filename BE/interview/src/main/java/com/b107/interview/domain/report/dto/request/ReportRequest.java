@@ -19,12 +19,12 @@ public class ReportRequest {
     private String company;
 
     @NotNull(message = "스크립트는 비어있을 수 없습니다.")
-    private List<Interview> interviews;
+    private List<InterviewRequest> interviews;
 
     @PositiveOrZero(message = "아이트래킹 위반 횟수는 0 또는 양수여야 합니다.")
     private int eyeTrackingViolationCount;
 
-    public static ReportRequest of(Long userId, List<Interview> interviews, int eyeTrackingViolationCount, String company) {
+    public static ReportRequest of(Long userId, List<InterviewRequest> interviews, int eyeTrackingViolationCount, String company) {
         return ReportRequest.builder()
                 .userId(userId)
                 .company(company)

@@ -1,15 +1,19 @@
 FROM python:3.9
 
-WORKDIR /FastAPI
+COPY ./FastAPI/requirements.txt /fastapi/requirements.txt
 
-COPY ./requirements.txt /FastAPI/requirements.txt
+RUN ls -al
 
 RUN pip install --upgrade pip
 
 RUN apt-get update
 
-RUN pip install --no-cache-dir --upgrade -r /FastAPI/requirements.txt
+WORKDIR /fastapi
 
-COPY ./ /FastAPI
+RUN pip install --no-cache-dir --upgrade -r /fastapi/requirements.txt
+
+COPY ./FastAPI /fastapi
+
+RUN ls -al
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
