@@ -11,10 +11,12 @@ function sidebar() {
           src="https://ssl.pstatic.net/static/pwe/address/img_profile.png"
         ></img>
       </div>
-      <div className="sidebarText">모의면접</div>
+      <Link to={"/interview"} className="link">
+        <div className="sidebarText">모의면접</div>
+      </Link>
       <div className="sidebarText">
         마이페이지
-        <Link to={"/resume"} style={{ textDecoration: "none", color: "black" }}>
+        <Link to={"/resume"} className="link">
           <div className="sidebarSmallText">자소서</div>
         </Link>
         <div className="sidebarSmallText">면접 리포트</div>

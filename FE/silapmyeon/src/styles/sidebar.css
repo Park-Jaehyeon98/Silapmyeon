@@ -38,3 +38,8 @@
   font-weight: 500;
   line-height: 24px;
 }
+
+.link {
+  text-decoration: none;
+  color: black;
+}

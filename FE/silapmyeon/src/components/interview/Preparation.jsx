@@ -2,7 +2,8 @@ import { useRef } from "react";
 import { useRecoilState } from "recoil";
 import Webcam from "react-webcam";
 import AltCam from "./cam.png";
-import { camState } from "../../atoms/atoms";
+import { camState, selectedType } from "../../atoms/atoms";
+import { Link } from "react-router-dom";
 
 function Preparation() {
   const videoConstraints = {
@@ -13,6 +14,8 @@ function Preparation() {
 
   const webcamRef = useRef(null);
   const [useCam, setUseCam] = useRecoilState(camState);
+  const [selectedTypeState, setSelectedTypeState] =
+    useRecoilState(selectedType);
 
   const handleCam = () => {
     setUseCam((prev) => !prev);
@@ -28,6 +31,7 @@ function Preparation() {
           screenshotFormat="image/jpeg"
           width={640}
           videoConstraints={videoConstraints}
+          mirrored={true}
         ></Webcam>
       ) : (
         <img width={640} height={360} src={AltCam} alt="cam" />
@@ -35,8 +39,12 @@ function Preparation() {
       <button onClick={handleCam}>{useCam ? "Off" : "On"}</button>
       <audio></audio>
       <br />
-      <button>다음</button>
-      <button>나가기</button>
+      <Link to={selectedTypeState}>
+        <button>다음</button>
+      </Link>
+      <Link to={"/"}>
+        <button>나가기</button>
+      </Link>
     </div>
   );
 }
