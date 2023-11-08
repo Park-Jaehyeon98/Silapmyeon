@@ -2,34 +2,23 @@ import { useState, useEffect } from "react";
 import axios from "../../api/api";
 import { useRecoilState } from "recoil";
 import styles from "./TypeSelect.module.css";
-import {
-  selectedType,
-  selectedQuestion,
-  resumeId,
-  questionCount,
-} from "../../atoms/atoms";
+import { selectedType, selectedQuestion, resumeId, questionCount } from "../../atoms/atoms";
 import { Link } from "react-router-dom";
+import Select from "react-select";
 
 function TypeSelect() {
-  const [selectedTypeState, setSelectedTypeState] =
-    useRecoilState(selectedType);
-  const [selectedQuestionState, setSelectedQuestionState] =
-    useRecoilState(selectedQuestion);
+  const [selectedTypeState, setSelectedTypeState] = useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] = useRecoilState(selectedQuestion);
   const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
   const [qCount, setQCount] = useRecoilState(questionCount);
 
   const [resumeList, setResumeList] = useState([]);
+  const [selectedOption, setSelectedOption] = useState({ value: 0, label: "자소서 선택" });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // 선택된 옵션을 처리, 예를 들면 서버로 전송하거나 상태 업데이트
-    console.log(
-      "Selected option is:",
-      selectedTypeState,
-      selectedQuestionState,
-      resumeIdState
-    );
-  };
+  const options = resumeList.map((item) => ({
+    value: item.resumeId,
+    label: `${item.companyName} ${item.interviewDate}`,
+  }));
 
   const handleTypeButton = (event) => {
     setSelectedTypeState(event.target.value);
@@ -39,8 +28,10 @@ function TypeSelect() {
     setSelectedQuestionState(event.target.value);
   };
 
-  const handleResumeChange = (event) => {
-    setResumeIdState(event.target.value);
+  const handleResumeChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+    setResumeIdState(selectedOption.value);
+    console.log("id : " + selectedOption.value);
   };
 
   useEffect(() => {
@@ -68,7 +59,19 @@ function TypeSelect() {
       <h3>유형</h3>
       <div>
         <button
-          className={styles.button}
+          className={`${styles.button} ${
+            selectedTypeState === "/interview/mock" ? styles.selected : ""
+          }`}
+          value="/interview/mock"
+          onClick={handleTypeButton}
+        >
+          모의 면접
+        </button>
+
+        <button
+          className={`${styles.button} ${
+            selectedTypeState === "/interview/self" ? styles.selected : ""
+          }`}
           value="/interview/self"
           onClick={handleTypeButton}
         >
@@ -76,25 +79,21 @@ function TypeSelect() {
         </button>
 
         <button
-          className={styles.button}
+          className={`${styles.button} ${
+            selectedTypeState === "/interview/practice" ? styles.selected : ""
+          }`}
           value="/interview/practice"
           onClick={handleTypeButton}
         >
           연습 면접
         </button>
-
-        <button
-          className={styles.button}
-          value="/interview/mock"
-          onClick={handleTypeButton}
-        >
-          모의 면접
-        </button>
       </div>
       <h3>질문</h3>
       <div>
         <button
-          className={styles.button}
+          className={`${styles.button} ${
+            selectedQuestionState === "자소서" ? styles.selected : ""
+          }`}
           value="자소서"
           onClick={handleQuestionButton}
         >
@@ -102,7 +101,7 @@ function TypeSelect() {
         </button>
 
         <button
-          className={styles.button}
+          className={`${styles.button} ${selectedQuestionState === "기술" ? styles.selected : ""}`}
           value="기술"
           onClick={handleQuestionButton}
         >
@@ -110,7 +109,7 @@ function TypeSelect() {
         </button>
 
         <button
-          className={styles.button}
+          className={`${styles.button} ${selectedQuestionState === "인성" ? styles.selected : ""}`}
           value="인성"
           onClick={handleQuestionButton}
         >
@@ -119,19 +118,11 @@ function TypeSelect() {
       </div>
 
       <h3>자소서</h3>
-      <h4>자소서 기반 질문의 경우 필수로 선택해야 합니다.</h4>
-
-      <select name="options" onChange={handleResumeChange}>
-        <option value={0}>자소서 선택</option>
-        {resumeList.map((item, index) => (
-          <option key={index} value={item.resumeId}>
-            {item.companyName}&nbsp;&nbsp;&nbsp;&nbsp;{item.interviewDate}
-          </option>
-        ))}
-      </select>
+      <h3>자소서 기반 질문의 경우 필수로 선택해야 합니다.</h3>
+      <Select value={selectedOption} onChange={handleResumeChange} options={options} />
       <br />
       <Link to={"/interview/preparation"}>
-        <button type="button">다음</button>
+        <button className={styles.button}>다음</button>
       </Link>
     </div>
   );
