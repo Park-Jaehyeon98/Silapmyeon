@@ -6,6 +6,7 @@ import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
 import { questionCount, tts, stt, completeSpeech } from "../../atoms/atoms";
 import { Link } from "react-router-dom";
+import styles from "./Mock.module.css";
 
 function Mock() {
   const [qCount, setQCount] = useRecoilState(questionCount);
@@ -57,15 +58,19 @@ function Mock() {
   }, []);
 
   return (
-    <div>
-      <h1>모의</h1>
+    <div className={styles.container}>
       <div>
-        <h3>질문 횟수</h3>
-        <h2>{qCount}</h2>
+        <div className={styles.timerLabel}> TIMER </div>
+        <div className={styles.timerContainer}>{formatTime(timer)}</div>
       </div>
       <div>
-        <p>타이머: {formatTime(timer)}</p>
-        <img width={640} height={360} src={AltCam} alt="cam" />
+        <img
+          className={styles.webcamImage}
+          width={640}
+          height={360}
+          src={AltCam}
+          alt="cam"
+        />
       </div>
       <div style={{ display: "none" }}>
         {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
@@ -73,12 +78,15 @@ function Mock() {
       </div>
       {qCount === 5 ? (
         <Link to={"/"}>
-          <button disabled={isLoading || ttsState ? true : false}>종료</button>
+          <button className={styles.button} disabled={isLoading || ttsState}>
+            종료
+          </button>
         </Link>
       ) : (
         <button
           onClick={handleNextButton}
-          disabled={isLoading || ttsState ? true : false}
+          className={styles.button}
+          disabled={isLoading || ttsState}
         >
           {qCount !== 0 ? "다음" : "시작"}
         </button>

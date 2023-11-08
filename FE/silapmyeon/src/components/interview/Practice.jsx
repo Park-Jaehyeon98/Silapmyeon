@@ -5,6 +5,7 @@ import Webcam from "react-webcam";
 import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
+import styles from "./Practice.module.css";
 import {
   camState,
   questionCount,
@@ -79,46 +80,56 @@ function Practice() {
   }, []);
 
   return (
-    <div>
-      <h1>연습</h1>
-      <p>타이머: {formatTime(timer)}</p>
-      {useCam ? (
-        <Webcam
-          audio={false}
-          height={360}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          width={640}
-          videoConstraints={videoConstraints}
-          mirrored={true}
-        ></Webcam>
-      ) : (
-        <img width={640} height={360} src={AltCam} alt="cam" />
-      )}
+    <div className={styles.container}>
       <div>
-        <h3>질문 횟수</h3>
-        <h2>{qCount}</h2>
+        <div className={styles.timerLabel}> TIMER </div>
+        <div className={styles.timerContainer}>{formatTime(timer)}</div>
+      </div>
+      <div className={styles.webcamContainer}>
+        {useCam ? (
+          <Webcam
+            audio={false}
+            height={360}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            width={640}
+            videoConstraints={videoConstraints}
+            mirrored={true}
+          ></Webcam>
+        ) : (
+          <img width={640} height={360} src={AltCam} alt="cam" />
+        )}
+      </div>
+      <div className={styles.questionCountContainer}>
+        <div className={styles.questionCountTitle}>질문 횟수</div>
+        <div className={styles.questionCount}>{qCount}</div>
       </div>
       {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
       {qCount !== 0 ? <SpeechToText onData={handleSTTData} /> : null}
-      <button
-        onClick={handleReplay}
-        disabled={isLoading || ttsState ? true : false}
-      >
-        다시하기
-      </button>
-      {qCount === 5 ? (
-        <Link to={"/"}>
-          <button disabled={isLoading || ttsState ? true : false}>종료</button>
-        </Link>
-      ) : (
+      <div>
         <button
-          onClick={handleNextButton}
-          disabled={isLoading || ttsState ? true : false}
+          className={styles.button}
+          onClick={handleReplay}
+          disabled={isLoading || ttsState}
         >
-          {qCount !== 0 ? "다음" : "시작"}
+          다시하기
         </button>
-      )}
+        {qCount === 5 ? (
+          <Link to={"/"}>
+            <button className={styles.button} disabled={isLoading || ttsState}>
+              종료
+            </button>
+          </Link>
+        ) : (
+          <button
+            className={styles.button}
+            onClick={handleNextButton}
+            disabled={isLoading || ttsState}
+          >
+            {qCount !== 0 ? "다음" : "시작"}
+          </button>
+        )}
+      </div>
     </div>
   );
 }

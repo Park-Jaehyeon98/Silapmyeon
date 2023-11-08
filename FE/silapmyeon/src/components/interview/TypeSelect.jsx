@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "../../api/api";
 import { useRecoilState } from "recoil";
+import styles from "./TypeSelect.module.css";
 import {
   selectedType,
   selectedQuestion,
@@ -62,52 +63,76 @@ function TypeSelect() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>면접 유형을 선택해주세요.</h1>
       <h3>유형</h3>
-      <form onSubmit={handleSubmit}>
-        <button value="/interview/self" onClick={handleTypeButton}>
+      <div>
+        <button
+          className={styles.button}
+          value="/interview/self"
+          onClick={handleTypeButton}
+        >
           자율 연습
         </button>
 
-        <button value="/interview/practice" onClick={handleTypeButton}>
+        <button
+          className={styles.button}
+          value="/interview/practice"
+          onClick={handleTypeButton}
+        >
           연습 면접
         </button>
 
-        <button value="/interview/mock" onClick={handleTypeButton}>
+        <button
+          className={styles.button}
+          value="/interview/mock"
+          onClick={handleTypeButton}
+        >
           모의 면접
         </button>
-        <br />
-        <h3>질문</h3>
-        <button value="자소서" onClick={handleQuestionButton}>
+      </div>
+      <h3>질문</h3>
+      <div>
+        <button
+          className={styles.button}
+          value="자소서"
+          onClick={handleQuestionButton}
+        >
           자기소개서 기반 질문
         </button>
 
-        <button value="기술" onClick={handleQuestionButton}>
+        <button
+          className={styles.button}
+          value="기술"
+          onClick={handleQuestionButton}
+        >
           기술 질문
         </button>
 
-        <button value="인성" onClick={handleQuestionButton}>
+        <button
+          className={styles.button}
+          value="인성"
+          onClick={handleQuestionButton}
+        >
           인성 질문
         </button>
-        <br />
+      </div>
 
-        <h3>자소서</h3>
-        <h4>자소서 기반 질문의 경우 필수로 선택해야 합니다.</h4>
+      <h3>자소서</h3>
+      <h4>자소서 기반 질문의 경우 필수로 선택해야 합니다.</h4>
 
-        <select name="options" onChange={handleResumeChange}>
-          <option value={0}>자소서 선택</option>
-          {resumeList.map((item, index) => (
-            <option key={index} value={item.resumeId}>
-              {item.companyName}&nbsp;&nbsp;&nbsp;&nbsp;{item.interviewDate}
-            </option>
-          ))}
-        </select>
-        <br />
-        <Link to={"/interview/preparation"}>
-          <button type="button">다음</button>
-        </Link>
-      </form>
+      <select name="options" onChange={handleResumeChange}>
+        <option value={0}>자소서 선택</option>
+        {resumeList.map((item, index) => (
+          <option key={index} value={item.resumeId}>
+            {item.companyName}&nbsp;&nbsp;&nbsp;&nbsp;{item.interviewDate}
+          </option>
+        ))}
+      </select>
+      <br />
+      <Link to={"/interview/preparation"}>
+        <button type="button">다음</button>
+      </Link>
     </div>
   );
 }
