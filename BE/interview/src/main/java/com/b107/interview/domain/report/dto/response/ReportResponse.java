@@ -15,7 +15,6 @@ public class ReportResponse {
     private String company;
     private List<Interview> interviews;
     private int eyeTrackingViolationCount;
-    private String scenarioUrl;
     private String createdTime;
     private String modifiedTime;
 
@@ -23,7 +22,6 @@ public class ReportResponse {
                                     String company,
                                     List<Interview> interviews,
                                     int eyeTrackingViolationCount,
-                                    String scenarioUrl,
                                     String createdTime,
                                     String modifiedTime
                                     ) {
@@ -33,7 +31,6 @@ public class ReportResponse {
                 .company(company)
                 .interviews(interviews)
                 .eyeTrackingViolationCount(eyeTrackingViolationCount)
-                .scenarioUrl(scenarioUrl)
                 .createdTime(createdTime)
                 .modifiedTime(modifiedTime)
                 .build();
@@ -46,7 +43,6 @@ public class ReportResponse {
                 report.getCompany(),
                 report.getInterviews(),
                 report.getEyeTrackingViolationCount(),
-                report.getScenarioUrl(),
                 DateTimeConverter.toString(report.getCreatedDate()),
                 DateTimeConverter.toString(report.getLastModifiedDate()));
     }
