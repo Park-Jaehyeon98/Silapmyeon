@@ -17,6 +17,8 @@
     "react-speech-recognition": "^3.10.0",
     "react-webcam": "^7.2.0",
     "recoil": "^0.7.7",
+    "seeso": "^0.2.2",
+    "styled-components": "^6.1.1",
     "web-vitals": "^2.1.4",
     "webgazer": "^3.3.0"
   },
