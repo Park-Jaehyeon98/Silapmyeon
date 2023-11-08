@@ -24,3 +24,18 @@ export const stt = atom({
   key: "stt",
   default: false,
 });
+
+export const selectedType = atom({
+  key: "selectedType",
+  default: "/interview/mock",
+});
+
+export const selectedQuestion = atom({
+  key: "selectedQuestion",
+  default: "자소서",
+});
+
+export const resumeId = atom({
+  key: "resumeId",
+  default: 0,
+});

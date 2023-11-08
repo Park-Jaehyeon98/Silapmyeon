@@ -1,26 +1,53 @@
 import { useState, useEffect } from "react";
 import axios from "../../api/api";
+import { useRecoilState } from "recoil";
+import {
+  selectedType,
+  selectedQuestion,
+  resumeId,
+  questionCount,
+} from "../../atoms/atoms";
+import { Link } from "react-router-dom";
 
 function TypeSelect() {
-  const [selectedType, setSelectedType] = useState("모의");
-  const [selectedQuestion, setSelectedQuestion] = useState("자소서");
+  const [selectedTypeState, setSelectedTypeState] =
+    useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] =
+    useRecoilState(selectedQuestion);
+  const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
+  const [qCount, setQCount] = useRecoilState(questionCount);
+
   const [resumeList, setResumeList] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // 선택된 옵션을 처리, 예를 들면 서버로 전송하거나 상태 업데이트
-    console.log("Selected option is:", selectedType, selectedQuestion);
+    console.log(
+      "Selected option is:",
+      selectedTypeState,
+      selectedQuestionState,
+      resumeIdState
+    );
   };
 
   const handleTypeButton = (event) => {
-    setSelectedType(event.target.value);
+    setSelectedTypeState(event.target.value);
   };
 
   const handleQuestionButton = (event) => {
-    setSelectedQuestion(event.target.value);
+    setSelectedQuestionState(event.target.value);
+  };
+
+  const handleResumeChange = (event) => {
+    setResumeIdState(event.target.value);
   };
 
   useEffect(() => {
+    setSelectedTypeState("/interview/mock");
+    setSelectedQuestionState("자소서");
+    setResumeIdState(0);
+    setQCount(0);
+
     axios
       .get("/resume?page=0&size=10", {
         headers: {
@@ -39,15 +66,15 @@ function TypeSelect() {
       <h1>면접 유형을 선택해주세요.</h1>
       <h3>유형</h3>
       <form onSubmit={handleSubmit}>
-        <button value="자율" onClick={handleTypeButton}>
+        <button value="/interview/self" onClick={handleTypeButton}>
           자율 연습
         </button>
 
-        <button value="연습" onClick={handleTypeButton}>
+        <button value="/interview/practice" onClick={handleTypeButton}>
           연습 면접
         </button>
 
-        <button value="모의" onClick={handleTypeButton}>
+        <button value="/interview/mock" onClick={handleTypeButton}>
           모의 면접
         </button>
         <br />
@@ -68,7 +95,7 @@ function TypeSelect() {
         <h3>자소서</h3>
         <h4>자소서 기반 질문의 경우 필수로 선택해야 합니다.</h4>
 
-        <select name="options">
+        <select name="options" onChange={handleResumeChange}>
           <option value={0}>자소서 선택</option>
           {resumeList.map((item, index) => (
             <option key={index} value={item.resumeId}>
@@ -77,7 +104,9 @@ function TypeSelect() {
           ))}
         </select>
         <br />
-        <button type="button">다음</button>
+        <Link to={"/interview/preparation"}>
+          <button type="button">다음</button>
+        </Link>
       </form>
     </div>
   );
