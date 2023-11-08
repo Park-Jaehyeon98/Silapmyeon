@@ -3,6 +3,7 @@ package com.b107.interview.domain.board.controller;
 import com.b107.interview.domain.board.dto.*;
 import com.b107.interview.domain.board.entity.Board;
 import com.b107.interview.domain.board.service.BoardService;
+import com.b107.interview.domain.comment.dto.CommentResponse;
 import com.b107.interview.domain.report.dto.response.ReportResponse;
 import com.b107.interview.domain.report.service.ReportService;
 import lombok.RequiredArgsConstructor;
@@ -79,6 +80,16 @@ public class BoardController {
                 .body(updateBoard);
     }
 
+    @GetMapping("/boards/search")
+    public  List<BoardAllResponse> searchBoard(@RequestParam String search){
+        System.out.println("검색하기!!");
+        List<BoardAllResponse> searchBoard = boardService.findBySearch(search)
+                .stream()
+                .map(BoardAllResponse::new)
+                .collect(Collectors.toList());
+        return searchBoard;
 
+
+    }
 }
 
