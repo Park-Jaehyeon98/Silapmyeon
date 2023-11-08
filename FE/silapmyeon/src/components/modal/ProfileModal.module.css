@@ -1,0 +1,154 @@
+/* .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.overlay {
+    /* border: 2px; */
+    /* border-color: #5d5d5d; */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalWrap {
+    /* width: 600px;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    
+
+    /* position: absolute;
+    width: 389px;
+    height: 491px;
+    left: 629px;
+    top: 221px; */
+    position: relative;
+    width: 400px;
+    height: fit-content;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #828282;
+    border-radius: 10px;
+}
+
+.close {   
+    position: absolute;  /* 취소 버튼을 절대 위치로 설정 */
+    top: 10px;           /* 위쪽 여백 10px */
+    right: 10px;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+}
+.closeButton > img {
+    position: absolute;
+    width: 100%;
+    /* height: 100%; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.contents {
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #000000;
+}
+
+.button {
+    background: #8186D5;
+    border-radius: 30px;
+    border: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
+    &:hover {
+        background-color: #898989;
+    }
+ 
+}
+
+.nickname{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    color: #000000;
+}
+
+.input {
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    box-sizing: border-box;
+    background: #F6F6F6;
+    border: 1px solid #E8E8E8;
+    border-radius: 8px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #828282;
+
+    padding: 10px;
+    margin-left: 10px;
+}
