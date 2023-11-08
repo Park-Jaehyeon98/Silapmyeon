@@ -14,9 +14,10 @@ const RedirectionPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location);
+ 
+  console.log("location" + location);
   const from = location?.state?.redirectedFrom?.pathname || '/home';
-  console.log("from-------------" + from)
+  console.log(from + "으로 이동")
 
   useEffect(() => {
     axios({
@@ -28,7 +29,8 @@ const RedirectionPage = () => {
         "Authorization" : accessToken
       },
     }).then((res) => {
-      console.log(res.data.userProfileUrl)
+      console.log("access Token: " + accessToken)
+      console.log("#################################################url"+ res.data.userProfileUrl)
       console.log(res.data.userNickname);
       var payload = accessToken.substring(accessToken.indexOf('.') + 1, accessToken.lastIndexOf('.'));
       var dec = base64.decode(payload);

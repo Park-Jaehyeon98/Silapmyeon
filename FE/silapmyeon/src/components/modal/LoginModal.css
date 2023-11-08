@@ -1,0 +1,182 @@
+/* .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.overlay {
+    /* border: 2px; */
+    /* border-color: #5d5d5d; */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalWrap {
+    /* width: 600px;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    
+
+    /* position: absolute;
+    width: 389px;
+    height: 491px;
+    left: 629px;
+    top: 221px; */
+    position: relative;
+    width: 400px;
+    height: fit-content;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #828282;
+    border-radius: 10px;
+}
+
+.close {   
+    position: absolute;  /* 취소 버튼을 절대 위치로 설정 */
+    top: 10px;           /* 위쪽 여백 10px */
+    right: 10px;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+}
+.closeButton > img {
+    position: absolute;
+    width: 100%;
+    /* height: 100%; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.contents {
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #000000;
+}
+.loginModal {
+	background-color: var(--white);
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+	max-width: 768px;
+	max-height: 400px;
+	transition: var(--transition);
+	animation: 0.3s ease-in-out fadeInDesktop;
+}
+
+.loginPage {
+    /* background-color: rebeccapurple; */
+    padding: 16px;
+	height: calc(100% - 200px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modalheader {
+	padding: 10px 14px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	height: 48px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
+} 
+
+
+.loginbody {
+	padding: 16px;
+	height: calc(100% - 48px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.message {
+    text-align: center;
+	margin-top: 16px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.provider {
+	padding: 16px 48px;
+	user-select: none;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+li {
+	text-align: center;
+	list-style-type: none;
+    font-size: 12px;
+}
+
+.providerlogo {
+	width: 40px;
+	height: 40px;
+}
+.kakao,
+.naver,
+.google {
+	border: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16), 0 0px 4px rgba(0, 0, 0, 0.05);
+}
+.kakao {
+	background-color: #fee500;
+}
+.naver {
+	background-color: #03c75a;
+}
+
+.google {
+	background-color: #fff;
+}
+
+  

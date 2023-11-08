@@ -6,11 +6,14 @@
 
 .main{
   display: flex;
-  flex:1,
+  min-height: 100vh;
+  /* flex:1, */
 
 }
 .page{
   flex:1;
   overflow: auto;
-  padding: 16px;
+  padding: 30px;
+  margin-top: 5%;
+  margin-left: 5%;
 }

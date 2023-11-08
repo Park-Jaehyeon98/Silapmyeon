@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://k9b107a.p.ssafy.io/api';
+const BASE_URL = 'https://silapmyeon.com/api';
 
 const axiosAuth = axios.create({
   baseURL: BASE_URL,

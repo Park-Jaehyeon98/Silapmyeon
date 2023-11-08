@@ -12,7 +12,7 @@ function Home() {
         console.log("test!!!!!" + sessionStorage.getItem('user'))
         const User = JSON.parse(sessionStorage.getItem('user'))?.UserAtom;
         setUserNickName(User.userNickname);
-        setUserProfileUrl(User.userProfileUrl);
+        // setUserProfileUrl(User.userProfileUrl);
         setUserId(User.userId);
     }, []);
 
@@ -21,7 +21,7 @@ function Home() {
             home화면
             {userNickname} | {userId}
             <div>
-             <img src={userProfileUrl} alt="userProfile"/>
+             {/* <img src={userProfileUrl} alt="userProfile"/> */}
             </div>
         </div>
     );

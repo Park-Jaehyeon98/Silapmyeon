@@ -5,7 +5,7 @@ export const getUser = async () => {
     const reqUrl = '/user';
     try {
       const response = await axiosAuth.get(reqUrl);
-      console.log(JSON.stringify(response.data));
+      console.log("회원정보 조회 결과:------------------>" + JSON.stringify(response.data));
       return response.data;
     } catch (error) {
       console.error('Request error', error);
