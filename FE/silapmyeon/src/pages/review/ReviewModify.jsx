@@ -5,11 +5,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 function ReviewModify() {
   const location = useLocation();
   const { review } = location.state;
-  const [reviewCompanyName, setReviewCompanyName] = useState(
-    review.reviewCompanyName
-  );
-  const [reviewYear, setReviewYear] = useState(review.reviewYear);
-  const [reviewQuarter, setReviewQuarter] = useState(review.reviewQuarter);
+  const [companyName, setCompanyName] = useState(review.companyName);
+  // const [reviewYear, setReviewYear] = useState(review.reviewYear);
+  // const [reviewQuarter, setReviewQuarter] = useState(review.reviewQuarter);
   const [employmentType, setEmploymentType] = useState(review.employmentType);
   const [reviewOrder, setReviewOrder] = useState(review.reviewOrder);
   const [reviewJob, setReviewJob] = useState(review.reviewJob);
@@ -85,20 +83,16 @@ function ReviewModify() {
     <div style={{ height: "100vh" }}>
       <div>
         <div>면접 후기 수정</div>
-        <input value={reviewCompanyName} readOnly />
-        <input value={reviewYear} readOnly />
-        <input value={reviewQuarter} readOnly />
+        <input value={companyName} readOnly />
+        {/* <input value={reviewYear} readOnly />
+        <input value={reviewQuarter} readOnly /> */}
         <input value={employmentType} onChange={handleEmploymentType} />
         <input value={reviewOrder} onChange={handleReviewOrder} />
         <input value={reviewJob} onChange={handleReviewJob} />
         <div>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
         <input value={reviewQuestion} onChange={handleReviewQuestion} />
         <div>자유롭게 면접 후기를 남겨주세요.</div>
-        <textarea
-          value={reviewContent}
-          onChange={handleReviewContent}
-          style={{ resize: "none" }}
-        />
+        <textarea value={reviewContent} onChange={handleReviewContent} style={{ resize: "none" }} />
         <button onClick={modifyReview}>완료</button>
       </div>
     </div>

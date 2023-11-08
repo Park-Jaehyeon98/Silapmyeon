@@ -27,8 +27,9 @@ function ReviewList() {
           <tr>
             <th>번호</th>
             <th>기업명</th>
-            <th>년도</th>
-            <th>분기</th>
+            {/* <th>년도</th>
+            <th>분기</th> */}
+            <th>임시</th>
             <th>경력</th>
             <th>단계</th>
           </tr>
@@ -38,14 +39,12 @@ function ReviewList() {
             return (
               <tr>
                 <td>{idx + 1}</td>
-                <Link
-                  to={`${review.reviewId}`}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <td>{review.reviewCompanyName}</td>
+                <Link to={`${review.reviewId}`} style={{ textDecoration: "none", color: "black" }}>
+                  <td>{review.companyName}</td>
                 </Link>
-                <td>{review.reviewYear}</td>
-                <td>{review.reviewQuarter}</td>
+                {/* <td>{review.reviewYear}</td>
+                <td>{review.reviewQuarter}</td> */}
+                <td>{review.interviewDate}</td>
                 <td>{review.employmentType}</td>
                 <td>{review.reviewOrder}</td>
               </tr>

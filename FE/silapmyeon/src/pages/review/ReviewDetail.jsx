@@ -34,9 +34,10 @@ function ReviewDetail() {
     <div style={{ height: "100vh" }}>
       {review ? (
         <div>
-          <div>{review.reviewCompanyName} 면접 후기</div>
-          <div>{review.reviewYear}</div>
-          <div>{review.reviewQuarter}</div>
+          <div>{review.companyName} 면접 후기</div>
+          {/* <div>{review.reviewYear}</div>
+          <div>{review.reviewQuarter}</div> */}
+          <div>{review.interviewDate}</div>
           <div>{review.employmentType}</div>
           <div>{review.reviewJob}</div>
           <div>{review.reviewOrder}</div>
