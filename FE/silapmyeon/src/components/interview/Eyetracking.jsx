@@ -14,18 +14,26 @@ function EyeTracking() {
   };
 
   useEffect(() => {
+    // Initialize WebGazer
     webgazer
-      .setGazeListener(updateCoordinates)
-      .begin();
+      .init()
+      .then(() => {
+        // Set up a gaze listener
+        webgazer.setGazeListener(updateCoordinates);
 
-    // Additional code to load the model
-    webgazer
-      .setTracker("TFFaceMesh")
-      .setGazePrediction((prediction) => {
-        // Do something with the gaze prediction data if needed
+        // Additional code to load the model
+        webgazer
+          .setTracker("TFFaceMesh")
+          .setGazePrediction((prediction) => {
+            // Do something with the gaze prediction data if needed
+          });
+
+        // Start WebGazer
+        webgazer.begin();
+      })
+      .catch((err) => {
+        console.error("WebGazer initialization error:", err);
       });
-
-    // Handle any other WebGazer.js configuration here
 
     return () => {
       webgazer.end();

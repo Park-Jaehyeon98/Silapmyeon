@@ -29,8 +29,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
             </Routes>
-            {/* Eyetracking */}
             <Routes>
+              {/* Eyetracking */}
               <Route path="/eyetracking" element={<EyeTracking />} />
             </Routes>
             {/* 자기소개서 */}
