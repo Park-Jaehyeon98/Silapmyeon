@@ -4,7 +4,7 @@ import Webcam from "react-webcam";
 import AltCam from "./cam.png";
 import { camState } from "../../atoms/atoms";
 
-function Preparation() {
+function Self() {
   const videoConstraints = {
     width: 640,
     height: 360,
@@ -33,12 +33,8 @@ function Preparation() {
         <img width={640} height={360} src={AltCam} alt="cam" />
       )}
       <button onClick={handleCam}>{useCam ? "Off" : "On"}</button>
-      <audio></audio>
-      <br />
-      <button>다음</button>
-      <button>나가기</button>
     </div>
   );
 }
 
-export default Preparation;
+export default Self;
