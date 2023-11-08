@@ -82,7 +82,6 @@ public class BoardController {
 
     @GetMapping("/boards/search")
     public  List<BoardAllResponse> searchBoard(@RequestParam String search){
-        System.out.println("검색하기!!");
         List<BoardAllResponse> searchBoard = boardService.findBySearch(search)
                 .stream()
                 .map(BoardAllResponse::new)
