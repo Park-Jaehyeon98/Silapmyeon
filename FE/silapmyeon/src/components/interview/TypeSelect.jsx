@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../api/api";
 
 function TypeSelect() {
   const [selectedType, setSelectedType] = useState("모의");
@@ -22,7 +22,7 @@ function TypeSelect() {
 
   useEffect(() => {
     axios
-      .get("https://k9b107a.p.ssafy.io/api/resume?page=0&size=10", {
+      .get("/resume?page=0&size=10", {
         headers: {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo5LFwidXNlckVtYWlsXCI6XCJva2lwMDQyOEBnbWFpbC5jb21cIixcInJvbGVcIjpcIlJPTEVfVVNFUlwiLFwidHlwZVwiOlwiQVRLXCJ9IiwiaWF0IjoxNjk5MzE5MzE3LCJleHAiOjE3MDA1Mjg5MTd9.lEnScHqHYfTPgwbLH_TAA8PViRf1aZtC-DTc67xHAwk",
