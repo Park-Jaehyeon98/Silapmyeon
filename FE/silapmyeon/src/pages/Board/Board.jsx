@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import "../Board/BoardStyle.css"
 import Card from "../../components/Card/Card";
+import axios from 'axios';
 
 function Board(){
     const [cards, setCards] = useState([]);
@@ -15,9 +16,25 @@ function Board(){
     const [searchText, setSearchText] = useState('');
     const [first,setFirst] = useState('true');
     const[last,setLast] = useState('false')
+    const config ={
+        headers:{
+            'Authorization': `Bearer ${accessToken}`
+        }
+    }
     const handleSearch =() =>{
-        //여기다 검색  api 작성 하면 됨
+        axios.get('https://silapmyeon.com/api/boards/search?search='+searchText,config)
+            .then(response =>{
+                console.log(response);
+                console.log('검색하기'+searchText);
+                console.log(response.title)
 
+                // content.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
+                setCards(response);
+
+            })
+            .catch(error =>{
+                console.error('글 검색 오류 발생',error)
+            })
         
     };
 
@@ -74,7 +91,7 @@ function Board(){
                         }
                       }}
                     />
-                    <button className="searchButton" onClick={handleSearch()}>검색</button>
+                    <button className="searchButton" onClick={handleSearch}>검색</button>
                 </div>
                     <Link to ="/community/regist" style={ {marginLeft:'auto', paddingRight:'100px'}}>
                         <button className="button">글 작성하기</button>
