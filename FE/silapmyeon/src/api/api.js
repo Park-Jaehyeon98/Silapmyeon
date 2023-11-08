@@ -6,7 +6,7 @@ const jwt = {
 };
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://silapmyeon.com/api",
   headers: jwt,
 });
 
