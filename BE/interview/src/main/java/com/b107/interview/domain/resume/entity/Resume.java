@@ -10,6 +10,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,6 +35,6 @@ public class Resume extends Auditable {
     @OneToMany(mappedBy = "resume", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ResumeItem> resumeItems;
 
-    @OneToOne(mappedBy = "resume", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Review review;
+    @OneToMany(mappedBy = "resume", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews = new ArrayList<>();
 }
