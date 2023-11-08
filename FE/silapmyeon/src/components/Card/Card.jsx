@@ -21,7 +21,7 @@ function Card({card,user}){
                         <img className="boardImg" src={card.imgUrl} ></img> 
                         <div className="nickname">{card.nickname}</div>
                     </div>
-                    <div className="comments">댓글 {card.commentCnt}</div>
+                    <div className="commentsCnt">댓글 {card.commentCnt}</div>
                 </div>
                 </div>
             </div>

@@ -1,9 +1,23 @@
+.boardComment{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+.commentContainer{
+    display: flex;
+    background: #F5F5F5;
+    flex-direction: column;
+    border-radius: 10px;
+
+}
+
 .boardLine{
     width: 1100px;
     left: 309px;
     top: 367px;
     border: 3px solid #494CA2;
-
 }
 
 .boardTitle{
@@ -12,10 +26,11 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 50px;
+    font-size: 35px;
     line-height: 61px;
     color: #000000;
     padding: 5px;
+    margin: 20px;
 
 }
 
@@ -24,6 +39,19 @@
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+
+
+    color:black;
+
+}
+.boardEdit{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
     line-height: 24px;
     display: flex;
     align-items: center;
@@ -51,15 +79,109 @@
 }
 
 .boardContent{
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
     line-height: 24px;
+    height: 500px;
 
 }
 .boardMiddle{
     padding: 50px;
 
 }
+.boardComment{
+
+}
+.comments{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.commentRegist{
+    display: flex;
+    width: 799.3px;
+    height: 150x;
+    
+    align-items: center;
+    justify-items: center;
+    background: #FFFFFF;
+    border: 2px solid #8186D5;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+
+    
+
+}
+
+.commentDetail{
+    margin: 20px;
+}
+
+.registImg{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #D9D9D9;
+    margin-right: 5px;
+
+}
+.registNickname{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+}
+.commentInput{
+    width: 600px;
+    height: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    background-color: white;
+    border: none;
+    outline: none;
+    line-height: 1;
+    padding-top: 0;
+    white-space: pre-line;
+    border-radius: 10px;
+    resize: none;
+
+
+}
+.commentButton{
+    width: 129.01px;
+    height: 60px;
+
+
+    
+    background: #494CA2;
+    border-radius: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+
+    color: #FFFFFF;
+    
+
+}
+.commentRegistUser{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+

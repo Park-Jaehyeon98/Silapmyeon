@@ -6,6 +6,8 @@ import Side from './components/commons/Side';
 import Home from "./pages/Home/Home"
 import Board from './pages/Board/Board';
 import BoardDetail from './pages/Board/BoardDetail'
+import BoardRegist from './pages/Board/BoardRegist';
+import BoardEdit from './pages/Board/BoardEdit';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/community" element={<Board/>}/>
                 <Route path='/community/detail/:boardId' element={<BoardDetail/>}></Route>
+                <Route path='community/regist' element = {<BoardRegist/>}></Route>
+                <Route path='community/edit' element = {<BoardEdit/>}></Route>
               </Routes>
 
   </div>

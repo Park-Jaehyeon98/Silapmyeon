@@ -6,7 +6,7 @@ import Card from "../../components/Card/Card";
 function Board(){
     const [cards, setCards] = useState([]);
     const [user,setUser]= useState(null);
-    const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo4LFwidXNlckVtYWlsXCI6XCJhZGgzNTc2QGdtYWlsLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTg5NzQwOTQsImV4cCI6MTcwMDE4MzY5NH0.xNeaWic-4X_r1MG3YAueEne0GL2Mpoo4JruII7UATt0';
+    const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo4LFwidXNlckVtYWlsXCI6XCJhZGgzNTc2QGdtYWlsLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTkzNDQ0OTEsImV4cCI6MTcwMDU1NDA5MX0.68-q9pBIuhU_8JFxdcpUqlR6CruwZQ0Rjxm_zNbg-E4';
     const [pageInfo, setPageInfo] = useState({
         pageNumber :0,
         pageSize : 9,
@@ -24,7 +24,7 @@ function Board(){
 
 
     useEffect(()=>{
-        fetch('https://k9b107a.p.ssafy.io/api/boards?page='+pageInfo.pageNumber,{
+        fetch('https://silapmyeon.com/api/boards?page='+pageInfo.pageNumber,{
             method:'GET',
             headers:{
                 'Authorization': `Bearer ${accessToken}`
@@ -44,7 +44,7 @@ function Board(){
                 console.error('Board api호출 오류',error);
             });
 
-            fetch('https://k9b107a.p.ssafy.io/api/user',{
+            fetch('https://silapmyeon.com/api/user',{
                 method:'GET',
                 headers:{
                     'Authorization': `Bearer ${accessToken}`
@@ -65,7 +65,7 @@ function Board(){
             <div className="head">면접 공유 커뮤니티</div>
             <div className = "search">
                 <div className="company">
-                    <input className="input" type="text" placeholder="기업명 검색"
+                    <input className="input" type="text" placeholder="제목 검색"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
                     onKeyDown={(e) => {
@@ -74,9 +74,9 @@ function Board(){
                         }
                       }}
                     />
-                    <button className="searchButton" onClick={handleSearch}>검색</button>
+                    <button className="searchButton" onClick={handleSearch()}>검색</button>
                 </div>
-                    <Link to ="/board/create" style={ {marginLeft:'auto', paddingRight:'100px'}}>
+                    <Link to ="/community/regist" style={ {marginLeft:'auto', paddingRight:'100px'}}>
                         <button className="button">글 작성하기</button>
                     </Link>
             </div>
