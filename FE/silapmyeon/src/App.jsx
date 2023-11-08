@@ -14,6 +14,7 @@ import TypeSelect from "./components/interview/TypeSelect";
 import Preparation from "./components/interview/Preparation";
 import Mock from "./components/interview/Mock";
 import Practice from "./components/interview/Practice";
+import Self from "./components/interview/Self";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
               <Route path="/interview/preparation" element={<Preparation />} />
               <Route path="/interview/practice" element={<Practice />} />
               <Route path="/interview/mock" element={<Mock />} />
+              <Route path="/interview/self" element={<Self />} />
             </Routes>
           </div>
         </div>

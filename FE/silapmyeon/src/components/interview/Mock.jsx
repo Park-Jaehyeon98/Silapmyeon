@@ -5,6 +5,7 @@ import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
 import { questionCount, tts, stt, completeSpeech } from "../../atoms/atoms";
+import { Link } from "react-router-dom";
 
 function Mock() {
   const [qCount, setQCount] = useRecoilState(questionCount);
@@ -37,11 +38,22 @@ function Mock() {
   };
 
   useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
     axios.get("/interview/" + "1").then((response) => {
       console.log(response.data.question);
       setQuestion(response.data.question);
       setIsLoading((prev) => !prev);
     });
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
 
   return (
@@ -60,7 +72,9 @@ function Mock() {
         {qCount !== 0 ? <SpeechToText onData={handleSTTData} /> : null}
       </div>
       {qCount === 5 ? (
-        <button>종료</button>
+        <Link to={"/"}>
+          <button disabled={isLoading || ttsState ? true : false}>종료</button>
+        </Link>
       ) : (
         <button
           onClick={handleNextButton}
