@@ -85,4 +85,7 @@ public class BoardService {
     }
 
 
+    public List<Board> findBySearch(String search) {
+        return boardRepository.findByBoardTitleContaining(search);
+    }
 }
