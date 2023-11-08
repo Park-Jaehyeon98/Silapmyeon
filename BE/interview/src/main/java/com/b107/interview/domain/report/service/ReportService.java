@@ -31,7 +31,7 @@ public class ReportService {
     private final ReportRepository reportRepository;
 
     @Transactional
-    public Report createReport(ReportRequest reportRequest, Map<String, MultipartFile> files) throws IOException {
+    public ReportResponse createReport(ReportRequest reportRequest, Map<String, MultipartFile> files) throws IOException {
 
 
         //항목 별로 영상을 s3에 저장한다.
@@ -52,7 +52,10 @@ public class ReportService {
                 reportRequest.getCompany()
                 );
 
-        return reportRepository.save(report);
+        Report savedEntity = reportRepository.save(report);
+        ReportResponse reportResponse = ReportResponse.from(savedEntity);
+
+        return reportResponse;
     }
 
 

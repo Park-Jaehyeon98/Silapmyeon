@@ -23,7 +23,7 @@ public class S3Service {
 
     private final AmazonS3 amazonS3;
 
-    @Value("${spring.cloud.aws.s3.bucket}")
+    @Value("${cloud.aws.s3.bucket}")
     private String bucket;
 
     public String uploadFile(MultipartFile file) throws IOException {
