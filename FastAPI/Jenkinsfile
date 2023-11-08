@@ -1,8 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('github clone') {
+        stage('GitHub Clone') {
             steps {
+                // Git 클론 작업
                 git branch: 'develop', credentialsId: 'jenkins_token', url: 'https://lab.ssafy.com/s09-final/S09P31B107.git'
             }
         }
@@ -13,11 +14,14 @@ pipeline {
                         echo "Connecting to remote server"
                         ssh -o StrictHostKeyChecking=no ubuntu@3.36.76.73
 
+                        echo "Creating remote directory if it doesn't exist"
+                        ssh ubuntu@3.36.76.73 "mkdir -p /home/ubuntu/fastapi"
+
                         echo "Copying code to remote server"
-                        scp -r ubuntu@3.36.76.73:/jenkins/workspace/silapmyeon-FastAPI/FastAPI ubuntu@3.36.76.73:/home/ubuntu/fastapi
+                        scp -r $WORKSPACE/FastAPI/ ubuntu@3.36.76.73:/home/ubuntu/fastapi/
 
                         echo "Executing deploy script on remote server"
-                        ssh -t ubuntu@3.36.76.73 ./deploy_fastapi.sh
+                        ssh -t ubuntu@3.36.76.73 "./deploy_fastapi.sh"
                     '''
                 }
             }
