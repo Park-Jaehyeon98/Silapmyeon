@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
-import "./App.css";
 import Sidebar from "./components/commons/sidebar";
 import Header from "./components/commons/Header";
 import Home from "./pages/Home/Home";
@@ -15,18 +14,24 @@ import Preparation from "./components/interview/Preparation";
 import Mock from "./components/interview/Mock";
 import Practice from "./components/interview/Practice";
 import Self from "./components/interview/Self";
+import EyeTracking from "./components/interview/Eyetracking";
+import styles from "./App.css"; // Import the main CSS module
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className={styles.App}> {/* Use the main CSS module class */}
         <Header />
-        <div className="main">
+        <div className={styles.main}> {/* Use the main CSS module class */}
           <Sidebar />
-          <div className="page">
+          <div className={styles.page}> {/* Use the main CSS module class */}
             {/* 홈 */}
             <Routes>
               <Route path="/" element={<Home />} />
+            </Routes>
+            {/* Eyetracking */}
+            <Routes>
+              <Route path="/eyetracking" element={<EyeTracking />} />
             </Routes>
             {/* 자기소개서 */}
             <Routes>
