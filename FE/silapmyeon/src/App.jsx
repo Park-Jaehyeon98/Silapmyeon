@@ -20,6 +20,10 @@ import IntroPage from "./pages/IntroPage";
 import MyPage from "./pages/MyPage";
 import { useRecoilValue } from "recoil";
 import { IsLoginSelector } from "./Recoil/UserAtom";
+import ReviewList from "./pages/review/ReviewList";
+import ReviewCreate from "./pages/review/ReviewCreate";
+import ReviewDetail from "./pages/review/ReviewDetail";
+import ReviewModify from "./pages/review/ReviewModify";
 
 function App() {
   const isLogin = useRecoilValue(IsLoginSelector);
@@ -47,33 +51,23 @@ function App() {
                 {/* 자기소개서 */}
                 <Route path="/resume" element={<ResumeList />} />
                 <Route path="/resume/:resumeId" element={<ResumeDetail />} />
-                <Route
-                  path="/resume/:resumeId/modify"
-                  element={<ResumeModify />}
-                />
+                <Route path="/resume/:resumeId/modify" element={<ResumeModify />} />
                 <Route path="/resume/create" element={<ResumeCreate />} />
 
                 {/* 면접 */}
                 <Route path="/interview" element={<TypeSelect />} />
-                <Route
-                  path="/interview/preparation"
-                  element={<Preparation />}
-                />
+                <Route path="/interview/preparation" element={<Preparation />} />
                 <Route path="/interview/practice" element={<Practice />} />
                 <Route path="/interview/mock" element={<Mock />} />
                 <Route path="/interview/self" element={<Self />} />
+
+                {/* 면접후기 */}
+                <Route path="/review" element={<ReviewList />} />
+                <Route path="/review/:reviewId" element={<ReviewDetail />} />
+                <Route path="/review/:reviewId/modify" element={<ReviewModify />} />
+                <Route path="/review/create" element={<ReviewCreate />} />
               </Route>
             </Routes>
-              {/* 면접후기 */}
-              <Routes>
-                  <Route path="/review" element={<ReviewList />} />
-                  <Route path="/review/:reviewId" element={<ReviewDetail />} />
-                  <Route
-                      path="/review/:reviewId/modify"
-                      element={<ReviewModify />}
-                  />
-                  <Route path="/review/create" element={<ReviewCreate />} />
-              </Routes>
           </div>
         </div>
       </div>
