@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "./ResumeItemFormStyle.css";
 
-function ResumeItemForm({ idx, onQuestionChange, onAnswerChange, question, answer }) {
+function ResumeItemForm({
+  idx,
+  onQuestionChange,
+  onAnswerChange,
+  question,
+  answer,
+}) {
   const [resumeQuestion, setResumeQuestion] = useState(question);
   const [resumeAnswer, setResumeAnswer] = useState(answer);
 
@@ -35,6 +41,7 @@ function ResumeItemForm({ idx, onQuestionChange, onAnswerChange, question, answe
           placeholder="자기소개서 답변을 입력하세요."
           value={resumeAnswer}
           onChange={handleAnswerChange}
+          style={{ resize: "none" }}
         ></textarea>
       </div>
     </div>
