@@ -81,14 +81,12 @@ public class BoardController {
     }
 
     @GetMapping("/boards/search")
-    public  List<BoardAllResponse> searchBoard(@RequestParam String search){
-        List<BoardAllResponse> searchBoard = boardService.findBySearch(search)
-                .stream()
-                .map(BoardAllResponse::new)
-                .collect(Collectors.toList());
-        return searchBoard;
+    public  ResponseEntity<Page<BoardAllResponse>> searchBoard(@PageableDefault(sort = "boardId", direction = Sort.Direction.DESC, size = 9) Pageable pageable,@RequestParam String search){
+        Page<BoardAllResponse> searchBoard = boardService.findBySearch(pageable,search)
+                .map(BoardAllResponse::new);
 
-
+        return ResponseEntity.ok()
+                .body(searchBoard);
     }
 }
 
