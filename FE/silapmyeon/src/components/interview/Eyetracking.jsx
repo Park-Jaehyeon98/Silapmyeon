@@ -64,11 +64,11 @@ const Eyetracking = () => {
 
   const updateRedDotPosition = (gazeInfo) => {
     const dotSize = 10;
-    const x = (window.innerWidth - dotSize) / 2 + gazeInfo.fixationX * window.innerWidth;
-    const y = (window.innerHeight - dotSize) / 2 + gazeInfo.fixationY * window.innerHeight;
+    const x = (window.innerWidth - dotSize) / 2 + gazeInfo.x * window.innerWidth;
+    const y = (window.innerHeight - dotSize) / 2 + gazeInfo.y * window.innerHeight;
 
-    if (gazeInfo.fixationX < 0 || gazeInfo.fixationX > 1 || gazeInfo.fixationY < 0 || gazeInfo.fixationY > 1) {
-      setCnt(cnt + 1);
+    if (gazeInfo.x < 0 || gazeInfo.x > 1920 || gazeInfo.y < 0 || gazeInfo.y > 1080) {
+      setCnt((prev) => prev + 1);
       redDotRef.current.style.display = "none";
     } else {
       setDotPosition({ x, y });
@@ -88,8 +88,8 @@ const Eyetracking = () => {
             ref={webcamRef}
             style={{
               position: "absolute",
-              width: "1000px",
-              height: "1000px",
+              width: "1400px",
+              height: "2000px",
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
@@ -115,8 +115,8 @@ const Eyetracking = () => {
           ref={canvasRef}
           style={{
             position: "absolute",
-            height: "1000px",
-            width: "1000px",
+            height: "1400px",
+            width: "2000px",
             zIndex: 9999,
             opacity: 0.5,
           }}
