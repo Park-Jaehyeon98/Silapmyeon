@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from starlette.config import Config
 from sqlalchemy import select, create_engine
 from sqlalchemy.orm import sessionmaker
-from redis_driver import RedisDriver
 import openai
 
 load_dotenv()
@@ -25,30 +24,15 @@ Session = sessionmaker(bind=engine)
 
 session = Session()
 
-redis_instance = RedisDriver()
+async def select_question(request : InterviewTypeRequest):
 
-async def mysql(user_id: int):
-    name = "user:type:" + str(user_id)
-    result = await redis_instance.get_hash(name)
-
-    user = session.execute(select(User).where(User.user_id == user_id)).scalar()
-
-    if result:
-        print(f"type: {result['interview_type']}, gtype: {result['interview_question_type']}, id: {result['resume_id']}")
-    print(f"id : {user.resumes[0].resume_id}, com : {user.resumes[0].company_name}, question : {user.resumes[0].resume_items[0].resume_question}")
-
-async def select_question(user_id: int):
-    name = "user:type:" + str(user_id)
-    result = await redis_instance.get_hash(name)
-
-    if result.get('interview_question_type') == '자소서':
-        question = await resume_question(int(result.get('resume_id')))
-    elif result.get('interview_question_type') == '기술':
+    if request.question == '자소서':
+        question = await resume_question(request.resume)
+    elif request.question == '기술':
         question = await tech_question()
-    elif result.get('interview_question_type') == '인성':
-        question = await attitude_question(int(result.get('resume_id')))
+    elif request.question == '인성':
+        question = await attitude_question(request.resume)
     else:
-        # redis에 데이터가 없을 때
         question = await tech_question()
 
     return question
@@ -122,20 +106,4 @@ async def resume_question(resume_id: int):
     qlist = chat_completion.choices[0].message["content"].split('-')
 
     return qlist
-
-async def interview_type_save(user_id: int, request: InterviewTypeRequest):
-    name: str = "user:type:" + str(user_id)
-    mapping = {
-        'interview_type': request.interview_type,
-        'interview_question_type': request.interview_question_type,
-        'resume_id': str(request.resume_id)
-    }
-    await redis_instance.set_hash(name, mapping, 3600)
-
-async def save_answer(user_id: int, answer: str, question_num: int):
-    resume_name: str = "user:type:" + str(user_id)
-    result_resume = await redis_instance.get_hash(resume_name)
-
-    name: str = "answer:" + str(result_resume.get('resume_id')) + ":" + str(question_num) + ":" + str(user_id)
-    await redis_instance.set_key(name, answer, 3600)
 
