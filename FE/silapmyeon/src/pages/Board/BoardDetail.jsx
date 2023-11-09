@@ -42,7 +42,6 @@ function BoardDetail(){
                 setBoard(boardResponse)
                 setReport(reportResponse)
                 setComment(boardResponse.comments)
-                console.log('board detail 호출하기!!')
             })
             .catch(error =>{
                 console.error('Board detail api호출 오류',error);
@@ -64,7 +63,7 @@ function BoardDetail(){
                 </div>
                 <div className="boardEdit">
                 <div style = {{margin:'5px', marginLeft:'auto'}} onClick={handleDelete}>삭제</div>
-                <Link to ="/community/edit" style={{margin:'5px' , paddingRight:'10px', textDecoration:'none',color:'#828282'}}>수정</Link>
+                <Link to = {"/community/edit"} state={board} style={{margin:'5px' , paddingRight:'10px', textDecoration:'none',color:'#828282'}}>수정</Link>
             </div>
 
                 <div className="boardMiddle" >

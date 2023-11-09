@@ -22,14 +22,15 @@ function Board(){
         }
     }
     const handleSearch =() =>{
-        axios.get('https://silapmyeon.com/api/boards/search?search='+searchText,config)
+        axios.get('http://silapmyeon.com:8080/boards/search?search='+searchText,config)
             .then(response =>{
                 console.log(response);
                 console.log('검색하기'+searchText);
-                console.log(response.title)
-
-                // content.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
+                response.sort((a, b) => new Date(b.createdTime) - new Date(a.createdTime));
+                console.log()
                 setCards(response);
+
+    
 
             })
             .catch(error =>{
@@ -37,6 +38,8 @@ function Board(){
             })
         
     };
+
+
 
 
 
