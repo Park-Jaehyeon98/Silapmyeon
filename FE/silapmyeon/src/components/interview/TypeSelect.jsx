@@ -1,19 +1,29 @@
 import { useState, useEffect } from "react";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import { useRecoilState } from "recoil";
 import styles from "./TypeSelect.module.css";
-import { selectedType, selectedQuestion, resumeId, questionCount } from "../../atoms/atoms";
+import {
+  selectedType,
+  selectedQuestion,
+  resumeId,
+  questionCount,
+} from "../../atoms/atoms";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 
 function TypeSelect() {
-  const [selectedTypeState, setSelectedTypeState] = useRecoilState(selectedType);
-  const [selectedQuestionState, setSelectedQuestionState] = useRecoilState(selectedQuestion);
+  const [selectedTypeState, setSelectedTypeState] =
+    useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] =
+    useRecoilState(selectedQuestion);
   const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
   const [qCount, setQCount] = useRecoilState(questionCount);
 
   const [resumeList, setResumeList] = useState([]);
-  const [selectedOption, setSelectedOption] = useState({ value: 0, label: "자소서 선택" });
+  const [selectedOption, setSelectedOption] = useState({
+    value: 0,
+    label: "자소서 선택",
+  });
 
   const options = resumeList.map((item) => ({
     value: item.resumeId,
@@ -40,17 +50,10 @@ function TypeSelect() {
     setResumeIdState(0);
     setQCount(0);
 
-    axios
-      .get("/resume?page=0&size=10", {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo5LFwidXNlckVtYWlsXCI6XCJva2lwMDQyOEBnbWFpbC5jb21cIixcInJvbGVcIjpcIlJPTEVfVVNFUlwiLFwidHlwZVwiOlwiQVRLXCJ9IiwiaWF0IjoxNjk5MzE5MzE3LCJleHAiOjE3MDA1Mjg5MTd9.lEnScHqHYfTPgwbLH_TAA8PViRf1aZtC-DTc67xHAwk",
-        },
-      })
-      .then((response) => {
-        console.log(response.data.content);
-        setResumeList(response.data.content);
-      });
+    axiosAuth.get("/resume?page=0&size=10").then((response) => {
+      console.log(response.data.content);
+      setResumeList(response.data.content);
+    });
   }, []);
 
   return (
@@ -101,7 +104,9 @@ function TypeSelect() {
         </button>
 
         <button
-          className={`${styles.button} ${selectedQuestionState === "기술" ? styles.selected : ""}`}
+          className={`${styles.button} ${
+            selectedQuestionState === "기술" ? styles.selected : ""
+          }`}
           value="기술"
           onClick={handleQuestionButton}
         >
@@ -109,7 +114,9 @@ function TypeSelect() {
         </button>
 
         <button
-          className={`${styles.button} ${selectedQuestionState === "인성" ? styles.selected : ""}`}
+          className={`${styles.button} ${
+            selectedQuestionState === "인성" ? styles.selected : ""
+          }`}
           value="인성"
           onClick={handleQuestionButton}
         >
@@ -119,7 +126,17 @@ function TypeSelect() {
 
       <h3>자소서</h3>
       <h3>자소서 기반 질문의 경우 필수로 선택해야 합니다.</h3>
-      <Select value={selectedOption} onChange={handleResumeChange} options={options} />
+      <Select
+        value={selectedOption}
+        onChange={handleResumeChange}
+        options={options}
+        styles={{
+          control: (provided, state) => ({
+            ...provided,
+            width: 300,
+          }),
+        }}
+      />
       <br />
       <Link to={"/interview/preparation"}>
         <button className={styles.button}>다음</button>
