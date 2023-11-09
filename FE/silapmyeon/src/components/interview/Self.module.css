@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+
+.webcamContainer {
+  position: relative;
+  margin: 20px;
+}
+
+.webcamImage {
+  width: 640px;
+  height: 360px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  margin: 10px;
+}
+
+.timerContainer {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2d2d2d;
+  background-color: #5c6bc0;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.timerLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+  margin: 10px;
+}
+
+.inputText {
+  width: 640px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.textArea {
+  width: 640px;
+  height: 150px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  font-family: "Arial", sans-serif;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.button {
+  background-color: #4e6cef;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+  background-color: #405bcf;
+}

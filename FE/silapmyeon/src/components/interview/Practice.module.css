@@ -1,0 +1,84 @@
+/* App.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+
+.timerContainer {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2d2d2d;
+  background-color: #5c6bc0;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.timerLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+  margin: 10px;
+}
+
+.webcamContainer {
+  width: 640px;
+  height: 360px;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.questionCountContainer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.questionCountTitle {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 5px;
+}
+
+.questionCount {
+  font-size: 20px;
+  color: #2d2d2d;
+  background-color: #5c6bc0;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.button {
+  background-color: #4e6cef;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+  background-color: #405bcf;
+}

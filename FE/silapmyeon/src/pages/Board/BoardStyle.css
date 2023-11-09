@@ -3,6 +3,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .cardLink {
   text-decoration: none;
@@ -68,7 +69,9 @@
 .pagenation {
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-left: 430px;
+  /* margin-left: 430px; */
+  justify-content: center;
+  display: flex;
 }
 
 .pagenation button {

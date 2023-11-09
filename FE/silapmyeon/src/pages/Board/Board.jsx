@@ -30,11 +30,16 @@ function Board() {
       .then((response) => {
         const responseData = response.data;
         const searchData = responseData.content;
+
         searchData.sort(
           (a, b) => new Date(b.createdTime) - new Date(a.createdTime)
         );
-        if (searchData.length > 0) setCards(searchData);
-        else window.confirm("검색어가 존재하지 않습니다.");
+        if (searchData.length > 0) {
+          setCards(searchData);
+          setPageInfo(responseData.pageable);
+          setFirst(responseData.first);
+          setLast(responseData.last);
+        } else window.confirm("검색어가 존재하지 않습니다.");
       })
       .catch((error) => {
         console.error("글 검색 오류 발생", error);

@@ -12,6 +12,8 @@ import com.b107.interview.domain.comment.service.CommentService;
 import com.b107.interview.domain.user.entity.User;
 import com.b107.interview.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -37,8 +39,8 @@ public class BoardService {
     }
 
     //게시글 전체 조회
-    public List<Board> findAll(){
-        return boardRepository.findAll();
+    public Page<Board> findAll(Pageable pageable){
+        return boardRepository.findAll(pageable);
     }
 
     //게시글 상세 조회
@@ -83,4 +85,7 @@ public class BoardService {
     }
 
 
+    public Page<Board> findBySearch(Pageable pageable,String search) {
+        return boardRepository.findByBoardTitleContaining(pageable,search);
+    }
 }

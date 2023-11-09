@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Transactional
@@ -21,24 +22,14 @@ public class ReviewService {
 
     //면접 후기 작성
     public Review createReview(Review review) {
-        Resume foundResume = resumeService.readResume(review.getResume().getResumeId());
-
-        review.setReviewCompanyName(foundResume.getCompanyName());
-        review.setReviewYear((short) foundResume.getInterviewDate().getYear());
-        review.setReviewQuarter(setQuarter(foundResume.getInterviewDate().getMonthValue()));
-
+        Resume foundResume = resumeService.readResume(review.getResume().getResumeId(), review.getUser().getUserId());
+        review.setResume(foundResume);
         return reviewRepository.save(review);
     }
 
     //면접 후기 수정
     public Review updateReview(Review review, Long reviewId) {
-        Review foundReview = readReview(reviewId);
-
-        Resume foundResume = resumeService.readResume(review.getResume().getResumeId());
-
-        foundReview.setReviewCompanyName(foundResume.getCompanyName());
-        foundReview.setReviewYear((short) foundResume.getInterviewDate().getYear());
-        foundReview.setReviewQuarter(setQuarter(foundResume.getInterviewDate().getMonthValue()));
+        Review foundReview = readReview(reviewId, review.getUser().getUserId());
 
         foundReview.setEmploymentType(review.getEmploymentType());
         foundReview.setReviewOrder(review.getReviewOrder());
@@ -50,34 +41,29 @@ public class ReviewService {
     }
 
     //면접 후기 조회
-    public Review readReview(Long reviewId) {
+    public Review readReview(Long reviewId, Long userId) {
         Optional<Review> optionalReview = reviewRepository.findById(reviewId);
         if (optionalReview.isEmpty()) {
             throw new RuntimeException("존재하지 않는 면접 후기입니다.");
         }
+
+        Review review = optionalReview.get();
+
+        if (!Objects.equals(review.getUser().getUserId(), userId)) {
+            throw new RuntimeException("권한이 없는 사용자입니다.");
+        }
+
         return optionalReview.get();
     }
 
     //면접 후기 페이지 조회
-    public Page<Review> readReviews(Pageable pageable) {
-        return reviewRepository.findAll(pageable);
+    public Page<Review> readReviews(Pageable pageable, Long userId) {
+        return reviewRepository.findAllByUserId(pageable, userId);
     }
 
     //면접 후기 삭제
-    public void deleteReview(Long reviewId) {
-        Review foundReview = readReview(reviewId);
-        foundReview.getResume().setReview(null);
-    }
-
-    //분기 설정
-    private String setQuarter(int month) {
-        StringBuilder quarter = new StringBuilder("분기");
-
-        if (month <= 3) quarter.insert(0, 1);
-        else if (month <= 6) quarter.insert(0, 2);
-        else if (month <= 9) quarter.insert(0, 3);
-        else quarter.insert(0, 4);
-
-        return quarter.toString();
+    public void deleteReview(Long reviewId, Long userId) {
+        Review foundReview = readReview(reviewId, userId);
+        reviewRepository.delete(foundReview);
     }
 }

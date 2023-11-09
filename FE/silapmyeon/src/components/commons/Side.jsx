@@ -1,43 +1,74 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import "../../styles/sidebar.css";
+import { useRecoilValue } from "recoil";
+import { IsLoginSelector } from "../../Recoil/UserAtom";
+import Modal from "../modal/ProfileModal";
+import { Link } from "react-router-dom";
 
 function Side() {
-  const [user, setUser] = useState(null);
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo4LFwidXNlckVtYWlsXCI6XCJhZGgzNTc2QGdtYWlsLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTkzNDQ0OTEsImV4cCI6MTcwMDU1NDA5MX0.68-q9pBIuhU_8JFxdcpUqlR6CruwZQ0Rjxm_zNbg-E4";
+  // const [userNickname, setUserNickName] = useState('');
+  const [userProfileUrl, setUserProfileUrl] = useState("");
+  const [userNickname, setUserNickName] = useState("");
+  const isLogin = useRecoilValue(IsLoginSelector);
+  const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
-    fetch("https://silapmyeon.com/api/user", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setUser(data);
-      })
-      .catch((error) => {
-        console.error("user api호출 오류", error);
-      });
-  }, []);
+    const User = JSON.parse(sessionStorage.getItem("user"))?.UserAtom;
+    console.log("sidebar user---------------------->" + User);
+    setUserProfileUrl(User?.userProfileUrl);
+    setUserNickName(User?.userNickname);
+  }, [isLogin, userProfileUrl, isOpen, userNickname]);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
 
   return (
     <div className="sidebar">
       <div className="img">
-        <img className="profileImg" src></img>
+        {isLogin ? (
+          <img
+            className="profileImg"
+            src={userProfileUrl}
+            onClick={handleClick}
+            alt="profile"
+          />
+        ) : (
+          <img className="profileImg" alt="profile" />
+        )}
       </div>
-      <div className="sidebarText">모의면접</div>
+      <div>
+        {isOpen && (
+          <Modal
+            open={isOpen}
+            onClose={() => {
+              setOpen(false);
+            }}
+          />
+        )}
+      </div>
+      {/* <div>
+                    {userNickname}님 안녕하세요
+                </div> */}
+      <Link to={"/interview"} className="link">
+        <div className="sidebarText">모의면접</div>
+      </Link>
       <div className="sidebarText">
         마이페이지
-        <div className="sidebarSmallText">자소서</div>
-        <div className="sidebarSmallText">면접 리포트</div>
-        <div className="sidebarSmallText">면접 후기</div>
+        <Link to={"/resume"} className="link">
+          <div className="sidebarSmallText">자소서</div>
+        </Link>
+        <Link to={"/report/list/1"} className="link">
+          <div className="sidebarSmallText">면접 리포트</div>
+        </Link>
+        <Link to={"/review"} className="link">
+          <div className="sidebarSmallText">면접 후기</div>
+        </Link>
       </div>
-      <Link to="/community" className="sidebarText">
-        면접 공유
+      <Link to={"/community"} className="link">
+        <div className="sidebarText">면접 공유</div>
       </Link>
+      <Link to="/mypage"> 테스트</Link>
     </div>
   );
 }

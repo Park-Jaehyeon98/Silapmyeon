@@ -3,15 +3,22 @@ package com.b107.interview.domain.board.controller;
 import com.b107.interview.domain.board.dto.*;
 import com.b107.interview.domain.board.entity.Board;
 import com.b107.interview.domain.board.service.BoardService;
+import com.b107.interview.domain.comment.dto.CommentResponse;
 import com.b107.interview.domain.report.dto.response.ReportResponse;
 import com.b107.interview.domain.report.service.ReportService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 public class BoardController {
@@ -31,11 +38,10 @@ public class BoardController {
 
     //게시판 글 전체 조회
     @GetMapping("/boards")
-    public ResponseEntity<List<BoardAllResponse>> findAllBoards(){
-        List<BoardAllResponse> boards = boardService.findAll()
-                .stream()
-                .map(BoardAllResponse::new)
-                .collect(Collectors.toList());
+    public ResponseEntity<Page<BoardAllResponse>> findAllBoards(@PageableDefault(sort = "boardId", direction = Sort.Direction.DESC, size = 9) Pageable pageable) {
+
+        Page<BoardAllResponse> boards = boardService.findAll(pageable)
+                .map(BoardAllResponse::new);
 
         return ResponseEntity.ok()
                 .body(boards);
@@ -76,6 +82,13 @@ public class BoardController {
                 .body(updateBoard);
     }
 
+    @GetMapping("/boards/search")
+    public  ResponseEntity<Page<BoardAllResponse>> searchBoard(@PageableDefault(sort = "boardId", direction = Sort.Direction.DESC, size = 9) Pageable pageable,@RequestParam String search){
+        Page<BoardAllResponse> searchBoard = boardService.findBySearch(pageable,search)
+                .map(BoardAllResponse::new);
 
+        return ResponseEntity.ok()
+                .body(searchBoard);
+    }
 }
 
