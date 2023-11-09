@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import { useNavigate, useParams } from "react-router-dom";
 
 function ReviewDetail() {
@@ -7,9 +7,22 @@ function ReviewDetail() {
   const [review, setReview] = useState(null);
 
   const getReview = async () => {
-    const resp = await axios.get(`review/${reviewId}`);
+    const resp = await axiosAuth.get(`review/${reviewId}`);
     console.log(resp.data);
     setReview(resp.data);
+  };
+
+  const calculateQuarter = (date) => {
+    const month = Number(date.substring(5, 7));
+    if (month <= 3) {
+      return "1분기";
+    } else if (month <= 6) {
+      return "2분기";
+    } else if (month <= 9) {
+      return "3분기";
+    } else {
+      return "4분기";
+    }
   };
 
   useEffect(() => {
@@ -19,12 +32,14 @@ function ReviewDetail() {
   const navigate = useNavigate();
 
   const navigateToModify = () => {
-    navigate("modify", { state: { review } });
+    navigate("modify", {
+      state: { review },
+    });
   };
 
   const removeReview = async () => {
     if (window.confirm("면접후기를 삭제하시겠습니까?")) {
-      const res = await axios.delete(`/review/${reviewId}`);
+      const res = await axiosAuth.delete(`/review/${reviewId}`);
       console.log(res);
       navigate("/review");
     }
@@ -35,9 +50,8 @@ function ReviewDetail() {
       {review ? (
         <div>
           <div>{review.companyName} 면접 후기</div>
-          {/* <div>{review.reviewYear}</div>
-          <div>{review.reviewQuarter}</div> */}
-          <div>{review.interviewDate}</div>
+          <div>{review.interviewDate.substring(0, 4)}</div>
+          <div>{calculateQuarter(review.interviewDate)}</div>
           <div>{review.employmentType}</div>
           <div>{review.reviewJob}</div>
           <div>{review.reviewOrder}</div>

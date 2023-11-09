@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import ResumeItemForm from "../../components/resume/ResumeItemForm";
 import styles from "./ResumeModify.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -104,7 +104,10 @@ function ResumeModify() {
     }
 
     for (let index = 0; index < itemData.length; index++) {
-      if (isEmpty(itemData[index].resumeAnswer) || isEmpty(itemData[index].resumeQuestion)) {
+      if (
+        isEmpty(itemData[index].resumeAnswer) ||
+        isEmpty(itemData[index].resumeQuestion)
+      ) {
         alert("자소서 항목을 입력해주세요.");
         flag = false;
         break;
@@ -113,7 +116,7 @@ function ResumeModify() {
     // itemData now contains the questions and answers for each item
     // You can use this data to send to the server, for example:
     if (flag) {
-      const res = await axios.put(`/resume/${resume.resumeId}`, {
+      const res = await axiosAuth.put(`/resume/${resume.resumeId}`, {
         companyName,
         interviewDate,
         resumeItems: itemData,

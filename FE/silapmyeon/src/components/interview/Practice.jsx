@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import Webcam from "react-webcam";
 import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
@@ -67,7 +67,7 @@ function Practice() {
 
     window.addEventListener("beforeunload", handleBeforeUnload);
 
-    axios.get("/interview/" + "12").then((response) => {
+    axiosAuth.get("/interview/" + "12").then((response) => {
       console.log(response.data.question);
       setQuestion(response.data.question);
       setIsLoading((prev) => !prev);

@@ -1,0 +1,328 @@
+.title {
+  /* 면접 후기 등록 */
+
+  position: absolute;
+  width: 343px;
+  height: 87px;
+  left: 351px;
+  top: 161px;
+
+  /* 본문 큰 제목 */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 61px;
+
+  color: #4962a2;
+}
+
+.companyNameText {
+  /* 기업명 */
+
+  position: absolute;
+  width: 279px;
+  height: 46px;
+  left: 360px;
+  top: 299px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+
+  color: #000000;
+}
+
+.companyNameInput,
+.companyNameInput:focus {
+  /* Rectangle 112 */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 298px;
+  height: 54px;
+  left: 460px;
+  top: 285px;
+
+  background: #ffffff;
+  border: none;
+  border-bottom: 1px solid #8186d5;
+  outline: none;
+  text-align: center;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #37397e;
+  text-align: center;
+}
+
+.yearBox,
+.yearBox:focus {
+  /* Rectangle 116 */
+
+  position: absolute;
+  width: 110px;
+  height: 53px;
+  left: 358px;
+  top: 367px;
+
+  background: #e3e7f1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #37397e;
+  text-align: center;
+}
+
+.quarterBox,
+.quarterBox:focus {
+  /* Rectangle 114 */
+
+  position: absolute;
+  width: 110px;
+  height: 53px;
+  left: 485px;
+  top: 367px;
+
+  background: #e3e7f1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #37397e;
+  text-align: center;
+}
+
+.etBox,
+.etBox:focus {
+  /* Rectangle 117 */
+
+  position: absolute;
+  width: 110px;
+  height: 53px;
+  left: 611px;
+  top: 367px;
+
+  background: #e3e7f1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #37397e;
+  text-align: center;
+}
+
+.roBox,
+.roBox:focus {
+  /* Rectangle 110 */
+
+  position: absolute;
+  width: 110px;
+  height: 53px;
+  left: 749px;
+  top: 367px;
+
+  background: #e3e7f1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #37397e;
+  text-align: center;
+}
+
+.rjBox,
+.rjBox:focus {
+  /* Rectangle 111 */
+
+  position: absolute;
+  width: 475px;
+  height: 53px;
+  left: 879px;
+  top: 366px;
+
+  background: #e3e7f1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #37397e;
+  text-align: center;
+}
+
+.qTitleText {
+  /* 가장 기억에 남는 질문 한 가지를 남겨주세요 */
+
+  position: absolute;
+  width: 806px;
+  height: 30px;
+  left: 355px;
+  top: 471px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+
+.qInputBox,
+.qInputBox:focus {
+  /* Rectangle 113 */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 1002px;
+  height: 84px;
+  left: 358px;
+  top: 508px;
+
+  outline: none;
+
+  background: #ffffff;
+  border: 2px solid #8186d5;
+  border-radius: 10px;
+}
+
+.aTitleText {
+  /* 자유롭게 면접 후기를 남겨주세요 */
+
+  position: absolute;
+  width: 806px;
+  height: 30px;
+  left: 358px;
+  top: 634px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+
+.aInputBox,
+.aInputBox:focus {
+  /* Rectangle 115 */
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 1002px;
+  height: 252px;
+  left: 358px;
+  top: 674px;
+
+  outline: none;
+  background: #ffffff;
+  border: 2px solid #8186d5;
+  border-radius: 10px;
+}
+
+.completeBox {
+  /* 완료 button */
+
+  position: absolute;
+  width: 131px;
+  height: 52px;
+  left: 1229px;
+  top: 948px;
+}
+
+.completeButton {
+  /* Rectangle 99 */
+
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  background: #494ca2;
+  border-radius: 10px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  border: none;
+}
+
+.loadResumeButton {
+  position: absolute;
+  width: 150px;
+  height: 53px;
+  left: 800px;
+  top: 285px;
+
+  background: #e3e7f1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: black;
+  text-align: center;
+}
+
+.resumeTable {
+  z-index: 1;
+}

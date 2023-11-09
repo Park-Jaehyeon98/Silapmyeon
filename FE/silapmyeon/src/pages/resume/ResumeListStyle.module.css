@@ -142,6 +142,7 @@
   border: none;
 
   font-size: 40px;
+  cursor: pointer;
 }
 
 .pageNums {
@@ -154,10 +155,16 @@
 .pageNum {
   margin-left: 10px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .selectedPage {
   color: #494ca2;
   font-weight: bold;
   font-size: large;
+}
+
+.pn {
+  font-weight: "bold";
+  cursor: pointer;
 }

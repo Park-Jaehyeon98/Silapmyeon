@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import styles from "./ReviewModalStyle.module.css";
 
 function ReviewModal({ onModalChange }) {
@@ -20,7 +20,7 @@ function ReviewModal({ onModalChange }) {
   const endIndex = Math.min(totalPages, startIndex + 5);
 
   const getResumes = async (page) => {
-    const res = await axios.get(`/resume?page=${page}`);
+    const res = await axiosAuth.get(`/resume?page=${page}`);
     console.log(res.data.content);
     console.log(res.data);
     setResumes(res.data.content);
@@ -87,7 +87,7 @@ function ReviewModal({ onModalChange }) {
   };
 
   return (
-    <div>
+    <div className={styles.total}>
       <table border={1}>
         <th>
           <th>번호</th>
@@ -118,7 +118,6 @@ function ReviewModal({ onModalChange }) {
         })}
       </table>
       <div>{pageNums}</div>
-      모달입니다.
       <button onClick={closeModal}>닫기</button>
     </div>
   );

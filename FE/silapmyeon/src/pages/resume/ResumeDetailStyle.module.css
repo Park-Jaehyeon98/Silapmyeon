@@ -143,7 +143,7 @@
 
 .modify {
   /* 수정 button */
-
+  cursor: pointer;
   position: absolute;
   width: 131px;
   height: 52px;
@@ -182,7 +182,7 @@ bottom: 21.15%; */
 
 .delete {
   /* 삭제 button */
-
+  cursor: pointer;
   position: absolute;
   width: 131px;
   height: 52px;
@@ -227,6 +227,7 @@ left: 0%;
 right: 93.72%;
 top: 1.57%;
 bottom: 87.19%; */
+  cursor: pointer;
   width: 60px;
   height: 50px;
   border-color: #494ca2;

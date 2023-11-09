@@ -1,13 +1,10 @@
 import { useState } from "react";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function ReviewModify() {
   const location = useLocation();
   const { review } = location.state;
-  const [companyName, setCompanyName] = useState(review.companyName);
-  // const [reviewYear, setReviewYear] = useState(review.reviewYear);
-  // const [reviewQuarter, setReviewQuarter] = useState(review.reviewQuarter);
   const [employmentType, setEmploymentType] = useState(review.employmentType);
   const [reviewOrder, setReviewOrder] = useState(review.reviewOrder);
   const [reviewJob, setReviewJob] = useState(review.reviewJob);
@@ -53,6 +50,19 @@ function ReviewModify() {
 
   const navigate = useNavigate();
 
+  const calculateQuarter = (date) => {
+    const month = Number(date.substring(5, 7));
+    if (month <= 3) {
+      return "1분기";
+    } else if (month <= 6) {
+      return "2분기";
+    } else if (month <= 9) {
+      return "3분기";
+    } else {
+      return "4분기";
+    }
+  };
+
   const modifyReview = () => {
     let flag = true;
 
@@ -68,7 +78,7 @@ function ReviewModify() {
     }
 
     if (flag) {
-      const resp = axios.put(`/review/${review.reviewId}`, {
+      const resp = axiosAuth.put(`/review/${review.reviewId}`, {
         employmentType,
         reviewOrder,
         reviewJob,
@@ -76,23 +86,41 @@ function ReviewModify() {
         reviewContent,
       });
       console.log(resp);
-      navigate(`/review/${review.reviewId}`);
+      window.location.href = `/review/${review.reviewId}`;
     }
   };
   return (
     <div style={{ height: "100vh" }}>
       <div>
         <div>면접 후기 수정</div>
-        <input value={companyName} readOnly />
-        {/* <input value={reviewYear} readOnly />
-        <input value={reviewQuarter} readOnly /> */}
-        <input value={employmentType} onChange={handleEmploymentType} />
-        <input value={reviewOrder} onChange={handleReviewOrder} />
-        <input value={reviewJob} onChange={handleReviewJob} />
+        <div>
+          기업명: <input value={review.companyName} readOnly />
+        </div>
+        <div>
+          년도: <input value={review.interviewDate.substring(0, 4)} readOnly />
+        </div>
+        <div>
+          분기:{" "}
+          <input value={calculateQuarter(review.interviewDate)} readOnly />
+        </div>
+        <div>
+          채용형태:{" "}
+          <input value={employmentType} onChange={handleEmploymentType} />
+        </div>
+        <div>
+          차수: <input value={reviewOrder} onChange={handleReviewOrder} />
+        </div>
+        <div>
+          직무: <input value={reviewJob} onChange={handleReviewJob} />
+        </div>
         <div>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
         <input value={reviewQuestion} onChange={handleReviewQuestion} />
         <div>자유롭게 면접 후기를 남겨주세요.</div>
-        <textarea value={reviewContent} onChange={handleReviewContent} style={{ resize: "none" }} />
+        <textarea
+          value={reviewContent}
+          onChange={handleReviewContent}
+          style={{ resize: "none" }}
+        />
         <button onClick={modifyReview}>완료</button>
       </div>
     </div>

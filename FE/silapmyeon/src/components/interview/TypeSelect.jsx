@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import { useRecoilState } from "recoil";
 import {
   selectedType,
@@ -48,7 +48,7 @@ function TypeSelect() {
     setResumeIdState(0);
     setQCount(0);
 
-    axios
+    axiosAuth
       .get("/resume?page=0&size=10", {
         headers: {
           Authorization:

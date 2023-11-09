@@ -1,4 +1,4 @@
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import { useState, useEffect } from "react";
 import Resume from "../../components/resume/Resume";
 import styles from "./ResumeListStyle.module.css";
@@ -10,7 +10,7 @@ function ResumeList() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const getResumes = async (page) => {
-    const res = await axios.get(`/resume?page=${page}`);
+    const res = await axiosAuth.get(`/resume?page=${page}`);
     console.log(res.data.content);
     console.log(res.data);
     setResumes(res.data.content);
@@ -34,9 +34,7 @@ function ResumeList() {
 
   pageNums.push(
     <a
-      style={{
-        fontWeight: "bold",
-      }}
+      className={styles.pn}
       onClick={() => handlePageChange(startIndex - 1 < 0 ? 0 : startIndex - 1)}
     >
       이전
@@ -60,9 +58,7 @@ function ResumeList() {
   }
   pageNums.push(
     <a
-      style={{
-        fontWeight: "bold",
-      }}
+      className={styles.pn}
       onClick={() =>
         handlePageChange(
           endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
