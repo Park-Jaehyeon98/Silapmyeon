@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { getReportsByUserId } from '../../api/report'; // api.js에서 함수를 임포트
 import { useParams } from 'react-router-dom';
-import styles from '../../styles/reportList.module.css'
+import styles from '../../styles/ReportList.module.css'
 import clip from '../../assets/clip.png'
 import leftArrow from '../../assets/left-arrow.png'
 import { useNavigate } from 'react-router-dom';
