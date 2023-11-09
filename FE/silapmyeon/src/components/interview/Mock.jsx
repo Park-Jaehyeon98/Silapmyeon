@@ -4,7 +4,15 @@ import axios from "../../api/api";
 import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
-import { questionCount, tts, stt, completeSpeech } from "../../atoms/atoms";
+import {
+  questionCount,
+  tts,
+  stt,
+  completeSpeech,
+  selectedType,
+  selectedQuestion,
+  resumeId,
+} from "../../atoms/atoms";
 import { Link } from "react-router-dom";
 import styles from "./Mock.module.css";
 
@@ -14,6 +22,11 @@ function Mock() {
   const [sttState, setSttState] = useRecoilState(stt);
   const [completeSpeechState, setCompleteSpeechState] =
     useRecoilState(completeSpeech);
+  const [selectedTypeState, setSelectedTypeState] =
+    useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] =
+    useRecoilState(selectedQuestion);
+  const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
 
   const [question, setQuestion] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -46,7 +59,13 @@ function Mock() {
 
     window.addEventListener("beforeunload", handleBeforeUnload);
 
-    axios.get("/interview/" + "1").then((response) => {
+    const body = {
+      type: selectedTypeState,
+      question: selectedQuestionState,
+      resume: resumeIdState,
+    };
+
+    axios.post("/interview", body).then((response) => {
       console.log(response.data.question);
       setQuestion(response.data.question);
       setIsLoading((prev) => !prev);
