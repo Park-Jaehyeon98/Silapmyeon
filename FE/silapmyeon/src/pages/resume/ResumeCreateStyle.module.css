@@ -4,7 +4,7 @@
   position: absolute;
   width: 487px;
   height: 45px;
-  left: 415px;
+  left: 410px;
   top: 174px;
 
   /* SSAFY 자소서 */
@@ -18,8 +18,8 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 50px;
+  line-height: 61px;
 
   color: #4962a2;
 }

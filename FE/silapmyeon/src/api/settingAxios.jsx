@@ -1,22 +1,23 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL = 'https://silapmyeon.com/api';
+const BASE_URL = "https://silapmyeon.com/api";
 
 const axiosAuth = axios.create({
   baseURL: BASE_URL,
   headers: {
     "Content-Type": "application/json;charset=utf-8",
-    "Access-Control-Allow-Origin": "*", 
+    "Access-Control-Allow-Origin": "*",
   },
 });
 
 axiosAuth.interceptors.request.use(
   (config) => {
-    const TOKEN = JSON.parse(sessionStorage.getItem('user'))?.UserAtom.accessToken;
-    
+    const TOKEN = JSON.parse(sessionStorage.getItem("user"))?.UserAtom
+      .accessToken;
+
     console.log("axiosAuth test >> " + TOKEN);
-    config.headers['Authorization'] = `${TOKEN}`;
-    console.log("header: " + config.headers['Authorization'])
+    config.headers["Authorization"] = `${TOKEN}`;
+    console.log("header: " + config.headers["Authorization"]);
     return config;
   },
   (error) => {
