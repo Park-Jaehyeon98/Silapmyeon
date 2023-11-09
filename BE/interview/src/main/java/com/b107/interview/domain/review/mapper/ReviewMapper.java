@@ -14,8 +14,12 @@ public interface ReviewMapper {
     Review reviewReqDtoToReview(ReviewReqDto reviewReqDto);
 
     @Mapping(source = "resume.resumeId", target = "resumeId")
+    @Mapping(source = "resume.companyName", target = "companyName")
+    @Mapping(source = "resume.interviewDate", target = "interviewDate")
     ReviewResDto reviewToReviewResDto(Review review);
 
     @Mapping(source = "resume.resumeId", target = "resumeId")
+    @Mapping(source = "resume.companyName", target = "companyName")
+    @Mapping(source = "resume.interviewDate", target = "interviewDate")
     ReviewSimpleResDto reviewToReviewSimpleResDto(Review review);
 }

@@ -6,6 +6,7 @@ import com.b107.interview.domain.resume.dto.response.ResumeSimpleResDto;
 import com.b107.interview.domain.resume.entity.Resume;
 import com.b107.interview.domain.resume.mapper.ResumeMapper;
 import com.b107.interview.domain.resume.service.ResumeService;
+import com.b107.interview.util.SecurityUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,6 +26,7 @@ public class ResumeController {
     //자기소개서 작성
     @PostMapping
     public ResponseEntity<?> postResume(@RequestBody ResumeReqDto resumeReqDto) {
+        resumeReqDto.setUser(SecurityUtils.getUser().getUserId());
         Resume resume = resumeMapper.resumeReqDtoToResume(resumeReqDto);
         Resume createdResume = resumeService.createResume(resume);
         ResumeResDto resumeResDto = resumeMapper.resumeToResumeResDto(createdResume);
@@ -34,6 +36,7 @@ public class ResumeController {
     //자기소개서 수정
     @PutMapping("/{resume-id}")
     public ResponseEntity<?> putResume(@PathVariable("resume-id") Long resumeId, @RequestBody ResumeReqDto resumeReqDto) {
+        resumeReqDto.setUser(SecurityUtils.getUser().getUserId());
         Resume resume = resumeMapper.resumeReqDtoToResume(resumeReqDto);
         Resume updatedResume = resumeService.updateResume(resume, resumeId);
         ResumeResDto resumeResDto = resumeMapper.resumeToResumeResDto(updatedResume);
@@ -43,7 +46,7 @@ public class ResumeController {
     //자기소개서 조회
     @GetMapping("/{resume-id}")
     public ResponseEntity<?> getResume(@PathVariable("resume-id") Long resumeId) {
-        Resume foundResume = resumeService.readResume(resumeId);
+        Resume foundResume = resumeService.readResume(resumeId, SecurityUtils.getUser().getUserId());
         ResumeResDto resumeResDto = resumeMapper.resumeToResumeResDto(foundResume);
         return new ResponseEntity<>(resumeResDto, HttpStatus.OK);
     }
@@ -51,7 +54,7 @@ public class ResumeController {
     //자기소개서 전체 조회
     @GetMapping
     public ResponseEntity<?> getResumes(@PageableDefault(sort = "resumeId", direction = Sort.Direction.DESC) Pageable pageable) {
-        Page<Resume> resumePage = resumeService.readResumes(pageable);
+        Page<Resume> resumePage = resumeService.readResumes(pageable, SecurityUtils.getUser().getUserId());
         Page<ResumeSimpleResDto> resumeSimpleResDtos = resumePage.map(resume -> resumeMapper.resumeToResumeSimpleResDto(resume));
         return new ResponseEntity<>(resumeSimpleResDtos, HttpStatus.OK);
     }
@@ -59,7 +62,7 @@ public class ResumeController {
     //자기소개서 삭제
     @DeleteMapping("/{resume-id}")
     public ResponseEntity<?> deleteResume(@PathVariable("resume-id") Long resumeId) {
-        resumeService.deleteResume(resumeId);
+        resumeService.deleteResume(resumeId, SecurityUtils.getUser().getUserId());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

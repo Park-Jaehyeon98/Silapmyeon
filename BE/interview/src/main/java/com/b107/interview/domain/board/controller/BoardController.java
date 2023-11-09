@@ -3,9 +3,11 @@ package com.b107.interview.domain.board.controller;
 import com.b107.interview.domain.board.dto.*;
 import com.b107.interview.domain.board.entity.Board;
 import com.b107.interview.domain.board.service.BoardService;
+import com.b107.interview.domain.comment.dto.CommentResponse;
 import com.b107.interview.domain.report.dto.response.ReportResponse;
 import com.b107.interview.domain.report.service.ReportService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 public class BoardController {
@@ -79,6 +82,16 @@ public class BoardController {
                 .body(updateBoard);
     }
 
+    @GetMapping("/boards/search")
+    public  List<BoardAllResponse> searchBoard(@RequestParam String search){
+        log.info("[Get] 게시글 검색어 :" + search);
+        List<BoardAllResponse> searchBoard = boardService.findBySearch(search)
+                .stream()
+                .map(BoardAllResponse::new)
+                .collect(Collectors.toList());
+        return searchBoard;
 
+
+    }
 }
 

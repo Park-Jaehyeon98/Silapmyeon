@@ -1,0 +1,206 @@
+.resumeCreateTitle {
+  /* 큰 제목 */
+
+  position: absolute;
+  width: 487px;
+  height: 45px;
+  left: 415px;
+  top: 174px;
+
+  /* SSAFY 자소서 */
+  /*     
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%; */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+
+  color: #4962a2;
+}
+
+.resumeCreateCompany {
+  /* 짧은 input */
+
+  position: absolute;
+  width: 442px;
+  height: 87px;
+  left: 420px;
+  top: 269px;
+}
+
+.rectangle105,
+.rectangle105:focus {
+  /* Rectangle 105 */
+  z-index: 100;
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 200px;
+  height: 48px;
+  left: 82px;
+  top: -12px;
+
+  background: #ffffff;
+  border: none;
+  border-bottom: 3px solid #8186d5;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: black;
+  outline: none;
+}
+
+.resumeCreateCompanyName {
+  /* 기업명 */
+
+  position: absolute;
+  left: 0%;
+  right: 33.75%;
+  top: 4.6%;
+  bottom: 69.87%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.interviewBox {
+  /* 짧은 input */
+
+  position: absolute;
+  width: 442px;
+  height: 87px;
+  left: 838px;
+  top: 269px;
+}
+
+.rectangle106,
+.rectangle106:focus {
+  /* Rectangle 105 */
+  z-index: 100;
+
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 200px;
+  height: 48px;
+  left: 82px;
+  top: -12px;
+
+  background: #ffffff;
+  border: none;
+
+  border-bottom: 3px solid #8186d5;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: black;
+  outline: none;
+}
+
+.interviewTitle {
+  /* 기업명 */
+
+  position: absolute;
+  left: 0%;
+  right: 33.75%;
+  top: 4.6%;
+  bottom: 69.87%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.itemPlus {
+  /* 추가 button */
+
+  position: absolute;
+  width: 55px;
+  height: 52px;
+  left: 41%;
+  margin-top: 5%;
+
+  /* Rectangle 102 */
+
+  background: #494ca2;
+  border-radius: 10px;
+  color: white;
+  border: none;
+
+  font-size: 40px;
+}
+
+.itemMinus {
+  /* 추가 button */
+
+  position: absolute;
+  width: 55px;
+  height: 52px;
+  left: 49%;
+  margin-top: 5%;
+
+  /* Rectangle 102 */
+
+  background: #494ca2;
+  border-radius: 10px;
+  color: white;
+  border: none;
+
+  font-size: 40px;
+}
+
+.complete {
+  /* 완료 button */
+
+  position: absolute;
+  width: 131px;
+  height: 52px;
+  right: 0%;
+  margin-top: 10%;
+
+  /* Rectangle 99 */
+
+  /* position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%; */
+
+  background: #494ca2;
+  border: none;
+  border-radius: 10px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
+}
