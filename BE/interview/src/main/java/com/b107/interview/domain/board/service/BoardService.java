@@ -85,7 +85,7 @@ public class BoardService {
     }
 
 
-    public List<Board> findBySearch(String search) {
-        return boardRepository.findByBoardTitleContaining(search);
+    public Page<Board> findBySearch(Pageable pageable,String search) {
+        return boardRepository.findByBoardTitleContaining(pageable,search);
     }
 }
