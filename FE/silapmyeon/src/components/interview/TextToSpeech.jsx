@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { completeSpeech, tts, questionCount } from "../../atoms/atoms";
-import "./TextToSpeech.module.css"; // CSS 파일 경로에 주의
+import styles from "./TextToSpeech.module.css"; // CSS 파일 경로에 주의
 
 const TextToSpeech = ({ question }) => {
   const synthesis = window.speechSynthesis;
@@ -35,12 +35,9 @@ const TextToSpeech = ({ question }) => {
   }, [ttsState]);
 
   return (
-    <div className="text-to-speech">
-      <div>{question}</div>
+    <div>
+      <div className={styles.questionText}>{question}</div>
       <br />
-      {/* <button className="speak-button" onClick={speakText}>
-        음성으로 변환
-      </button> */}
     </div>
   );
 };
