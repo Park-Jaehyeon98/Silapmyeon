@@ -24,6 +24,8 @@ import ReviewList from "./pages/review/ReviewList";
 import ReviewCreate from "./pages/review/ReviewCreate";
 import ReviewDetail from "./pages/review/ReviewDetail";
 import ReviewModify from "./pages/review/ReviewModify";
+import ReportListView from "./pages/report/ReportListView";
+import ReportDetailView from "./pages/report/ReportDetailView";
 
 function App() {
   const isLogin = useRecoilValue(IsLoginSelector);
@@ -66,6 +68,10 @@ function App() {
                 <Route path="/review/:reviewId" element={<ReviewDetail />} />
                 <Route path="/review/:reviewId/modify" element={<ReviewModify />} />
                 <Route path="/review/create" element={<ReviewCreate />} />
+
+                {/* 모의면접 레포트 */}
+                <Route path="/report/list/:userId" element={<ReportListView />} />
+                <Route path="/report/detail/:id" element={<ReportDetailView />} />
               </Route>
             </Routes>
           </div>
