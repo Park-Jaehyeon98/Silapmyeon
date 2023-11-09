@@ -16,78 +16,112 @@ const WaitScreen = styled.div`
 const Eyetracking = () => {
   const webcamRef = useRef(null);
   const seesoRef = useRef(null);
+  const redDotRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
+  const [cnt, setCnt] = useState(0);
 
   useEffect(() => {
     async function initializeSeeso() {
       seesoRef.current = new EasySeeso();
 
-      // Seeso 초기화 및 설정
-      await seesoRef.current.init(
-        "YOUR_API_KEY", // 여기에 실제 API 키를 설정해야 합니다.
-        () => {
-          // Seeso 초기화 성공 콜백
+      try {
+        await seesoRef.current.init("dev_8czvx19yc3pxjt6g6b2gulybmzq4f5vg0aapculw", () => {
           console.log("Seeso initialized successfully.");
-          // Seeso 초기화 후 webcam을 렌더링
           renderWebcam();
-        },
-        () => {
-          // Seeso 초기화 실패 콜백
+        }, () => {
           console.error("Seeso initialization failed.");
-        }
-      );
+        });
 
-      // Seeso 시작 (웹캠을 사용하기 전에 Seeso를 시작해야 함)
-      await seesoRef.current.startTracking(
-        (gazeInfo) => {
-          // 눈의 움직임을 추적하는 콜백
-          console.log("Gaze Info:", gazeInfo);
-        },
-        (FPS, latency_min, latency_max, latency_avg) => {
-          // 디버그 정보 콜백
-          console.log("FPS:", FPS);
-          console.log("Latency (min/max/avg):", latency_min, latency_max, latency_avg);
-        }
-      );
+        await seesoRef.current.startTracking(
+          (gazeInfo) => {
+            console.log("Gaze Info:", gazeInfo);
+            updateRedDotPosition(gazeInfo);
+          },
+          (FPS, latency_min, latency_max, latency_avg) => {
+            console.log("FPS:", FPS);
+            console.log("Latency (min/max/avg):", latency_min, latency_max, latency_avg);
+          }
+        );
+      } catch (error) {
+        console.error("Seeso initialization error:", error);
+      }
     }
 
-    // Seeso 초기화 함수 호출
     initializeSeeso();
   }, []);
 
-  // Webcam을 렌더링하는 함수
   const renderWebcam = () => {
     if (webcamRef.current) {
-      webcamRef.current.video = webcamRef.current.getCanvas();
+      const monitorWidth = window.innerWidth;
+      const monitorHeight = window.innerHeight;
+      webcamRef.current.video.width = monitorWidth;
+      webcamRef.current.video.height = monitorHeight;
+      canvasRef.current.width = monitorWidth;
+      canvasRef.current.height = monitorHeight;
     }
   };
 
+  const updateRedDotPosition = (gazeInfo) => {
+    const dotSize = 10;
+    const x = (window.innerWidth - dotSize) / 2 + gazeInfo.fixationX * window.innerWidth;
+    const y = (window.innerHeight - dotSize) / 2 + gazeInfo.fixationY * window.innerHeight;
+
+    if (gazeInfo.fixationX < 0 || gazeInfo.fixationX > 1 || gazeInfo.fixationY < 0 || gazeInfo.fixationY > 1) {
+      setCnt(cnt + 1);
+      redDotRef.current.style.display = "none";
+    } else {
+      setDotPosition({ x, y });
+      redDotRef.current.style.display = "block";
+    }
+  };
+
+  useEffect(() => {
+    console.log("cnt:", cnt);
+  }, [cnt]);
+
   return (
     <>
-      <WaitScreen>
-        <canvas
-          id="output"
-          style={{
-            position: "absolute",
-            height: "100%",
-            width: "100%",
-            zIndex: 9999,
-          }}
-        />
+      <div style={{ position: "relative" }}>
         {webcamRef.current && (
           <Webcam
             ref={webcamRef}
             style={{
               position: "absolute",
-              width: "100%",
-              height: "auto",
+              width: "1000px",
+              height: "1000px",
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
             }}
-            audio={false} // 오디오 캡처 여부 설정 (true 또는 false)
+            audio={false}
           />
         )}
-      </WaitScreen>
+        <div
+          ref={redDotRef}
+          style={{
+            position: "absolute",
+            width: "30px",
+            height: "30px",
+            backgroundColor: "red",
+            borderRadius: "50%",
+            zIndex: 10000,
+            left: dotPosition.x + "px",
+            top: dotPosition.y + "px",
+          }}
+        />
+        <canvas
+          id="output"
+          ref={canvasRef}
+          style={{
+            position: "absolute",
+            height: "1000px",
+            width: "1000px",
+            zIndex: 9999,
+            opacity: 0.5,
+          }}
+        />
+      </div>
     </>
   );
 };
