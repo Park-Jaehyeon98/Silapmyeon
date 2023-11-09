@@ -5,6 +5,7 @@ import AltCam from "./cam.png";
 import { camState } from "../../atoms/atoms";
 import AudioRecord from "./AudioRecord";
 import { Link } from "react-router-dom";
+import styles from "./Self.module.css";
 
 function Self() {
   const videoConstraints = {
@@ -24,7 +25,7 @@ function Self() {
       .toString()
       .padStart(2, "0");
     const remainingSeconds = (seconds % 60).toString().padStart(2, "0");
-    return `${minutes}:${remainingSeconds}`;
+    return `${minutes} : ${remainingSeconds}`;
   };
 
   function handleTimeData(time) {
@@ -36,37 +37,48 @@ function Self() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
+      <div>
+        <div className={styles.timerLabel}> TIMER </div>
+        <div className={styles.timerContainer}>{formatTime(timer)}</div>
+      </div>
       {useCam ? (
-        <Webcam
-          audio={false}
-          height={360}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          width={640}
-          videoConstraints={videoConstraints}
-          mirrored={true}
-        ></Webcam>
+        <div className={styles.webcamContainer}>
+          <Webcam
+            audio={false}
+            height={360}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            width={640}
+            videoConstraints={videoConstraints}
+            mirrored={true}
+          ></Webcam>
+        </div>
       ) : (
-        <img width={640} height={360} src={AltCam} alt="cam" />
+        <div className={styles.webcamImage}>
+          <img width={640} height={360} src={AltCam} alt="cam" />
+        </div>
       )}
-      <p>타이머: {formatTime(timer)}</p>
-      <input type="text" />
+
+      <input
+        type="text"
+        placeholder="연습 문항 질문을 입력하세요."
+        className={styles.inputText}
+      />
       <br />
       <br />
       {!hide && (
         <textarea
-          style={{
-            width: "300px",
-            height: "200px",
-            resize: "none",
-          }}
+          placeholder="연습 문항 답변을 입력하세요."
+          className={styles.textArea}
         />
       )}
-      <button onClick={handleHideButton}>숨기기</button>
+      <button onClick={handleHideButton} className={styles.button}>
+        숨기기
+      </button>
       <AudioRecord onData={handleTimeData} />
       <Link to={"/"}>
-        <button>종료</button>
+        <button className={styles.button}>종료</button>
       </Link>
     </div>
   );
