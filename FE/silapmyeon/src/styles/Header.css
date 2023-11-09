@@ -1,59 +1,59 @@
-.header{
-/* 상단바 - 면접진행중 */
+.header {
+  /* 상단바 - 면접진행중 */
 
-    position: relative;
-    /* width: 1441px; */
-    height: 90px;
-    left: 95px;
-    top: 174px;
+  position: relative;
+  /* width: 1441px; */
+  height: 90px;
+  left: 95px;
+  top: 174px;
 
-    /* Rectangle 5 */
+  /* Rectangle 5 */
 
-    /* position: absolute; */
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
+  /* position: absolute; */
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
 
-    background: #C6CBEF;
+  background: #c6cbef;
 }
 
-.logo{
-    /* LOGO */
-    
-        position: absolute;
-        left: 3.75%;
-        right: 85.15%;
-        top: 25.56%;
-        bottom: 26.58%;
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 32px;
-        line-height: 39px;
-        text-align: center;
-    
-        color: #000000;
+.logo {
+  /* LOGO */
+
+  position: absolute;
+  left: 3.75%;
+  right: 85.15%;
+  top: 25.56%;
+  bottom: 26.58%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+
+  color: #000000;
 }
 
-.logout{
-/* 로그아웃 */
+.logout {
+  /* 로그아웃 */
 
-    position: absolute;
-    left: 88.83%;
-    right: 0.07%;
-    top: 27.78%;
-    bottom: 28.05%;
+  position: absolute;
+  left: 88.83%;
+  right: 0.07%;
+  top: 27.78%;
+  bottom: 28.05%;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-    color: #000000;
+  color: #000000;
 }

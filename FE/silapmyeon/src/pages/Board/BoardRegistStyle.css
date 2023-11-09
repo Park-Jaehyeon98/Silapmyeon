@@ -1,43 +1,41 @@
-.registCommunity{
-    margin: 20px;
+.registCommunity {
+  margin: 20px;
 }
 
-.registTitle{
-    display: flex;
-    flex-direction: row;
+.registTitle {
+  display: flex;
+  flex-direction: row;
 }
-.registReport{
-    display: flex;
-    flex-direction: row;
-    
+.registReport {
+  display: flex;
+  flex-direction: row;
 }
-.textBig{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    color: #000000;
-    margin-right: 10px;
+.textBig {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin-right: 10px;
+}
+.registInput {
+  width: 800px;
+  height: 200px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 
-}
-.registInput{
-    width: 800px;
-    height: 200px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    background-color: white;
-    border: 2px solid #8186D5;
-    outline:none;
-    vertical-align: top;
-    border-radius: 10px;
-    resize: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  background-color: white;
+  border: 2px solid #8186d5;
+  outline: none;
+  vertical-align: top;
+  border-radius: 10px;
+  resize: none;
 }

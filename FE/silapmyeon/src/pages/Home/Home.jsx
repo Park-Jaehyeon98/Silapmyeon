@@ -1,13 +1,8 @@
 import React from "react";
-import "./Home.css"
+import "./Home.css";
 
-function Home(){
-    return(
-        <div className="home">
-            home화면
-        </div>
-    );
-
+function Home() {
+  return <div className="home">home화면</div>;
 }
 
 export default Home;

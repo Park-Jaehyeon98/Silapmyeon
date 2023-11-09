@@ -1,22 +1,17 @@
 .App {
   display: flex;
   flex-direction: column;
-
-  
 }
 
-.main{
+.main {
   display: flex;
   min-height: 100vh;
   /* height: 100vh; */
-
 }
-.page{
-  flex:1;
+.page {
+  flex: 1;
   overflow: auto;
   padding: 30px;
   margin-top: 5%;
   margin-left: 5%;
-  
-  
 }
