@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getReportById } from '../../api/report';
 import { useParams } from 'react-router-dom';
-import styles from '../../styles/ReportDetail.module.css'
+import styles from '../../styles/reportDetail.module.css'
 
 const ReportDetailView = () => {
   const [data, setData] = useState();
