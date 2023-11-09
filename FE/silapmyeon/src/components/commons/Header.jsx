@@ -14,14 +14,13 @@ function Header() {
   var isLogin = useRecoilValue(IsLoginSelector);
 
   const handleLogout = () => {
-    logoutUser().then((res) => {
+    logoutUser().then(() => {
       setUserValue({});
       setIsLogin(false);
       sessionStorage.removeItem("user");
+      // console.log("로그아웃 -------------" + isLogin);
 
-      console.log("로그아웃 -------------" + isLogin);
-
-      navigate("/");
+      navigate("/intro");
     });
   };
 
