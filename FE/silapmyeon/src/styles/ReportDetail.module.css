@@ -1,0 +1,51 @@
+.container {
+    font-family: 'Arial', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+.titleContainer {
+    padding-left: 15px;
+    border-left: solid #494CA2;
+}
+
+.titleContainer > h1 {
+    font-weight: 400;
+    color: #4962A2;
+    margin: 5px;
+}
+
+.interviewContainer {
+    padding: 0px 50px 0px 0px;
+}
+
+.interviewContainer > h2 {
+    color: #494CA2;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.interview {
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 10% 50% 40%;
+}
+
+.interview :not(:first-child) {
+    margin-top: 26px;
+}
+
+.interviewItem:first-child {
+    border-top: #494CA2 solid;
+}
+
+.interviewItem:first-child p {
+    margin-top: 20px;
+    font-size: 23px;
+    color: #494CA2;
+}
+
+.qna {
+    height: 50%;
+    padding-left: 30px;
+}
