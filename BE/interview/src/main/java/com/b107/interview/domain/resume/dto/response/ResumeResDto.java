@@ -1,5 +1,6 @@
 package com.b107.interview.domain.resume.dto.response;
 
+import com.b107.interview.domain.review.dto.response.ReviewSimpleResDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +17,5 @@ public class ResumeResDto {
     private LocalDateTime createdTime;
     private LocalDateTime modifiedTime;
     private List<ResumeItemResDto> resumeItems;
-    private Long reviewId;
+    private List<ReviewSimpleResDto> reviews;
 }
