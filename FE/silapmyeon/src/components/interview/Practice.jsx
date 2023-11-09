@@ -1,16 +1,20 @@
 import { useRef, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { axiosAuth } from "../../api/settingAxios";
+import axios from "../../api/api";
 import Webcam from "react-webcam";
 import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
+import styles from "./Practice.module.css";
 import {
   camState,
   questionCount,
   tts,
   stt,
   completeSpeech,
+  selectedType,
+  selectedQuestion,
+  resumeId,
 } from "../../atoms/atoms";
 import { Link } from "react-router-dom";
 
@@ -29,6 +33,11 @@ function Practice() {
   const [sttState, setSttState] = useRecoilState(stt);
   const [completeSpeechState, setCompleteSpeechState] =
     useRecoilState(completeSpeech);
+  const [selectedTypeState, setSelectedTypeState] =
+    useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] =
+    useRecoilState(selectedQuestion);
+  const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
 
   const [question, setQuestion] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -67,7 +76,13 @@ function Practice() {
 
     window.addEventListener("beforeunload", handleBeforeUnload);
 
-    axiosAuth.get("/interview/" + "12").then((response) => {
+    const body = {
+      type: selectedTypeState,
+      question: selectedQuestionState,
+      resume: resumeIdState,
+    };
+
+    axios.post("/interview", body).then((response) => {
       console.log(response.data.question);
       setQuestion(response.data.question);
       setIsLoading((prev) => !prev);
@@ -79,46 +94,56 @@ function Practice() {
   }, []);
 
   return (
-    <div>
-      <h1>연습</h1>
-      <p>타이머: {formatTime(timer)}</p>
-      {useCam ? (
-        <Webcam
-          audio={false}
-          height={360}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          width={640}
-          videoConstraints={videoConstraints}
-          mirrored={true}
-        ></Webcam>
-      ) : (
-        <img width={640} height={360} src={AltCam} alt="cam" />
-      )}
+    <div className={styles.container}>
       <div>
-        <h3>질문 횟수</h3>
-        <h2>{qCount}</h2>
+        <div className={styles.timerLabel}> TIMER </div>
+        <div className={styles.timerContainer}>{formatTime(timer)}</div>
+      </div>
+      <div className={styles.webcamContainer}>
+        {useCam ? (
+          <Webcam
+            audio={false}
+            height={360}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            width={640}
+            videoConstraints={videoConstraints}
+            mirrored={true}
+          ></Webcam>
+        ) : (
+          <img width={640} height={360} src={AltCam} alt="cam" />
+        )}
+      </div>
+      <div className={styles.questionCountContainer}>
+        <div className={styles.questionCountTitle}>질문 횟수</div>
+        <div className={styles.questionCount}>{qCount}</div>
       </div>
       {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
       {qCount !== 0 ? <SpeechToText onData={handleSTTData} /> : null}
-      <button
-        onClick={handleReplay}
-        disabled={isLoading || ttsState ? true : false}
-      >
-        다시하기
-      </button>
-      {qCount === 5 ? (
-        <Link to={"/"}>
-          <button disabled={isLoading || ttsState ? true : false}>종료</button>
-        </Link>
-      ) : (
+      <div>
         <button
-          onClick={handleNextButton}
-          disabled={isLoading || ttsState ? true : false}
+          className={styles.button}
+          onClick={handleReplay}
+          disabled={isLoading || ttsState}
         >
-          {qCount !== 0 ? "다음" : "시작"}
+          다시하기
         </button>
-      )}
+        {qCount === 5 ? (
+          <Link to={"/"}>
+            <button className={styles.button} disabled={isLoading || ttsState}>
+              종료
+            </button>
+          </Link>
+        ) : (
+          <button
+            className={styles.button}
+            onClick={handleNextButton}
+            disabled={isLoading || ttsState}
+          >
+            {qCount !== 0 ? "다음" : "시작"}
+          </button>
+        )}
+      </div>
     </div>
   );
 }

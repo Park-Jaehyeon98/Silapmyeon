@@ -4,7 +4,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import { useRecoilState } from "recoil";
 import { completeSpeech, stt } from "../../atoms/atoms";
-import "./SpeechToText.module.css";
+import styles from "./SpeechToText.module.css";
 
 function SpeechToText({ onData }) {
   const {
@@ -99,12 +99,10 @@ function SpeechToText({ onData }) {
 
   return (
     <div>
-      <div>{transcript}</div>
-      <p>마이크: {microphoneOn ? (listening ? "켜짐" : "꺼짐") : "꺼짐"}</p>
-
-      {/* <button onClick={handleStartListening}>시작</button> */}
-      <button onClick={handleStopListening}>정지</button>
-      {/* <button onClick={handleResetTranscript}>리셋</button> */}
+      <div className={styles.answerText}>{transcript}</div>
+      <button className={styles.button} onClick={handleStopListening}>
+        정지
+      </button>
     </div>
   );
 }
