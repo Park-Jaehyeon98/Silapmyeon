@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "../Board/BoardRegistStyle.css";
-import axios from "axios";
+import { axiosAuth } from "../../api/settingAxios";
+
+import { useRecoilState } from "recoil";
+import { UserAtom } from "../../Recoil/UserAtom";
 
 function BoardRegist() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [reports, setReport] = useState([]);
   const [selectedReport, setSelectedReport] = useState(null);
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo4LFwidXNlckVtYWlsXCI6XCJhZGgzNTc2QGdtYWlsLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTkzNDQ0OTEsImV4cCI6MTcwMDU1NDA5MX0.68-q9pBIuhU_8JFxdcpUqlR6CruwZQ0Rjxm_zNbg-E4";
+  const [userValue, setUserValue] = useRecoilState(UserAtom);
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
+  const handleReportSelect = (reportId) => {
+    setSelectedReport(reportId);
   };
 
-  const handleReportSelect = (report) => {
-    setSelectedReport(report.id); //리포트 id확인하기
-  };
-
-  const handleCreatePost = () => {
+  const handleCreatePost = async () => {
     const postData = {
       title: title,
       content: content,
-      userId: 10,
-      reportId: "654300b418ac532355336c59",
+      userId: userValue.userId,
+      reportId: selectedReport,
     };
 
     if (postData.title === "") window.confirm("제목을 입력해 주세요.");
@@ -33,8 +29,9 @@ function BoardRegist() {
     else {
       const confirmed = window.confirm("게시글을 등록하시겠습니까?");
       if (confirmed) {
-        axios
-          .post("https://silapmyeon.com/api/boards", postData, config)
+        const reqUrl = "/boards";
+        await axiosAuth
+          .post(reqUrl, postData)
           .then((response) => {
             console.log("글 작성 완료");
             window.location.href = "/community";
@@ -45,6 +42,18 @@ function BoardRegist() {
       }
     }
   };
+  useEffect(() => {
+    const reqUrl = "report/list/" + userValue.userId;
+    axiosAuth
+      .get(reqUrl)
+      .then((response) => {
+        console.log(response.data);
+        setReport(response.data);
+      })
+      .catch((error) => {
+        console.error("리포트 가져오기 오류", error);
+      });
+  }, []);
 
   return (
     <div className="registContainer">
@@ -62,7 +71,7 @@ function BoardRegist() {
             <div style={{ height: "0px", border: "1px solid #494CA2" }}></div>
           </div>
         </div>
-        <div className="registContent" style={{ margin: "10px" }}>
+        <div className="registContent">
           <textarea
             type="text"
             value={content}
@@ -71,13 +80,13 @@ function BoardRegist() {
             className="registInput"
           ></textarea>
         </div>
-        <div className="registReport" style={{ margin: "10px" }}>
+        <div className="registReport" style={{ margin: "3px" }}>
           <div className="textBig">리포트</div>
           <select onChange={(e) => handleReportSelect(e.target.value)}>
             <option value="">선택해 주세요.</option>
             {reports.map((report) => (
               <option key={report.id} value={report.id}>
-                {report.title}
+                {report.company}
               </option>
             ))}
           </select>

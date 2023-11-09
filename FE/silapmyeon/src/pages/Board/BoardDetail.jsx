@@ -3,29 +3,26 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../Board/BoardDetailStyle.css";
 import Comment from "../../components/Comment/Comment";
-import axios from "axios";
+import { axiosAuth } from "../../api/settingAxios";
+import { useRecoilState } from "recoil";
+import { UserAtom } from "../../Recoil/UserAtom";
+import Report from "../../components/Report/Report";
 
 function BoardDetail() {
   const { boardId } = useParams();
-  const [report, setReport] = useState([]);
+  const [report, setReport] = useState(null);
   const [board, setBoard] = useState({ createdTime: "" });
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
-
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo4LFwidXNlckVtYWlsXCI6XCJhZGgzNTc2QGdtYWlsLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTkzNDQ0OTEsImV4cCI6MTcwMDU1NDA5MX0.68-q9pBIuhU_8JFxdcpUqlR6CruwZQ0Rjxm_zNbg-E4";
-  const config = {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  };
+  const [userValue, setUserValue] = useRecoilState(UserAtom);
 
   //글 삭제하기
-  function handleDelete() {
+  const handleDelete = async () => {
     const confirmed = window.confirm("게시글을 삭제하시겠습니까?");
     if (confirmed) {
-      axios
-        .delete("https://silapmyeon.com/api/boards/" + boardId, config)
+      const reqUrl = "/boards/" + boardId;
+      await axiosAuth
+        .delete(reqUrl)
         .then((response) => {
           console.log("글 삭제 완료");
           window.location.href = "/community";
@@ -34,11 +31,11 @@ function BoardDetail() {
           console.error("글 삭제 오류 발생", error);
         });
     }
-  }
-  function handleCommentSubmit() {
+  };
+  const handleCommentSubmit = async () => {
     const commentData = {
       content: commentText,
-      userId: 1,
+      userId: userValue.userId,
       boardId: boardId,
     };
     console.log(commentData);
@@ -46,8 +43,9 @@ function BoardDetail() {
     else {
       const confirmed = window.confirm("댓글을 등록하시겠습니까?");
       if (confirmed) {
-        axios
-          .post("https://silapmyeon.com/api/comments", commentData, config)
+        const reqUrl = "comments";
+        await axiosAuth
+          .post(reqUrl, commentData)
           .then((response) => {
             console.log("댓글 등록 완료");
             window.location.href = "/community/detail/" + board.boardId;
@@ -57,19 +55,16 @@ function BoardDetail() {
           });
       }
     }
-  }
+  };
   useEffect(() => {
-    fetch("https://silapmyeon.com/api/boards/" + boardId, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const { boardResponse, reportResponse } = data;
+    const reqUrl = "/boards/" + boardId;
+    axiosAuth
+      .get(reqUrl)
+      .then((response) => {
+        console.log(response);
+        const { boardResponse, reportResponse } = response.data;
         setBoard(boardResponse);
-        setReport(reportResponse);
+        if (reportResponse != null) setReport(reportResponse);
         setComments(boardResponse.comments);
       })
       .catch((error) => {
@@ -88,35 +83,38 @@ function BoardDetail() {
           <div className="boardDate">{board.createdTime.substring(0, 10)}</div>
           <div className="boardHits">조회수 {board.hit}</div>
         </div>
-        <div className="boardEdit">
-          <div
-            style={{ margin: "5px", marginLeft: "auto" }}
-            onClick={handleDelete}
-          >
-            삭제
+        {board.userId === userValue.userId && (
+          <div className="boardEdit">
+            <div
+              style={{ margin: "5px", marginLeft: "auto" }}
+              onClick={handleDelete}
+            >
+              삭제
+            </div>
+            <Link
+              to={"/community/edit"}
+              state={board}
+              style={{
+                width: "70px",
+                margin: "5px",
+                paddingRight: "10px",
+                textDecoration: "none",
+                color: "#828282",
+              }}
+            >
+              수정
+            </Link>
           </div>
-          <Link
-            to={"/community/edit"}
-            state={board}
-            style={{
-              margin: "5px",
-              paddingRight: "10px",
-              textDecoration: "none",
-              color: "#828282",
-            }}
-          >
-            수정
-          </Link>
-        </div>
+        )}
 
         <div className="boardMiddle">
           <div className="boardContent">{board.content}</div>
-          {/* <Report report = {report} className = "report"> </Report> */}
+          {report != null && <Report data={report}></Report>}
 
           <div className="commentContainer">
             <div className="commentRegistUser">
-              <img className="registImg"></img>
-              <div className="registNickname">김싸피</div>
+              <img className="registImg" src={userValue.userProfileUrl}></img>
+              <div className="registNickname">{userValue.userNickname}</div>
             </div>
             <div className="boardComment">
               <div className="commentRegist">

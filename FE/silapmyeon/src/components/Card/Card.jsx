@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Card/CardStyle.css";
 
-function Card({ card, user }) {
+function Card({ card }) {
   const date = card.createdTime.substring(0, 10);
   return (
     <div className="card">

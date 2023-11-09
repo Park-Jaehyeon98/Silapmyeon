@@ -2,32 +2,27 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Board/BoardStyle.css";
 import Card from "../../components/Card/Card";
-import axios from "axios";
+import { axiosAuth } from "../../api/settingAxios";
 
 function Board() {
   const [cards, setCards] = useState([]);
-  const [user, setUser] = useState(null);
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo4LFwidXNlckVtYWlsXCI6XCJhZGgzNTc2QGdtYWlsLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTkzNDQ0OTEsImV4cCI6MTcwMDU1NDA5MX0.68-q9pBIuhU_8JFxdcpUqlR6CruwZQ0Rjxm_zNbg-E4";
+
   const [pageInfo, setPageInfo] = useState({
     pageNumber: 0,
     pageSize: 9,
   });
+
   const [searchText, setSearchText] = useState("");
   const [first, setFirst] = useState("true");
   const [last, setLast] = useState("false");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  };
-  const handleSearch = () => {
-    axios
-      .get(
-        "http://silapmyeon.com:8080/boards/search?search=" + searchText,
-        config
-      )
+
+  const handleSearch = async () => {
+    const reqUrl =
+      "/boards/search?page=" + pageInfo.pageNumber + "&search=" + searchText;
+    await axiosAuth
+      .get(reqUrl)
       .then((response) => {
+        console.log(response.data);
         const responseData = response.data;
         const searchData = responseData.content;
 
@@ -47,26 +42,28 @@ function Board() {
   };
 
   useEffect(() => {
-    fetch("https://silapmyeon.com/api/boards?page=" + pageInfo.pageNumber, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        const { content, pageable, first, last } = data;
-        content.sort(
+    console.log(searchText);
+    const reqUrl =
+      "/boards/search?page=" + pageInfo.pageNumber + "&search=" + searchText;
+    axiosAuth
+      .get(reqUrl)
+      .then((response) => {
+        console.log(response.data);
+        const responseData = response.data;
+        const searchData = responseData.content;
+
+        searchData.sort(
           (a, b) => new Date(b.createdTime) - new Date(a.createdTime)
         );
-        console.log();
-        setCards(content);
-        setPageInfo(pageable);
-        setFirst(first);
-        setLast(last);
+        if (searchData.length > 0) {
+          setCards(searchData);
+          setPageInfo(responseData.pageable);
+          setFirst(responseData.first);
+          setLast(responseData.last);
+        } else window.confirm("검색어가 존재하지 않습니다.");
       })
       .catch((error) => {
-        console.error("Board api호출 오류", error);
+        console.error("글 검색 오류 발생", error);
       });
   }, [pageInfo.pageNumber]);
 
@@ -104,7 +101,7 @@ function Board() {
             to={`/community/detail/${cardData.boardId}`}
             className="cardLink"
           >
-            <Card card={cardData} user={user}></Card>
+            <Card card={cardData}></Card>
           </Link>
         ))}
       </div>

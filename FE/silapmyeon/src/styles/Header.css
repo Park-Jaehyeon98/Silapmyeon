@@ -18,25 +18,24 @@
   background: #c6cbef;
 }
 
-.logo{
-    /* LOGO */
-    
-        position: absolute;
-        left: 3.75%;
-        right: 85.15%;
-        top: 25.56%;
-        bottom: 26.58%;
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 32px;
-        line-height: 39px;
-        text-align: center;
-        text-decoration: none;
-    
-        color: #000000;
+.logo {
+  /* LOGO */
 
+  position: absolute;
+  left: 3.75%;
+  right: 85.15%;
+  top: 25.56%;
+  bottom: 26.58%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  text-decoration: none;
+
+  color: #000000;
 }
 
 .logout {
@@ -57,38 +56,35 @@
   align-items: center;
   text-align: center;
 
-    color: #000000;
+  color: #000000;
 }
-
 
 .loginbutton {
-    position: absolute;
-    left: 88.83%;
-    right: 0.07%;
-    top: 27.78%;
-    bottom: 28.05%;
-    background: none;
-    border-radius: 30px;
-    border: none;
+  position: absolute;
+  left: 88.83%;
+  right: 0.07%;
+  top: 27.78%;
+  bottom: 28.05%;
+  background: none;
+  border-radius: 30px;
+  border: none;
 
-    /* background-color: rebeccapurple; */
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    text-decoration: none;
-    white-space: nowrap;
+  /* background-color: rebeccapurple; */
 
-    color: #000000;
-    &:hover {
-        color: #8186D5;
-    }
- 
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  color: #000000;
+  &:hover {
+    color: #8186d5;
+  }
 }
-

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
+import { axiosAuth } from "../../api/settingAxios";
+import { useRecoilState } from "recoil";
+import { UserAtom } from "../../Recoil/UserAtom";
 
 function BoardEdit() {
   const [reports, setReport] = useState([]);
@@ -10,17 +12,9 @@ function BoardEdit() {
     content: "",
     reportId: "",
   });
+  const [userValue, setUserValue] = useRecoilState(UserAtom);
   const location = useLocation();
-
   const boardData = location.state;
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjo4LFwidXNlckVtYWlsXCI6XCJhZGgzNTc2QGdtYWlsLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTkzNDQ0OTEsImV4cCI6MTcwMDU1NDA5MX0.68-q9pBIuhU_8JFxdcpUqlR6CruwZQ0Rjxm_zNbg-E4";
-  const config = {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  };
-
   const handleTitleChange = (e) => {
     setEditedBoard({ ...editedBoard, title: e.target.value });
   };
@@ -29,19 +23,16 @@ function BoardEdit() {
     setEditedBoard({ ...editedBoard, content: e.target.value });
   };
 
-  const handleReportChange = (e) => {
+  const handleReportChange = async (e) => {
     setEditedBoard({ ...editedBoard, reportId: e.target.value });
   };
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     if (editedBoard.title === "") window.confirm("제목을 입력해 주세요.");
     else if (editedBoard.content === "") window.confirm("내용을 입력해 주세요");
     else {
-      axios
-        .put(
-          "https://silapmyeon.com/api/boards/" + board.boardId,
-          editedBoard,
-          config
-        )
+      const reqUrl = "/boards/" + board.boardId;
+      await axiosAuth
+        .put(reqUrl, editedBoard)
         .then((response) => {
           console.log("게시글 수정 완료");
           const confirmed = window.confirm("게시글 수정이 완료 되었습니다.");
