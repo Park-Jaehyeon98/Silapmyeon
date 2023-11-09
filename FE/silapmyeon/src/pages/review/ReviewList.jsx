@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 import { axiosAuth } from "../../api/settingAxios";
 import { useEffect, useState } from "react";
+import styles from "./ReviewListStyle.module.css";
 
 function ReviewList() {
   const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
   const getReviews = async (page) => {
     const resp = await axiosAuth.get(`/review?page=${page}`);
     console.log(resp);
     setReviews(resp.data.content);
+    setTotalPages(resp.data.totalPages);
   };
 
   const [reviews, setReviews] = useState([]);
@@ -28,19 +32,62 @@ function ReviewList() {
     }
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const pageNums = [];
+  const maxPagesToShow = 5;
+
+  const startIndex = Math.floor(currentPage / maxPagesToShow) * 5;
+  const endIndex = Math.min(totalPages, startIndex + 5);
+
+  pageNums.push(
+    <a
+      className={styles.pn}
+      onClick={() => handlePageChange(startIndex - 1 < 0 ? 0 : startIndex - 1)}
+    >
+      이전
+    </a>
+  );
+  for (let index = startIndex; index < endIndex; index++) {
+    console.log("currentPage:", currentPage);
+    console.log("index + 1:", index + 1);
+
+    pageNums.push(
+      <a
+        key={index}
+        onClick={() => handlePageChange(index)}
+        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+      >
+        {index + 1}
+      </a>
+    );
+  }
+  pageNums.push(
+    <a
+      className={styles.pn}
+      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+    >
+      다음
+    </a>
+  );
+
   return (
     <div style={{ height: "100vh" }}>
-      <div>면접 후기</div>
+      <div className={styles.title}>면접 후기</div>
+      <div className={styles.searchBoxText}>🔎 기업명 검색</div>
+      <input className={styles.searchBox} />
       <Link to={"/review/create"}>
-        <button>+</button>
+        <button className={styles.plusButton}>+</button>
       </Link>
 
-      <table>
-        <thead>
+      <table className={styles.table}>
+        <thead className={styles.thead}>
           <tr>
             <th>번호</th>
             <th>기업명</th>
-            <th>년도</th>
+            <th>연도</th>
             <th>분기</th>
             <th>경력</th>
             <th>단계</th>
@@ -49,13 +96,10 @@ function ReviewList() {
         <tbody>
           {reviews.map((review, idx) => {
             return (
-              <tr>
-                <td>{idx + 1}</td>
-                <Link
-                  to={`${review.reviewId}`}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <td>{review.companyName}</td>
+              <tr className={styles.tb}>
+                <td>{currentPage * 10 + idx + 1}</td>
+                <Link to={`${review.reviewId}`} style={{ textDecoration: "none", color: "black" }}>
+                  <td style={{ lineHeight: "52px" }}>{review.companyName}</td>
                 </Link>
                 <td>{review.interviewDate.substring(0, 4)}</td>
                 <td>{calculateQuarter(review.interviewDate)}</td>
@@ -65,6 +109,7 @@ function ReviewList() {
             );
           })}
         </tbody>
+        <div className={styles.pageNums}>{pageNums}</div>
       </table>
     </div>
   );

@@ -14,18 +14,7 @@ function ReviewCreate() {
     setModal(true);
   };
 
-  useEffect(() => {
-    if (interviewDate != null) {
-      setYear(interviewDate.substring(0, 4));
-      setQuarter(calculateQuarter(interviewDate));
-    } else {
-      setYear(null);
-      setQuarter(null);
-    }
-  }, [interviewDate, resumeId]);
-
-  const [year, setYear] = useState(null);
-  const [quarter, setQuarter] = useState(null);
+  useEffect(() => {}, [resumeId]);
 
   const calculateQuarter = (date) => {
     const month = Number(date.substring(5, 7));
@@ -40,17 +29,14 @@ function ReviewCreate() {
     }
   };
 
-  const handleModalChange = (
-    flag,
-    newCompanyName,
-    newInterviewDate,
-    newResumeId
-  ) => {
-    setInterviewDate(newInterviewDate);
+  const handleModalChange = (flag, newCompanyName, newInterviewDate, newResumeId) => {
+    if (newResumeId != null) {
+      setInterviewDate(newInterviewDate);
+      setCompanyName(newCompanyName);
+      setResumeId(newResumeId);
+    }
 
-    setCompanyName(newCompanyName);
     setModal(flag);
-    setResumeId(newResumeId);
 
     console.log(modal);
     console.log(companyName);
@@ -164,16 +150,12 @@ function ReviewCreate() {
       </button>
       <div>
         <div className={styles.companyNameText}>기업명 </div>{" "}
-        <input
-          value={companyName}
-          readOnly
-          className={styles.companyNameInput}
-        />
+        <input value={companyName} readOnly className={styles.companyNameInput} />
       </div>
       <div>
         <input
           placeholder="연도"
-          value={year}
+          value={interviewDate != null ? interviewDate.substring(0, 4) : ""}
           readOnly
           className={styles.yearBox}
         />
@@ -182,7 +164,7 @@ function ReviewCreate() {
         <input
           placeholder="분기"
           className={styles.quarterBox}
-          value={quarter}
+          value={interviewDate != null ? calculateQuarter(interviewDate) : ""}
           readOnly
         />
       </div>
@@ -210,14 +192,8 @@ function ReviewCreate() {
           onChange={reviewJobChange}
         />
       </div>
-      <div className={styles.qTitleText}>
-        가장 기억에 남는 질문 한 가지를 남겨주세요.
-      </div>
-      <input
-        className={styles.qInputBox}
-        value={reviewQuestion}
-        onChange={reviewQuestionChange}
-      />
+      <div className={styles.qTitleText}>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
+      <input className={styles.qInputBox} value={reviewQuestion} onChange={reviewQuestionChange} />
       <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
       <textarea
         className={styles.aInputBox}

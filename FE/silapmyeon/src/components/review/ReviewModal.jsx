@@ -5,10 +5,7 @@ import styles from "./ReviewModalStyle.module.css";
 function ReviewModal({ onModalChange }) {
   const closeModal = () => {
     const flag = false;
-    const newCompanyName = null;
-    const newInterviewDate = null;
-    const newResumeId = 0;
-    onModalChange(flag, newCompanyName, newInterviewDate, newResumeId);
+    onModalChange(flag);
   };
 
   const [resumes, setResumes] = useState([]);
@@ -20,7 +17,7 @@ function ReviewModal({ onModalChange }) {
   const endIndex = Math.min(totalPages, startIndex + 5);
 
   const getResumes = async (page) => {
-    const res = await axiosAuth.get(`/resume?page=${page}`);
+    const res = await axiosAuth.get(`/resume?page=${page}&size=5`);
     console.log(res.data.content);
     console.log(res.data);
     setResumes(res.data.content);
@@ -41,6 +38,7 @@ function ReviewModal({ onModalChange }) {
     <a
       style={{
         fontWeight: "bold",
+        cursor: "pointer",
       }}
       onClick={() => handlePageChange(startIndex - 1 < 0 ? 0 : startIndex - 1)}
     >
@@ -55,9 +53,7 @@ function ReviewModal({ onModalChange }) {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${
-          currentPage == index ? styles.selectedPage : ""
-        }`}
+        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
       >
         {index + 1}
       </a>
@@ -67,12 +63,9 @@ function ReviewModal({ onModalChange }) {
     <a
       style={{
         fontWeight: "bold",
+        cursor: "pointer",
       }}
-      onClick={() =>
-        handlePageChange(
-          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
-        )
-      }
+      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
     >
       다음
     </a>
@@ -88,37 +81,34 @@ function ReviewModal({ onModalChange }) {
 
   return (
     <div className={styles.total}>
-      <table border={1}>
-        <th>
+      <table className={styles.table}>
+        <tr className={styles.th}>
           <th>번호</th>
           <th>기업명</th>
           <th>면접일</th>
           <th>작성일</th>
-        </th>
+        </tr>
 
         {resumes.map((resume, idx) => {
           return (
-            <tr key={idx}>
-              <td>{idx + 1}</td>
+            <tr key={idx} className={styles.tb}>
+              <td>{currentPage * 5 + idx + 1}</td>
               <td
-                onClick={() =>
-                  sendInfo(
-                    resume.companyName,
-                    resume.interviewDate,
-                    resume.resumeId
-                  )
-                }
+                className={styles.tbCompanyName}
+                onClick={() => sendInfo(resume.companyName, resume.interviewDate, resume.resumeId)}
               >
                 {resume.companyName}
               </td>
               <td>{resume.interviewDate}</td>
-              <td>{resume.createdTime}</td>
+              <td>{resume.createdTime.substring(0, 10)}</td>
             </tr>
           );
         })}
+        <div className={styles.pageNums}>{pageNums}</div>
       </table>
-      <div>{pageNums}</div>
-      <button onClick={closeModal}>닫기</button>
+      <button className={styles.closeButton} onClick={closeModal}>
+        닫기
+      </button>
     </div>
   );
 }

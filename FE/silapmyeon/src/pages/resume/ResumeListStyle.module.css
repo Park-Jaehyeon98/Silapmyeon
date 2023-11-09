@@ -1,11 +1,11 @@
 .resumeTitle {
   /* 큰 제목 */
 
-  position: relative;
-  width: 487px;
-  height: 45px;
-  left: 0%;
-  top: 0%;
+  position: absolute;
+  width: 400px;
+  height: 87px;
+  left: 381px;
+  top: 169px;
 }
 
 .resumeTitleText {
@@ -20,8 +20,8 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
-  line-height: 48px;
+  font-size: 50px;
+  line-height: 61px;
 
   color: #4962a2;
 }
@@ -39,95 +39,12 @@
 
   width: 896px;
   height: 52px;
-  left: 0%;
-  top: 0%;
 
   background: #e3e7f1;
   border-radius: 10px;
 }
 
-.number {
-  /* 번호 */
-
-  /* position: absolute; */
-  width: 40px;
-  height: 20px;
-  left: 2%;
-  top: 0%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-
-  color: #000000;
-}
-
-.companyName {
-  /* 기업명 */
-
-  /* position: absolute; */
-  width: 40px;
-  height: 20px;
-  left: 17%;
-  top: 0%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-
-  color: #000000;
-}
-
-.interviewDate {
-  /* 면접일 */
-
-  /* position: absolute; */
-  width: 40px;
-  height: 20px;
-  left: 60%;
-  top: 0%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-
-  color: #000000;
-}
-
-.createdDate {
-  /* 작성일 */
-
-  /* position: absolute; */
-  width: 40px;
-  height: 20px;
-  left: 80%;
-  top: 0%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-
-  color: #000000;
-}
-
 .plus {
-  /* 추가 button */
-
-  position: absolute;
-  width: 55px;
-  height: 52px;
-  left: 700px;
-  top: 120px;
-
   /* Rectangle 102 */
 
   /* position: absolute; */
@@ -143,12 +60,20 @@
 
   font-size: 40px;
   cursor: pointer;
+
+  /* 추가 button */
+
+  position: absolute;
+  width: 55px;
+  height: 52px;
+  left: 770px;
+  top: 173px;
 }
 
 .pageNums {
   position: absolute;
-  margin-top: 60px;
-  left: 720px;
+  margin-top: 35px;
+  left: 400px;
   font-size: medium;
 }
 
@@ -167,4 +92,14 @@
 .pn {
   font-weight: "bold";
   cursor: pointer;
+}
+
+.table {
+  position: absolute;
+  left: 380px;
+  top: 280px;
+
+  border-collapse: collapse;
+  position: absolute;
+  width: 896px;
 }

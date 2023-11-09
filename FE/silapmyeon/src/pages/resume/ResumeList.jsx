@@ -48,9 +48,7 @@ function ResumeList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${
-          currentPage == index ? styles.selectedPage : ""
-        }`}
+        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
       >
         {index + 1}
       </a>
@@ -59,11 +57,7 @@ function ResumeList() {
   pageNums.push(
     <a
       className={styles.pn}
-      onClick={() =>
-        handlePageChange(
-          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
-        )
-      }
+      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
     >
       다음
     </a>
@@ -77,20 +71,13 @@ function ResumeList() {
       <Link to={"create"}>
         <button className={styles.plus}>+</button>
       </Link>
-      <table
-        style={{
-          borderCollapse: "collapse",
-          width: "896px",
-          left: "0%",
-          marginTop: "50px",
-        }}
-      >
-        <thead>
-          <tr className={styles.tableHeader}>
-            <th className={styles.number}>번호</th>
-            <th className={styles.companyName}>기업명</th>
-            <th className={styles.interviewDate}>면접일</th>
-            <th className={styles.createdDate}>작성일</th>
+      <table className={styles.table}>
+        <thead className={styles.tableHeader}>
+          <tr>
+            <th>번호</th>
+            <th>기업명</th>
+            <th>면접일</th>
+            <th>작성일</th>
           </tr>
         </thead>
         <tbody>
@@ -103,7 +90,7 @@ function ResumeList() {
               createdTime={resume.createdTime}
               modifiedTime={resume.modifiedTime}
               reviewId={resume.reviewId}
-              idx={idx}
+              idx={currentPage * 10 + idx}
             />
           ))}
         </tbody>

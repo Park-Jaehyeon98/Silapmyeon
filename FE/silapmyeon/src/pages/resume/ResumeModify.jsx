@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { axiosAuth } from "../../api/settingAxios";
 import ResumeItemForm from "../../components/resume/ResumeItemForm";
-import styles from "./ResumeModify.module.css";
+import styles from "./ResumeModifyStyle.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function ResumeModify() {
@@ -104,10 +104,7 @@ function ResumeModify() {
     }
 
     for (let index = 0; index < itemData.length; index++) {
-      if (
-        isEmpty(itemData[index].resumeAnswer) ||
-        isEmpty(itemData[index].resumeQuestion)
-      ) {
+      if (isEmpty(itemData[index].resumeAnswer) || isEmpty(itemData[index].resumeQuestion)) {
         alert("자소서 항목을 입력해주세요.");
         flag = false;
         break;

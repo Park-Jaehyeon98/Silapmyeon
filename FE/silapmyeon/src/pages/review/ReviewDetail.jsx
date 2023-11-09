@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { axiosAuth } from "../../api/settingAxios";
 import { useNavigate, useParams } from "react-router-dom";
+import styles from "./ReviewDetailStyle.module.css";
 
 function ReviewDetail() {
   const { reviewId } = useParams();
@@ -49,16 +50,19 @@ function ReviewDetail() {
     <div style={{ height: "100vh" }}>
       {review ? (
         <div>
-          <div>{review.companyName} 면접 후기</div>
-          <div>{review.interviewDate.substring(0, 4)}</div>
-          <div>{calculateQuarter(review.interviewDate)}</div>
-          <div>{review.employmentType}</div>
-          <div>{review.reviewJob}</div>
-          <div>{review.reviewOrder}</div>
-          <div>{review.reviewQuestion}</div>
-          <div>{review.reviewContent}</div>
-          <button onClick={navigateToModify}>수정</button>
-          <button onClick={removeReview}>삭제</button>
+          <div className={styles.title}>{review.companyName} 면접 후기</div>
+          <div className={styles.detail}>
+            {review.interviewDate.substring(0, 4)}년 | {calculateQuarter(review.interviewDate)} |{" "}
+            {review.employmentType} | {review.reviewJob} | {review.reviewOrder}
+          </div>
+          <div className={styles.q}>"{review.reviewQuestion}"</div>
+          <div className={styles.a}>{review.reviewContent}</div>
+          <button className={styles.modifyButton} onClick={navigateToModify}>
+            수정
+          </button>
+          <button className={styles.deleteButton} onClick={removeReview}>
+            삭제
+          </button>
         </div>
       ) : (
         <div>Loading...</div>

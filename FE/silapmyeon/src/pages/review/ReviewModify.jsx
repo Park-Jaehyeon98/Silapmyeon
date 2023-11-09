@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { axiosAuth } from "../../api/settingAxios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import styles from "./ReviewModifyStyle.module.css";
 
 function ReviewModify() {
   const location = useLocation();
@@ -48,8 +49,6 @@ function ReviewModify() {
     } else return false;
   };
 
-  const navigate = useNavigate();
-
   const calculateQuarter = (date) => {
     const month = Number(date.substring(5, 7));
     if (month <= 3) {
@@ -92,36 +91,69 @@ function ReviewModify() {
   return (
     <div style={{ height: "100vh" }}>
       <div>
-        <div>면접 후기 수정</div>
+        <div className={styles.title}>면접 후기 수정</div>
         <div>
-          기업명: <input value={review.companyName} readOnly />
+          <div className={styles.companyNameText}>기업명 </div>
+          <input className={styles.companyNameInput} value={review.companyName} readOnly />
         </div>
         <div>
-          년도: <input value={review.interviewDate.substring(0, 4)} readOnly />
+          <input
+            placeholder="연도"
+            className={styles.yearBox}
+            value={review.interviewDate.substring(0, 4)}
+            readOnly
+          />
         </div>
         <div>
-          분기:{" "}
-          <input value={calculateQuarter(review.interviewDate)} readOnly />
+          <input
+            placeholder="분기"
+            className={styles.quarterBox}
+            value={calculateQuarter(review.interviewDate)}
+            readOnly
+          />
         </div>
         <div>
-          채용형태:{" "}
-          <input value={employmentType} onChange={handleEmploymentType} />
+          <input
+            placeholder="채용형태"
+            className={styles.etBox}
+            value={employmentType}
+            onChange={handleEmploymentType}
+          />
         </div>
         <div>
-          차수: <input value={reviewOrder} onChange={handleReviewOrder} />
+          <input
+            placeholder="차수"
+            className={styles.roBox}
+            value={reviewOrder}
+            onChange={handleReviewOrder}
+          />
         </div>
         <div>
-          직무: <input value={reviewJob} onChange={handleReviewJob} />
+          <input
+            placeholder="직무"
+            className={styles.rjBox}
+            value={reviewJob}
+            onChange={handleReviewJob}
+          />
         </div>
-        <div>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
-        <input value={reviewQuestion} onChange={handleReviewQuestion} />
-        <div>자유롭게 면접 후기를 남겨주세요.</div>
+        <div className={styles.qTitleText}>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
+        <input
+          className={styles.qInputBox}
+          value={reviewQuestion}
+          onChange={handleReviewQuestion}
+        />
+        <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
         <textarea
+          className={styles.aInputBox}
           value={reviewContent}
           onChange={handleReviewContent}
           style={{ resize: "none" }}
         />
-        <button onClick={modifyReview}>완료</button>
+        <div className={styles.completeBox}>
+          <button className={styles.completeButton} onClick={modifyReview}>
+            완료
+          </button>
+        </div>
       </div>
     </div>
   );

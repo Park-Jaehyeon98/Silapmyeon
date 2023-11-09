@@ -47,27 +47,23 @@ function ResumeDetail() {
             <div className={styles.date}>{resume.interviewDate} </div>
           </div>
           <div className={styles.box}>
-            {/* 자소서 항목만큼 버튼 생성, 버튼 클릭시 해당 자소서 항목으로 전환 */}
-            {resume.resumeItems.map((resumeItem, idx) => (
-              <div>
-                <button
-                  key={idx}
-                  className={`${styles.button} ${
-                    num == idx ? styles.selectedButton : ""
-                  }`}
-                  onClick={() => changeNum(idx)}
-                >
-                  {idx + 1}
-                </button>
-              </div>
-            ))}
+            <div style={{ top: "9px", position: "absolute" }}>
+              {/* 자소서 항목만큼 버튼 생성, 버튼 클릭시 해당 자소서 항목으로 전환 */}
+              {resume.resumeItems.map((resumeItem, idx) => (
+                <div>
+                  <button
+                    key={idx}
+                    className={`${styles.button} ${num == idx ? styles.selectedButton : ""}`}
+                    onClick={() => changeNum(idx)}
+                  >
+                    {idx + 1}
+                  </button>
+                </div>
+              ))}
+            </div>
             <div className={styles.content}>
-              <div className={styles.question}>
-                {resume.resumeItems[num].resumeQuestion}
-              </div>
-              <div className={styles.answer}>
-                {resume.resumeItems[num].resumeAnswer}
-              </div>
+              <div className={styles.question}>{resume.resumeItems[num].resumeQuestion}</div>
+              <div className={styles.answer}>{resume.resumeItems[num].resumeAnswer}</div>
             </div>
           </div>
           <button className={styles.modify} onClick={navigateToModify}>
