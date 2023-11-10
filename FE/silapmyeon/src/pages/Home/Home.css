@@ -1,6 +1,14 @@
 .home {
-    
-    background-color: aquamarine;
-    height: 100vh;
+  background-color: aquamarine;
+  height: 100vh;
+}
 
+.hello {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+
+  color: #37397e;
 }
