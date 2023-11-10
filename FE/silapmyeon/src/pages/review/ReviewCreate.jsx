@@ -29,7 +29,12 @@ function ReviewCreate() {
     }
   };
 
-  const handleModalChange = (flag, newCompanyName, newInterviewDate, newResumeId) => {
+  const handleModalChange = (
+    flag,
+    newCompanyName,
+    newInterviewDate,
+    newResumeId
+  ) => {
     if (newResumeId != null) {
       setInterviewDate(newInterviewDate);
       setCompanyName(newCompanyName);
@@ -69,8 +74,8 @@ function ReviewCreate() {
   };
 
   const reviewJobChange = (event) => {
-    if (event.target.length > 20) {
-      alert("20글자 이내로 입력하세요.");
+    if (event.target.length > 10) {
+      alert("10글자 이내로 입력하세요.");
     } else {
       setReviewJob(event.target.value);
       console.log(reviewJob);
@@ -150,7 +155,11 @@ function ReviewCreate() {
       </button>
       <div>
         <div className={styles.companyNameText}>기업명 </div>{" "}
-        <input value={companyName} readOnly className={styles.companyNameInput} />
+        <input
+          value={companyName}
+          readOnly
+          className={styles.companyNameInput}
+        />
       </div>
       <div>
         <input
@@ -192,8 +201,14 @@ function ReviewCreate() {
           onChange={reviewJobChange}
         />
       </div>
-      <div className={styles.qTitleText}>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
-      <input className={styles.qInputBox} value={reviewQuestion} onChange={reviewQuestionChange} />
+      <div className={styles.qTitleText}>
+        가장 기억에 남는 질문 한 가지를 남겨주세요.
+      </div>
+      <input
+        className={styles.qInputBox}
+        value={reviewQuestion}
+        onChange={reviewQuestionChange}
+      />
       <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
       <textarea
         className={styles.aInputBox}

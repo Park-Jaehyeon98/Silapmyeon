@@ -4,6 +4,8 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { IsLogin, IsLoginSelector, UserAtom } from "../../Recoil/UserAtom";
 import { useState } from "react";
 import LoginModal from "../modal/LoginModal";
+import { logoutUser } from "../../api/userAPI";
+import Logo from "../../assets/logo.png";
 
 function Header() {
   const setUserValue = useSetRecoilState(UserAtom);
@@ -13,21 +15,19 @@ function Header() {
   var isLogin = useRecoilValue(IsLoginSelector);
 
   const handleLogout = () => {
-    setUserValue({});
-    setIsLogin(false);
-    sessionStorage.removeItem("user");
+    logoutUser().then(() => {
+      setUserValue({});
+      setIsLogin(false);
+      sessionStorage.removeItem("user");
+      // console.log("로그아웃 -------------" + isLogin);
 
-    console.log("로그아웃 -------------" + isLogin);
-
-    navigate("/");
+      navigate("/intro");
+    });
   };
 
   const loginClick = () => {
+    // 로그인 모달
     setOpen(true);
-
-    console.log("로그인 모달 띄우기");
-
-    // navigate('/');
   };
 
   const [isOpen, setOpen] = useState(false);
@@ -36,11 +36,11 @@ function Header() {
     <div className="header">
       {isLogin ? (
         <Link to="/home" className="logo">
-          LOGO
+          <img src={Logo} className="logoImg"></img>
         </Link>
       ) : (
         <Link to="/intro" className="logo">
-          LOGO
+          <img src={Logo} className="logoImg"></img>
         </Link>
       )}
       {isLogin ? (

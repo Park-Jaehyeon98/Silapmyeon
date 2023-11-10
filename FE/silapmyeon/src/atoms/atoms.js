@@ -1,4 +1,13 @@
 import { atom } from "recoil";
+import { recoilPersist } from "recoil-persist";
+
+const sessionStorage =
+  typeof window !== "undefined" ? window.sessionStorage : undefined;
+
+const { persistAtom } = recoilPersist({
+  key: "interview",
+  storage: sessionStorage,
+});
 
 export const camState = atom({
   key: "camState",
@@ -28,14 +37,17 @@ export const stt = atom({
 export const selectedType = atom({
   key: "selectedType",
   default: "/interview/mock",
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const selectedQuestion = atom({
   key: "selectedQuestion",
   default: "자소서",
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const resumeId = atom({
   key: "resumeId",
   default: 0,
+  effects_UNSTABLE: [persistAtom],
 });

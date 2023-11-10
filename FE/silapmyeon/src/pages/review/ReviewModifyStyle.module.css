@@ -1,5 +1,5 @@
 .title {
-  /* 면접 수정 등록 */
+  /* 면접 후기 등록 */
 
   position: absolute;
   width: 343px;
@@ -219,7 +219,7 @@
 
   position: absolute;
   width: 1002px;
-  height: 84px;
+  height: 64px;
   left: 358px;
   top: 508px;
 
@@ -228,6 +228,9 @@
   background: #ffffff;
   border: 2px solid #8186d5;
   border-radius: 10px;
+
+  font-family: "Inter";
+  font-style: normal;
   font-size: 15px;
 }
 
@@ -238,7 +241,7 @@
   width: 806px;
   height: 30px;
   left: 358px;
-  top: 634px;
+  top: 604px;
 
   /* font-family: "Inter"; */
   font-style: normal;
@@ -257,14 +260,16 @@
 
   position: absolute;
   width: 1002px;
-  height: 252px;
+  height: 282px;
   left: 358px;
-  top: 674px;
+  top: 644px;
 
   outline: none;
   background: #ffffff;
   border: 2px solid #8186d5;
   border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
   font-size: 15px;
 }
 
