@@ -100,7 +100,7 @@ function ReviewList() {
         className={styles.searchBox}
         placeholder="기업명 검색"
         onChange={handleKeywordChange}
-        onKeyUpCapture={handleKeyPress}
+        onKeyUp={handleKeyPress}
       />
       <Link to={"/review/create"}>
         <button className={styles.plusButton}>+</button>
@@ -136,7 +136,9 @@ function ReviewList() {
             );
           })}
         </tbody>
-        <div className={styles.pageNums}>{pageNums}</div>
+        {pageNums.length === 0 ? null : (
+          <div className={styles.pageNums}>{pageNums}</div>
+        )}
       </table>
     </div>
   );

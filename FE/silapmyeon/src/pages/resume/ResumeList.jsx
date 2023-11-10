@@ -92,7 +92,7 @@ function ResumeList() {
         className={styles.searchBox}
         placeholder="기업명 검색"
         onChange={handleKeywordChange}
-        onKeyUpCapture={handleKeyPress}
+        onKeyUp={handleKeyPress}
       />
       <Link to={"create"}>
         <button className={styles.plus}>+</button>
@@ -120,7 +120,9 @@ function ResumeList() {
             />
           ))}
         </tbody>
-        <div className={styles.pageNums}>{pageNums}</div>
+        {pageNums.length === 0 ? null : (
+          <div className={styles.pageNums}>{pageNums}</div>
+        )}
       </table>
     </div>
   );
