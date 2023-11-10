@@ -15,17 +15,15 @@ import {
 } from "../../atoms/atoms";
 import { Link } from "react-router-dom";
 import styles from "./Mock.module.css";
+import Eyetracking from "./EyeTracking";
 
 function Mock() {
   const [qCount, setQCount] = useRecoilState(questionCount);
   const [ttsState, setTtsState] = useRecoilState(tts);
   const [sttState, setSttState] = useRecoilState(stt);
-  const [completeSpeechState, setCompleteSpeechState] =
-    useRecoilState(completeSpeech);
-  const [selectedTypeState, setSelectedTypeState] =
-    useRecoilState(selectedType);
-  const [selectedQuestionState, setSelectedQuestionState] =
-    useRecoilState(selectedQuestion);
+  const [completeSpeechState, setCompleteSpeechState] = useRecoilState(completeSpeech);
+  const [selectedTypeState, setSelectedTypeState] = useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] = useRecoilState(selectedQuestion);
   const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
 
   const [question, setQuestion] = useState();
@@ -83,13 +81,7 @@ function Mock() {
         <div className={styles.timerContainer}>{formatTime(timer)}</div>
       </div>
       <div>
-        <img
-          className={styles.webcamImage}
-          width={640}
-          height={360}
-          src={AltCam}
-          alt="cam"
-        />
+        <img className={styles.webcamImage} width={640} height={360} src={AltCam} alt="cam" />
       </div>
       <div style={{ display: "none" }}>
         {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
@@ -110,6 +102,7 @@ function Mock() {
           {qCount !== 0 ? "다음" : "시작"}
         </button>
       )}
+      <Eyetracking />
     </div>
   );
 }
