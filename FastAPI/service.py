@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from starlette.config import Config
 from sqlalchemy import select, create_engine
 from sqlalchemy.orm import sessionmaker
-from redis_driver import RedisDriver
 import openai
 
 load_dotenv()
@@ -25,30 +24,15 @@ Session = sessionmaker(bind=engine)
 
 session = Session()
 
-redis_instance = RedisDriver()
+async def select_question(request : InterviewTypeRequest):
 
-async def mysql(user_id: int):
-    name = "user:type:" + str(user_id)
-    result = await redis_instance.get_hash(name)
-
-    user = session.execute(select(User).where(User.user_id == user_id)).scalar()
-
-    if result:
-        print(f"type: {result['interview_type']}, gtype: {result['interview_question_type']}, id: {result['resume_id']}")
-    print(f"id : {user.resumes[0].resume_id}, com : {user.resumes[0].company_name}, question : {user.resumes[0].resume_items[0].resume_question}")
-
-async def select_question(user_id: int):
-    name = "user:type:" + str(user_id)
-    result = await redis_instance.get_hash(name)
-
-    if result.get('interview_question_type') == '자소서':
-        question = await resume_question(int(result.get('resume_id')))
-    elif result.get('interview_question_type') == '기술':
+    if request.question == '자소서':
+        question = await resume_question(request.resume)
+    elif request.question == '기술':
         question = await tech_question()
-    elif result.get('interview_question_type') == '인성':
-        question = await attitude_question(int(result.get('resume_id')))
+    elif request.question == '인성':
+        question = await attitude_question(request.resume)
     else:
-        # redis에 데이터가 없을 때
         question = await tech_question()
 
     return question
@@ -63,13 +47,13 @@ async def attitude_question(resume_id: int):
 
     prompt = [
         {"role": "system", "content": "당신은 " + company_name + "기업의 it직무 면접관입니다."},
-        {"role": "user", "content": "신입 개발자 인성 면접에서 나올 수 있는 질문을 다섯 가지 해주세요. 불필요한 단어 없이 질문만 해주세요. 질문은 '-'으로 구분해주세요."},
+        {"role": "user", "content": "신입 개발자 인성 면접에서 나올 수 있는 질문을 다섯 가지 해주세요. 불필요한 단어 없이 질문만 해주세요. 질문은 '#'으로 구분해주세요."},
     ]
 
-    chat_completion = openai.ChatCompletion.create(model=GPT_MODEL, messages=prompt)
+    chat_completion = openai.chat.completions.create(model=GPT_MODEL, messages=prompt)
     print("complete")
 
-    qlist = chat_completion.choices[0].message["content"].split('-')
+    qlist = chat_completion.choices[0].message.content.split('#')
 
     return qlist
 
@@ -85,14 +69,14 @@ async def tech_question():
     prompt = [
         {"role": "system", "content": "당신은 세계 최고의 it기업 면접관입니다. "
                                       "당신은 computer science에 관한 질문을 할 수 있습니다. 면접에서 나올만 한 질문을 해주세요."},
-        {"role": "user", "content": "computer science 관련 질문 중 운영체제, 데이터베이스, 네트워크, 알고리즘과 자료구조, 컴퓨터 구조, 소프트웨어 공학에 대한 자세한 질문 총 다섯 가지를 각각 100자 이내로 해주세요."
-                                                                                         "질문은 '-'으로 시작하고 분야를 구분하지 말아주세요."},
+        {"role": "user", "content": "computer science 관련 질문 중 운영체제, 데이터베이스, 네트워크, 알고리즘과 자료구조, 컴퓨터 구조, 소프트웨어 공학에 대한 키워드를 무작위로 골라 자세한 질문 총 다섯 가지를 각각 100자 이내로 해주세요."
+                                                                                         "질문은 '#'으로 시작하고 분야를 구분하지 말아주세요."},
     ]
 
-    chat_completion = openai.ChatCompletion.create(model=GPT_MODEL, messages=prompt)
+    chat_completion = openai.chat.completions.create(model=GPT_MODEL, messages=prompt)
     print("complete")
 
-    return chat_completion.choices[0].message["content"].split('-')
+    return chat_completion.choices[0].message.content.split('#')
 
 async def resume_question(resume_id: int):
     resume = session.execute(select(Resume).where(Resume.resume_id == resume_id)).scalar()
@@ -110,32 +94,16 @@ async def resume_question(resume_id: int):
                                                    "'<답변>'으로 시작하는 문장을 받는다면 꼬리질문을 할 수 있습니다."
                                                    "꼬리 질문을 할 만한 답변이 아니라면 자기 소개서에 대해 계속 질문 할 수 있습니다."
                                                    "500자 내외로 질문 해주세요. 불필요한 단어 없이 질문만 해주세요."
-                                                   "질문은 '-'으로 구분해주세요."},
+                                                   "질문은 '#'으로 구분해주세요."},
         {"role": "user", "content": contents}
     ]
 
     print(contents)
 
-    chat_completion = openai.ChatCompletion.create(model=GPT_MODEL, messages=prompt)
+    chat_completion = openai.chat.completions.create(model=GPT_MODEL, messages=prompt)
     print("complete")
 
-    qlist = chat_completion.choices[0].message["content"].split('-')
+    qlist = chat_completion.choices[0].message.content.split('#')
 
     return qlist
-
-async def interview_type_save(user_id: int, request: InterviewTypeRequest):
-    name: str = "user:type:" + str(user_id)
-    mapping = {
-        'interview_type': request.interview_type,
-        'interview_question_type': request.interview_question_type,
-        'resume_id': str(request.resume_id)
-    }
-    await redis_instance.set_hash(name, mapping, 3600)
-
-async def save_answer(user_id: int, answer: str, question_num: int):
-    resume_name: str = "user:type:" + str(user_id)
-    result_resume = await redis_instance.get_hash(resume_name)
-
-    name: str = "answer:" + str(result_resume.get('resume_id')) + ":" + str(question_num) + ":" + str(user_id)
-    await redis_instance.set_key(name, answer, 3600)
 

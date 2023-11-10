@@ -1,31 +1,16 @@
-import React, { useEffect, useState } from "react";
-import "./Home.css"
-import { getUser } from "../../api/userAPI";
-
+import React from "react";
+import "./Home.css";
+import { useRecoilValue } from "recoil";
+import { UserAtom } from "../../Recoil/UserAtom";
 
 function Home() {
+  const userValue = useRecoilValue(UserAtom);
 
-    const [userNickname, setUserNickName] = useState('');
-    const [userProfileUrl, setUserProfileUrl] = useState('');
-    const [userId, setUserId] = useState(0);
-    useEffect(() => {
-        console.log("test!!!!!" + sessionStorage.getItem('user'))
-        const User = JSON.parse(sessionStorage.getItem('user'))?.UserAtom;
-        setUserNickName(User.userNickname);
-        // setUserProfileUrl(User.userProfileUrl);
-        setUserId(User.userId);
-    }, []);
-
-    return(
-        <div className="home">
-            home화면
-            {userNickname} | {userId}
-            <div>
-             {/* <img src={userProfileUrl} alt="userProfile"/> */}
-            </div>
-        </div>
-    );
-
+  return (
+    <div className="home">
+      <div className="hello">{userValue.userNickname}님</div>
+    </div>
+  );
 }
 
 export default Home;

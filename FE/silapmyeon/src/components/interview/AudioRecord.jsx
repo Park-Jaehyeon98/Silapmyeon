@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import styles from "./AudioRecord.module.css";
 
 function AudioRecord({ onData }) {
   const [isRecording, setIsRecording] = useState(false);
@@ -78,14 +79,20 @@ function AudioRecord({ onData }) {
   return (
     <div>
       {isRecording ? (
-        <button onClick={stopRecording}>Stop Recording</button>
+        <button onClick={stopRecording} className={styles.button}>
+          중지
+        </button>
       ) : (
-        <button onClick={startRecording}>Start Recording</button>
+        <button onClick={startRecording} className={styles.button}>
+          녹음
+        </button>
       )}
       {audioUrl && (
         <div>
           <audio src={audioUrl} controls />
-          <button onClick={downloadRecording}>Download</button>
+          <button onClick={downloadRecording} className={styles.button}>
+            다운로드
+          </button>
         </div>
       )}
     </div>

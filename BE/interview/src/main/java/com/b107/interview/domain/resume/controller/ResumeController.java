@@ -16,6 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/resume")
 @RequiredArgsConstructor
@@ -53,10 +56,19 @@ public class ResumeController {
 
     //자기소개서 전체 조회
     @GetMapping
-    public ResponseEntity<?> getResumes(@PageableDefault(sort = "resumeId", direction = Sort.Direction.DESC) Pageable pageable) {
-        Page<Resume> resumePage = resumeService.readResumes(pageable, SecurityUtils.getUser().getUserId());
-        Page<ResumeSimpleResDto> resumeSimpleResDtos = resumePage.map(resume -> resumeMapper.resumeToResumeSimpleResDto(resume));
-        return new ResponseEntity<>(resumeSimpleResDtos, HttpStatus.OK);
+    public ResponseEntity<?> getResumes(@PageableDefault(sort = "resumeId", direction = Sort.Direction.DESC) Pageable pageable,
+                                        @RequestParam(value = "keyword", required = false) String keyword,
+                                        @RequestParam(value = "isAll", required = false) boolean flag) {
+        Object resumes = resumeService.readResumes(pageable, SecurityUtils.getUser().getUserId(), keyword, flag);
+        if (flag) {
+            List<Resume> resumeList = (List<Resume>) resumes;
+            List<ResumeSimpleResDto> resumeSimpleResDtos = resumeList.stream().map(resume -> resumeMapper.resumeToResumeSimpleResDto(resume)).collect(Collectors.toList());
+            return new ResponseEntity<>(resumeSimpleResDtos, HttpStatus.OK);
+        } else {
+            Page<Resume> resumePage = (Page<Resume>) resumes;
+            Page<ResumeSimpleResDto> resumeSimpleResDtos = resumePage.map(resume -> resumeMapper.resumeToResumeSimpleResDto(resume));
+            return new ResponseEntity<>(resumeSimpleResDtos, HttpStatus.OK);
+        }
     }
 
     //자기소개서 삭제

@@ -27,7 +27,12 @@ function Side() {
     <div className="sidebar">
       <div className="img">
         {isLogin ? (
-          <img className="profileImg" src={userProfileUrl} onClick={handleClick} alt="profile" />
+          <img
+            className="profileImg"
+            src={userProfileUrl}
+            onClick={handleClick}
+            alt="profile"
+          />
         ) : (
           <img className="profileImg" alt="profile" />
         )}
@@ -60,7 +65,9 @@ function Side() {
           <div className="sidebarSmallText">면접 후기</div>
         </Link>
       </div>
-      <div className="sidebarText">면접 공유</div>
+      <Link to={"/community"} className="link">
+        <div className="sidebarText">면접 공유</div>
+      </Link>
       <Link to="/mypage"> 테스트</Link>
     </div>
   );

@@ -57,8 +57,8 @@ public class ReviewService {
     }
 
     //면접 후기 페이지 조회
-    public Page<Review> readReviews(Pageable pageable, Long userId) {
-        return reviewRepository.findAllByUserId(pageable, userId);
+    public Page<Review> readReviews(Pageable pageable, Long userId, String keyword) {
+        return reviewRepository.findAllByUserIdAndCompanyName(pageable, userId, keyword);
     }
 
     //면접 후기 삭제

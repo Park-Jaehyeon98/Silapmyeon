@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import styles from "./ReviewModalStyle.module.css";
 
 function ReviewModal({ onModalChange }) {
   const closeModal = () => {
     const flag = false;
-    const newCompanyName = null;
-    const newInterviewDate = null;
-    const newResumeId = 0;
-    onModalChange(flag, newCompanyName, newInterviewDate, newResumeId);
+    onModalChange(flag);
   };
 
   const [resumes, setResumes] = useState([]);
@@ -20,7 +17,7 @@ function ReviewModal({ onModalChange }) {
   const endIndex = Math.min(totalPages, startIndex + 5);
 
   const getResumes = async (page) => {
-    const res = await axios.get(`/resume?page=${page}`);
+    const res = await axiosAuth.get(`/resume?page=${page}&size=5`);
     console.log(res.data.content);
     console.log(res.data);
     setResumes(res.data.content);
@@ -41,6 +38,7 @@ function ReviewModal({ onModalChange }) {
     <a
       style={{
         fontWeight: "bold",
+        cursor: "pointer",
       }}
       onClick={() => handlePageChange(startIndex - 1 < 0 ? 0 : startIndex - 1)}
     >
@@ -67,6 +65,7 @@ function ReviewModal({ onModalChange }) {
     <a
       style={{
         fontWeight: "bold",
+        cursor: "pointer",
       }}
       onClick={() =>
         handlePageChange(
@@ -87,20 +86,21 @@ function ReviewModal({ onModalChange }) {
   };
 
   return (
-    <div>
-      <table border={1}>
-        <th>
+    <div className={styles.total}>
+      <table className={styles.table}>
+        <tr className={styles.th}>
           <th>번호</th>
           <th>기업명</th>
           <th>면접일</th>
           <th>작성일</th>
-        </th>
+        </tr>
 
         {resumes.map((resume, idx) => {
           return (
-            <tr key={idx}>
-              <td>{idx + 1}</td>
+            <tr key={idx} className={styles.tb}>
+              <td>{currentPage * 5 + idx + 1}</td>
               <td
+                className={styles.tbCompanyName}
                 onClick={() =>
                   sendInfo(
                     resume.companyName,
@@ -112,14 +112,17 @@ function ReviewModal({ onModalChange }) {
                 {resume.companyName}
               </td>
               <td>{resume.interviewDate}</td>
-              <td>{resume.createdTime}</td>
+              <td>{resume.createdTime.substring(0, 10)}</td>
             </tr>
           );
         })}
+        {pageNums.length === 2 ? null : (
+          <div className={styles.pageNums}>{pageNums}</div>
+        )}
       </table>
-      <div>{pageNums}</div>
-      모달입니다.
-      <button onClick={closeModal}>닫기</button>
+      <button className={styles.closeButton} onClick={closeModal}>
+        닫기
+      </button>
     </div>
   );
 }

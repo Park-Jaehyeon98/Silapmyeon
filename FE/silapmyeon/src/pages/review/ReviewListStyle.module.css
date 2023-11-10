@@ -1,0 +1,124 @@
+.title {
+  /* 면접 후기 */
+
+  position: absolute;
+  width: 279px;
+  height: 87px;
+  left: 381px;
+  top: 169px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 61px;
+
+  color: #4962a2;
+}
+
+.plusButton {
+  /* Rectangle 102 */
+
+  background: #494ca2;
+  border-radius: 10px;
+
+  /* 추가 button */
+
+  position: absolute;
+  width: 37px;
+  height: 35px;
+  left: 1230px;
+  top: 226px;
+
+  color: white;
+  border: none;
+  font-size: x-large;
+}
+
+.searchBoxText {
+  /* 🔎 기업명 검색 */
+
+  position: absolute;
+  width: 198px;
+  height: 27px;
+  left: 860px;
+  top: 230px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #000000;
+}
+
+.searchBox {
+  /* Rectangle 41 */
+
+  position: absolute;
+  width: 302px;
+  height: 33px;
+  left: 901px;
+  top: 226px;
+
+  background: #f5f6ff;
+  border-radius: 10px;
+  border: none;
+  font-size: medium;
+}
+
+.table {
+  /* Group 172 */
+
+  position: absolute;
+  left: 380px;
+  top: 280px;
+
+  border-collapse: collapse;
+  position: absolute;
+  width: 896px;
+}
+
+.thead {
+  width: 896px;
+  height: 52px;
+
+  background: #e3e7f1;
+  border-radius: 10px;
+}
+
+.tb {
+  width: 896px;
+  height: 52px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border-bottom: 2px solid #8186d5;
+  text-align: center;
+}
+
+.pageNums {
+  position: absolute;
+  margin-top: 35px;
+  left: 400px;
+  font-size: medium;
+}
+
+.pageNum {
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.selectedPage {
+  color: #494ca2;
+  font-weight: bold;
+  font-size: large;
+}
+
+.pn {
+  font-weight: "bold";
+  cursor: pointer;
+}
