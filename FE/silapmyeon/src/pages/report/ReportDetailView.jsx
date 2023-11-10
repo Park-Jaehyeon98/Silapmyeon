@@ -23,6 +23,15 @@ const ReportDetailView = () => {
     getData();
   }, []);
 
+  function formatCreatedTime(data) {
+    const parts = data.split('-');
+    const year = parts[0];
+    const month = parts[1];
+    const day = parts[2];
+
+    return `${year}년 ${month}월 ${day}일`;
+  }
+
   // 에러가 발생했을 때 처리
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -64,8 +73,13 @@ const ReportDetailView = () => {
             </div>
           ))}
         </div>
-        <div></div>
-        <div></div>
+        <div className={styles.footerContainer}>
+            <p>
+              {formatCreatedTime(data.createdTime)}
+              <br />
+              면접자 OOO
+            </p>
+        </div>
       </div>
     );
   }
