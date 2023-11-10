@@ -25,14 +25,17 @@ const Eyetracking = () => {
     async function initializeSeeso() {
       seesoRef.current = new EasySeeso();
 
+      console.log(seesoRef.current);
+
       try {
         await seesoRef.current.init(
-          "dev_8czvx19yc3pxjt6g6b2gulybmzq4f5vg0aapculw",
+          "dev_d03ggj6oucg00iqkntoyvcwohq06wgy9vgad0obt",
           () => {
             console.log("Seeso initialized successfully.");
             renderWebcam();
           },
           () => {
+            console.log(seesoRef.current);
             console.error("Seeso initialization failed.");
           }
         );
@@ -68,10 +71,17 @@ const Eyetracking = () => {
 
   const updateRedDotPosition = (gazeInfo) => {
     const dotSize = 10;
-    const x = (window.innerWidth - dotSize) / 2 + gazeInfo.x * window.innerWidth;
-    const y = (window.innerHeight - dotSize) / 2 + gazeInfo.y * window.innerHeight;
+    const x =
+      (window.innerWidth - dotSize) / 2 + gazeInfo.x * window.innerWidth;
+    const y =
+      (window.innerHeight - dotSize) / 2 + gazeInfo.y * window.innerHeight;
 
-    if (gazeInfo.x < 0 || gazeInfo.x > 1920 || gazeInfo.y < 0 || gazeInfo.y > 1080) {
+    if (
+      gazeInfo.x < 0 ||
+      gazeInfo.x > 1920 ||
+      gazeInfo.y < 0 ||
+      gazeInfo.y > 1080
+    ) {
       setCnt((prev) => prev + 1);
       redDotRef.current.style.display = "none";
     } else {
