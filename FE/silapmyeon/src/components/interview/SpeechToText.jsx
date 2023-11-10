@@ -3,7 +3,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import { useRecoilState } from "recoil";
-import { completeSpeech, stt } from "../../atoms/atoms";
+import { completeSpeech, stt, answer } from "../../atoms/atoms";
 import styles from "./SpeechToText.module.css";
 
 function SpeechToText({ onData }) {
@@ -20,6 +20,7 @@ function SpeechToText({ onData }) {
   const [completeSpeechState, setCompleteSpeechState] =
     useRecoilState(completeSpeech);
   const [sttState, setSttState] = useRecoilState(stt);
+  const [answerText, setAnswerText] = useRecoilState(answer);
 
   const requestMicrophonePermission = async () => {
     try {
@@ -95,6 +96,7 @@ function SpeechToText({ onData }) {
 
   useEffect(() => {
     console.log("Transcript:", transcript);
+    setAnswerText(transcript);
   }, [transcript]);
 
   return (
