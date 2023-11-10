@@ -15,7 +15,8 @@
   top: 0%;
   bottom: 0%;
 
-  background: #c6cbef;
+  /* background: #c6cbef; */
+  background: white;
 }
 
 .logo {
@@ -34,10 +35,12 @@
   line-height: 39px;
   text-align: center;
   text-decoration: none;
-
   color: #000000;
 }
 
+.logoImg {
+  height: 40px;
+}
 .logout {
   /* 로그아웃 */
 
