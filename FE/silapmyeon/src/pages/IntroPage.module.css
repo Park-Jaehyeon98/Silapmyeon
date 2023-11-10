@@ -1,0 +1,94 @@
+.intropage {
+  display: flex;
+  justify-content: center;
+  /* align-content: center; */
+  /* width: fit-content; */
+  /* margin-left: 100px;
+  margin-right: 100px; */
+}
+.container {
+  display: flex;
+  align-items: center; /* 수직 가운데 정렬 */
+  margin: 100px;
+
+  margin-bottom: 200px;
+}
+.interview {
+  width: 400px;
+  height: auto; /* 그림의 높이 자동으로 조정 */
+  margin-right: 80px; /* 그림과 텍스트 사이 간격 조정 */
+}
+.content1 {
+  /* 면접 합격은 실전압축면접 */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 77px;
+
+  color: #545454;
+}
+.startBtn {
+  background: #8186d5;
+  border-radius: 20px;
+  border: none;
+  margin-top: 20px;
+  padding: 5px 20px 5px 20px;
+
+  /* 바로 시작하기 */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 40px;
+  /* identical to box height */
+
+  cursor: pointer;
+
+  color: #ffffff;
+  &:hover {
+    background-color: #494ca2;
+  }
+}
+
+.introBox {
+  display: flex;
+  margin-top: 100px;
+}
+.introImg {
+  width: 550px;
+  height: 300px;
+  background-color: gray;
+  margin: 20px;
+}
+.content {
+  width: 550px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 35px;
+  color: #8186d5;
+  margin: 20px;
+  margin-top: 120px;
+}
+
+.msg {
+  margin-top: 200px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  background: #8186d5;
+  border-radius: 20px;
+
+  /* 합격을 위한 면접 연습, 실전압축면접이 함께합니다 */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 48px;
+  text-align: center;
+
+  color: #ffffff;
+}
