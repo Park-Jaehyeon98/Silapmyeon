@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import ReviewModal from "../../components/review/ReviewModal";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import { useNavigate } from "react-router-dom";
+import e from "cors";
+import styles from "./ReviewCreateStyle.module.css";
 
 function ReviewCreate() {
   const [modal, setModal] = useState(false);
@@ -12,18 +14,7 @@ function ReviewCreate() {
     setModal(true);
   };
 
-  useEffect(() => {
-    if (interviewDate != null) {
-      setYear(interviewDate.substring(0, 4));
-      setQuarter(calculateQuarter(interviewDate));
-    } else {
-      setYear(null);
-      setQuarter(null);
-    }
-  }, [interviewDate]);
-
-  const [year, setYear] = useState(null);
-  const [quarter, setQuarter] = useState(null);
+  useEffect(() => {}, [resumeId]);
 
   const calculateQuarter = (date) => {
     const month = Number(date.substring(5, 7));
@@ -38,17 +29,14 @@ function ReviewCreate() {
     }
   };
 
-  const handleModalChange = (
-    flag,
-    newCompanyName,
-    newInterviewDate,
-    newResumeId
-  ) => {
-    setInterviewDate(newInterviewDate);
+  const handleModalChange = (flag, newCompanyName, newInterviewDate, newResumeId) => {
+    if (newResumeId != null) {
+      setInterviewDate(newInterviewDate);
+      setCompanyName(newCompanyName);
+      setResumeId(newResumeId);
+    }
 
-    setCompanyName(newCompanyName);
     setModal(flag);
-    setResumeId(newResumeId);
 
     console.log(modal);
     console.log(companyName);
@@ -63,28 +51,48 @@ function ReviewCreate() {
   const [reviewContent, setReviewContent] = useState("");
 
   const employmentTypeChange = (event) => {
-    setEmploymentType(event.target.value);
-    console.log(employmentType);
+    if (event.target.value.length > 3) {
+      alert("3글자 이내로 입력하세요.");
+    } else {
+      setEmploymentType(event.target.value);
+      console.log(employmentType);
+    }
   };
 
   const reviewOrderChange = (event) => {
-    setReviewOrder(event.target.value);
-    console.log(reviewOrder);
+    if (event.target.value.length > 5) {
+      alert("5글자 이내로 입력하세요.");
+    } else {
+      setReviewOrder(event.target.value);
+      console.log(reviewOrder);
+    }
   };
 
   const reviewJobChange = (event) => {
-    setReviewJob(event.target.value);
-    console.log(reviewJob);
+    if (event.target.length > 20) {
+      alert("20글자 이내로 입력하세요.");
+    } else {
+      setReviewJob(event.target.value);
+      console.log(reviewJob);
+    }
   };
 
   const reviewQuestionChange = (event) => {
-    setReviewQuestion(event.target.value);
-    console.log(reviewQuestion);
+    if (event.target.value > 50) {
+      alert("50글자 이내로 입력하세요.");
+    } else {
+      setReviewQuestion(event.target.value);
+      console.log(reviewQuestion);
+    }
   };
 
   const reviewContentChange = (event) => {
-    setReviewContent(event.target.value);
-    console.log(reviewContent);
+    if (event.target.value > 2000) {
+      alert("2000글자 이내로 작성하세요.");
+    } else {
+      setReviewContent(event.target.value);
+      console.log(reviewContent);
+    }
   };
 
   // 빈 값 체크 함수
@@ -111,14 +119,14 @@ function ReviewCreate() {
       isEmpty(reviewJob) ||
       isEmpty(reviewQuestion) ||
       isEmpty(reviewContent) ||
-      isEmpty(resumeId)
+      resumeId === 0
     ) {
       flag = false;
       alert("항목을 모두 입력하세요.");
     }
 
     if (flag) {
-      const res = await axios.post("/review", {
+      const res = await axiosAuth.post("/review", {
         employmentType,
         reviewOrder,
         reviewJob,
@@ -133,39 +141,71 @@ function ReviewCreate() {
 
   return (
     <div style={{ height: "100vh" }}>
-      <div>면접 후기 등록</div>
+      <div className={styles.title}>면접 후기 등록</div>
       {modal === true ? (
         <ReviewModal onModalChange={handleModalChange} /> //기업명, 면접 날짜 반환
       ) : null}
-      <button onClick={loadResume}>자기소개서 불러오기</button>
+      <button className={styles.loadResumeButton} onClick={loadResume}>
+        자소서 목록
+      </button>
       <div>
-        기업명: <input value={companyName} readOnly />
+        <div className={styles.companyNameText}>기업명 </div>{" "}
+        <input value={companyName} readOnly className={styles.companyNameInput} />
       </div>
       <div>
-        년도: <input value={year} readOnly />
+        <input
+          placeholder="연도"
+          value={interviewDate != null ? interviewDate.substring(0, 4) : ""}
+          readOnly
+          className={styles.yearBox}
+        />
       </div>
       <div>
-        분기: <input value={quarter} readOnly />
+        <input
+          placeholder="분기"
+          className={styles.quarterBox}
+          value={interviewDate != null ? calculateQuarter(interviewDate) : ""}
+          readOnly
+        />
       </div>
       <div>
-        채용형태:{" "}
-        <input value={employmentType} onChange={employmentTypeChange} />
+        <input
+          placeholder="채용형태"
+          className={styles.etBox}
+          value={employmentType}
+          onChange={employmentTypeChange}
+        />
       </div>
       <div>
-        차수: <input value={reviewOrder} onChange={reviewOrderChange} />
+        <input
+          placeholder="차수"
+          className={styles.roBox}
+          value={reviewOrder}
+          onChange={reviewOrderChange}
+        />
       </div>
       <div>
-        직무: <input value={reviewJob} onChange={reviewJobChange} />
+        <input
+          placeholder="직무"
+          className={styles.rjBox}
+          value={reviewJob}
+          onChange={reviewJobChange}
+        />
       </div>
-      <div>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
-      <input value={reviewQuestion} onChange={reviewQuestionChange} />
-      <div>자유롭게 면접 후기를 남겨주세요.</div>
+      <div className={styles.qTitleText}>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
+      <input className={styles.qInputBox} value={reviewQuestion} onChange={reviewQuestionChange} />
+      <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
       <textarea
+        className={styles.aInputBox}
         value={reviewContent}
         style={{ resize: "none" }}
         onChange={reviewContentChange}
       />
-      <button onClick={registerReview}>완료</button>
+      <div className={styles.completeBox}>
+        <button className={styles.completeButton} onClick={registerReview}>
+          완료
+        </button>
+      </div>
     </div>
   );
 }

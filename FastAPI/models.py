@@ -23,7 +23,6 @@ class Resume(Base):
     resume_id: Mapped[int] = mapped_column(BIGINT, autoincrement=True, primary_key=True)
     company_name: Mapped[str] = mapped_column(String(30), nullable=False)
     created_time: Mapped[datetime.datetime] = mapped_column(TIMESTAMP(), nullable=False)
-    has_review: Mapped[bool] = mapped_column(Boolean, nullable=False)
     interview_date: Mapped[datetime.datetime] = mapped_column(TIMESTAMP(), nullable=True)
     modified_time: Mapped[datetime.datetime] = mapped_column(TIMESTAMP(), nullable=True)
     user_id: Mapped[int] = mapped_column(BIGINT, ForeignKey('user.user_id'))

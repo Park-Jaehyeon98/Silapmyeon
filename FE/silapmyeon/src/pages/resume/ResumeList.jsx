@@ -1,4 +1,4 @@
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import { useState, useEffect } from "react";
 import Resume from "../../components/resume/Resume";
 import styles from "./ResumeListStyle.module.css";
@@ -10,7 +10,7 @@ function ResumeList() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const getResumes = async (page) => {
-    const res = await axios.get(`/resume?page=${page}`);
+    const res = await axiosAuth.get(`/resume?page=${page}`);
     console.log(res.data.content);
     console.log(res.data);
     setResumes(res.data.content);
@@ -34,9 +34,7 @@ function ResumeList() {
 
   pageNums.push(
     <a
-      style={{
-        fontWeight: "bold",
-      }}
+      className={styles.pn}
       onClick={() => handlePageChange(startIndex - 1 < 0 ? 0 : startIndex - 1)}
     >
       이전
@@ -50,9 +48,7 @@ function ResumeList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${
-          currentPage == index ? styles.selectedPage : ""
-        }`}
+        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
       >
         {index + 1}
       </a>
@@ -60,14 +56,8 @@ function ResumeList() {
   }
   pageNums.push(
     <a
-      style={{
-        fontWeight: "bold",
-      }}
-      onClick={() =>
-        handlePageChange(
-          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
-        )
-      }
+      className={styles.pn}
+      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
     >
       다음
     </a>
@@ -81,20 +71,13 @@ function ResumeList() {
       <Link to={"create"}>
         <button className={styles.plus}>+</button>
       </Link>
-      <table
-        style={{
-          borderCollapse: "collapse",
-          width: "896px",
-          left: "0%",
-          marginTop: "50px",
-        }}
-      >
-        <thead>
-          <tr className={styles.tableHeader}>
-            <th className={styles.number}>번호</th>
-            <th className={styles.companyName}>기업명</th>
-            <th className={styles.interviewDate}>면접일</th>
-            <th className={styles.createdDate}>작성일</th>
+      <table className={styles.table}>
+        <thead className={styles.tableHeader}>
+          <tr>
+            <th>번호</th>
+            <th>기업명</th>
+            <th>면접일</th>
+            <th>작성일</th>
           </tr>
         </thead>
         <tbody>
@@ -107,7 +90,7 @@ function ResumeList() {
               createdTime={resume.createdTime}
               modifiedTime={resume.modifiedTime}
               reviewId={resume.reviewId}
-              idx={idx}
+              idx={currentPage * 10 + idx}
             />
           ))}
         </tbody>

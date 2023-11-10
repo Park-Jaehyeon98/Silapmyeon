@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import ResumeItemForm from "../../components/resume/ResumeItemForm";
-import styles from "./ResumeModify.module.css";
+import styles from "./ResumeModifyStyle.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function ResumeModify() {
@@ -19,7 +19,7 @@ function ResumeModify() {
   };
 
   const removeItem = () => {
-    if (items.length == 1) {
+    if (items.length === 1) {
       alert("최소 1개의 자소서 항목이 필요합니다.");
     } else {
       setItems((prevItems) => prevItems.slice(0, -1));
@@ -113,7 +113,7 @@ function ResumeModify() {
     // itemData now contains the questions and answers for each item
     // You can use this data to send to the server, for example:
     if (flag) {
-      const res = await axios.put(`/resume/${resume.resumeId}`, {
+      const res = await axiosAuth.put(`/resume/${resume.resumeId}`, {
         companyName,
         interviewDate,
         resumeItems: itemData,

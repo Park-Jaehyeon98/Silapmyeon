@@ -26,6 +26,12 @@ import ReviewList from "./pages/review/ReviewList";
 import ReviewCreate from "./pages/review/ReviewCreate";
 import ReviewDetail from "./pages/review/ReviewDetail";
 import ReviewModify from "./pages/review/ReviewModify";
+import ReportListView from "./pages/report/ReportListView";
+import ReportDetailView from "./pages/report/ReportDetailView";
+import Board from "./pages/Board/Board";
+import BoardDetail from "./pages/Board/BoardDetail";
+import BoardRegist from "./pages/Board/BoardRegist";
+import BoardEdit from "./pages/Board/BoardEdit";
 
 function App() {
   const isLogin = useRecoilValue(IsLoginSelector);
@@ -57,12 +63,18 @@ function App() {
                 {/* 자기소개서 */}
                 <Route path="/resume" element={<ResumeList />} />
                 <Route path="/resume/:resumeId" element={<ResumeDetail />} />
-                <Route path="/resume/:resumeId/modify" element={<ResumeModify />} />
+                <Route
+                  path="/resume/:resumeId/modify"
+                  element={<ResumeModify />}
+                />
                 <Route path="/resume/create" element={<ResumeCreate />} />
 
                 {/* 면접 */}
                 <Route path="/interview" element={<TypeSelect />} />
-                <Route path="/interview/preparation" element={<Preparation />} />
+                <Route
+                  path="/interview/preparation"
+                  element={<Preparation />}
+                />
                 <Route path="/interview/practice" element={<Practice />} />
                 <Route path="/interview/mock" element={<Mock />} />
                 <Route path="/interview/self" element={<Self />} />
@@ -70,8 +82,33 @@ function App() {
                 {/* 면접후기 */}
                 <Route path="/review" element={<ReviewList />} />
                 <Route path="/review/:reviewId" element={<ReviewDetail />} />
-                <Route path="/review/:reviewId/modify" element={<ReviewModify />} />
+                <Route
+                  path="/review/:reviewId/modify"
+                  element={<ReviewModify />}
+                />
                 <Route path="/review/create" element={<ReviewCreate />} />
+
+                {/* 모의면접 레포트 */}
+                <Route
+                  path="/report/list/:userId"
+                  element={<ReportListView />}
+                />
+                <Route
+                  path="/report/detail/:id"
+                  element={<ReportDetailView />}
+                />
+
+                {/* 커뮤니티 게시글 */}
+                <Route path="/community" element={<Board />} />
+                <Route
+                  path="/community/detail/:boardId"
+                  element={<BoardDetail />}
+                ></Route>
+                <Route
+                  path="community/regist"
+                  element={<BoardRegist />}
+                ></Route>
+                <Route path="community/edit" element={<BoardEdit />}></Route>
               </Route>
             </Routes>
           </div>

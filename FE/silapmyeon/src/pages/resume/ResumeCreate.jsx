@@ -1,8 +1,8 @@
 import { useState } from "react";
-import axios from "../../api/api";
 import ResumeItemForm from "../../components/resume/ResumeItemForm";
 import styles from "./ResumeCreateStyle.module.css";
 import { useNavigate } from "react-router-dom";
+import { axiosAuth } from "../../api/settingAxios";
 
 function ResumeCreate() {
   const [items, setItems] = useState([<ResumeItemForm />]);
@@ -101,7 +101,10 @@ function ResumeCreate() {
     }
 
     for (let index = 0; index < itemData.length; index++) {
-      if (isEmpty(itemData[index].resumeAnswer) || isEmpty(itemData[index].resumeQuestion)) {
+      if (
+        isEmpty(itemData[index].resumeAnswer) ||
+        isEmpty(itemData[index].resumeQuestion)
+      ) {
         alert("자소서 항목을 입력해주세요.");
         flag = false;
         break;
@@ -111,7 +114,7 @@ function ResumeCreate() {
     // You can use this data to send to the server, for example:
 
     if (flag) {
-      const res = await axios.post("/resume", {
+      const res = await axiosAuth.post("/resume", {
         companyName,
         interviewDate,
         resumeItems: itemData,

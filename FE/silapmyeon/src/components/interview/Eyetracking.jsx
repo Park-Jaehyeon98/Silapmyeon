@@ -35,12 +35,12 @@ const Eyetracking = () => {
 
         await seesoRef.current.startTracking(
           (gazeInfo) => {
-            console.log("Gaze Info:", gazeInfo);
+            // console.log("Gaze Info:", gazeInfo);
             updateRedDotPosition(gazeInfo);
           },
           (FPS, latency_min, latency_max, latency_avg) => {
-            console.log("FPS:", FPS);
-            console.log("Latency (min/max/avg):", latency_min, latency_max, latency_avg);
+            // console.log("FPS:", FPS);
+            // console.log("Latency (min/max/avg):", latency_min, latency_max, latency_avg);
           }
         );
       } catch (error) {
@@ -67,12 +67,22 @@ const Eyetracking = () => {
     const x = (window.innerWidth - dotSize) / 2 + gazeInfo.x * window.innerWidth;
     const y = (window.innerHeight - dotSize) / 2 + gazeInfo.y * window.innerHeight;
 
-    if (gazeInfo.x < 0 || gazeInfo.x > 1920 || gazeInfo.y < 0 || gazeInfo.y > 1080) {
-      setCnt((prev) => prev + 1);
-      redDotRef.current.style.display = "none";
+    if (
+      gazeInfo.x < 0 ||
+      gazeInfo.x > window.innerWidth ||
+      gazeInfo.y < 0 ||
+      gazeInfo.y > window.innerHeight
+    ) {
+      if (cnt === 0) {
+        setCnt(1);
+        redDotRef.current.style.display = "none";
+      }
     } else {
       setDotPosition({ x, y });
-      redDotRef.current.style.display = "block";
+      if (cnt === 1) {
+        setCnt(0);
+        redDotRef.current.style.display = "block";
+      }
     }
   };
 

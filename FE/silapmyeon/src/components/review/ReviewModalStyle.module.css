@@ -4,9 +4,125 @@
   font-size: large;
 }
 
+.pageNum {
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
 .pageNums {
-  /* position: absolute; */
-  /* margin-top: 60px; */
-  /* left: 720px; */
+  position: absolute;
+  left: 325px;
+  margin-top: 30px;
   font-size: medium;
+}
+
+.total {
+  z-index: 1;
+
+  background: white;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+  /* Rectangle 142 */
+
+  position: absolute;
+  width: 896px;
+  height: 417px;
+  left: 418px;
+  top: 398px;
+}
+
+.closeButton {
+  /* Rectangle 99 */
+
+  position: absolute;
+  width: 101px;
+  height: 42px;
+  left: 750px;
+  top: 358px;
+
+  background: #494ca2;
+  border-radius: 10px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #ffffff;
+
+  border: none;
+  cursor: pointer;
+}
+
+.table {
+  position: absolute;
+
+  width: 810px;
+  left: 42px;
+  top: 43px;
+  border-collapse: collapse;
+}
+
+.th {
+  /* Rectangle 112 */
+
+  height: 48.88px;
+
+  background: #e3e7f1;
+  border-radius: 10px;
+}
+
+.tbCompanyName {
+  cursor: pointer;
+}
+
+.tb {
+  /* Rectangle 111 */
+  box-sizing: border-box;
+
+  height: 48.88px;
+
+  background: #ffffff;
+  border-bottom: 2px solid #8186d5;
+  text-align: center;
+}
+
+.thCreatedDate {
+  /* 작성일 */
+
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  left: 1196px;
+  top: 438px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #000000;
+}
+
+.thInterviewDate {
+  /* 면접일 */
+
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  left: 1077px;
+  top: 438px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #000000;
 }
