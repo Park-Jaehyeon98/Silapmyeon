@@ -10,7 +10,7 @@ function ResumeList() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const getResumes = async (page) => {
-    const res = await axiosAuth.get(`/resume?page=${page}`);
+    const res = await axiosAuth.get(`/resume?page=${page}&keyword=${keyword}`);
     console.log(res.data.content);
     console.log(res.data);
     setResumes(res.data.content);
@@ -48,7 +48,9 @@ function ResumeList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+        className={`${styles.pageNum} ${
+          currentPage == index ? styles.selectedPage : ""
+        }`}
       >
         {index + 1}
       </a>
@@ -57,17 +59,41 @@ function ResumeList() {
   pageNums.push(
     <a
       className={styles.pn}
-      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
     >
       다음
     </a>
   );
+
+  const [keyword, setKeyword] = useState("");
+  const handleKeywordChange = (event) => {
+    setKeyword(event.target.value);
+    console.log(keyword);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      getResumes();
+    }
+  };
 
   return (
     <div style={{ height: "100vh" }}>
       <div className={styles.resumeTitle}>
         <div className={styles.resumeTitleText}>나의 자기소개서</div>
       </div>
+      <div className={styles.searchBoxText}>🔎</div>
+      <input
+        value={keyword}
+        className={styles.searchBox}
+        placeholder="기업명 검색"
+        onChange={handleKeywordChange}
+        onKeyUpCapture={handleKeyPress}
+      />
       <Link to={"create"}>
         <button className={styles.plus}>+</button>
       </Link>

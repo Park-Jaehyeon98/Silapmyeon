@@ -8,7 +8,7 @@ function ReviewList() {
   const [totalPages, setTotalPages] = useState(0);
 
   const getReviews = async (page) => {
-    const resp = await axiosAuth.get(`/review?page=${page}`);
+    const resp = await axiosAuth.get(`/review?page=${page}&keyword=${keyword}`);
     console.log(resp);
     setReviews(resp.data.content);
     setTotalPages(resp.data.totalPages);
@@ -58,7 +58,9 @@ function ReviewList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+        className={`${styles.pageNum} ${
+          currentPage == index ? styles.selectedPage : ""
+        }`}
       >
         {index + 1}
       </a>
@@ -67,17 +69,39 @@ function ReviewList() {
   pageNums.push(
     <a
       className={styles.pn}
-      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
     >
       다음
     </a>
   );
 
+  const [keyword, setKeyword] = useState("");
+  const handleKeywordChange = (event) => {
+    setKeyword(event.target.value);
+    console.log(keyword);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      getReviews();
+    }
+  };
+
   return (
     <div style={{ height: "100vh" }}>
       <div className={styles.title}>면접 후기</div>
-      <div className={styles.searchBoxText}>🔎 기업명 검색</div>
-      <input className={styles.searchBox} />
+      <div className={styles.searchBoxText}>🔎</div>
+      <input
+        value={keyword}
+        className={styles.searchBox}
+        placeholder="기업명 검색"
+        onChange={handleKeywordChange}
+        onKeyUpCapture={handleKeyPress}
+      />
       <Link to={"/review/create"}>
         <button className={styles.plusButton}>+</button>
       </Link>
@@ -98,7 +122,10 @@ function ReviewList() {
             return (
               <tr className={styles.tb}>
                 <td>{currentPage * 10 + idx + 1}</td>
-                <Link to={`${review.reviewId}`} style={{ textDecoration: "none", color: "black" }}>
+                <Link
+                  to={`${review.reviewId}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
                   <td style={{ lineHeight: "52px" }}>{review.companyName}</td>
                 </Link>
                 <td>{review.interviewDate.substring(0, 4)}</td>

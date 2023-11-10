@@ -53,8 +53,9 @@ public class ReviewController {
 
     //면접 후기 전체 조회
     @GetMapping
-    public ResponseEntity<?> getReviews(@PageableDefault(sort = "reviewId", direction = Sort.Direction.DESC)Pageable pageable) {
-        Page<Review> reviewPage = reviewService.readReviews(pageable, SecurityUtils.getUser().getUserId());
+    public ResponseEntity<?> getReviews(@PageableDefault(sort = "reviewId", direction = Sort.Direction.DESC) Pageable pageable,
+                                        @RequestParam(value = "keyword", required = false) String keyword) {
+        Page<Review> reviewPage = reviewService.readReviews(pageable, SecurityUtils.getUser().getUserId(), keyword);
         Page<ReviewSimpleResDto> reviewSimpleResDtos = reviewPage.map(review -> reviewMapper.reviewToReviewSimpleResDto(review));
         return new ResponseEntity<>(reviewSimpleResDtos, HttpStatus.OK);
     }

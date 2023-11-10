@@ -23,7 +23,7 @@ public class Review {
     @Column(length = 5, nullable = false)
     private String reviewOrder;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 10, nullable = false)
     private String reviewJob;
 
     @Column(length = 50, nullable = false)
