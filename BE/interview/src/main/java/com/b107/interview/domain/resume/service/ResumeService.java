@@ -71,8 +71,9 @@ public class ResumeService {
     }
 
     //자기소개서 전체 조회
-    public Page<Resume> readResumes(Pageable pageable, Long userId) {
-        return resumeRepository.findAllByUserId(pageable, userId);
+    public Object readResumes(Pageable pageable, Long userId, String keyword, boolean isAll) {
+        if (isAll) return resumeRepository.findAllByUserId(userId); //페이지네이션 미적용
+        else return resumeRepository.findAllByUserIdAndCompanyName(pageable, userId, keyword);
     }
 
     //자기소개서 삭제

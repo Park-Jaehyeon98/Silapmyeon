@@ -27,7 +27,7 @@
   position: absolute;
   width: 37px;
   height: 35px;
-  left: 1242px;
+  left: 1230px;
   top: 226px;
 
   color: white;
@@ -41,8 +41,8 @@
   position: absolute;
   width: 198px;
   height: 27px;
-  left: 681px;
-  top: 232px;
+  left: 860px;
+  top: 230px;
 
   font-family: "Inter";
   font-style: normal;
@@ -57,14 +57,15 @@
   /* Rectangle 41 */
 
   position: absolute;
-  width: 402px;
+  width: 302px;
   height: 33px;
-  left: 821px;
+  left: 901px;
   top: 226px;
 
   background: #f5f6ff;
   border-radius: 10px;
   border: none;
+  font-size: medium;
 }
 
 .table {
