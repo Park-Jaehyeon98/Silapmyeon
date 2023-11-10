@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BASE_URL = "https://silapmyeon.com/api";
-// const BASE_URL = "http://localhost:8080";
 
 const axiosAuth = axios.create({
   baseURL: BASE_URL,

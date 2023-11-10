@@ -1,105 +1,10 @@
 .item {
-  /* Group 174 */
-
   width: 896px;
   height: 52px;
-  /* left: 418px;
-  top: 336px; */
-
-  /* Rectangle 111 */
 
   box-sizing: border-box;
 
-  /* position: absolute; */
-  /* width: 896px;
-    height: 52px;
-    left: 418px;
-    top: 336px; */
-
   background: #ffffff;
   border-bottom: 2px solid #8186d5;
-
-  /* Group 173 */
-
-  /* position: absolute; */
-  /* width: 856px;
-    height: 24px;
-    left: 443px;
-    top: 350px; */
-}
-
-.num {
-  /* 1 */
-
-  position: relative;
-  width: 8px;
-  height: 24px;
-  left: 6%;
-  top: 0%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  /* identical to box height, or 150% */
-
-  color: #000000;
-}
-
-.name {
-  /* 하나은행 */
-
-  position: relative;
-  width: 59px;
-  height: 24px;
-  left: 8%;
-  top: 0%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  /* identical to box height, or 150% */
-
-  color: #000000;
-}
-
-.interview {
-  /* 2023-10-10 */
-
-  position: relative;
-  width: 90px;
-  height: 24px;
-  left: 13%;
-  top: 0%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  /* identical to box height, or 150% */
-
-  color: #000000;
-}
-
-.create {
-  /* 2023-09-10 */
-
-  position: relative;
-  width: 92px;
-  height: 24px;
-  left: 13%;
-  top: 0%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  /* identical to box height, or 150% */
-
-  color: #000000;
+  text-align: center;
 }

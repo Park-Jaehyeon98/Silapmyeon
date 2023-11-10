@@ -30,6 +30,7 @@ export const editUser = async (userNickname) => {
     throw error;
   }
 };
+<<<<<<< HEAD
 
 export const logoutUser = async () => {
   const reqUrl = "/token/logout";
@@ -41,6 +42,8 @@ export const logoutUser = async () => {
     throw error;
   }
 };
+=======
+>>>>>>> 8df07267d76c0b36908c2a9b481807ecd0da4cdb
 
 // 회원 탈퇴
 export const deleteUser = async () => {
