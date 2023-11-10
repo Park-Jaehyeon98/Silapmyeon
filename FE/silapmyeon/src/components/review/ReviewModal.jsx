@@ -53,7 +53,9 @@ function ReviewModal({ onModalChange }) {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+        className={`${styles.pageNum} ${
+          currentPage == index ? styles.selectedPage : ""
+        }`}
       >
         {index + 1}
       </a>
@@ -65,7 +67,11 @@ function ReviewModal({ onModalChange }) {
         fontWeight: "bold",
         cursor: "pointer",
       }}
-      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
     >
       다음
     </a>
@@ -95,7 +101,13 @@ function ReviewModal({ onModalChange }) {
               <td>{currentPage * 5 + idx + 1}</td>
               <td
                 className={styles.tbCompanyName}
-                onClick={() => sendInfo(resume.companyName, resume.interviewDate, resume.resumeId)}
+                onClick={() =>
+                  sendInfo(
+                    resume.companyName,
+                    resume.interviewDate,
+                    resume.resumeId
+                  )
+                }
               >
                 {resume.companyName}
               </td>
@@ -104,7 +116,9 @@ function ReviewModal({ onModalChange }) {
             </tr>
           );
         })}
-        <div className={styles.pageNums}>{pageNums}</div>
+        {pageNums.length === 2 ? null : (
+          <div className={styles.pageNums}>{pageNums}</div>
+        )}
       </table>
       <button className={styles.closeButton} onClick={closeModal}>
         닫기

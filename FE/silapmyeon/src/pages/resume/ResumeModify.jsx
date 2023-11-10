@@ -19,7 +19,7 @@ function ResumeModify() {
   };
 
   const removeItem = () => {
-    if (items.length == 1) {
+    if (items.length === 1) {
       alert("최소 1개의 자소서 항목이 필요합니다.");
     } else {
       setItems((prevItems) => prevItems.slice(0, -1));
@@ -104,7 +104,10 @@ function ResumeModify() {
     }
 
     for (let index = 0; index < itemData.length; index++) {
-      if (isEmpty(itemData[index].resumeAnswer) || isEmpty(itemData[index].resumeQuestion)) {
+      if (
+        isEmpty(itemData[index].resumeAnswer) ||
+        isEmpty(itemData[index].resumeQuestion)
+      ) {
         alert("자소서 항목을 입력해주세요.");
         flag = false;
         break;
