@@ -138,6 +138,7 @@ function ResumeCreate() {
       <div className={styles.interviewBox}>
         <div className={styles.interviewTitle}>면접일</div>
         <input
+          placeholder="yyyymmdd"
           className={styles.rectangle106}
           onChange={interviewDateChange}
           value={interviewDate}

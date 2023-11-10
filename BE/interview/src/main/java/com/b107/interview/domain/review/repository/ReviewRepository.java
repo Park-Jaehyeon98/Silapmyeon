@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
-    @Query(value = "select r from Review r where r.user.userId = :userId")
-    Page<Review> findAllByUserId(Pageable pageable, Long userId);
+    @Query(value = "select r from Review r where r.user.userId = :userId and r.resume.resumeId in " +
+            "(select rs.resumeId from Resume rs where rs.companyName like concat('%', coalesce(:keyword, ''), '%')) ")
+    Page<Review> findAllByUserIdAndCompanyName(Pageable pageable, Long userId, String keyword);
 }
