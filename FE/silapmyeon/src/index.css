@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: "nanum";
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial",
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +11,25 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@font-face {
+  font-family: "soyoMaple";
+  src: url("./fonts/SOYO\ Maple\ Regular.ttf");
+}
+@font-face {
+  font-family: "notosanskr";
+  src: url("./fonts/NotoSansKR-Regular.ttf");
+}
+@font-face {
+  font-family: "suite";
+  src: url("./fonts/SUITE-Regular.ttf");
+}
+@font-face {
+  font-family: "nanum";
+  src: url("./fonts/NanumSquareR.ttf");
+}
+@font-face {
+  font-family: "maruburi";
+  src: url("./fonts/MaruBuri-Regular.ttf");
 }
