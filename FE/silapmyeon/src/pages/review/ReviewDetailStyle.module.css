@@ -24,6 +24,7 @@
   position: absolute;
   left: 358px;
   top: 249px;
+  width: 500px;
 
   font-family: "Inter";
   font-style: normal;
@@ -44,6 +45,7 @@
   height: 407px;
   left: 358px;
   top: 313px;
+  margin-top: 20px;
 
   font-size: 17px;
 
@@ -73,6 +75,7 @@
   /* identical to box height */
 
   color: #ffffff;
+  margin-top: 15px;
 }
 
 .deleteButton {
@@ -81,7 +84,7 @@
   position: absolute;
   width: 131px;
   height: 52px;
-  left: 1236px;
+  left: 1230px;
   top: 754px;
 
   background: #ef5c41;
@@ -96,6 +99,7 @@
   /* identical to box height */
 
   color: #ffffff;
+  margin-top: 15px;
 }
 
 .detail {
@@ -110,7 +114,7 @@
   width: auto;
   height: 40px;
   left: 890px;
-  top: 230px;
+  top: 249px;
 
   font-family: "Inter";
   font-style: normal;
@@ -119,4 +123,28 @@
   line-height: 29px;
 
   color: #000000;
+}
+
+.list {
+  /* 수정 button */
+  cursor: pointer;
+  position: absolute;
+  width: 131px;
+  height: 52px;
+  top: 754px;
+  left: 357px;
+
+  background: #e3e7f1;
+  border-radius: 10px;
+  border: none;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #494ca2;
+  margin-top: 15px;
 }
