@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Home.css";
-import { getUser } from "../../api/userAPI";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { UserAtom } from "../../Recoil/UserAtom";
 
 function Home() {
