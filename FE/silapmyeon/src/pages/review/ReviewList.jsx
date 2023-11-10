@@ -136,7 +136,7 @@ function ReviewList() {
             );
           })}
         </tbody>
-        {pageNums.length === 0 ? null : (
+        {pageNums.length === 2 ? null : (
           <div className={styles.pageNums}>{pageNums}</div>
         )}
       </table>
