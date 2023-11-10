@@ -50,7 +50,7 @@ public class S3Service {
                 contentType = "text/csv";
                 break;
             case "mp4":
-                contentType = "video/mp4";
+                contentType = "video/webm";
                 break;
         }
 
