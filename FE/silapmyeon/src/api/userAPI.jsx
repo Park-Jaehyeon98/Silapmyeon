@@ -31,6 +31,17 @@ export const editUser = async (userNickname) => {
   }
 };
 
+export const logoutUser = async () => {
+  const reqUrl = "/token/logout";
+  try {
+    const response = await axiosAuth.post(reqUrl);
+    return response.data;
+  } catch (error) {
+    console.error("Request error", error);
+    throw error;
+  }
+};
+
 // 회원 탈퇴
 export const deleteUser = async () => {
   const reqUrl = "/user";

@@ -4,6 +4,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { IsLogin, IsLoginSelector, UserAtom } from "../../Recoil/UserAtom";
 import { useState } from "react";
 import LoginModal from "../modal/LoginModal";
+import { logoutUser } from "../../api/userAPI";
 
 function Header() {
   const setUserValue = useSetRecoilState(UserAtom);
@@ -13,21 +14,19 @@ function Header() {
   var isLogin = useRecoilValue(IsLoginSelector);
 
   const handleLogout = () => {
-    setUserValue({});
-    setIsLogin(false);
-    sessionStorage.removeItem("user");
+    logoutUser().then(() => {
+      setUserValue({});
+      setIsLogin(false);
+      sessionStorage.removeItem("user");
+      // console.log("로그아웃 -------------" + isLogin);
 
-    console.log("로그아웃 -------------" + isLogin);
-
-    navigate("/");
+      navigate("/intro");
+    });
   };
 
   const loginClick = () => {
+    // 로그인 모달
     setOpen(true);
-
-    console.log("로그인 모달 띄우기");
-
-    // navigate('/');
   };
 
   const [isOpen, setOpen] = useState(false);
