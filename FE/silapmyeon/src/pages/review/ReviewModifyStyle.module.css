@@ -8,7 +8,7 @@
   top: 161px;
 
   /* 본문 큰 제목 */
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -26,7 +26,7 @@
   left: 360px;
   top: 299px;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
@@ -243,7 +243,7 @@
   left: 358px;
   top: 604px;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -295,7 +295,7 @@
   background: #494ca2;
   border-radius: 10px;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 700;
   font-size: 24px;

@@ -15,7 +15,7 @@
         top: 0%;
         bottom: 0%; */
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -50,7 +50,7 @@
   border: none;
   border-bottom: 3px solid #8186d5;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -69,7 +69,7 @@
   top: 4.6%;
   bottom: 69.87%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -108,7 +108,7 @@
 
   border-bottom: 3px solid #8186d5;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -127,7 +127,7 @@
   top: 4.6%;
   bottom: 69.87%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -197,7 +197,7 @@ bottom: 0%; */
   border: none;
   border-radius: 10px;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
