@@ -48,14 +48,12 @@ public class ReportService {
         Report report = Report.of(
                 reportRequest.getUserId(),
                 interviews,
-                reportRequest.getEyeTrackingViolationCount(),
                 reportRequest.getCompany()
                 );
 
         Report savedEntity = reportRepository.save(report);
-        ReportResponse reportResponse = ReportResponse.from(savedEntity);
 
-        return reportResponse;
+        return ReportResponse.from(savedEntity);
     }
 
 
