@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import axios from "../../api/api";
+import { axiosMulti } from "../../api/axiosMultipart";
+import { axiosAuth } from "../../api/settingAxios";
 import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
@@ -30,12 +31,9 @@ function Mock() {
   const [qCount, setQCount] = useRecoilState(questionCount);
   const [ttsState, setTtsState] = useRecoilState(tts);
   const [sttState, setSttState] = useRecoilState(stt);
-  const [completeSpeechState, setCompleteSpeechState] =
-    useRecoilState(completeSpeech);
-  const [selectedTypeState, setSelectedTypeState] =
-    useRecoilState(selectedType);
-  const [selectedQuestionState, setSelectedQuestionState] =
-    useRecoilState(selectedQuestion);
+  const [completeSpeechState, setCompleteSpeechState] = useRecoilState(completeSpeech);
+  const [selectedTypeState, setSelectedTypeState] = useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] = useRecoilState(selectedQuestion);
   const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
   const [answerText, setAnswerText] = useRecoilState(answer);
 
@@ -44,6 +42,8 @@ function Mock() {
   const [timer, setTimer] = useState(0);
   const [interviewData, setInterviewData] = useState([]);
   const [videoData, setVideoData] = useState([]);
+  const [isVideoEnd, setIsVideoEnd] = useState(false);
+  const [isInterviewEnd, setIsInterviewEnd] = useState(false);
 
   const userValue = useRecoilValue(UserAtom);
 
@@ -54,7 +54,7 @@ function Mock() {
   const mediaRecorderRef = useRef(null);
   const [recordedChunks, setRecordedChunks] = useState([]);
 
-  const formData = new FormData();
+  const formData = useRef(new FormData());
 
   function handleNextButton() {
     if (qCount !== 0) {
@@ -70,7 +70,8 @@ function Mock() {
       });
 
       if (recording) {
-        handleStopCaptureClick();
+        mediaRecorderRef.current.stop();
+        setRecording(false);
       }
     }
 
@@ -88,10 +89,15 @@ function Mock() {
         {
           question: question[qCount],
           answer: answerText,
-          key: qCount,
+          key: qCount.toString(),
         },
       ];
     });
+
+    if (recording) {
+      mediaRecorderRef.current.stop();
+      setRecording(false);
+    }
   }
 
   function handleSTTData(time) {
@@ -111,10 +117,7 @@ function Mock() {
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
       mimeType: "video/webm",
     });
-    mediaRecorderRef.current.addEventListener(
-      "dataavailable",
-      handleDataAvailable
-    );
+    mediaRecorderRef.current.addEventListener("dataavailable", handleDataAvailable);
     mediaRecorderRef.current.start();
   }, [webcamRef, setRecording]);
 
@@ -127,46 +130,6 @@ function Mock() {
     [setRecordedChunks]
   );
 
-  const handleStopCaptureClick = useCallback(() => {
-    mediaRecorderRef.current.stop();
-    setRecording(false);
-
-    if (recordedChunks.length) {
-      const blob = new Blob(recordedChunks, {
-        type: "video/webm",
-      });
-
-      setVideoData((prev) => {
-        return [...prev, blob];
-      });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "recording.webm";
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      setRecordedChunks([]);
-    }
-  }, [mediaRecorderRef, setRecording, recordedChunks]);
-
-  // 녹화된 데이터를 파일로 저장
-  const handleDownload = useCallback(() => {
-    if (recordedChunks.length) {
-      const blob = new Blob(recordedChunks, {
-        type: "video/webm",
-      });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "recording.webm";
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      setRecordedChunks([]);
-    }
-  }, [recordedChunks]);
-
   useEffect(() => {
     if (completeSpeechState) {
       handleStartCaptureClick();
@@ -174,8 +137,34 @@ function Mock() {
   }, [completeSpeechState]);
 
   useEffect(() => {
+    if (recordedChunks.length) {
+      const blob = new Blob(recordedChunks, {
+        type: "video/webm",
+      });
+
+      formData.current.append((qCount - 1).toString(), blob);
+
+      setVideoData((prev) => {
+        return [
+          ...prev,
+          {
+            video: blob,
+            key: (qCount - 1).toString(),
+          },
+        ];
+      });
+
+      setRecordedChunks([]);
+
+      if (qCount === 6) {
+        setIsVideoEnd(true);
+      }
+    }
+  }, [recordedChunks]);
+
+  useEffect(() => {
     if (qCount === 6) {
-      formData.append(
+      formData.current.append(
         "json",
         new Blob(
           [
@@ -193,9 +182,34 @@ function Mock() {
       console.log(userValue.userId);
       console.log(interviewData);
 
-      navigate("/");
+      setIsInterviewEnd(true);
     }
   }, [interviewData]);
+
+  useEffect(() => {
+    console.log(videoData);
+  }, [videoData]);
+
+  useEffect(() => {
+    console.log(isInterviewEnd, isVideoEnd);
+
+    for (let [key, value] of formData.current.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+    if (isInterviewEnd && isVideoEnd) {
+      axiosMulti
+        .post("/report", formData.current)
+        .then((request) => {
+          console.log(request);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      // navigate("/");
+    }
+  }, [isInterviewEnd, isVideoEnd]);
 
   useEffect(() => {
     const handleBeforeUnload = (e) => {
@@ -211,7 +225,7 @@ function Mock() {
       resume: resumeIdState,
     };
 
-    axios.post("/interview", body).then((response) => {
+    axiosAuth.post("/interview", body).then((response) => {
       console.log(response.data.question);
       setQuestion(response.data.question);
       setIsLoading((prev) => !prev);
@@ -229,13 +243,7 @@ function Mock() {
         <div className={styles.timerContainer}>{formatTime(timer)}</div>
       </div>
       <div>
-        <img
-          className={styles.webcamImage}
-          width={640}
-          height={360}
-          src={AltCam}
-          alt="cam"
-        />
+        <img className={styles.webcamImage} width={640} height={360} src={AltCam} alt="cam" />
       </div>
       <div style={{ display: "none" }}>
         {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
@@ -259,22 +267,16 @@ function Mock() {
         </button>
       )}
       {/* <Eyetracking /> */}
-      <Webcam
-        audio={true}
-        height={360}
-        ref={webcamRef}
-        width={640}
-        videoConstraints={videoConstraints}
-        mirrored={true}
-      ></Webcam>
-      {recording ? (
-        <button onClick={handleStopCaptureClick}>Stop Recording</button>
-      ) : (
-        <button onClick={handleStartCaptureClick}>Start Recording</button>
-      )}
-      {recordedChunks.length > 0 && (
-        <button onClick={handleDownload}>Download</button>
-      )}
+      <div style={{ display: "none" }}>
+        <Webcam
+          audio={true}
+          height={360}
+          ref={webcamRef}
+          width={640}
+          videoConstraints={videoConstraints}
+          mirrored={true}
+        ></Webcam>
+      </div>
     </div>
   );
 }
