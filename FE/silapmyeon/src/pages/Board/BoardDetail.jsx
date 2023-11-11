@@ -79,8 +79,10 @@ function BoardDetail() {
         <div className="boardTitle">{board.title}</div>
 
         <div className="boardLine"></div>
+
         <div className="boardInfo">
-          <div className="boardDate">{board.createdTime.substring(0, 10)}</div>
+          <div className="boardUser">{board.nickname}</div>
+          <div className="boardHits">{board.createdTime.substring(0, 10)}</div>
           <div className="boardHits">조회수 {board.hit}</div>
         </div>
         {board.userId === userValue.userId && (
@@ -111,11 +113,15 @@ function BoardDetail() {
           <div className="boardContent">{board.content}</div>
           {report != null && <Report data={report}></Report>}
 
+          <div style={{ marginRight: "800px", marginBottom: "15px" }}>
+            답변 {comments.length}
+          </div>
           <div className="commentContainer">
             <div className="commentRegistUser">
               <img className="registImg" src={userValue.userProfileUrl}></img>
               <div className="registNickname">{userValue.userNickname}</div>
             </div>
+
             <div className="boardComment">
               <div className="commentRegist">
                 <textarea
@@ -141,9 +147,6 @@ function BoardDetail() {
                 <div></div>
               </div>
 
-              <div style={{ marginRight: "800px", marginBottom: "15px" }}>
-                답변 {comments.length}
-              </div>
               <div className="comments">
                 {comments.map((commentData) => (
                   <Comment comment={commentData}></Comment>

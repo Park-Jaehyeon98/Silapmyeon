@@ -18,8 +18,8 @@
   border: none;
   outline: none;
 
-  /* font-family: "Inter";
-  font-style: normal; */
+  /* font-family: "nanum"; */
+  font-style: normal;
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
@@ -51,7 +51,7 @@
 
   /* 자기소개서 질문을 입력하세요. */
 
-  /* font-family: "Inter"; */
+  font-family: "nanum";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -81,8 +81,8 @@
   border: none;
   outline: none;
 
-  /* font-family: "Inter";
-  font-style: normal; */
+  /* font-family: "nanum"; */
+  font-style: normal;
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
@@ -112,7 +112,7 @@
   outline: none;
 
   /* 자기소개서 답변을 입력하세요. */
-  /* font-family: "Inter"; */
+  font-family: "nanum";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

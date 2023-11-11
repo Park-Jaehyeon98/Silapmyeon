@@ -1,14 +1,18 @@
 .container {
-  font-family: 'Arial', sans-serif;
+  /* font-family: 'Arial', sans-serif; */
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .header {
-  color: #4962A2;
-  font-size: 40px;
   margin-bottom: 40px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 61px;
+
+  color: #4962a2;
 }
 
 .subHeader {
@@ -18,21 +22,21 @@
 }
 
 .gridContainer {
-  background-color: #C6CBEF;
+  background-color: #c6cbef;
   border-radius: 10px;
   padding: 30px 30px 30px 30px;
   box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(to right, #C6CBEF, #A4A6DB);
+  background: linear-gradient(to right, #c6cbef, #a4a6db);
   min-height: 500px; /* 최소 높이 설정 */
   max-height: 500px; /* 최대 높이 설정 */
 }
 
 .emptyGridContainer {
-  background-color: #C6CBEF;
+  background-color: #c6cbef;
   border-radius: 10px;
   padding: 30px 30px 30px 30px;
   box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(to right, #C6CBEF, #A4A6DB);
+  background: linear-gradient(to right, #c6cbef, #a4a6db);
   min-height: 500px; /* 최소 높이 설정 */
   max-height: 500px; /* 최대 높이 설정 */
 }
@@ -75,12 +79,12 @@
 .card::before {
   pointer-events: none;
   position: absolute;
-  content: '';
+  content: "";
   height: 0;
   width: 0;
   top: 0;
   right: 0; /* 변경된 부분: left에서 right로 변경 */
-  background: #C6CBEF;
+  background: #c6cbef;
   background: linear-gradient(-135deg, #ffffff 45%, #e1e1e1 56%, #f9f9f9 80%);
   z-index: 1000;
   transition-duration: 0.5s;
@@ -102,7 +106,7 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  top: -18px;    /* Move up by 10px outside the .card */
+  top: -18px; /* Move up by 10px outside the .card */
   left: -10px;
 }
 
@@ -149,8 +153,6 @@
   margin-top: 20px; /* 상단 여백 */
 }
 
-
-
 .arrow {
   width: 50px;
   height: 50px;
@@ -164,5 +166,5 @@
 }
 
 .arrow:hover {
-  opacity: 1.0; /* 마우스를 올렸을 때의 투명도 값 (더 밝게 보임) */
+  opacity: 1; /* 마우스를 올렸을 때의 투명도 값 (더 밝게 보임) */
 }
