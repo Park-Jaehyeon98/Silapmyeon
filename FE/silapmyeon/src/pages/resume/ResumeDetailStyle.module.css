@@ -2,7 +2,7 @@
   /* 큰 제목 */
 
   position: absolute;
-  width: 487px;
+  width: 650px;
   height: 45px;
   left: 367px;
   top: 209px;
@@ -17,7 +17,7 @@
   top: 0%;
   bottom: 0%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -49,7 +49,7 @@
   top: 0%;
   bottom: 0%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -69,7 +69,7 @@
   top: 0%;
   bottom: 0%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -105,7 +105,7 @@
   top: 2.25%;
   bottom: 78.88%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -126,7 +126,7 @@
   top: 25.17%;
   bottom: 11.91%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -152,14 +152,14 @@
   position: absolute;
   width: 131px;
   height: 52px;
-  left: 1025px;
-  top: 835px;
+  left: 1035px;
+  top: 790px;
 
   background: #494ca2;
   border-radius: 10px;
   border: none;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -175,8 +175,8 @@
   position: absolute;
   width: 131px;
   height: 52px;
-  left: 1183px;
-  top: 835px;
+  left: 1193px;
+  top: 790px;
 
   /* Rectangle 101 */
 
@@ -198,7 +198,7 @@ right: 32.82%;
 top: 23.08%;
 bottom: 21.15%; */
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -237,4 +237,27 @@ bottom: 87.19%; */
   color: white; /* Change text color if needed */
   font-weight: bold;
   font-size: large;
+}
+
+.list {
+  /* 수정 button */
+  cursor: pointer;
+  position: absolute;
+  width: 131px;
+  height: 52px;
+  top: 790px;
+  left: 425px;
+
+  background: #e3e7f1;
+  border-radius: 10px;
+  border: none;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #494ca2;
 }
