@@ -7,10 +7,31 @@
   margin-left: 30px;
   margin-top: 30px;
   margin-bottom: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+  transition: box-shadow 0.3s ease-in-out;
   /* height: 100vh; */
 }
+
 .img {
   text-align: center;
+}
+
+.sidebarItem {
+  position: relative;
+}
+
+.sidebarSubMenu {
+  overflow: hidden;
+  transform-origin: top;
+  position: relative;
+  top: 100%;
+  z-index: 1;
+  transition: max-height 0.5s ease-in-out;
+  padding-left: 20px;
+}
+
+.sidebarItemActive .sidebarSubMenu {
+  max-height: 152px;
 }
 
 .profileImg {
@@ -26,12 +47,19 @@
   text-align: left;
   margin-left: 31px;
   margin-top: 30px;
+  padding-left: 10px;
   /* font-family: "Inter"; */
   font-style: normal;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   color: #000000;
+  transition: transform 0.2s ease-in-out;
+}
+
+.sidebarText:hover {
+  transform: translateX(3px);
+  color: #494CA2;
 }
 
 .sidebarSmallText {
@@ -41,6 +69,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+  padding: 5px 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.sidebarSmallText:hover {
+  transform: translateX(3px); /* 오른쪽으로 이동 */
 }
 
 .link {
