@@ -72,6 +72,7 @@ function Board() {
       <div className="head">면접 공유 커뮤니티</div>
       <div className="search">
         <div className="company">
+          🔍
           <input
             className="input"
             type="text"
@@ -84,9 +85,9 @@ function Board() {
               }
             }}
           />
-          <button className="searchButton" onClick={handleSearch}>
+          {/* <button className="searchButton" onClick={handleSearch}>
             검색
-          </button>
+          </button> */}
         </div>
         <Link
           to="/community/regist"
