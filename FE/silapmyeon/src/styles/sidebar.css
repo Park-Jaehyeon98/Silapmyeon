@@ -20,13 +20,20 @@
   position: relative;
 }
 
+.sidebarItem:hover .sidebarSubMenu {
+  max-height: 152px; /* Adjust this value based on the content size */
+  opacity: 1;
+}
+
 .sidebarSubMenu {
+  max-height: 0; /* 초기에 하위 메뉴 숨김 */
+  opacity: 0;
   overflow: hidden;
   transform-origin: top;
   position: relative;
   top: 100%;
   z-index: 1;
-  transition: max-height 0.5s ease-in-out;
+  transition: max-height 0.5s, opacity 0.5s ease-in-out;
   padding-left: 20px;
 }
 

@@ -58,9 +58,8 @@ function Side() {
       <Link to={"/interview"} className="link">
         <div className="sidebarText">모의면접</div>
       </Link>
-      <div className={`sidebarItem ${myPageActive ? 'sidebarItemActive' : ''}`}>
-        <div onClick={toggleMyPage} className="sidebarText">마이페이지</div>
-        {myPageActive && (
+      <div className="sidebarItem">
+        <div className="sidebarText">마이페이지</div>
           <div className="sidebarSubMenu">
             <Link to={"/resume"} className="link">
               <div className="sidebarSmallText">자소서</div>
@@ -72,7 +71,6 @@ function Side() {
               <div className="sidebarSmallText">면접 후기</div>
             </Link>
           </div>
-        )}
       </div>
       <Link to={"/community"} className="link">
         <div className="sidebarText">면접 공유</div>
