@@ -106,7 +106,7 @@
   left: 860px;
   top: 230px;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -118,14 +118,22 @@
 .searchBox {
   /* Rectangle 41 */
 
+  margin-right: 10px;
+  border-radius: 10px;
+  background: #f5f6ff;
+  border: none;
+  height: 35px;
   position: absolute;
-  width: 302px;
-  height: 33px;
   left: 901px;
   top: 226px;
+  padding-left: 10px;
+  font-size: 13px;
+  width: 302px;
+  /* height: 33px;
+
 
   background: #f5f6ff;
   border-radius: 10px;
   border: none;
-  font-size: medium;
+  font-size: medium;  */
 }

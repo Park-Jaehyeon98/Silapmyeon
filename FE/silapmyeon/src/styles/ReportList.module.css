@@ -134,9 +134,19 @@
 }
 
 .searchInput {
-  font-size: 16px;
-  padding: 5px 10px;
+  width: 170px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background: #f5f6ff;
+  border: none;
+  height: 35px;
+  padding-left: 10px;
+  font-size: 13px;
+
   margin-left: 10px;
+
+  /* font-size: 16px;
+  padding: 5px 10px;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   outline: none;
@@ -144,7 +154,7 @@
 
   &:focus {
     border-color: #007bff;
-  }
+  } */
 }
 
 .pagination {

@@ -56,16 +56,26 @@
 .searchBox {
   /* Rectangle 41 */
 
+  margin-right: 10px;
+  border-radius: 10px;
+  background: #f5f6ff;
+  border: none;
+  height: 35px;
+  position: absolute;
+  left: 901px;
+  top: 226px;
+  padding-left: 10px;
+  font-size: 13px;
   position: absolute;
   width: 302px;
-  height: 33px;
+  /* height: 33px;  */
   left: 901px;
   top: 226px;
 
-  background: #f5f6ff;
+  /* background: #f5f6ff;
   border-radius: 10px;
   border: none;
-  font-size: medium;
+  font-size: medium; */
 }
 
 .table {

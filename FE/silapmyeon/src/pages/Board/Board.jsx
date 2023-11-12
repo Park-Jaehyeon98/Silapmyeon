@@ -4,6 +4,7 @@ import "../Board/BoardStyle.css";
 import Card from "../../components/Card/Card";
 import { axiosAuth } from "../../api/settingAxios";
 import "../../App.css";
+import styles from "../review/ReviewListStyle.module.css";
 function Board() {
   const [cards, setCards] = useState([]);
 
@@ -15,6 +16,8 @@ function Board() {
   const [searchText, setSearchText] = useState("");
   const [first, setFirst] = useState("true");
   const [last, setLast] = useState("false");
+  const [totalPages, setPage] = useState("");
+  const [totlaElements, setElements] = useState("");
 
   const handleSearch = async () => {
     const reqUrl =
@@ -41,6 +44,52 @@ function Board() {
       });
   };
 
+  const pageNums = [];
+  const maxPagesToShow = 5;
+
+  const startIndex = Math.floor(pageInfo.pageNumber / maxPagesToShow) * 5;
+  const endIndex = Math.min(totalPages, startIndex + 5);
+
+  const handlePageChange = (page) => {
+    setPageInfo({ ...pageInfo, pageNumber: page });
+  };
+  pageNums.push(
+    <a
+      className={styles.pn}
+      onClick={() => handlePageChange(startIndex - 1 < 0 ? 0 : startIndex - 1)}
+    >
+      이전
+    </a>
+  );
+  for (let index = startIndex; index < endIndex; index++) {
+    console.log("currentPage:", pageInfo.pageNumber);
+    console.log("index + 1:", index + 1);
+
+    pageNums.push(
+      <a
+        key={index}
+        onClick={() => handlePageChange(index)}
+        className={`${styles.pageNum} ${
+          pageInfo.pageNumber == index ? styles.selectedPage : ""
+        }`}
+      >
+        {index + 1}
+      </a>
+    );
+  }
+  pageNums.push(
+    <a
+      className={styles.pn}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
+    >
+      다음
+    </a>
+  );
+
   useEffect(() => {
     console.log(searchText);
     const reqUrl =
@@ -60,6 +109,8 @@ function Board() {
           setPageInfo(responseData.pageable);
           setFirst(responseData.first);
           setLast(responseData.last);
+          setPage(responseData.totalPages);
+          setElements(responseData.totlaElements);
         } else window.confirm("검색어가 존재하지 않습니다.");
       })
       .catch((error) => {
@@ -109,23 +160,7 @@ function Board() {
       {/* 페이지네이션 버튼 */}
 
       <div className="pagenation">
-        <button
-          onClick={() =>
-            setPageInfo({ ...pageInfo, pageNumber: pageInfo.pageNumber - 1 })
-          }
-          disabled={first}
-        >
-          이전
-        </button>
-        <span>{pageInfo.pageNumber + 1}</span>
-        <button
-          onClick={() =>
-            setPageInfo({ ...pageInfo, pageNumber: pageInfo.pageNumber + 1 })
-          }
-          disabled={last}
-        >
-          다음
-        </button>
+        {pageNums.length === 2 ? null : <div>{pageNums}</div>}
       </div>
     </div>
   );
