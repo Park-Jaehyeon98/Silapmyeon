@@ -104,10 +104,7 @@ function ResumeModify() {
     }
 
     for (let index = 0; index < itemData.length; index++) {
-      if (
-        isEmpty(itemData[index].resumeAnswer) ||
-        isEmpty(itemData[index].resumeQuestion)
-      ) {
+      if (isEmpty(itemData[index].resumeAnswer) || isEmpty(itemData[index].resumeQuestion)) {
         alert("자소서 항목을 입력해주세요.");
         flag = false;
         break;
@@ -129,40 +126,39 @@ function ResumeModify() {
   return (
     <div style={{ height: "100vh" }}>
       <div className={styles.title}>자기소개서 수정</div>
-      <div className={styles.company}>
-        <div className={styles.companyName}>기업명</div>
+      <div className={styles.row1}>
+        <span className={styles.companyNameText}>기업명</span>
         <input
-          className={styles.rectangle105}
+          className={styles.companyNameInput}
           onChange={companyNameChange}
           value={companyName}
         ></input>
-      </div>
-      <div className={styles.interviewBox}>
-        <div className={styles.interviewTitle}>면접일</div>
+        <span className={styles.interviewTitle}>면접일</span>
         <input
-          className={styles.rectangle106}
+          className={styles.interviewInput}
           onChange={interviewDateChange}
           value={interviewDate}
         ></input>
       </div>
-      <div style={{ left: "416px", top: "270px", position: "absolute" }}>
+
+      <div className={styles.box}>
         {items.map((item, index) => (
-          <div key={index} style={{ marginTop: "7%" }}>
-            <ResumeItemForm
-              idx={index}
-              onQuestionChange={handleQuestionChange}
-              onAnswerChange={handleAnswerChange}
-              question={item.resumeQuestion}
-              answer={item.resumeAnswer}
-            />
-          </div>
+          <ResumeItemForm
+            idx={index}
+            onQuestionChange={handleQuestionChange}
+            onAnswerChange={handleAnswerChange}
+            question={item.resumeQuestion}
+            answer={item.resumeAnswer}
+          />
         ))}
-        <button className={styles.itemPlus} onClick={addItem}>
-          +
-        </button>
-        <button className={styles.itemMinus} onClick={removeItem}>
-          -
-        </button>
+        <div className={styles.row2}>
+          <button className={styles.itemPlus} onClick={addItem}>
+            +
+          </button>
+          <button className={styles.itemMinus} onClick={removeItem}>
+            -
+          </button>
+        </div>
         <button className={styles.complete} onClick={modifyResume}>
           완료
         </button>
