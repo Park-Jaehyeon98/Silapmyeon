@@ -147,75 +147,47 @@
 }
 
 .modify {
-  /* 수정 button */
-  cursor: pointer;
   position: absolute;
-  width: 131px;
-  height: 52px;
   left: 1035px;
   top: 790px;
 
-  background: #494ca2;
-  border-radius: 10px;
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
   border: none;
-
-  /* font-family: "Inter"; */
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
-
-  color: #ffffff;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.modify:hover {
+  background-color: #494ca2;
 }
 
 .delete {
   /* 삭제 button */
   cursor: pointer;
   position: absolute;
-  width: 131px;
-  height: 52px;
+
   left: 1193px;
   top: 790px;
 
-  /* Rectangle 101 */
-
-  /* position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%; */
-
-  background: #ef5c41;
-  border-radius: 10px;
+  background-color: #ef5c41;
+  color: white;
+  padding: 8px 16px;
   border: none;
-
-  /* 삭제 */
-
-  /* position: absolute;
-left: 32.82%;
-right: 32.82%;
-top: 23.08%;
-bottom: 21.15%; */
-
-  /* font-family: "Inter"; */
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
-
-  color: #ffffff;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.delete:hover {
+  background-color: #d72808;
 }
 
 .button {
-  /* Rectangle 106 */
-
-  /* position: absolute;
-left: 0%;
-right: 93.72%;
-top: 1.57%;
-bottom: 87.19%; */
   cursor: pointer;
   width: 60px;
   height: 50px;
@@ -243,21 +215,21 @@ bottom: 87.19%; */
   /* 수정 button */
   cursor: pointer;
   position: absolute;
-  width: 131px;
-  height: 52px;
+
   top: 790px;
   left: 425px;
 
   background: #e3e7f1;
-  border-radius: 10px;
+  padding: 8px 16px;
   border: none;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
 
   color: #494ca2;
+}
+.list:hover {
+  background-color: #c6cbef;
 }

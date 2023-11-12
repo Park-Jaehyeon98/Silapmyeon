@@ -56,50 +56,44 @@
 
 .modifyButton {
   /* 수정 button */
-  cursor: pointer;
   position: absolute;
-  width: 131px;
-  height: 52px;
   left: 1078px;
   top: 754px;
 
-  background: #494ca2;
-  border-radius: 10px;
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
   border: none;
-
-  /* font-family: "Inter"; */
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
-
-  color: #ffffff;
-  margin-top: 15px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.modifyButton:hover {
+  background-color: #494ca2;
 }
 
 .deleteButton {
   /* 삭제 button */
   cursor: pointer;
   position: absolute;
-  width: 131px;
-  height: 52px;
   left: 1230px;
   top: 754px;
 
   background: #ef5c41;
   border-radius: 10px;
   border: none;
-
-  /* font-family: "Inter"; */
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 16px;
+  font-weight: bold;
   /* identical to box height */
-
+  padding: 8px 16px;
   color: #ffffff;
-  margin-top: 15px;
+
+  margin: 10px;
+}
+.deleteButton:hover {
+  background-color: #d72808;
 }
 
 .detail {
@@ -129,8 +123,6 @@
   /* 수정 button */
   cursor: pointer;
   position: absolute;
-  width: 131px;
-  height: 52px;
   top: 754px;
   left: 357px;
 
@@ -138,13 +130,13 @@
   border-radius: 10px;
   border: none;
 
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
+  font-size: 16px;
+  font-weight: bold;
 
   color: #494ca2;
-  margin-top: 15px;
+  padding: 8px 16px;
+  margin: 10px;
+}
+.list:hover {
+  background-color: #c6cbef;
 }
