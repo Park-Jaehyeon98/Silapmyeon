@@ -18,13 +18,14 @@ const Eyetracking = () => {
   const seesoRef = useRef(null);
   const redDotRef = useRef(null);
   const canvasRef = useRef(null);
+  const userStatus = useRef(null);
   const [dotPosition, setDotPosition] = useState({ x: 0, y: 0 });
   const [cnt, setCnt] = useState(0);
 
   useEffect(() => {
+    renderWebcam();
     async function initializeSeeso() {
       seesoRef.current = new EasySeeso();
-
       console.log(seesoRef.current);
 
       try {
@@ -32,7 +33,6 @@ const Eyetracking = () => {
           "dev_d03ggj6oucg00iqkntoyvcwohq06wgy9vgad0obt",
           () => {
             console.log("Seeso initialized successfully.");
-            renderWebcam();
           },
           () => {
             console.log(seesoRef.current);
@@ -67,6 +67,7 @@ const Eyetracking = () => {
       canvasRef.current.width = monitorWidth;
       canvasRef.current.height = monitorHeight;
     }
+    console.log(webcamRef.current);
   };
 
   const updateRedDotPosition = (gazeInfo) => {

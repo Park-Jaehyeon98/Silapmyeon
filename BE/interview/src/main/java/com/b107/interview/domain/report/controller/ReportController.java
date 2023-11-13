@@ -27,7 +27,7 @@ public class ReportController {
     @PostMapping
     public ResponseEntity<Object> postReport(
             @Valid @RequestPart("json") ReportRequest reportRequest,
-            @RequestPart Map<String, MultipartFile> files
+            @RequestParam Map<String, MultipartFile> files
     ) throws IOException {
 
         log.info("[post] 레포트 생성");
