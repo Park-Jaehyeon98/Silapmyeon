@@ -68,10 +68,10 @@ function ResumeDetail() {
             </span>
             <div className={styles.content}>
               <div className={styles.question}>
-                {resume.resumeItems[num].resumeQuestion}
+                {resume.resumeItems[num]?.resumeQuestion}
               </div>
               <div className={styles.answer}>
-                {resume.resumeItems[num].resumeAnswer}
+                {resume.resumeItems[num]?.resumeAnswer}
               </div>
             </div>
           </div>

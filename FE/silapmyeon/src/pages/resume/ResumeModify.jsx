@@ -104,7 +104,10 @@ function ResumeModify() {
     }
 
     for (let index = 0; index < itemData.length; index++) {
-      if (isEmpty(itemData[index].resumeAnswer) || isEmpty(itemData[index].resumeQuestion)) {
+      if (
+        isEmpty(itemData[index].resumeAnswer) ||
+        isEmpty(itemData[index].resumeQuestion)
+      ) {
         alert("자소서 항목을 입력해주세요.");
         flag = false;
         break;
@@ -125,7 +128,7 @@ function ResumeModify() {
 
   return (
     <div style={{ height: "100vh" }}>
-      <div className={styles.title}>자기소개서 수정</div>
+      <div className="head">자기소개서 수정</div>
       <div className={styles.row1}>
         <span className={styles.companyNameText}>기업명</span>
         <input
