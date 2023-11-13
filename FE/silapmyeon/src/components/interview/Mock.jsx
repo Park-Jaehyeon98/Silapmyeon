@@ -20,6 +20,7 @@ import styles from "./Mock.module.css";
 import { useRecoilValue } from "recoil";
 import { UserAtom } from "../../Recoil/UserAtom";
 import Webcam from "react-webcam";
+import Loading from "./Loading";
 
 function Mock() {
   const videoConstraints = {
@@ -275,11 +276,20 @@ function Mock() {
 
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
+      webcamRef.current = null;
+      setQCount(0);
+      setTtsState(false);
+      setSttState(false);
+      setCompleteSpeechState(false);
     };
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.container}>
+        <Loading />
+      </div>
+    );
   }
 
   return (

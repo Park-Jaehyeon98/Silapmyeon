@@ -17,6 +17,7 @@ import {
   resumeId,
 } from "../../atoms/atoms";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 function Practice() {
   const videoConstraints = {
@@ -90,8 +91,17 @@ function Practice() {
 
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
+      webcamRef.current = null;
+      setQCount(0);
+      setTtsState(false);
+      setSttState(false);
+      setCompleteSpeechState(false);
     };
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className={styles.container}>

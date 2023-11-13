@@ -11,12 +11,12 @@
 }
 
 .button {
-  background-color: #4e6cef;
+  background-color: #8186d5;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border: none;
-  border-radius: 20px;
-  margin-top: 10px;
+  border-radius: 10px;
+  margin: 10px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
@@ -28,7 +28,7 @@
 }
 
 .button:not(:disabled):hover {
-  background-color: #405bcf;
+  background-color: #494ca2;
 }
 
 .timerContainer {
