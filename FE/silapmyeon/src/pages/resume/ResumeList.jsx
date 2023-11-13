@@ -10,7 +10,7 @@ function ResumeList() {
   const [currentPage, setCurrentPage] = useState(0);
 
   const getResumes = async (page) => {
-    const res = await axiosAuth.get(`/resume?page=${page}`);
+    const res = await axiosAuth.get(`/resume?page=${page}&keyword=${keyword}`);
     console.log(res.data.content);
     console.log(res.data);
     setResumes(res.data.content);
@@ -63,21 +63,39 @@ function ResumeList() {
     </a>
   );
 
+  const [keyword, setKeyword] = useState("");
+  const handleKeywordChange = (event) => {
+    setKeyword(event.target.value);
+    console.log(keyword);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      getResumes();
+    }
+  };
+
   return (
     <div style={{ height: "100vh" }}>
-      <div className={styles.resumeTitle}>
-        <div className={styles.resumeTitleText}>나의 자기소개서</div>
-      </div>
+      <div className={styles.resumeTitle}>나의 자기소개서</div>
+      <span className={styles.searchBoxText}>🔎</span>
+      <input
+        value={keyword}
+        className={styles.searchBox}
+        placeholder="기업명 검색"
+        onChange={handleKeywordChange}
+        onKeyUp={handleKeyPress}
+      />
       <Link to={"create"}>
         <button className={styles.plus}>+</button>
       </Link>
       <table className={styles.table}>
         <thead className={styles.tableHeader}>
           <tr>
-            <th>번호</th>
-            <th>기업명</th>
-            <th>면접일</th>
-            <th>작성일</th>
+            <th className={styles.column1}>번호</th>
+            <th className={styles.column2}>기업명</th>
+            <th className={styles.column3}>면접일</th>
+            <th className={styles.column4}>작성일</th>
           </tr>
         </thead>
         <tbody>
@@ -94,8 +112,8 @@ function ResumeList() {
             />
           ))}
         </tbody>
-        <div className={styles.pageNums}>{pageNums}</div>
       </table>
+      {pageNums.length === 2 ? null : <div className={styles.pageNums}>{pageNums}</div>}
     </div>
   );
 }

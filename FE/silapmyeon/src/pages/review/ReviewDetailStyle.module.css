@@ -1,122 +1,138 @@
 .title {
   /* 기업명 면접 후기 */
-
-  position: absolute;
-  width: 643px;
-  height: 87px;
-  left: 358px;
-  top: 148px;
-
-  font-family: "Inter";
+  width: 70%;
+  margin: 3% 0% 0% 5%;
   font-style: normal;
   font-weight: 400;
-  font-size: 50px;
-  line-height: 61px;
-
+  font-size: 3vw;
+  line-height: 4vw;
   color: #4962a2;
 }
 
 .q {
+  margin-top: 3%;
   /* “입사 후 하고 싶은 업무는 무엇인가요? ” */
-
-  /* “입사 후 하고 싶은 업무는 무엇인가요? ” */
-
-  position: absolute;
-  left: 358px;
-  top: 249px;
-
-  font-family: "Inter";
+  margin-left: 5%;
+  width: 50%; /* Adjust as needed */
+  max-width: 45%;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-
+  font-size: 1.3vw; /* Adjust as needed */
   color: #000000;
 }
 
 .a {
   /* Rectangle 45 */
-
+  margin-left: 5%;
   box-sizing: border-box;
-
-  position: absolute;
-  width: 1002px;
-  height: 407px;
-  left: 358px;
-  top: 313px;
-
-  font-size: 17px;
-
+  width: 90%;
+  height: 45vh; /* Adjust as needed */
+  margin-top: 20px;
+  margin-bottom: 1%;
+  font-size: 1.3vw; /* Adjust as needed */
   background: #ffffff;
-  border: 2px solid #8186d5;
-  border-radius: 10px;
+  border: 0.3vw solid #494ca2;
+  border-radius: 1vw;
+}
+
+.modifyButton,
+.deleteButton,
+.list {
+  cursor: pointer;
+  width: 9vw;
+  height: 3.7vw;
+  border-radius: 1vw;
+  border: none;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.7vw;
+
+  /* 수정, 삭제, 리스트 버튼 공통 스타일 */
+  margin-top: 15px;
 }
 
 .modifyButton {
   /* 수정 button */
-  cursor: pointer;
-  position: absolute;
-  width: 131px;
-  height: 52px;
-  left: 1078px;
-  top: 754px;
 
-  background: #494ca2;
-  border-radius: 10px;
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
   border: none;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
-
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.modifyButton:hover {
+  background: #494ca2;
   color: #ffffff;
 }
 
 .deleteButton {
   /* 삭제 button */
-  cursor: pointer;
-  position: absolute;
-  width: 131px;
-  height: 52px;
-  left: 1236px;
-  top: 754px;
 
+  cursor: pointer;
   background: #ef5c41;
   border-radius: 10px;
   border: none;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 16px;
+  font-weight: bold;
   /* identical to box height */
-
+  padding: 8px 16px;
   color: #ffffff;
+
+  margin: 10px;
+}
+.deleteButton:hover {
+  background-color: #d72808;
 }
 
 .detail {
   /* 2023년 | 0분기 | 신입 | 부서명 | 1차 */
-  position: absolute;
   background-color: #e3e7f1;
-  border-radius: 10px;
-  padding: 20px;
-  padding-bottom: 5px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  position: absolute;
+  border-radius: 1vw;
+  padding: 1vw;
+  box-shadow: 0px 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
   width: auto;
-  height: 40px;
-  left: 890px;
-  top: 220px;
-
-  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-
+  font-size: 1.5vw; /* Adjust as needed */
   color: #000000;
+  float: right;
+}
+
+.list {
+  /* 수정 button */
+
+  cursor: pointer;
+
+  background: #e3e7f1;
+  border-radius: 10px;
+  border: none;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #494ca2;
+  padding: 8px 16px;
+  margin: 10px;
+}
+.list:hover {
+  background-color: #c6cbef;
+}
+
+.detailBox {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.downButtonList {
+  width: 90%;
+  margin: 1% 3% 0; /* Adjust top margin as needed, set left margin to create space on the left */
+  margin-left: 5%;
+}
+
+.deleteModifyBox {
+  float: right;
 }

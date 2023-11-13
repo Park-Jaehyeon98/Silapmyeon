@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Board/BoardStyle.css";
 import Card from "../../components/Card/Card";
 import { axiosAuth } from "../../api/settingAxios";
-
+import "../../App.css";
 function Board() {
   const [cards, setCards] = useState([]);
 
@@ -72,6 +72,7 @@ function Board() {
       <div className="head">면접 공유 커뮤니티</div>
       <div className="search">
         <div className="company">
+          🔎
           <input
             className="input"
             type="text"
@@ -84,9 +85,9 @@ function Board() {
               }
             }}
           />
-          <button className="searchButton" onClick={handleSearch}>
+          {/* <button className="searchButton" onClick={handleSearch}>
             검색
-          </button>
+          </button> */}
         </div>
         <Link
           to="/community/regist"

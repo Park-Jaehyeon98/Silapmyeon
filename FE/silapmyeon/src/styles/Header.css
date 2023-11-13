@@ -15,7 +15,8 @@
   top: 0%;
   bottom: 0%;
 
-  background: #c6cbef;
+  /* background: #c6cbef; */
+  background: white;
 }
 
 .logo {
@@ -27,17 +28,19 @@
   top: 25.56%;
   bottom: 26.58%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 39px;
   text-align: center;
   text-decoration: none;
-
   color: #000000;
 }
 
+.logoImg {
+  height: 40px;
+}
 .logout {
   /* 로그아웃 */
 
@@ -47,7 +50,7 @@
   top: 27.78%;
   bottom: 28.05%;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -71,7 +74,7 @@
 
   /* background-color: rebeccapurple; */
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 600;
   font-size: 20px;

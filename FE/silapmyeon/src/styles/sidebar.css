@@ -3,6 +3,10 @@
   background-color: #e3e7f1;
   left: 0%;
   width: 272px;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   /* height: 100vh; */
 }
 .img {
@@ -22,7 +26,7 @@
   text-align: left;
   margin-left: 31px;
   margin-top: 30px;
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-size: 20px;
   font-weight: 600;
@@ -33,7 +37,7 @@
 .sidebarSmallText {
   margin-top: 20px;
   margin-left: 15px;
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 500;
   line-height: 24px;

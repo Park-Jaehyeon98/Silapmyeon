@@ -8,7 +8,7 @@ function ReviewList() {
   const [totalPages, setTotalPages] = useState(0);
 
   const getReviews = async (page) => {
-    const resp = await axiosAuth.get(`/review?page=${page}`);
+    const resp = await axiosAuth.get(`/review?page=${page}&keyword=${keyword}`);
     console.log(resp);
     setReviews(resp.data.content);
     setTotalPages(resp.data.totalPages);
@@ -73,11 +73,29 @@ function ReviewList() {
     </a>
   );
 
+  const [keyword, setKeyword] = useState("");
+  const handleKeywordChange = (event) => {
+    setKeyword(event.target.value);
+    console.log(keyword);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      getReviews();
+    }
+  };
+
   return (
     <div style={{ height: "100vh" }}>
       <div className={styles.title}>면접 후기</div>
-      <div className={styles.searchBoxText}>🔎 기업명 검색</div>
-      <input className={styles.searchBox} />
+      <span className={styles.searchBoxText}>🔎</span>
+      <input
+        value={keyword}
+        className={styles.searchBox}
+        placeholder="기업명 검색"
+        onChange={handleKeywordChange}
+        onKeyUp={handleKeyPress}
+      />
       <Link to={"/review/create"}>
         <button className={styles.plusButton}>+</button>
       </Link>
@@ -97,20 +115,27 @@ function ReviewList() {
           {reviews.map((review, idx) => {
             return (
               <tr className={styles.tb}>
-                <td>{currentPage * 10 + idx + 1}</td>
-                <Link to={`${review.reviewId}`} style={{ textDecoration: "none", color: "black" }}>
-                  <td style={{ lineHeight: "52px" }}>{review.companyName}</td>
-                </Link>
-                <td>{review.interviewDate.substring(0, 4)}</td>
-                <td>{calculateQuarter(review.interviewDate)}</td>
-                <td>{review.employmentType}</td>
-                <td>{review.reviewOrder}</td>
+                <td className={styles.column1}>{currentPage * 10 + idx + 1}</td>
+
+                <td className={styles.column2}>
+                  <Link
+                    to={`${review.reviewId}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    {review.companyName}
+                  </Link>
+                </td>
+
+                <td className={styles.column3}>{review.interviewDate.substring(0, 4)}</td>
+                <td className={styles.column4}>{calculateQuarter(review.interviewDate)}</td>
+                <td className={styles.column5}>{review.employmentType}</td>
+                <td className={styles.column6}>{review.reviewOrder}</td>
               </tr>
             );
           })}
         </tbody>
-        <div className={styles.pageNums}>{pageNums}</div>
       </table>
+      {pageNums.length === 2 ? null : <div className={styles.pageNums}>{pageNums}</div>}
     </div>
   );
 }

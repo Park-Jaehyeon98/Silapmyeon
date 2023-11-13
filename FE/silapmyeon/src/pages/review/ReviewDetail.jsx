@@ -46,23 +46,37 @@ function ReviewDetail() {
     }
   };
 
+  const navigateToList = () => {
+    navigate("/review");
+  };
+
   return (
     <div style={{ height: "100vh" }}>
       {review ? (
         <div>
           <div className={styles.title}>{review.companyName} 면접 후기</div>
-          <div className={styles.detail}>
-            {review.interviewDate.substring(0, 4)}년 | {calculateQuarter(review.interviewDate)} |{" "}
-            {review.employmentType} | {review.reviewJob} | {review.reviewOrder}
+          <div className={styles.detailBox}>
+            <div className={styles.detail}>
+              {review.interviewDate.substring(0, 4)}년 | {calculateQuarter(review.interviewDate)} |{" "}
+              {review.employmentType} | {review.reviewJob} | {review.reviewOrder}
+            </div>
           </div>
           <div className={styles.q}>"{review.reviewQuestion}"</div>
           <div className={styles.a}>{review.reviewContent}</div>
-          <button className={styles.modifyButton} onClick={navigateToModify}>
-            수정
-          </button>
-          <button className={styles.deleteButton} onClick={removeReview}>
-            삭제
-          </button>
+          <div className={styles.downButtonList}>
+            <button className={styles.list} onClick={navigateToList}>
+              목록
+            </button>
+
+            <div className={styles.deleteModifyBox}>
+              <button className={styles.modifyButton} onClick={navigateToModify}>
+                수정
+              </button>
+              <button className={styles.deleteButton} onClick={removeReview}>
+                삭제
+              </button>
+            </div>
+          </div>
         </div>
       ) : (
         <div>Loading...</div>

@@ -33,7 +33,6 @@ public class ReportService {
     @Transactional
     public ReportResponse createReport(ReportRequest reportRequest, Map<String, MultipartFile> files) throws IOException {
 
-
         //항목 별로 영상을 s3에 저장한다.
         for (InterviewRequest interviewRequest : reportRequest.getInterviews()) {
             String url = s3Service.uploadFile(files.get(interviewRequest.getKey()));
@@ -48,14 +47,12 @@ public class ReportService {
         Report report = Report.of(
                 reportRequest.getUserId(),
                 interviews,
-                reportRequest.getEyeTrackingViolationCount(),
                 reportRequest.getCompany()
                 );
 
         Report savedEntity = reportRepository.save(report);
-        ReportResponse reportResponse = ReportResponse.from(savedEntity);
 
-        return reportResponse;
+        return ReportResponse.from(savedEntity);
     }
 
 

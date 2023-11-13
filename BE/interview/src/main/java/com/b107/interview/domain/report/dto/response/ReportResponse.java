@@ -14,14 +14,12 @@ public class ReportResponse {
     private Long userId;
     private String company;
     private List<Interview> interviews;
-    private int eyeTrackingViolationCount;
     private String createdTime;
     private String modifiedTime;
 
     public static ReportResponse of(String id, Long userId,
                                     String company,
                                     List<Interview> interviews,
-                                    int eyeTrackingViolationCount,
                                     String createdTime,
                                     String modifiedTime
                                     ) {
@@ -30,7 +28,6 @@ public class ReportResponse {
                 .userId(userId)
                 .company(company)
                 .interviews(interviews)
-                .eyeTrackingViolationCount(eyeTrackingViolationCount)
                 .createdTime(createdTime)
                 .modifiedTime(modifiedTime)
                 .build();
@@ -42,7 +39,6 @@ public class ReportResponse {
                 report.getUserId(),
                 report.getCompany(),
                 report.getInterviews(),
-                report.getEyeTrackingViolationCount(),
                 DateTimeConverter.toString(report.getCreatedDate()),
                 DateTimeConverter.toString(report.getLastModifiedDate()));
     }
