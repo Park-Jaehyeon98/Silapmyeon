@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const ReportListView = () => {
   const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const { userId } = useParams();
   const [currentPage, setCurrentPage] = useState(0);
   const pageSize = 8; // 한 페이지에 표시될 항목 수
@@ -27,7 +27,8 @@ const ReportListView = () => {
         setData(result);
         setFilteredData(result);
       } catch (error) {
-        setError(error);
+        setErrorMessage(error.response.data);
+        console.log("에러 객체 : ", errorMessage);
       }
     };
 
@@ -79,11 +80,35 @@ const ReportListView = () => {
     return datePart + " " + timePart;
   }
 
+  
+  
   // 에러가 발생했을 때 처리
-  if (error) {
-    return <div>Error: {error.message}</div>;
+  if (errorMessage === "레포트가 존재하지 않습니다.") {
+    return (
+      <div className={styles.container}>
+        <div className={styles.header}>실전 연습 레포트</div>
+        <div className={styles.emptyGridContainer}>
+          <div className={styles.subHeader}>
+            🔎
+            <input
+              type="text"
+              placeholder="기업명 검색"
+              className={styles.searchInput}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)} // 입력 값 상태 업데이트
+              onKeyDown={handleSearch} // 엔터 키 이벤트 핸들러
+              />
+          </div>
+          {/* 내부 컨테이너 추가 */}
+          <div className={styles.emptyContainer}>
+            <p className={styles.emptyText}>레포트가 존재하지 않습니다.</p>
+            <p className={styles.emptyText}>면접 연습을 진행하세요.</p>
+          </div>
+        </div>
+      </div>
+    );
   }
-
+  
   // 데이터가 로딩 중일 때 처리
   if (!data) {
     return <div>Loading...</div>;

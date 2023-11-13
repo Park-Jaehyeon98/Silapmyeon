@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import axios from "../../api/api";
+import { axiosAuth } from "../../api/settingAxios";
 import Webcam from "react-webcam";
 import AltCam from "./cam.png";
 import SpeechToText from "./SpeechToText";
@@ -31,12 +31,9 @@ function Practice() {
   const [qCount, setQCount] = useRecoilState(questionCount);
   const [ttsState, setTtsState] = useRecoilState(tts);
   const [sttState, setSttState] = useRecoilState(stt);
-  const [completeSpeechState, setCompleteSpeechState] =
-    useRecoilState(completeSpeech);
-  const [selectedTypeState, setSelectedTypeState] =
-    useRecoilState(selectedType);
-  const [selectedQuestionState, setSelectedQuestionState] =
-    useRecoilState(selectedQuestion);
+  const [completeSpeechState, setCompleteSpeechState] = useRecoilState(completeSpeech);
+  const [selectedTypeState, setSelectedTypeState] = useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] = useRecoilState(selectedQuestion);
   const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
 
   const [question, setQuestion] = useState();
@@ -82,7 +79,7 @@ function Practice() {
       resume: resumeIdState,
     };
 
-    axios.post("/interview", body).then((response) => {
+    axiosAuth.post("/interview", body).then((response) => {
       console.log(response.data.question);
       setQuestion(response.data.question);
       setIsLoading((prev) => !prev);
@@ -121,11 +118,7 @@ function Practice() {
       {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
       {qCount !== 0 ? <SpeechToText onData={handleSTTData} /> : null}
       <div>
-        <button
-          className={styles.button}
-          onClick={handleReplay}
-          disabled={isLoading || ttsState}
-        >
+        <button className={styles.button} onClick={handleReplay} disabled={isLoading || ttsState}>
           다시하기
         </button>
         {qCount === 5 ? (
