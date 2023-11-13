@@ -1,79 +1,78 @@
 .container {
-    font-family: 'Arial', sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  /* font-family: 'Arial', sans-serif; */
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .titleContainer {
-    padding-left: 15px;
-    border-left: solid #494CA2;
+  padding-left: 15px;
+  border-left: solid #494ca2;
 }
 
 .titleContainer > h1 {
-    font-weight: 400;
-    color: #4962A2;
-    margin: 5px;
+  font-weight: 400;
+  color: #4962a2;
+  margin: 5px;
 }
 
 .interviewContainer {
-    padding: 0px 50px 0px 0px;
+  padding: 0px 50px 0px 0px;
 }
 
 .interviewContainer > h2 {
-    color: #494CA2;
-    margin-top: 100px;
-    margin-bottom: 50px;
+  color: #494ca2;
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 .interview {
-    margin-bottom: 100px;
-    display: grid;
-    grid-template-columns: 10% 50% 40%;
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 10% 50% 40%;
 }
 
 .interview :not(:first-child) {
-    margin-top: 26px;
+  margin-top: 26px;
 }
 
 .interviewItem:first-child {
-    border-top: #494CA2 solid;
+  border-top: #494ca2 solid;
 }
 
 .interviewItem:first-child p {
-    margin-top: 20px;
-    font-size: 23px;
-    color: #494CA2;
+  margin-top: 20px;
+  font-size: 23px;
+  color: #494ca2;
 }
 
 .qna {
-    height: 50%;
-    padding-left: 30px;
+  height: 50%;
+  padding-left: 30px;
 }
 
 .footerContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding-left: 30px;
-    padding-right: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-left: 30px;
+  padding-right: 100px;
 }
 
 .footerContainer p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .createdTimeContainer {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .deleteButton {
-    border-radius: 5px;
-    width: 100px;
-    height: 40px;
-    background-color: rgb(215, 16, 16);
-    color: white;
-    display: flex;
-    align-items: center; /* Flexbox를 사용한 수직 중앙 정렬 */
-    justify-content: center; /* Flexbox를 사용한 수평 중앙 정렬 */
-    
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  background-color: rgb(215, 16, 16);
+  color: white;
+  display: flex;
+  align-items: center; /* Flexbox를 사용한 수직 중앙 정렬 */
+  justify-content: center; /* Flexbox를 사용한 수평 중앙 정렬 */
 }

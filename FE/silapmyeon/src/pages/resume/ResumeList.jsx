@@ -48,7 +48,9 @@ function ResumeList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+        className={`${styles.pageNum} ${
+          currentPage == index ? styles.selectedPage : ""
+        }`}
       >
         {index + 1}
       </a>
@@ -57,7 +59,11 @@ function ResumeList() {
   pageNums.push(
     <a
       className={styles.pn}
-      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
     >
       다음
     </a>
@@ -78,17 +84,19 @@ function ResumeList() {
   return (
     <div style={{ height: "100vh" }}>
       <div className={styles.resumeTitle}>나의 자기소개서</div>
-      <span className={styles.searchBoxText}>🔎</span>
-      <input
-        value={keyword}
-        className={styles.searchBox}
-        placeholder="기업명 검색"
-        onChange={handleKeywordChange}
-        onKeyUp={handleKeyPress}
-      />
-      <Link to={"create"}>
-        <button className={styles.plus}>+</button>
-      </Link>
+      <div style={{ width: "100%" }}>
+        <span className={styles.searchBoxText}>🔎</span>
+        <input
+          value={keyword}
+          className={styles.searchBox}
+          placeholder="기업명 검색"
+          onChange={handleKeywordChange}
+          onKeyUp={handleKeyPress}
+        />
+        <Link to={"create"}>
+          <button className={styles.plus}>등록하기</button>
+        </Link>
+      </div>
       <table className={styles.table}>
         <thead className={styles.tableHeader}>
           <tr>
@@ -113,7 +121,9 @@ function ResumeList() {
           ))}
         </tbody>
       </table>
-      {pageNums.length === 2 ? null : <div className={styles.pageNums}>{pageNums}</div>}
+      {pageNums.length === 2 ? null : (
+        <div className={styles.pageNums}>{pageNums}</div>
+      )}
     </div>
   );
 }
