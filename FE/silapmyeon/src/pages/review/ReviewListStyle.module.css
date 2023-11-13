@@ -25,18 +25,43 @@
 }
 
 .searchBoxText {
-  margin-left: 66%;
-  width: 30%; /* Adjust as needed */
-  font-size: 1.5vw; /* Adjust as needed */
+  /* 🔎 기업명 검색 */
+
+  position: absolute;
+  width: 198px;
+  height: 27px;
+  left: 860px;
+  top: 230px;
+
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
 }
 
 .searchBox {
+  /* Rectangle 41 */
   width: 20%; /* Adjust as needed */
   font-size: 1.5vw; /* Adjust as needed */
   background: #f5f6ff;
   border-radius: 10px;
   border: none;
   margin-left: 1%;
+
+  outline: none;
+  padding-left: 10px;
+
+  background: #f5f6ff;
+  border-radius: 10px;
+  font-size: medium;
+  /* border: none; */
+  border: 1px solid #f5f6ff;
+  transition: border-color 0.3s;
+  &:focus {
+    border-color: #e3e7f1;
+  }
 }
 
 .table {

@@ -76,40 +76,37 @@
 }
 
 .modify {
-  cursor: pointer;
-  width: 9vw;
-  height: 3.7vw;
-  border-radius: 1vw;
-  border: none;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.7vw;
-  /* 수정 button */
-
   margin-right: 2vw;
-  background: #494ca2;
-  color: #ffffff;
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.modify:hover {
+  background-color: #494ca2;
 }
 
 .delete {
-  cursor: pointer;
-  width: 9vw;
-  height: 3.7vw;
-  border-radius: 1vw;
+  background-color: #ef5c41;
+  color: white;
+  padding: 8px 16px;
   border: none;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.7vw;
-  /* 수정 button */
-  /* 삭제 button */
-
-  /* margin-left: auto; */
-  background: #ef5c41;
-  color: #ffffff;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.delete:hover {
+  background-color: #d72808;
 }
 
 .button {
-  /* Rectangle 106 */
   cursor: pointer;
   width: 3.5vw;
   height: 3.5vw;
@@ -133,15 +130,20 @@
 .list {
   /* 수정 button */
   cursor: pointer;
-  width: 9vw;
-  height: 3.7vw;
+
   background: #e3e7f1;
-  border-radius: 1vw;
+  padding: 8px 16px;
   border: none;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.7vw;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+
   color: #494ca2;
+}
+.list:hover {
+  background-color: #c6cbef;
 }
 
 .buttonList {

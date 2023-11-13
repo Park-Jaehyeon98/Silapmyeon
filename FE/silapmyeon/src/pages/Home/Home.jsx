@@ -9,6 +9,8 @@ function Home() {
   return (
     <div className="home">
       <div className="hello">{userValue.userNickname}님</div>
+      <div>🔎</div>
+      <input />
     </div>
   );
 }

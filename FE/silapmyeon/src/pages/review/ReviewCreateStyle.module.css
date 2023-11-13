@@ -221,16 +221,25 @@
   height: 3.7vw;
   border-radius: 1vw;
   border: none;
-  font-style: normal;
+  /* font-style: normal;
   font-weight: 700;
-  font-size: 1.7vw;
+  font-size: 1.7vw; */
+
+  padding: 8px 16px;
+  margin: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
   /* Rectangle 99 */
 
-  background: #494ca2;
+  background: #8186d5;
   /* identical to box height */
 
   color: #ffffff;
   float: right;
+}
+.completeButton:hover {
+  background-color: #494ca2;
 }
 
 .loadResumeButton {
