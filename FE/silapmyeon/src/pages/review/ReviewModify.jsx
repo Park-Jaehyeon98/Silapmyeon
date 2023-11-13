@@ -110,49 +110,41 @@ function ReviewModify() {
   };
   return (
     <div style={{ height: "100vh" }}>
-      <div>
-        <div className={styles.title}>면접 후기 수정</div>
-        <div>
-          <div className={styles.companyNameText}>기업명 </div>
-          <input
-            className={styles.companyNameInput}
-            value={review.companyName}
-            readOnly
-          />
+      <div className={styles.title}>면접 후기 수정</div>
+      <div className={styles.box}>
+        <div className={styles.row1}>
+          <span className={styles.companyNameText}>기업명 </span>
+          <input className={styles.companyNameInput} value={review.companyName} readOnly />
         </div>
-        <div>
+        <div className={styles.row2}>
           <input
             placeholder="연도"
             className={styles.yearBox}
             value={review.interviewDate.substring(0, 4)}
             readOnly
           />
-        </div>
-        <div>
+
           <input
             placeholder="분기"
             className={styles.quarterBox}
             value={calculateQuarter(review.interviewDate)}
             readOnly
           />
-        </div>
-        <div>
+
           <input
             placeholder="채용형태"
             className={styles.etBox}
             value={employmentType}
             onChange={handleEmploymentType}
           />
-        </div>
-        <div>
+
           <input
             placeholder="차수"
             className={styles.roBox}
             value={reviewOrder}
             onChange={handleReviewOrder}
           />
-        </div>
-        <div>
+
           <input
             placeholder="직무"
             className={styles.rjBox}
@@ -160,28 +152,26 @@ function ReviewModify() {
             onChange={handleReviewJob}
           />
         </div>
-        <div className={styles.qTitleText}>
-          가장 기억에 남는 질문 한 가지를 남겨주세요.
+        <div className={styles.row3}>
+          <div className={styles.qTitleText}>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
+          <input
+            className={styles.qInputBox}
+            value={reviewQuestion}
+            onChange={handleReviewQuestion}
+          />
         </div>
-        <input
-          className={styles.qInputBox}
-          value={reviewQuestion}
-          onChange={handleReviewQuestion}
-        />
-        <div className={styles.aTitleText}>
-          자유롭게 면접 후기를 남겨주세요.
+        <div className={styles.row4}>
+          <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
+          <textarea
+            className={styles.aInputBox}
+            value={reviewContent}
+            onChange={handleReviewContent}
+            style={{ resize: "none" }}
+          />
         </div>
-        <textarea
-          className={styles.aInputBox}
-          value={reviewContent}
-          onChange={handleReviewContent}
-          style={{ resize: "none" }}
-        />
-        <div className={styles.completeBox}>
-          <button className={styles.completeButton} onClick={modifyReview}>
-            완료
-          </button>
-        </div>
+        <button className={styles.completeButton} onClick={modifyReview}>
+          완료
+        </button>
       </div>
     </div>
   );

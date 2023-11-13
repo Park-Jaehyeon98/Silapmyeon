@@ -1,6 +1,5 @@
 .item {
-  width: 896px;
-  height: 52px;
+  height: 8%; /* Adjust as needed */
 
   box-sizing: border-box;
 

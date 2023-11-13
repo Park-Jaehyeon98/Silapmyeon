@@ -36,10 +36,7 @@ function ReviewModal({ onModalChange }) {
 
   pageNums.push(
     <a
-      style={{
-        fontWeight: "bold",
-        cursor: "pointer",
-      }}
+      className={styles.pn}
       onClick={() => handlePageChange(startIndex - 1 < 0 ? 0 : startIndex - 1)}
     >
       이전
@@ -53,9 +50,7 @@ function ReviewModal({ onModalChange }) {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${
-          currentPage == index ? styles.selectedPage : ""
-        }`}
+        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
       >
         {index + 1}
       </a>
@@ -63,15 +58,8 @@ function ReviewModal({ onModalChange }) {
   }
   pageNums.push(
     <a
-      style={{
-        fontWeight: "bold",
-        cursor: "pointer",
-      }}
-      onClick={() =>
-        handlePageChange(
-          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
-        )
-      }
+      className={styles.pn}
+      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
     >
       다음
     </a>
@@ -88,7 +76,7 @@ function ReviewModal({ onModalChange }) {
   return (
     <div className={styles.total}>
       <table className={styles.table}>
-        <tr className={styles.th}>
+        <tr className={styles.tableHeader}>
           <th>번호</th>
           <th>기업명</th>
           <th>면접일</th>
@@ -97,17 +85,11 @@ function ReviewModal({ onModalChange }) {
 
         {resumes.map((resume, idx) => {
           return (
-            <tr key={idx} className={styles.tb}>
+            <tr key={idx} className={styles.item}>
               <td>{currentPage * 5 + idx + 1}</td>
               <td
                 className={styles.tbCompanyName}
-                onClick={() =>
-                  sendInfo(
-                    resume.companyName,
-                    resume.interviewDate,
-                    resume.resumeId
-                  )
-                }
+                onClick={() => sendInfo(resume.companyName, resume.interviewDate, resume.resumeId)}
               >
                 {resume.companyName}
               </td>
@@ -116,10 +98,10 @@ function ReviewModal({ onModalChange }) {
             </tr>
           );
         })}
-        {pageNums.length === 2 ? null : (
-          <div className={styles.pageNums}>{pageNums}</div>
-        )}
       </table>
+      <div className={styles.pageBox}>
+        {pageNums.length === 2 ? null : <div className={styles.pageNums}>{pageNums}</div>}
+      </div>
       <button className={styles.closeButton} onClick={closeModal}>
         닫기
       </button>
