@@ -31,8 +31,9 @@ public class ReportController {
     ) throws IOException {
 
         log.info("[post] 레포트 생성");
-        reportService.createReport(reportRequest, files);
-        return ResponseEntity.ok().build();
+        ReportResponse response = reportService.createReport(reportRequest, files);
+        return ResponseEntity.ok()
+                .body(response);
     }
 
     @GetMapping("/detail/{id}")
