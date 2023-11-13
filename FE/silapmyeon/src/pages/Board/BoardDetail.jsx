@@ -85,7 +85,7 @@ function BoardDetail() {
     <div className="boardDetailContainer">
       <div className="head">면접 공유 커뮤니티</div>
       <div className="boardDetail">
-        y<div className="boardTitle">{board.title}</div>
+        <div className="boardTitle">{board.title}</div>
         <div className="boardLine"></div>
         <div className="boardInfo">
           <div className="boardUser">{board.nickname}</div>
