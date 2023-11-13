@@ -77,7 +77,7 @@ function Self() {
         숨기기
       </button>
       <AudioRecord onData={handleTimeData} />
-      <Link to={"/"}>
+      <Link to={"/home"}>
         <button className={styles.button}>종료</button>
       </Link>
     </div>

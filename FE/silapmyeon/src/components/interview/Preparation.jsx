@@ -44,7 +44,7 @@ function Preparation() {
       <Visualizer />
       <br />
       <div className={styles.buttoncontainer}>
-        <Link to={"/"}>
+        <Link to={"/home"}>
           <button className={styles.button}>나가기</button>
         </Link>
         <Link to={selectedTypeState}>

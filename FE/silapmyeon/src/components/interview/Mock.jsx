@@ -154,7 +154,7 @@ function Mock() {
 
   useEffect(() => {
     if (timer >= 120) {
-      if (qCount == 5) {
+      if (qCount === 5) {
         handleEndButton();
       } else {
         handleNextButton();
@@ -301,7 +301,7 @@ function Mock() {
         {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
         {qCount !== 0 ? <SpeechToText onData={handleSTTData} /> : null}
       </div>
-      {qCount === 5 ? (
+      {qCount >= 5 ? (
         <button
           onClick={handleEndButton}
           className={styles.button}
