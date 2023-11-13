@@ -51,3 +51,8 @@ export const resumeId = atom({
   default: 0,
   effects_UNSTABLE: [persistAtom],
 });
+
+export const answer = atom({
+  key: "answer",
+  default: "",
+});

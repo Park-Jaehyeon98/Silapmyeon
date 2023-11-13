@@ -49,3 +49,30 @@
   height: 50%;
   padding-left: 30px;
 }
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-left: 30px;
+  padding-right: 100px;
+}
+
+.footerContainer p {
+  font-size: 20px;
+}
+
+.createdTimeContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.deleteButton {
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  background-color: rgb(215, 16, 16);
+  color: white;
+  display: flex;
+  align-items: center; /* Flexbox를 사용한 수직 중앙 정렬 */
+  justify-content: center; /* Flexbox를 사용한 수평 중앙 정렬 */
+}
