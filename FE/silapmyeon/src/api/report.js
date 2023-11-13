@@ -38,3 +38,17 @@ export const getReportById = async (id) => {
     throw error;
   }
 };
+
+// get detail
+export const deleteReportById = async (id) => {
+  try {
+    const response = await instance.delete('/report/' + id, {
+        headers: {
+            'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjoxMSxcInVzZXJFbWFpbFwiOlwiZWtjbHN0a2ZrYTQ0QG5hdmVyLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTg5ODQ1MTIsImV4cCI6MTcwMDE5NDExMn0.6V7Lb2oGxHLk4kyx8pYNBOZuO56H_-ClFR3TopSvYdM`
+          }
+    });
+  } catch (error) {
+    // 에러를 호출한 쪽으로 전파
+    throw error;
+  }
+};

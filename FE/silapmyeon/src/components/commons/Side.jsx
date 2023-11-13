@@ -4,6 +4,7 @@ import { useRecoilValue } from "recoil";
 import { IsLoginSelector } from "../../Recoil/UserAtom";
 import Modal from "../modal/ProfileModal";
 import { Link } from "react-router-dom";
+import { UserAtom } from "../../Recoil/UserAtom";
 
 function Side() {
   // const [userNickname, setUserNickName] = useState('');
@@ -11,6 +12,8 @@ function Side() {
   const [userNickname, setUserNickName] = useState("");
   const isLogin = useRecoilValue(IsLoginSelector);
   const [isOpen, setOpen] = useState(false);
+  const [myPageActive, setMyPageActive] = useState(false);
+  const userValue = useRecoilValue(UserAtom);
 
   useEffect(() => {
     const User = JSON.parse(sessionStorage.getItem("user"))?.UserAtom;
@@ -21,6 +24,10 @@ function Side() {
 
   const handleClick = () => {
     setOpen(true);
+  };
+
+  const toggleMyPage = () => {
+    setMyPageActive((prev) => !prev);
   };
 
   return (
@@ -53,22 +60,23 @@ function Side() {
       <Link to={"/interview"} className="link">
         <div className="sidebarText">모의면접</div>
       </Link>
-      <div className="sidebarText">
-        마이페이지
-        <Link to={"/resume"} className="link">
-          <div className="sidebarSmallText">자소서</div>
-        </Link>
-        <Link to={"/report/list/1"} className="link">
-          <div className="sidebarSmallText">면접 리포트</div>
-        </Link>
-        <Link to={"/review"} className="link">
-          <div className="sidebarSmallText">면접 후기</div>
-        </Link>
+      <div className="sidebarItem">
+        <div className="sidebarText">마이페이지</div>
+          <div className="sidebarSubMenu">
+            <Link to={"/resume"} className="link">
+              <div className="sidebarSmallText">자소서</div>
+            </Link>
+            <Link to={"/report/list/" + userValue.userId} className="link">
+              <div className="sidebarSmallText">면접 리포트</div>
+            </Link>
+            <Link to={"/review"} className="link">
+              <div className="sidebarSmallText">면접 후기</div>
+            </Link>
+          </div>
       </div>
       <Link to={"/community"} className="link">
         <div className="sidebarText">면접 공유</div>
       </Link>
-      <Link to="/mypage"> 테스트</Link>
     </div>
   );
 }

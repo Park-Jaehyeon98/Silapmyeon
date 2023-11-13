@@ -3,7 +3,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import { useRecoilState } from "recoil";
-import { completeSpeech, stt } from "../../atoms/atoms";
+import { completeSpeech, stt, answer } from "../../atoms/atoms";
 import styles from "./SpeechToText.module.css";
 
 function SpeechToText({ onData }) {
@@ -20,10 +20,13 @@ function SpeechToText({ onData }) {
   const [completeSpeechState, setCompleteSpeechState] =
     useRecoilState(completeSpeech);
   const [sttState, setSttState] = useRecoilState(stt);
+  const [answerText, setAnswerText] = useRecoilState(answer);
 
   const requestMicrophonePermission = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: true },
+      });
       console.log("마이크 권한이 허용되었습니다.");
       setMicrophoneOn(true);
       stream.getTracks().forEach((track) => track.stop());
@@ -95,6 +98,7 @@ function SpeechToText({ onData }) {
 
   useEffect(() => {
     console.log("Transcript:", transcript);
+    setAnswerText(transcript);
   }, [transcript]);
 
   return (
