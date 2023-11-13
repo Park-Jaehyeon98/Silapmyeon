@@ -27,7 +27,7 @@ function Side() {
   };
 
   const toggleMyPage = () => {
-    setMyPageActive(!myPageActive);
+    setMyPageActive((prev) => !prev);
   };
 
   return (
