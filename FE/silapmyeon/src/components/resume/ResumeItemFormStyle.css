@@ -45,16 +45,18 @@
   background: #ffffff;
   border: 2px solid #8186d5;
   border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
 
-  margin-top: 2%;
   outline: none;
 
   /* 자기소개서 질문을 입력하세요. */
 
-  font-family: "nanum";
+  /* font-family: "nanum"; */
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 19px;
   display: flex;
   align-items: center;
@@ -108,14 +110,17 @@
   background: #ffffff;
   border: 2px solid #8186d5;
   border-radius: 10px;
-  margin-top: 2%;
+
   outline: none;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
 
   /* 자기소개서 답변을 입력하세요. */
-  font-family: "nanum";
+  /* font-family: "nanum"; */
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 19px;
   display: flex;
   align-items: center;

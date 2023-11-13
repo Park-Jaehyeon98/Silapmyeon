@@ -202,7 +202,7 @@
   left: 355px;
   top: 471px;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -223,15 +223,19 @@
   left: 358px;
   top: 508px;
 
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
+
   outline: none;
 
   background: #ffffff;
   border: 2px solid #8186d5;
   border-radius: 10px;
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .aTitleText {
@@ -264,13 +268,17 @@
   left: 358px;
   top: 644px;
 
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
+
   outline: none;
   background: #ffffff;
   border: 2px solid #8186d5;
   border-radius: 10px;
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .completeBox {
