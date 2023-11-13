@@ -49,8 +49,10 @@ function TypeSelect() {
 
   const handleNextButton = () => {
     if (selectedQuestionState === "자소서" && selectedOption.value === 0) {
+      window.alert("자기소개서를 선택해 주세요.");
+    } else {
+      navigate("/interview/preparation");
     }
-    navigate("/interview/preparation");
   };
 
   useEffect(() => {
