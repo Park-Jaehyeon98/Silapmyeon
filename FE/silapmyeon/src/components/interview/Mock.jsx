@@ -241,8 +241,9 @@ function Mock() {
     if (isInterviewEnd && isVideoEnd) {
       axiosMulti
         .post("/report", formData.current)
-        .then((request) => {
-          console.log(request);
+        .then((response) => {
+          console.log(response);
+          navigate("/report/detail/" + response.data.id);
         })
         .catch((error) => {
           console.log(error);
