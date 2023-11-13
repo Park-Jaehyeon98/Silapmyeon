@@ -122,12 +122,12 @@
   color: #000000;
 }
 .commentInput {
-  width: 600px;
+  width: 640px;
   height: 100px;
 
   font-family: "nanum";
   /* font-family: "Inter"; */
-  font-style: normal;
+  /* font-style: normal; */
   font-weight: 500;
   background-color: white;
   border: none;
@@ -139,22 +139,47 @@
   resize: none;
 }
 .commentButton {
-  width: 129.01px;
+  /* width: 129.01px;
   height: 60px;
 
   background: #494ca2;
   border-radius: 10px;
 
-  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
   line-height: 27px;
 
-  color: #ffffff;
+  color: #ffffff; */
+  background-color: #8186d5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.commentButton:hover {
+  background-color: #494ca2;
 }
 .commentRegistUser {
   display: flex;
   margin-left: 50px;
   margin-top: 20px;
+}
+.back {
+  background-color: #e3e7f1;
+  color: #37397e;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.back:hover {
+  background-color: #c6cbef;
 }

@@ -97,7 +97,7 @@ const ReportListView = () => {
         <div className={styles.header}>실전 연습 레포트</div>
         <div className={styles.emptyGridContainer}>
           <div className={styles.subHeader}>
-            🔍
+            🔎
             <input
               type="text"
               placeholder="기업명 검색"
@@ -123,7 +123,7 @@ const ReportListView = () => {
       <div className={styles.header}>실전 연습 레포트</div>
       <div className={styles.gridContainer}>
         <div className={styles.subHeader}>
-          🔍
+          🔎
           <input
             type="text"
             placeholder="기업명 검색"

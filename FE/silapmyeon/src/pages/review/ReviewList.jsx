@@ -58,9 +58,7 @@ function ReviewList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${
-          currentPage == index ? styles.selectedPage : ""
-        }`}
+        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
       >
         {index + 1}
       </a>
@@ -69,11 +67,7 @@ function ReviewList() {
   pageNums.push(
     <a
       className={styles.pn}
-      onClick={() =>
-        handlePageChange(
-          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
-        )
-      }
+      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
     >
       다음
     </a>
@@ -94,7 +88,7 @@ function ReviewList() {
   return (
     <div style={{ height: "100vh" }}>
       <div className={styles.title}>면접 후기</div>
-      <div className={styles.searchBoxText}>🔎</div>
+      <span className={styles.searchBoxText}>🔎</span>
       <input
         value={keyword}
         className={styles.searchBox}
@@ -121,25 +115,27 @@ function ReviewList() {
           {reviews.map((review, idx) => {
             return (
               <tr className={styles.tb}>
-                <td>{currentPage * 10 + idx + 1}</td>
-                <Link
-                  to={`${review.reviewId}`}
-                  style={{ textDecoration: "none", color: "black" }}
-                >
-                  <td style={{ lineHeight: "52px" }}>{review.companyName}</td>
-                </Link>
-                <td>{review.interviewDate.substring(0, 4)}</td>
-                <td>{calculateQuarter(review.interviewDate)}</td>
-                <td>{review.employmentType}</td>
-                <td>{review.reviewOrder}</td>
+                <td className={styles.column1}>{currentPage * 10 + idx + 1}</td>
+
+                <td className={styles.column2}>
+                  <Link
+                    to={`${review.reviewId}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    {review.companyName}
+                  </Link>
+                </td>
+
+                <td className={styles.column3}>{review.interviewDate.substring(0, 4)}</td>
+                <td className={styles.column4}>{calculateQuarter(review.interviewDate)}</td>
+                <td className={styles.column5}>{review.employmentType}</td>
+                <td className={styles.column6}>{review.reviewOrder}</td>
               </tr>
             );
           })}
         </tbody>
-        {pageNums.length === 2 ? null : (
-          <div className={styles.pageNums}>{pageNums}</div>
-        )}
       </table>
+      {pageNums.length === 2 ? null : <div className={styles.pageNums}>{pageNums}</div>}
     </div>
   );
 }

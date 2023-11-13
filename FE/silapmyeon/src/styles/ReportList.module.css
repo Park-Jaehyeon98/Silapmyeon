@@ -1,11 +1,17 @@
 .container {
   /* font-family: 'Arial', sans-serif; */
+
+  font-family: "Arial", sans-serif;
+
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .header {
+  color: #4962a2;
+  font-size: 40px;
+
   margin-bottom: 40px;
   font-style: normal;
   font-weight: 400;
@@ -16,9 +22,14 @@
 }
 
 .subHeader {
-  font-size: 20px;
+  height: 36px;
   margin-bottom: 20px;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 .gridContainer {
@@ -149,12 +160,23 @@
   padding: 5px 10px;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
+
+  height: 36px;
+  font-size: 16px;
+  /* padding: 5px 10px; */
+  margin-left: 10px;
+  padding-left: 10px;
+  border: 1px solid #f5f6ff;
+  border-radius: 10px;
+
   outline: none;
+  background: #f5f6ff;
+  font-size: medium;
   transition: border-color 0.3s;
 
   &:focus {
-    border-color: #007bff;
-  } */
+    border-color: #e3e7f1;
+  }
 }
 
 .pagination {

@@ -83,27 +83,27 @@ function ResumeList() {
 
   return (
     <div style={{ height: "100vh" }}>
-      <div className={styles.resumeTitle}>
-        <div className={styles.resumeTitleText}>나의 자기소개서</div>
+      <div className={styles.resumeTitle}>나의 자기소개서</div>
+      <div style={{ width: "100%" }}>
+        <span className={styles.searchBoxText}>🔎</span>
+        <input
+          value={keyword}
+          className={styles.searchBox}
+          placeholder="기업명 검색"
+          onChange={handleKeywordChange}
+          onKeyUp={handleKeyPress}
+        />
+        <Link to={"create"}>
+          <button className={styles.plus}>등록하기</button>
+        </Link>
       </div>
-      <div className={styles.searchBoxText}>🔎</div>
-      <input
-        value={keyword}
-        className={styles.searchBox}
-        placeholder="기업명 검색"
-        onChange={handleKeywordChange}
-        onKeyUp={handleKeyPress}
-      />
-      <Link to={"create"}>
-        <button className={styles.plus}>+</button>
-      </Link>
       <table className={styles.table}>
         <thead className={styles.tableHeader}>
           <tr>
-            <th>번호</th>
-            <th>기업명</th>
-            <th>면접일</th>
-            <th>작성일</th>
+            <th className={styles.column1}>번호</th>
+            <th className={styles.column2}>기업명</th>
+            <th className={styles.column3}>면접일</th>
+            <th className={styles.column4}>작성일</th>
           </tr>
         </thead>
         <tbody>
@@ -120,10 +120,10 @@ function ResumeList() {
             />
           ))}
         </tbody>
-        {pageNums.length === 2 ? null : (
-          <div className={styles.pageNums}>{pageNums}</div>
-        )}
       </table>
+      {pageNums.length === 2 ? null : (
+        <div className={styles.pageNums}>{pageNums}</div>
+      )}
     </div>
   );
 }

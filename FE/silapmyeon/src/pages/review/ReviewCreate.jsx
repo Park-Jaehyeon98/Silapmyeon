@@ -29,12 +29,7 @@ function ReviewCreate() {
     }
   };
 
-  const handleModalChange = (
-    flag,
-    newCompanyName,
-    newInterviewDate,
-    newResumeId
-  ) => {
+  const handleModalChange = (flag, newCompanyName, newInterviewDate, newResumeId) => {
     if (newResumeId != null) {
       setInterviewDate(newInterviewDate);
       setCompanyName(newCompanyName);
@@ -150,73 +145,65 @@ function ReviewCreate() {
       {modal === true ? (
         <ReviewModal onModalChange={handleModalChange} /> //기업명, 면접 날짜 반환
       ) : null}
-      <button className={styles.loadResumeButton} onClick={loadResume}>
-        자소서 목록
-      </button>
-      <div>
-        <div className={styles.companyNameText}>기업명 </div>{" "}
-        <input
-          value={companyName}
-          readOnly
-          className={styles.companyNameInput}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="연도"
-          value={interviewDate != null ? interviewDate.substring(0, 4) : ""}
-          readOnly
-          className={styles.yearBox}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="분기"
-          className={styles.quarterBox}
-          value={interviewDate != null ? calculateQuarter(interviewDate) : ""}
-          readOnly
-        />
-      </div>
-      <div>
-        <input
-          placeholder="채용형태"
-          className={styles.etBox}
-          value={employmentType}
-          onChange={employmentTypeChange}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="차수"
-          className={styles.roBox}
-          value={reviewOrder}
-          onChange={reviewOrderChange}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="직무"
-          className={styles.rjBox}
-          value={reviewJob}
-          onChange={reviewJobChange}
-        />
-      </div>
-      <div className={styles.qTitleText}>
-        가장 기억에 남는 질문 한 가지를 남겨주세요.
-      </div>
-      <input
-        className={styles.qInputBox}
-        value={reviewQuestion}
-        onChange={reviewQuestionChange}
-      />
-      <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
-      <textarea
-        className={styles.aInputBox}
-        value={reviewContent}
-        style={{ resize: "none" }}
-        onChange={reviewContentChange}
-      />
-      <div className={styles.completeBox}>
+      <div className={styles.box}>
+        <div className={styles.row1}>
+          <span className={styles.companyNameText}>기업명 </span>{" "}
+          <input value={companyName} readOnly className={styles.companyNameInput} />
+          <button className={styles.loadResumeButton} onClick={loadResume}>
+            자소서 목록
+          </button>
+        </div>
+
+        <div className={styles.row2}>
+          <input
+            placeholder="연도"
+            value={interviewDate != null ? interviewDate.substring(0, 4) : ""}
+            readOnly
+            className={styles.yearBox}
+          />
+
+          <input
+            placeholder="분기"
+            className={styles.quarterBox}
+            value={interviewDate != null ? calculateQuarter(interviewDate) : ""}
+            readOnly
+          />
+          <input
+            placeholder="채용형태"
+            className={styles.etBox}
+            value={employmentType}
+            onChange={employmentTypeChange}
+          />
+          <input
+            placeholder="차수"
+            className={styles.roBox}
+            value={reviewOrder}
+            onChange={reviewOrderChange}
+          />
+          <input
+            placeholder="직무"
+            className={styles.rjBox}
+            value={reviewJob}
+            onChange={reviewJobChange}
+          />
+        </div>
+        <div className={styles.row3}>
+          <div className={styles.qTitleText}>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
+          <input
+            className={styles.qInputBox}
+            value={reviewQuestion}
+            onChange={reviewQuestionChange}
+          />
+        </div>
+        <div className={styles.row4}>
+          <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
+          <textarea
+            className={styles.aInputBox}
+            value={reviewContent}
+            style={{ resize: "none" }}
+            onChange={reviewContentChange}
+          />
+        </div>
         <button className={styles.completeButton} onClick={registerReview}>
           완료
         </button>

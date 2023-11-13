@@ -1,36 +1,21 @@
 .title {
   /* 면접 후기 등록 */
 
-  position: absolute;
-  width: 343px;
-  height: 87px;
-  left: 351px;
-  top: 161px;
-
-  /* 본문 큰 제목 */
-  /* font-family: "Inter"; */
+  width: 70%;
+  margin: 3% 0% 0% 5%;
   font-style: normal;
   font-weight: 400;
-  font-size: 50px;
-  line-height: 61px;
-
+  font-size: 3vw;
+  line-height: 4vw;
   color: #4962a2;
 }
 
 .companyNameText {
   /* 기업명 */
 
-  position: absolute;
-  width: 279px;
-  height: 46px;
-  left: 360px;
-  top: 299px;
-
-  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 1.3vw;
 
   color: #000000;
 }
@@ -41,23 +26,16 @@
 
   box-sizing: border-box;
 
-  position: absolute;
-  width: 298px;
-  height: 54px;
-  left: 460px;
-  top: 285px;
+  width: 30%;
 
   background: #ffffff;
   border: none;
-  border-bottom: 1px solid #8186d5;
+  border-bottom: 0.15vw solid #8186d5;
   outline: none;
   text-align: center;
 
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.7vw;
 
   color: #37397e;
   text-align: center;
@@ -67,146 +45,122 @@
 .yearBox:focus {
   /* Rectangle 116 */
 
-  position: absolute;
-  width: 110px;
-  height: 53px;
-  left: 358px;
-  top: 367px;
+  width: 10%;
+  height: 5vh;
+  float: left;
 
   background: #e3e7f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
   border: none;
   outline: none;
 
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.3vw;
 
   color: #37397e;
   text-align: center;
+  line-height: 3vw;
 }
 
 .quarterBox,
 .quarterBox:focus {
   /* Rectangle 114 */
 
-  position: absolute;
-  width: 110px;
-  height: 53px;
-  left: 485px;
-  top: 367px;
+  width: 10%;
+  height: 5vh;
+  margin-left: 1vw;
 
   background: #e3e7f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
   border: none;
   outline: none;
 
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.3vw;
 
   color: #37397e;
   text-align: center;
+  line-height: 3vw;
 }
 
 .etBox,
 .etBox:focus {
   /* Rectangle 117 */
 
-  position: absolute;
-  width: 110px;
-  height: 53px;
-  left: 611px;
-  top: 367px;
+  width: 10%;
+  height: 5vh;
+  margin-left: 1vw;
 
   background: #e3e7f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
   border: none;
   outline: none;
 
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.3vw;
 
   color: #37397e;
   text-align: center;
+  line-height: 3vw;
 }
 
 .roBox,
 .roBox:focus {
   /* Rectangle 110 */
 
-  position: absolute;
-  width: 110px;
-  height: 53px;
-  left: 749px;
-  top: 367px;
+  width: 10%;
+  height: 5vh;
+  margin-left: 1vw;
 
   background: #e3e7f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
   border: none;
   outline: none;
 
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.3vw;
 
   color: #37397e;
   text-align: center;
+  line-height: 3vw;
 }
 
 .rjBox,
 .rjBox:focus {
   /* Rectangle 111 */
 
-  position: absolute;
-  width: 475px;
-  height: 53px;
-  left: 879px;
-  top: 366px;
+  width: 40%;
+  height: 5vh;
+  margin-left: 1vw;
 
   background: #e3e7f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
   border: none;
   outline: none;
 
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.3vw;
 
   color: #37397e;
   text-align: center;
+  line-height: 3vw;
 }
 
 .qTitleText {
   /* 가장 기억에 남는 질문 한 가지를 남겨주세요 */
 
-  position: absolute;
-  width: 806px;
-  height: 30px;
-  left: 355px;
-  top: 471px;
+  width: 90%;
 
   /* font-family: "Inter"; */
+
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.3vw;
 
   color: #000000;
 }
@@ -216,12 +170,10 @@
   /* Rectangle 113 */
 
   box-sizing: border-box;
+  margin-top: 1%;
 
-  position: absolute;
-  width: 1002px;
-  height: 64px;
-  left: 358px;
-  top: 508px;
+  width: 100%;
+  height: 6vh;
 
   margin-top: 10px;
   margin-bottom: 5px;
@@ -230,43 +182,39 @@
   outline: none;
 
   background: #ffffff;
-  border: 2px solid #8186d5;
-  border-radius: 10px;
+  border: 0.15vw solid #8186d5;
+  border-radius: 1vw;
 
   /* font-family: "Inter"; */
   font-style: normal;
-  font-size: 18px;
+  /* font-size: 18px; */
+
+  font-style: normal;
+  font-size: 1.2vw;
 }
 
 .aTitleText {
+  color: #000000;
   /* 자유롭게 면접 후기를 남겨주세요 */
 
-  position: absolute;
-  width: 806px;
-  height: 30px;
-  left: 358px;
-  top: 604px;
+  width: 90%;
 
-  /* font-family: "Inter"; */
   font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+  font-weight: 700;
+  font-size: 1.3vw;
 
   color: #000000;
 }
 
 .aInputBox,
 .aInputBox:focus {
+  margin-top: 1%;
   /* Rectangle 115 */
 
   box-sizing: border-box;
 
-  position: absolute;
-  width: 1002px;
-  height: 282px;
-  left: 358px;
-  top: 644px;
+  width: 100%;
+  height: 35vh;
 
   margin-top: 10px;
   margin-bottom: 5px;
@@ -274,11 +222,12 @@
 
   outline: none;
   background: #ffffff;
-  border: 2px solid #8186d5;
+
+  /* border: 2px solid #8186d5;
   border-radius: 10px;
   /* font-family: "Inter"; */
-  font-style: normal;
-  font-size: 18px;
+  /* font-style: normal;
+  font-size: 18px; */
 }
 
 .completeBox {
@@ -289,51 +238,76 @@
   height: 52px;
   left: 1229px;
   top: 948px;
+
+  border: 0.15vw solid #8186d5;
+  border-radius: 1vw;
+  font-style: normal;
+  font-size: 1.2vw;
 }
 
 .completeButton {
+  margin-top: 2%;
+  cursor: pointer;
+  width: 9vw;
+  height: 3.7vw;
+  border-radius: 1vw;
+  border: none;
+  /* font-style: normal;
+  font-weight: 700;
+  font-size: 1.7vw; */
+
+  padding: 8px 16px;
+  margin: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
   /* Rectangle 99 */
 
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  background: #494ca2;
-  border-radius: 10px;
-
-  /* font-family: "Inter"; */
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  background: #8186d5;
   /* identical to box height */
 
   color: #ffffff;
-
-  border: none;
+  float: right;
+}
+.completeButton:hover {
+  background-color: #494ca2;
 }
 
 .loadResumeButton {
-  position: absolute;
-  width: 150px;
-  height: 53px;
-  left: 800px;
-  top: 285px;
+  width: 14%;
+  height: 5vh;
+
+  padding: 0.7%;
+  margin-left: 5%;
 
   background: #e3e7f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
   border: none;
   outline: none;
 
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.3vw;
 
   color: black;
   text-align: center;
+}
+
+.box {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.row1 {
+  margin-top: 3%;
+}
+.row2 {
+  margin-top: 3%;
+}
+.row3 {
+  margin-top: 3%;
+}
+
+.row4 {
+  margin-top: 3%;
 }

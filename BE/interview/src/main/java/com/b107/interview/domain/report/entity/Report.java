@@ -16,14 +16,12 @@ public class Report extends MongoAuditable {
     private Long userId;
     private String company;
     private List<Interview> interviews;
-    private int eyeTrackingViolationCount;
 
-    public static Report of(Long userId, List<Interview> interviews, int eyeTrackingViolationCount, String company) {
+    public static Report of(Long userId, List<Interview> interviews, String company) {
         return Report.builder()
                 .userId(userId)
                 .company(company)
                 .interviews(interviews)
-                .eyeTrackingViolationCount(eyeTrackingViolationCount)
                 .build();
     }
 }

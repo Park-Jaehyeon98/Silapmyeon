@@ -1,128 +1,101 @@
-.selectedPage {
-  color: #494ca2;
-  font-weight: bold;
-  font-size: large;
-}
-
-.pageNum {
-  margin-left: 5px;
-  margin-right: 5px;
-  cursor: pointer;
-}
-
-.pageNums {
-  position: absolute;
-  left: 325px;
-  margin-top: 30px;
-  font-size: medium;
-}
-
-.total {
-  z-index: 1;
-
-  background: white;
-  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-
-  /* Rectangle 142 */
-
-  position: absolute;
-  width: 896px;
-  height: 417px;
-  left: 418px;
-  top: 398px;
-}
-
-.closeButton {
-  /* Rectangle 99 */
-
-  position: absolute;
-  width: 101px;
-  height: 42px;
-  left: 750px;
-  top: 358px;
-
-  background: #494ca2;
-  border-radius: 10px;
-
-  /* font-family: "Inter"; */
-  font-style: normal;
-  font-weight: 700;
-  font-size: 19px;
-  line-height: 29px;
-  /* identical to box height */
-
-  color: #ffffff;
-
-  border: none;
-  cursor: pointer;
-}
-
-.table {
-  position: absolute;
-
-  width: 810px;
-  left: 42px;
-  top: 43px;
-  border-collapse: collapse;
-}
-
-.th {
-  /* Rectangle 112 */
-
-  height: 48.88px;
-
-  background: #e3e7f1;
-  border-radius: 10px;
-}
-
 .tbCompanyName {
   cursor: pointer;
 }
 
-.tb {
-  /* Rectangle 111 */
-  box-sizing: border-box;
+/*  */
+.table {
+  width: 90%;
+  margin: 5% 3% 0; /* Adjust top margin as needed, set left margin to create space on the left */
+  margin-left: 5%;
+  border-collapse: collapse;
+}
 
-  height: 48.88px;
+.tableHeader {
+  /* Group 172 */
+  height: 8%; /* Adjust as needed */
+  margin: 2% auto; /* Adjust as needed */
+  border-radius: 10px;
+
+  background: #e3e7f1;
+}
+
+/* Apply the height to table rows */
+.table tr {
+  height: 42px; /* Adjust as needed */
+}
+
+.item {
+  height: 8%; /* Adjust as needed */
+
+  box-sizing: border-box;
 
   background: #ffffff;
   border-bottom: 2px solid #8186d5;
   text-align: center;
 }
 
-.thCreatedDate {
-  /* 작성일 */
-
+.total {
+  margin-top: 7%;
+  margin-left: 5%;
+  width: 65%;
+  height: 50%;
+  z-index: 1;
   position: absolute;
-  width: 40px;
-  height: 20px;
-  left: 1196px;
-  top: 438px;
 
-  /* font-family: "Inter"; */
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
+  background: white;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 
-  color: #000000;
+  /* Rectangle 142 */
 }
 
-.thInterviewDate {
-  /* 면접일 */
+.pageNums {
+  margin-top: 2%;
+  font-size: large;
+}
 
-  position: absolute;
-  width: 40px;
-  height: 20px;
-  left: 1077px;
-  top: 438px;
+.pageNum {
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  cursor: pointer;
+}
 
-  /* font-family: "Inter"; */
+.selectedPage {
+  color: #494ca2;
+  font-weight: bold;
+  font-size: large;
+}
+
+.pn {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pageBox {
+  margin-top: 2%;
+  margin-left: 42%;
+}
+
+.closeButton {
+  /* Rectangle 99 */
+
+  /* 완료 button */
+
+  width: 6vw;
+  height: 2.5vw;
+
+  /* Rectangle 99 */
+
+  background: #494ca2;
+  border: none;
+  border-radius: 0.4em;
+
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-
-  color: #000000;
+  font-weight: 600;
+  font-size: 1.4vw;
+  line-height: 2.2vw;
+  color: #ffffff;
+  float: right;
+  cursor: pointer;
+  margin-right: 7vh;
 }

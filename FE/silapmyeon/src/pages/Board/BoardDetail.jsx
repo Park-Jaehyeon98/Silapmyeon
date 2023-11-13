@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../Board/BoardDetailStyle.css";
 import Comment from "../../components/Comment/Comment";
@@ -72,6 +72,11 @@ function BoardDetail() {
       });
   }, []);
 
+  const navigate = useNavigate();
+  const navigateToList = () => {
+    navigate("/community");
+  };
+
   return (
     <div className="boardDetailContainer">
       <div className="head">면접 공유 커뮤니티</div>
@@ -113,9 +118,16 @@ function BoardDetail() {
           <div className="boardContent">{board.content}</div>
           {report != null && <Report data={report}></Report>}
 
+          <div>
+            <button className="back" onClick={navigateToList}>
+              목록
+            </button>
+          </div>
+
           <div style={{ marginRight: "800px", marginBottom: "15px" }}>
             답변 {comments.length}
           </div>
+
           <div className="commentContainer">
             <div className="commentRegistUser">
               <img className="registImg" src={userValue.userProfileUrl}></img>
