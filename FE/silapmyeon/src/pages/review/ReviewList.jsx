@@ -93,61 +93,78 @@ function ReviewList() {
 
   return (
     <div style={{ height: "100vh" }}>
-      <div className={styles.title}>면접 후기</div>
-      <span className={styles.searchBoxText}>🔎</span>
-      <input
-        value={keyword}
-        className={styles.searchBox}
-        placeholder="기업명 검색"
-        onChange={handleKeywordChange}
-        onKeyUp={handleKeyPress}
-      />
-      <Link to={"/review/create"}>
-        <button className={styles.plusButton}>작성하기</button>
-      </Link>
+      <div className="head">면접 후기</div>
+      <div className="search" style={{ marginBottom: "20px" }}>
+        <div className="company">
+          🔎
+          <input
+            value={keyword}
+            className="input"
+            placeholder="기업명 검색"
+            onChange={handleKeywordChange}
+            onKeyUp={handleKeyPress}
+          />
+        </div>
+        <Link
+          to={"/review/create"}
+          style={{ marginLeft: "auto", marginRight: "70px" }}
+        >
+          <button className="button">작성하기</button>
+        </Link>
+      </div>
 
-      <table className={styles.table}>
-        <thead className={styles.thead}>
-          <tr>
-            <th>번호</th>
-            <th>기업명</th>
-            <th>연도</th>
-            <th>분기</th>
-            <th>경력</th>
-            <th>단계</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reviews.map((review, idx) => {
-            return (
-              <tr className={styles.tb}>
-                <td className={styles.column1}>{currentPage * 10 + idx + 1}</td>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <table className={styles.table}>
+          <thead className={styles.thead}>
+            <tr>
+              <th>번호</th>
+              <th>기업명</th>
+              <th>연도</th>
+              <th>분기</th>
+              <th>경력</th>
+              <th>단계</th>
+            </tr>
+          </thead>
+          <tbody>
+            {reviews.map((review, idx) => {
+              return (
+                <tr className={styles.tb}>
+                  <td className={styles.column1}>
+                    {currentPage * 10 + idx + 1}
+                  </td>
 
-                <td className={styles.column2}>
-                  <Link
-                    to={`${review.reviewId}`}
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    {review.companyName}
-                  </Link>
-                </td>
+                  <td className={styles.column2}>
+                    <Link
+                      to={`${review.reviewId}`}
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      {review.companyName}
+                    </Link>
+                  </td>
 
-                <td className={styles.column3}>
-                  {review.interviewDate.substring(0, 4)}
-                </td>
-                <td className={styles.column4}>
-                  {calculateQuarter(review.interviewDate)}
-                </td>
-                <td className={styles.column5}>{review.employmentType}</td>
-                <td className={styles.column6}>{review.reviewOrder}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      {pageNums.length === 2 ? null : (
+                  <td className={styles.column3}>
+                    {review.interviewDate.substring(0, 4)}
+                  </td>
+                  <td className={styles.column4}>
+                    {calculateQuarter(review.interviewDate)}
+                  </td>
+                  <td className={styles.column5}>{review.employmentType}</td>
+                  <td className={styles.column6}>{review.reviewOrder}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        {pageNums.length === 2 ? null : (
+          <div className="pagenation">{pageNums}</div>
+        )}
+      </div>
+      {/* {pageNums.length === 2 ? null : (
         <div className={styles.pageNums}>{pageNums}</div>
-      )}
+      )} */}
     </div>
   );
 }
