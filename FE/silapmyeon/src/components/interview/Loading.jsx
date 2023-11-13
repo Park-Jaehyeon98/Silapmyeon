@@ -3,6 +3,9 @@ import { Oval } from "react-loader-spinner";
 function Loading() {
   return (
     <div>
+      <div style={{ color: "#37397E", fontSize: "25px", marginBottom: "15px" }}>
+        질문을 생성 중 입니다!
+      </div>
       <Oval
         height={100}
         width={100}
@@ -11,7 +14,7 @@ function Loading() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh",
+          height: "80vh",
         }}
         wrapperClass=""
         visible={true}

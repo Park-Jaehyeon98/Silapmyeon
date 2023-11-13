@@ -50,6 +50,7 @@ function Mock() {
   const [videoData, setVideoData] = useState([]);
   const [isVideoEnd, setIsVideoEnd] = useState(false);
   const [isInterviewEnd, setIsInterviewEnd] = useState(false);
+  const [companyName, setCompanyName] = useState("");
 
   // user 정보
   const userValue = useRecoilValue(UserAtom);
@@ -211,7 +212,7 @@ function Mock() {
           [
             JSON.stringify({
               userId: userValue.userId,
-              company: "",
+              company: companyName,
               interviews: interviewData,
             }),
           ],
@@ -270,6 +271,7 @@ function Mock() {
 
     axiosAuth.post("/interview", body).then((response) => {
       console.log(response.data.question);
+      setCompanyName(response.data.company);
       setQuestion(response.data.question);
       setIsLoading(false);
     });

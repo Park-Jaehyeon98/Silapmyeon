@@ -31,7 +31,12 @@ async def root():
 async def interview_question_create(request: InterviewTypeRequest):
     question = await select_question(request)
 
-    content = {"question": question}
+    if request.question == "자소서":
+        company = await get_company_name(request.resume)
+    else:
+        company = request.question + " 면접"
+
+    content = {"question": question, "company": company}
 
     return JSONResponse(content=content, status_code=200)
 
