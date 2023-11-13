@@ -16,7 +16,8 @@ function Preparation() {
 
   const webcamRef = useRef(null);
   const [useCam, setUseCam] = useRecoilState(camState);
-  const [selectedTypeState, setSelectedTypeState] = useRecoilState(selectedType);
+  const [selectedTypeState, setSelectedTypeState] =
+    useRecoilState(selectedType);
 
   const handleCam = () => {
     setUseCam((prev) => !prev);
@@ -43,11 +44,11 @@ function Preparation() {
       <Visualizer />
       <br />
       <div className={styles.buttoncontainer}>
-        <Link to={selectedTypeState}>
-          <button className={styles.button}>다음</button>
-        </Link>
         <Link to={"/"}>
           <button className={styles.button}>나가기</button>
+        </Link>
+        <Link to={selectedTypeState}>
+          <button className={styles.button}>다음</button>
         </Link>
       </div>
     </div>

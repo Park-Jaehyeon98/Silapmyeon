@@ -152,6 +152,16 @@ function Mock() {
     [setRecordedChunks]
   );
 
+  useEffect(() => {
+    if (timer >= 120) {
+      if (qCount == 5) {
+        handleEndButton();
+      } else {
+        handleNextButton();
+      }
+    }
+  }, [timer]);
+
   // tts 다 끝날 때 변경됨
   useEffect(() => {
     if (completeSpeechState) {
