@@ -17,6 +17,7 @@ import {
   resumeId,
 } from "../../atoms/atoms";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 function Practice() {
   const videoConstraints = {
@@ -31,9 +32,12 @@ function Practice() {
   const [qCount, setQCount] = useRecoilState(questionCount);
   const [ttsState, setTtsState] = useRecoilState(tts);
   const [sttState, setSttState] = useRecoilState(stt);
-  const [completeSpeechState, setCompleteSpeechState] = useRecoilState(completeSpeech);
-  const [selectedTypeState, setSelectedTypeState] = useRecoilState(selectedType);
-  const [selectedQuestionState, setSelectedQuestionState] = useRecoilState(selectedQuestion);
+  const [completeSpeechState, setCompleteSpeechState] =
+    useRecoilState(completeSpeech);
+  const [selectedTypeState, setSelectedTypeState] =
+    useRecoilState(selectedType);
+  const [selectedQuestionState, setSelectedQuestionState] =
+    useRecoilState(selectedQuestion);
   const [resumeIdState, setResumeIdState] = useRecoilState(resumeId);
 
   const [question, setQuestion] = useState();
@@ -87,8 +91,17 @@ function Practice() {
 
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
+      webcamRef.current = null;
+      setQCount(0);
+      setTtsState(false);
+      setSttState(false);
+      setCompleteSpeechState(false);
     };
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className={styles.container}>
@@ -118,11 +131,15 @@ function Practice() {
       {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
       {qCount !== 0 ? <SpeechToText onData={handleSTTData} /> : null}
       <div>
-        <button className={styles.button} onClick={handleReplay} disabled={isLoading || ttsState}>
+        <button
+          className={styles.button}
+          onClick={handleReplay}
+          disabled={isLoading || ttsState}
+        >
           다시하기
         </button>
-        {qCount === 5 ? (
-          <Link to={"/"}>
+        {qCount >= 5 ? (
+          <Link to={"/home"}>
             <button className={styles.button} disabled={isLoading || ttsState}>
               종료
             </button>
