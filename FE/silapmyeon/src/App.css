@@ -11,5 +11,6 @@
 .page {
   flex: 1;
   overflow: auto;
-  padding: 30px;
+  /* padding: 60px; */
+  padding: 8vh;
 }

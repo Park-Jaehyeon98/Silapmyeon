@@ -77,6 +77,10 @@ function BoardDetail() {
     navigate("/community");
   };
 
+  const handleEdit = () => {
+    navigate("/community/edit");
+  };
+
   return (
     <div className="boardDetailContainer">
       <div className="head">면접 공유 커뮤니티</div>
@@ -90,7 +94,7 @@ function BoardDetail() {
           <div className="boardHits">{board.createdTime.substring(0, 10)}</div>
           <div className="boardHits">조회수 {board.hit}</div>
         </div>
-        {board.userId === userValue.userId && (
+        {/* {board.userId === userValue.userId && (
           <div className="boardEdit">
             <div
               style={{ margin: "5px", marginLeft: "auto" }}
@@ -112,19 +116,35 @@ function BoardDetail() {
               수정
             </Link>
           </div>
-        )}
+        )} */}
 
         <div className="boardMiddle">
           <div className="boardContent">{board.content}</div>
           {report != null && <Report data={report}></Report>}
 
-          <div>
+          <div style={{ display: "flex" }}>
             <button className="back" onClick={navigateToList}>
               목록
             </button>
+            {board.userId === userValue.userId && (
+              <div style={{ marginLeft: "auto" }}>
+                <Link to={"/community/edit"} state={board}>
+                  <button className="edit">수정</button>
+                </Link>
+                <button className="delete" onClick={handleDelete}>
+                  삭제
+                </button>
+              </div>
+            )}
           </div>
 
-          <div style={{ marginRight: "800px", marginBottom: "15px" }}>
+          <div
+            style={{
+              marginRight: "800px",
+              marginBottom: "15px",
+              marginTop: "40px",
+            }}
+          >
             답변 {comments.length}
           </div>
 
@@ -150,7 +170,7 @@ function BoardDetail() {
                 />
                 <button
                   className="commentButton"
-                  style={{ marginLeft: "30px" }}
+                  style={{ marginLeft: "auto" }}
                   onClick={handleCommentSubmit}
                 >
                   답변등록

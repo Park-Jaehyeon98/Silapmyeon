@@ -2,7 +2,7 @@
   /* 면접 후기 등록 */
 
   width: 70%;
-  margin: 3% 0% 0% 5%;
+  /* margin: 3% 0% 0% 5%; */
   font-style: normal;
   font-weight: 400;
   font-size: 3vw;
@@ -14,8 +14,8 @@
   /* 기업명 */
 
   font-style: normal;
-  font-weight: 400;
-  font-size: 1.3vw;
+  font-weight: normal;
+  font-size: 20px;
 
   color: #000000;
 }
@@ -30,12 +30,12 @@
 
   background: #ffffff;
   border: none;
-  border-bottom: 0.15vw solid #8186d5;
+  border-bottom: 2px solid #8186d5;
   outline: none;
   text-align: center;
 
-  font-weight: 600;
-  font-size: 1.7vw;
+  font-weight: normal;
+  font-size: 20px;
 
   color: #37397e;
   text-align: center;
@@ -170,7 +170,7 @@
   /* Rectangle 113 */
 
   box-sizing: border-box;
-  margin-top: 1%;
+  /* margin-top: 1%; */
 
   width: 100%;
   height: 6vh;
@@ -222,22 +222,24 @@
 
   outline: none;
   background: #ffffff;
+  border: 0.15vw solid #8186d5;
+  border-radius: 1vw;
 
   /* border: 2px solid #8186d5;
   border-radius: 10px;
   /* font-family: "Inter"; */
-  /* font-style: normal;
-  font-size: 18px; */
+  font-style: normal;
+  font-size: 18px;
 }
 
 .completeBox {
   /* 완료 button */
 
-  position: absolute;
+  /* position: absolute;
   width: 131px;
   height: 52px;
   left: 1229px;
-  top: 948px;
+  top: 948px; */
 
   border: 0.15vw solid #8186d5;
   border-radius: 1vw;
@@ -248,9 +250,9 @@
 .completeButton {
   margin-top: 2%;
   cursor: pointer;
-  width: 9vw;
-  height: 3.7vw;
-  border-radius: 1vw;
+  /* width: 9vw;
+  height: 3.7vw; */
+  border-radius: 10px;
   border: none;
   /* font-style: normal;
   font-weight: 700;
@@ -274,10 +276,10 @@
 }
 
 .loadResumeButton {
-  width: 14%;
+  /* width: 14%; */
   height: 5vh;
 
-  padding: 0.7%;
+  padding: 8px 16px;
   margin-left: 5%;
 
   background: #e3e7f1;
@@ -287,7 +289,7 @@
   outline: none;
 
   font-weight: 600;
-  font-size: 1.3vw;
+  font-size: 16px;
 
   color: black;
   text-align: center;
@@ -295,7 +297,7 @@
 
 .box {
   width: 90%;
-  margin-left: 5%;
+  /* margin-left: 5%; */
 }
 
 .row1 {

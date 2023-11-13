@@ -91,12 +91,10 @@ function BoardRegist() {
             ))}
           </select>
         </div>
-        <div style={{ display: "flex" }}>
-          <button
-            className="button"
-            onClick={handleCreatePost}
-            style={{ marginLeft: "auto" }}
-          >
+        <div
+          style={{ display: "flex", justifyContent: "center", width: "80%" }}
+        >
+          <button className="button" onClick={handleCreatePost}>
             등록하기
           </button>
         </div>
