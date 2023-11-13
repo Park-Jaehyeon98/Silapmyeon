@@ -47,7 +47,7 @@ function LoginModal({ onClose }) {
         </div>
 
         <div className="contents">
-          <h1 className="title">실압면</h1>
+          <h1 className="title">실전압축면접</h1>
           <div className="loginbody">
             <span className="message">기존 계정으로 간단하게 시작하세요.</span>
 

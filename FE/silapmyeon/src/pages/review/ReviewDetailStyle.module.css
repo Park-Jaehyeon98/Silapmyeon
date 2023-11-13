@@ -2,7 +2,6 @@
   /* 기업명 면접 후기 */
   width: 70%;
   margin: 3% 0% 0% 5%;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 3vw;
@@ -16,7 +15,6 @@
   margin-left: 5%;
   width: 50%; /* Adjust as needed */
   max-width: 45%;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 1.3vw; /* Adjust as needed */
@@ -45,7 +43,6 @@
   height: 3.7vw;
   border-radius: 1vw;
   border: none;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.7vw;
@@ -74,7 +71,6 @@
   padding: 1vw;
   box-shadow: 0px 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
   width: auto;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 1.5vw; /* Adjust as needed */

@@ -2,7 +2,6 @@
   /* 큰 제목 */
   width: 70%;
   margin: 3% 0% 0% 5%;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 3vw;
@@ -12,7 +11,6 @@
 
 .titleText {
   /* SSAFY 자소서 */
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 5vw; /* Adjust as needed for responsiveness */
@@ -33,7 +31,6 @@
 
 .interview {
   /* 면접일 */
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 1.5vw; /* Adjust as needed for responsiveness */
@@ -51,7 +48,6 @@
 }
 
 .question {
-  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-size: 1.5vw;
@@ -62,7 +58,6 @@
 }
 
 .answer {
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 1.3vw;
@@ -86,7 +81,6 @@
   height: 3.7vw;
   border-radius: 1vw;
   border: none;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.7vw;
@@ -103,7 +97,6 @@
   height: 3.7vw;
   border-radius: 1vw;
   border: none;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.7vw;
@@ -145,7 +138,6 @@
   background: #e3e7f1;
   border-radius: 1vw;
   border: none;
-  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 1.7vw;

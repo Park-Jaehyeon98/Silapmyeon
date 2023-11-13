@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Board/BoardStyle.css";
 import Card from "../../components/Card/Card";
 import { axiosAuth } from "../../api/settingAxios";
-
+import "../../App.css";
 function Board() {
   const [cards, setCards] = useState([]);
 

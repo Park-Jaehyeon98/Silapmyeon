@@ -5,6 +5,7 @@ import { IsLogin, IsLoginSelector, UserAtom } from "../../Recoil/UserAtom";
 import { useState } from "react";
 import LoginModal from "../modal/LoginModal";
 import { logoutUser } from "../../api/userAPI";
+import Logo from "../../assets/logo.png";
 
 function Header() {
   const setUserValue = useSetRecoilState(UserAtom);
@@ -35,11 +36,11 @@ function Header() {
     <div className="header">
       {isLogin ? (
         <Link to="/home" className="logo">
-          LOGO
+          <img src={Logo} className="logoImg"></img>
         </Link>
       ) : (
         <Link to="/intro" className="logo">
-          LOGO
+          <img src={Logo} className="logoImg"></img>
         </Link>
       )}
       {isLogin ? (
