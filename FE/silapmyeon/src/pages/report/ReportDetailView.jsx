@@ -88,7 +88,7 @@ const ReportDetailView = () => {
                 height="300px"
                 controls
               >
-                <source src={item.url} type="video/mp4" />
+                <source src={item.url} type="video/webm" />
                 video tag.
               </video>
             </div>
