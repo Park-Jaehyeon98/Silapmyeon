@@ -58,7 +58,9 @@ function ReviewList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+        className={`${styles.pageNum} ${
+          currentPage == index ? styles.selectedPage : ""
+        }`}
       >
         {index + 1}
       </a>
@@ -67,7 +69,11 @@ function ReviewList() {
   pageNums.push(
     <a
       className={styles.pn}
-      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
     >
       다음
     </a>
@@ -97,7 +103,7 @@ function ReviewList() {
         onKeyUp={handleKeyPress}
       />
       <Link to={"/review/create"}>
-        <button className={styles.plusButton}>+</button>
+        <button className={styles.plusButton}>작성하기</button>
       </Link>
 
       <table className={styles.table}>
@@ -126,8 +132,12 @@ function ReviewList() {
                   </Link>
                 </td>
 
-                <td className={styles.column3}>{review.interviewDate.substring(0, 4)}</td>
-                <td className={styles.column4}>{calculateQuarter(review.interviewDate)}</td>
+                <td className={styles.column3}>
+                  {review.interviewDate.substring(0, 4)}
+                </td>
+                <td className={styles.column4}>
+                  {calculateQuarter(review.interviewDate)}
+                </td>
                 <td className={styles.column5}>{review.employmentType}</td>
                 <td className={styles.column6}>{review.reviewOrder}</td>
               </tr>
@@ -135,7 +145,9 @@ function ReviewList() {
           })}
         </tbody>
       </table>
-      {pageNums.length === 2 ? null : <div className={styles.pageNums}>{pageNums}</div>}
+      {pageNums.length === 2 ? null : (
+        <div className={styles.pageNums}>{pageNums}</div>
+      )}
     </div>
   );
 }

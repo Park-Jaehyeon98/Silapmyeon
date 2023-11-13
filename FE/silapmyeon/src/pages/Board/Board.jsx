@@ -142,7 +142,7 @@ function Board() {
         </div>
         <Link
           to="/community/regist"
-          style={{ marginLeft: "auto", paddingRight: "100px" }}
+          style={{ marginLeft: "auto", marginRight: "70px" }}
         >
           <button className="button">글 작성하기</button>
         </Link>
@@ -160,8 +160,10 @@ function Board() {
 
       {/* 페이지네이션 버튼 */}
 
-      <div className="pagenation">
-        {pageNums.length === 2 ? null : <div>{pageNums}</div>}
+      <div>
+        {pageNums.length === 2 ? null : (
+          <div className="pagenation">{pageNums}</div>
+        )}
       </div>
     </div>
   );
