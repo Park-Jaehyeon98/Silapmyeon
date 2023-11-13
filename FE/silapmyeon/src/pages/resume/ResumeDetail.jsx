@@ -43,10 +43,11 @@ function ResumeDetail() {
     <div style={{ height: "100vh" }}>
       {resume === null ? null : (
         <div>
-          <div className={styles.title}>{resume.companyName} 자소서</div>
-          <div className={styles.interviewBox}>
-            <div className={styles.interviewDate}>
-              <div className={styles.interview}>면접일 {resume.interviewDate} </div>
+          <div className="head">{resume.companyName} 자소서</div>
+
+          <div className={styles.interviewDate}>
+            <div className={styles.interview}>
+              면접일 {resume.interviewDate}{" "}
             </div>
           </div>
 
@@ -56,7 +57,9 @@ function ResumeDetail() {
               {resume.resumeItems.map((resumeItem, idx) => (
                 <button
                   key={idx}
-                  className={`${styles.button} ${num === idx ? styles.selectedButton : ""}`}
+                  className={`${styles.button} ${
+                    num === idx ? styles.selectedButton : ""
+                  }`}
                   onClick={() => changeNum(idx)}
                 >
                   {idx + 1}
@@ -64,19 +67,24 @@ function ResumeDetail() {
               ))}
             </span>
             <div className={styles.content}>
-              <div className={styles.question}>{resume.resumeItems[num].resumeQuestion}</div>
-              <div className={styles.answer}>{resume.resumeItems[num].resumeAnswer}</div>
+              <div className={styles.question}>
+                {resume.resumeItems[num]?.resumeQuestion}
+              </div>
+              <div className={styles.answer}>
+                {resume.resumeItems[num]?.resumeAnswer}
+              </div>
             </div>
           </div>
+
           <div className={styles.downButtonList}>
-            <button className={styles.list} onClick={navigateToList}>
+            <button className="back" onClick={navigateToList}>
               목록
             </button>
             <div className={styles.deleteModifyBox}>
-              <button className={styles.modify} onClick={navigateToModify}>
+              <button className="edit" onClick={navigateToModify}>
                 수정
               </button>
-              <button className={styles.delete} onClick={removeResume}>
+              <button className="delete" onClick={removeResume}>
                 삭제
               </button>
             </div>

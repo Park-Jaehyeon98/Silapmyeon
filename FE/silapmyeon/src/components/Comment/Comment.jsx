@@ -43,6 +43,7 @@ function Comment({ comment }) {
           display: "flex",
           marginLeft: "20px",
           marginTop: "20px",
+          fontSize: "18px",
         }}
       >
         {comment.content}
@@ -51,6 +52,7 @@ function Comment({ comment }) {
         {comment.userid === userValue.userId && (
           <div
             style={{ margin: "5px", marginLeft: "auto" }}
+            className="commentDelete"
             onClick={handleDelete}
           >
             삭제
