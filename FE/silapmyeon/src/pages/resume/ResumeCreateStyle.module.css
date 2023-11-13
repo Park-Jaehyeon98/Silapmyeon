@@ -1,139 +1,72 @@
-.resumeCreateTitle {
-  /* 큰 제목 */
-
-  position: absolute;
-  width: 487px;
-  height: 45px;
-  left: 410px;
-  top: 174px;
-
-  /* SSAFY 자소서 */
-  /*     
-        position: absolute;
-        left: 0%;
-        right: 0%;
-        top: 0%;
-        bottom: 0%; */
-
-  font-family: "Inter";
+.title {
+  width: 70%;
+  margin: 3% 0% 0% 5%;
   font-style: normal;
   font-weight: 400;
-  font-size: 50px;
-  line-height: 61px;
-
+  font-size: 3vw;
+  line-height: 4vw;
   color: #4962a2;
 }
 
-.resumeCreateCompany {
-  /* 짧은 input */
-
-  position: absolute;
-  width: 442px;
-  height: 87px;
-  left: 420px;
-  top: 269px;
-}
-
-.rectangle105,
-.rectangle105:focus {
-  /* Rectangle 105 */
-  z-index: 100;
-  box-sizing: border-box;
-
-  position: absolute;
-  width: 200px;
-  height: 48px;
-  left: 82px;
-  top: -12px;
-
-  background: #ffffff;
-  border: none;
-  border-bottom: 3px solid #8186d5;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-
-  color: black;
-  outline: none;
-}
-
-.resumeCreateCompanyName {
+.companyNameText {
   /* 기업명 */
 
-  position: absolute;
-  left: 0%;
-  right: 33.75%;
-  top: 4.6%;
-  bottom: 69.87%;
-
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  display: flex;
-  align-items: center;
+  font-size: 1.3vw;
 
   color: #000000;
 }
 
-.interviewBox {
-  /* 짧은 input */
-
-  position: absolute;
-  width: 442px;
-  height: 87px;
-  left: 838px;
-  top: 269px;
-}
-
-.rectangle106,
-.rectangle106:focus {
-  /* Rectangle 105 */
-  z-index: 100;
+.companyNameInput,
+.companyNameInput:focus {
+  /* Rectangle 112 */
 
   box-sizing: border-box;
 
-  position: absolute;
-  width: 200px;
-  height: 48px;
-  left: 82px;
-  top: -12px;
+  width: 20%;
 
   background: #ffffff;
   border: none;
+  border-bottom: 0.15vw solid #8186d5;
+  outline: none;
+  text-align: center;
 
-  border-bottom: 3px solid #8186d5;
-
-  font-family: "Inter";
-  font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.5vw;
 
   color: black;
+  text-align: center;
+  margin-left: 1%;
+}
+
+.interviewInput,
+.interviewInput:focus {
+  box-sizing: border-box;
+
+  width: 20%;
+
+  background: #ffffff;
+  border: none;
+  border-bottom: 0.15vw solid #8186d5;
   outline: none;
+  text-align: center;
+
+  font-weight: 400;
+  font-size: 1.5vw;
+
+  color: black;
+  text-align: center;
+  margin-left: 1%;
 }
 
 .interviewTitle {
   /* 기업명 */
+  margin-left: 20%;
 
-  position: absolute;
-  left: 0%;
-  right: 33.75%;
-  top: 4.6%;
-  bottom: 69.87%;
-
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  display: flex;
-  align-items: center;
+  font-size: 1.3vw;
 
   color: #000000;
 }
@@ -141,66 +74,68 @@
 .itemPlus {
   /* 추가 button */
 
-  position: absolute;
-  width: 55px;
-  height: 52px;
-  left: 41%;
-  margin-top: 5%;
+  width: 4vw;
+  height: 3.8vw;
 
   /* Rectangle 102 */
 
   background: #494ca2;
-  border-radius: 10px;
+  border-radius: 0.2em;
   color: white;
   border: none;
 
-  font-size: 40px;
+  font-size: 3.5vw;
+  margin-left: 44%;
 }
 
 .itemMinus {
   /* 추가 button */
 
-  position: absolute;
-  width: 55px;
-  height: 52px;
-  left: 49%;
-  margin-top: 5%;
+  width: 4vw;
+  height: 3.8vw;
 
   /* Rectangle 102 */
 
   background: #494ca2;
-  border-radius: 10px;
+  border-radius: 0.2em;
   color: white;
   border: none;
 
-  font-size: 40px;
+  font-size: 3.5vw;
+  margin-left: 1%;
 }
 
 .complete {
   /* 완료 button */
 
-  position: absolute;
-  width: 131px;
-  height: 52px;
-  right: 0%;
-  margin-top: 10%;
+  width: 10vw;
+  height: 4vw;
 
   /* Rectangle 99 */
 
-  /* position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%; */
-
   background: #494ca2;
   border: none;
-  border-radius: 10px;
+  border-radius: 0.4em;
 
-  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 1.7vw;
+  line-height: 2.2vw;
   color: #ffffff;
+  float: right;
+}
+
+.row1 {
+  margin-top: 4%;
+  width: 90%;
+  margin-left: 5%;
+}
+.row2 {
+  margin-top: 3%;
+}
+
+.box {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 3%;
 }

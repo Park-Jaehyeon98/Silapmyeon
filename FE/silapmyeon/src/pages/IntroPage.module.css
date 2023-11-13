@@ -20,7 +20,7 @@
 }
 .content1 {
   /* 면접 합격은 실전압축면접 */
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 600;
   font-size: 60px;
@@ -37,7 +37,7 @@
 
   /* 바로 시작하기 */
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -64,7 +64,7 @@
 }
 .content {
   width: 550px;
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 300;
   font-size: 35px;
@@ -83,7 +83,7 @@
 
   /* 합격을 위한 면접 연습, 실전압축면접이 함께합니다 */
 
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 600;
   font-size: 24px;

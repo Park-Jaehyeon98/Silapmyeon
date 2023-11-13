@@ -1,78 +1,46 @@
 .resumeTitle {
   /* 큰 제목 */
+  width: 70%; /* Adjust as needed */
+  margin: 3% 0% 0% 5%; /* Adjust the right margin as needed, set left margin to create space on the left */
 
-  position: absolute;
-  width: 400px;
-  height: 87px;
-  left: 381px;
-  top: 169px;
-}
-
-.resumeTitleText {
-  /* SSAFY 자소서 */
-
-  /* position: absolute; */
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 50px;
-  line-height: 61px;
+  font-size: 3vw; /* Adjust as needed */
+  line-height: 4vw; /* Adjust as needed */
 
   color: #4962a2;
 }
 
 .tableHeader {
   /* Group 172 */
-
-  /* position: relative; */
-  /* width: 896px;
-  height: 52px;
-  left: 418px;
-  top: 274px; */
-
-  /* Rectangle 112 */
-
-  width: 896px;
-  height: 52px;
+  height: 8%; /* Adjust as needed */
+  margin: 2% auto; /* Adjust as needed */
+  border-radius: 10px;
 
   background: #e3e7f1;
-  border-radius: 10px;
 }
 
 .plus {
-  /* Rectangle 102 */
-
+  /* 추가 button */
+  width: 1.5em; /* Adjust as needed */
+  height: 1.5em; /* Adjust as needed */
+  margin-left: 2%; /* Adjust as needed */
   background: #494ca2;
   border-radius: 10px;
-
-  /* 추가 button */
-
-  position: absolute;
-  width: 37px;
-  height: 35px;
-  left: 1230px;
-  top: 226px;
-
-  color: white;
   border: none;
-  font-size: x-large;
+  color: white;
+  font-size: 1.5vw; /* Adjust as needed */
 }
 
 .pageNums {
-  position: absolute;
-  margin-top: 35px;
-  left: 400px;
-  font-size: medium;
+  margin-top: 2%;
+  margin-left: 45%;
+  font-size: large;
 }
 
 .pageNum {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
   cursor: pointer;
 }
 
@@ -83,49 +51,51 @@
 }
 
 .pn {
-  font-weight: "bold";
+  font-weight: bold;
   cursor: pointer;
 }
 
 .table {
-  position: absolute;
-  left: 380px;
-  top: 280px;
-
+  width: 90%;
+  margin: 1% 3% 0; /* Adjust top margin as needed, set left margin to create space on the left */
+  margin-left: 5%;
   border-collapse: collapse;
-  position: absolute;
-  width: 896px;
 }
 
 .searchBoxText {
   /* 🔎 기업명 검색 */
-
-  position: absolute;
-  width: 198px;
-  height: 27px;
-  left: 860px;
-  top: 230px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-
-  color: #000000;
+  margin-left: 66%;
+  width: 30%; /* Adjust as needed */
+  font-size: 1.5vw; /* Adjust as needed */
 }
 
 .searchBox {
   /* Rectangle 41 */
-
-  position: absolute;
-  width: 302px;
-  height: 33px;
-  left: 901px;
-  top: 226px;
-
+  width: 20%; /* Adjust as needed */
+  font-size: 1.5vw; /* Adjust as needed */
   background: #f5f6ff;
   border-radius: 10px;
   border: none;
-  font-size: medium;
+  margin-left: 1%;
+}
+
+.column1 {
+  width: 15%; /* Adjust as needed based on content */
+}
+
+.column2 {
+  width: 45%; /* Adjust as needed based on content */
+}
+
+.column3 {
+  width: 20%; /* Adjust as needed based on content */
+}
+
+.column4 {
+  width: 20%; /* Adjust as needed based on content */
+}
+
+/* Apply the height to table rows */
+.table tr {
+  height: 42px; /* Adjust as needed */
 }

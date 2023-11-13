@@ -43,48 +43,44 @@ function ResumeDetail() {
     <div style={{ height: "100vh" }}>
       {resume === null ? null : (
         <div>
-          <div className={styles.title}>
-            <div className={styles.titleText}>{resume.companyName} 자소서</div>
+          <div className={styles.title}>{resume.companyName} 자소서</div>
+          <div className={styles.interviewBox}>
+            <div className={styles.interviewDate}>
+              <div className={styles.interview}>면접일 {resume.interviewDate} </div>
+            </div>
           </div>
-          <div className={styles.interviewDate}>
-            <div className={styles.interview}>면접일 </div>
-            <div className={styles.date}>{resume.interviewDate} </div>
-          </div>
+
           <div className={styles.box}>
-            <div style={{ top: "9px", position: "absolute" }}>
+            <span className={styles.buttonList}>
               {/* 자소서 항목만큼 버튼 생성, 버튼 클릭시 해당 자소서 항목으로 전환 */}
               {resume.resumeItems.map((resumeItem, idx) => (
-                <div>
-                  <button
-                    key={idx}
-                    className={`${styles.button} ${
-                      num === idx ? styles.selectedButton : ""
-                    }`}
-                    onClick={() => changeNum(idx)}
-                  >
-                    {idx + 1}
-                  </button>
-                </div>
+                <button
+                  key={idx}
+                  className={`${styles.button} ${num === idx ? styles.selectedButton : ""}`}
+                  onClick={() => changeNum(idx)}
+                >
+                  {idx + 1}
+                </button>
               ))}
-            </div>
+            </span>
             <div className={styles.content}>
-              <div className={styles.question}>
-                {resume.resumeItems[num].resumeQuestion}
-              </div>
-              <div className={styles.answer}>
-                {resume.resumeItems[num].resumeAnswer}
-              </div>
+              <div className={styles.question}>{resume.resumeItems[num].resumeQuestion}</div>
+              <div className={styles.answer}>{resume.resumeItems[num].resumeAnswer}</div>
             </div>
           </div>
-          <button className={styles.modify} onClick={navigateToModify}>
-            수정
-          </button>
-          <button className={styles.delete} onClick={removeResume}>
-            삭제
-          </button>
-          <button className={styles.list} onClick={navigateToList}>
-            목록
-          </button>
+          <div className={styles.downButtonList}>
+            <button className={styles.list} onClick={navigateToList}>
+              목록
+            </button>
+            <div className={styles.deleteModifyBox}>
+              <button className={styles.modify} onClick={navigateToModify}>
+                수정
+              </button>
+              <button className={styles.delete} onClick={removeResume}>
+                삭제
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

@@ -1,29 +1,16 @@
 .q {
   /* Q1 */
-
-  /* position: absolute; */
-  left: 0%;
-  right: 82.27%;
-  top: 5.05%;
-  bottom: 70.71%;
-
-  /* Rectangle 117 */
-
-  width: 100px;
-  height: 30px;
-
+  margin-top: 3%;
+  width: 7vw; /* Adjust as needed */
+  height: 2.5vw; /* Adjust as needed */
   background: #e3e7f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
+  border-radius: 1vw;
   border: none;
   outline: none;
-
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-
+  font-size: 1.5vw; /* Adjust as needed */
+  line-height: 2.5vw; /* Adjust as needed */
   color: black;
   text-align: center;
 }
@@ -31,31 +18,17 @@
 .qInput,
 .qInput:focus {
   /* Rectangle 87 */
-
   box-sizing: border-box;
-
-  /* position: absolute; */
-  left: 0%;
-  right: 0%;
-  top: 39.39%;
-  bottom: 12.12%;
-  width: 897px;
-  height: 50px;
-
+  width: 100%; /* Adjust as needed */
+  height: 3.5vw; /* Adjust as needed */
   background: #ffffff;
-  border: 2px solid #8186d5;
-  border-radius: 10px;
-
+  border: 0.2vw solid #8186d5;
+  border-radius: 1vw;
   margin-top: 2%;
   outline: none;
-
-  /* 자기소개서 질문을 입력하세요. */
-
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.1vw; /* Adjust as needed */
   display: flex;
   align-items: center;
   color: black;
@@ -63,30 +36,17 @@
 
 .a {
   /* A1 */
-
-  /* position: absolute; */
-  left: 0%;
-  right: 89.29%;
-  top: 0.59%;
-  bottom: 92.38%;
   margin-top: 3%;
-  /* Rectangle 117 */
-
-  width: 100px;
-  height: 30px;
-
+  width: 7vw; /* Adjust as needed */
+  height: 2.5vw; /* Adjust as needed */
   background: #e3e7f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  box-shadow: 0 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
+  border-radius: 1vw;
   border: none;
   outline: none;
-
-  /* font-family: "Inter";
-  font-style: normal; */
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-
+  font-size: 1.5vw; /* Adjust as needed */
+  line-height: 2.5vw; /* Adjust as needed */
   color: black;
   text-align: center;
 }
@@ -94,31 +54,19 @@
 .aInput,
 .aInput:focus {
   /* Rectangle 88 */
-
   box-sizing: border-box;
-
-  /* position: absolute; */
-  left: 0%;
-  right: 0%;
-  top: 10.56%;
-  bottom: 0%;
-  width: 896px;
-  height: 300px;
-
+  width: 100%; /* Adjust as needed */
+  height: 20vw; /* Adjust as needed */
   background: #ffffff;
-  border: 2px solid #8186d5;
-  border-radius: 10px;
+  border: 0.2vw solid #8186d5;
+  border-radius: 1vw;
   margin-top: 2%;
   outline: none;
-
-  /* 자기소개서 답변을 입력하세요. */
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.1vw; /* Adjust as needed */
+  line-height: 1.8vw; /* Adjust as needed */
   display: flex;
   align-items: center;
-
   color: black;
 }
