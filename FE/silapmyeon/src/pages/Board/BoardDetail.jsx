@@ -85,10 +85,8 @@ function BoardDetail() {
     <div className="boardDetailContainer">
       <div className="head">면접 공유 커뮤니티</div>
       <div className="boardDetail">
-        <div className="boardTitle">{board.title}</div>
-
+        y<div className="boardTitle">{board.title}</div>
         <div className="boardLine"></div>
-
         <div className="boardInfo">
           <div className="boardUser">{board.nickname}</div>
           <div className="boardHits">{board.createdTime.substring(0, 10)}</div>
@@ -117,7 +115,6 @@ function BoardDetail() {
             </Link>
           </div>
         )} */}
-
         <div className="boardMiddle">
           <div className="boardContent">{board.content}</div>
           {report != null && <Report data={report}></Report>}
