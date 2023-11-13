@@ -4,6 +4,7 @@ import { useRecoilValue } from "recoil";
 import { IsLoginSelector } from "../../Recoil/UserAtom";
 import Modal from "../modal/ProfileModal";
 import { Link } from "react-router-dom";
+import { UserAtom } from "../../Recoil/UserAtom";
 
 function Side() {
   // const [userNickname, setUserNickName] = useState('');
@@ -12,6 +13,7 @@ function Side() {
   const isLogin = useRecoilValue(IsLoginSelector);
   const [isOpen, setOpen] = useState(false);
   const [myPageActive, setMyPageActive] = useState(false);
+  const userValue = useRecoilValue(UserAtom);
 
   useEffect(() => {
     const User = JSON.parse(sessionStorage.getItem("user"))?.UserAtom;
@@ -64,7 +66,7 @@ function Side() {
             <Link to={"/resume"} className="link">
               <div className="sidebarSmallText">자소서</div>
             </Link>
-            <Link to={"/report/list/15"} className="link">
+            <Link to={"/report/list/" + userValue.userId} className="link">
               <div className="sidebarSmallText">면접 리포트</div>
             </Link>
             <Link to={"/review"} className="link">
