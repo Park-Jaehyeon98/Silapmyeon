@@ -6,6 +6,7 @@ import { UserAtom } from "../../Recoil/UserAtom";
 
 function Comment({ comment }) {
   const [userValue, setUserValue] = useRecoilState(UserAtom);
+
   //댓글 삭제하기
   const handleDelete = async () => {
     const confirmed = window.confirm("해당 댓글을 삭제하시겠습니까?");
@@ -36,6 +37,13 @@ function Comment({ comment }) {
       <div className="commentUser">
         <img className="commentImg" src={comment.profileImg}></img>
         <div className="commentNickname">{comment.nickname}</div>
+        <div className="commentDate" style={{ marginRight: "5px" }}>
+          {comment.createdDate && comment.createdDate.substring(0, 10)}
+        </div>
+        <div className="commentTime">
+          {comment.createdDate && comment.createdDate.substring(11, 16)}
+        </div>
+        <div></div>
       </div>
       <div
         className="commentContent"
