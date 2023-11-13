@@ -1,6 +1,6 @@
 .title {
   width: 70%;
-  margin: 3% 0% 0% 5%;
+  /* margin: 3% 0% 0% 5%; */
   font-style: normal;
   font-weight: 400;
   font-size: 3vw;
@@ -12,8 +12,8 @@
   /* 기업명 */
 
   font-style: normal;
-  font-weight: 400;
-  font-size: 1.3vw;
+  font-weight: bold;
+  font-size: 20px;
 
   color: #000000;
 }
@@ -28,16 +28,16 @@
 
   background: #ffffff;
   border: none;
-  border-bottom: 0.15vw solid #8186d5;
+  border-bottom: 2px solid #8186d5;
   outline: none;
   text-align: center;
 
-  font-weight: 400;
-  font-size: 1.5vw;
+  font-weight: normal;
+  font-size: 18px;
 
   color: black;
   text-align: center;
-  margin-left: 1%;
+  margin-left: 10px;
 }
 
 .interviewInput,
@@ -48,25 +48,24 @@
 
   background: #ffffff;
   border: none;
-  border-bottom: 0.15vw solid #8186d5;
+  border-bottom: 2px solid #8186d5;
   outline: none;
   text-align: center;
 
-  font-weight: 400;
-  font-size: 1.5vw;
+  font-weight: normal;
+  font-size: 18px;
 
   color: black;
   text-align: center;
-  margin-left: 1%;
+  margin-left: 10px;
 }
 
 .interviewTitle {
   /* 기업명 */
-  margin-left: 20%;
-
+  margin-left: 60px;
   font-style: normal;
-  font-weight: 400;
-  font-size: 1.3vw;
+  font-weight: bold;
+  font-size: 20px;
 
   color: #000000;
 }
@@ -127,7 +126,7 @@
 .row1 {
   margin-top: 4%;
   width: 90%;
-  margin-left: 5%;
+  /* margin-left: 5%; */
 }
 .row2 {
   margin-top: 3%;
@@ -135,6 +134,6 @@
 
 .box {
   width: 90%;
-  margin-left: 5%;
+  /* margin-left: 5%; */
   margin-top: 3%;
 }
