@@ -53,15 +53,39 @@
 
 .modifyButton {
   /* 수정 button */
+
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.modifyButton:hover {
   background: #494ca2;
   color: #ffffff;
-  margin-right: 2vw;
 }
 
 .deleteButton {
   /* 삭제 button */
+
+  cursor: pointer;
   background: #ef5c41;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  /* identical to box height */
+  padding: 8px 16px;
   color: #ffffff;
+
+  margin: 10px;
+}
+.deleteButton:hover {
+  background-color: #d72808;
 }
 
 .detail {
@@ -80,8 +104,22 @@
 
 .list {
   /* 수정 button */
+
+  cursor: pointer;
+
   background: #e3e7f1;
+  border-radius: 10px;
+  border: none;
+
+  font-size: 16px;
+  font-weight: bold;
+
   color: #494ca2;
+  padding: 8px 16px;
+  margin: 10px;
+}
+.list:hover {
+  background-color: #c6cbef;
 }
 
 .detailBox {

@@ -33,37 +33,60 @@
   padding-bottom: 10px;
   display: flex;
   align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
 }
 .button {
-  width: 150px;
+  /* width: 150px;
   height: 45px;
   background: #494ca2;
   border-radius: 10px;
-  /* font-family: "Inter"; */
-  /* font-family: "soyoMaple"; */
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
   color: #ffffff;
   border: none;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.5px; */
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #494ca2;
 }
 .input {
   width: 250px;
-  margin-right: 10px;
+  height: 36px;
   border-radius: 10px;
-  background: #d9d9d9;
-  border: none;
-  height: 35px;
+  padding-left: 10px;
+  margin-left: 10px;
+  background: #f5f6ff;
+  outline: none;
+  /* border: none; */
+  border: 1px solid #f5f6ff;
+  transition: border-color 0.3s;
+  &:focus {
+    border-color: #e3e7f1;
+  }
+  font-size: medium;
 }
-.searchButton {
+/* .searchButton {
   width: 50px;
   letter-spacing: 0.5px;
   height: 30px;
   background: #494ca2;
   border-radius: 10px;
-  /* font-family: "Inter"; */
   font-style: normal;
   font-size: 15px;
   font-weight: 550;
@@ -72,7 +95,7 @@
   background: #ffffff;
   border: 1px solid #494ca2;
   border-radius: 10px;
-}
+} */
 .pagenation {
   padding-top: 20px;
   padding-bottom: 20px;
