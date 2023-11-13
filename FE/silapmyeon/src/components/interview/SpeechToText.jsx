@@ -24,7 +24,9 @@ function SpeechToText({ onData }) {
 
   const requestMicrophonePermission = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: true },
+      });
       console.log("마이크 권한이 허용되었습니다.");
       setMicrophoneOn(true);
       stream.getTracks().forEach((track) => track.stop());
