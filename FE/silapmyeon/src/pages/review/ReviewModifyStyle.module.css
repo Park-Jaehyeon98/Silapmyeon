@@ -233,20 +233,18 @@
 }
 
 .completeButton {
-  margin-top: 2%;
-  cursor: pointer;
-  width: 9vw;
-  height: 3.7vw;
-  border-radius: 1vw;
-  border: none;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.7vw;
   /* Rectangle 99 */
 
-  background: #494ca2;
-  /* identical to box height */
+  margin-top: 2%;
+
+  background: #8186d5;
+  border-radius: 10px;
+
+  padding: 8px 16px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
 
   color: #ffffff;
   float: right;
@@ -269,4 +267,7 @@
 
 .row4 {
   margin-top: 3%;
+}
+.complete:hover {
+  background-color: #494ca2;
 }

@@ -108,21 +108,20 @@
 .complete {
   /* 완료 button */
 
-  width: 10vw;
-  height: 4vw;
-
-  /* Rectangle 99 */
-
-  background: #494ca2;
-  border: none;
-  border-radius: 0.4em;
-
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.7vw;
-  line-height: 2.2vw;
-  color: #ffffff;
   float: right;
+
+  background: #8186d5;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.complete:hover {
+  background-color: #494ca2;
 }
 
 .row1 {
