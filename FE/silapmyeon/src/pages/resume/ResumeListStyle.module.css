@@ -1,7 +1,7 @@
 .resumeTitle {
   /* 큰 제목 */
   width: 70%; /* Adjust as needed */
-  margin: 3% 0% 0% 5%; /* Adjust the right margin as needed, set left margin to create space on the left */
+  /* margin: 3% 0% 0% 5%; Adjust the right margin as needed, set left margin to create space on the left */
 
   font-style: normal;
   font-weight: 400;
@@ -14,7 +14,7 @@
 .tableHeader {
   /* Group 172 */
   height: 8%; /* Adjust as needed */
-  margin: 2% auto; /* Adjust as needed */
+  /* margin: 2% auto; Adjust as needed */
   border-radius: 10px;
 
   background: #e3e7f1;
@@ -22,9 +22,14 @@
 
 .plus {
   /* 추가 button */
-  width: 1.5em; /* Adjust as needed */
+
+  margin-left: auto;
+  /* display: flex; */
+  cursor: pointer;
+  /* width: 1.5em; Adjust as needed */
   height: 1.5em; /* Adjust as needed */
-  margin-left: 2%; /* Adjust as needed */
+  /* margin-left: 2%;  */
+  /* Adjust as needed */
   background: #494ca2;
   border-radius: 10px;
   border: none;
@@ -57,17 +62,17 @@
 
 .table {
   width: 90%;
-  margin: 1% 3% 0; /* Adjust top margin as needed, set left margin to create space on the left */
-  margin-left: 5%;
+  /* margin: 1% 3% 0; Adjust top margin as needed, set left margin to create space on the left */
+  /* margin-left: 5%; */
   border-collapse: collapse;
 }
 
 .searchBoxText {
   /* 🔎 기업명 검색 */
 
-  margin-left: 66%;
-  width: 198px;
-  height: 27px;
+  /* height: 27px; */
+
+  /* font-family: "Inter"; */
 
   font-style: normal;
   font-weight: 500;
@@ -79,12 +84,27 @@
 .searchBox {
   /* Rectangle 41 */
 
+  /* margin-right: 10px; */
+  border-radius: 10px;
+  background: #f5f6ff;
+  border: none;
+  height: 35px;
+  /* position: absolute;
+  left: 901px;
+  top: 226px; */
+  padding-left: 10px;
+  font-size: 13px;
+  width: 302px;
+  /* height: 33px;
+
+
   margin-left: 1%;
   width: 302px;
   height: 36px;
 
   outline: none;
   padding-left: 10px;
+
 
   background: #f5f6ff;
   /* background: #e3e7f1; */

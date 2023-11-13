@@ -3,7 +3,8 @@
 
   /* 큰 제목 */
   width: 70%; /* Adjust as needed */
-  margin: 3% 0% 0% 5%; /* Adjust the right margin as needed, set left margin to create space on the left */
+  /* margin: 3% 0% 0% 5%;  */
+  /* Adjust the right margin as needed, set left margin to create space on the left */
 
   font-style: normal;
   font-weight: 400;
@@ -27,11 +28,8 @@
 .searchBoxText {
   /* 🔎 기업명 검색 */
 
-  position: absolute;
   width: 198px;
   height: 27px;
-  left: 860px;
-  top: 230px;
 
   /* font-family: "Inter"; */
   font-style: normal;
@@ -43,6 +41,28 @@
 
 .searchBox {
   /* Rectangle 41 */
+
+  /* margin-right: 10px;
+  border-radius: 10px;
+  background: #f5f6ff;
+  border: none;
+  height: 35px;
+  position: absolute;
+  left: 901px;
+  top: 226px;
+  padding-left: 10px;
+  font-size: 13px;
+  position: absolute;
+  width: 302px;
+  /* height: 33px;  */
+  /* left: 901px;
+  top: 226px;  */
+
+  /* background: #f5f6ff;
+  border-radius: 10px;
+  border: none;
+  font-size: medium; */
+
   width: 20%; /* Adjust as needed */
   font-size: 1.5vw; /* Adjust as needed */
   background: #f5f6ff;
@@ -66,8 +86,10 @@
 
 .table {
   width: 90%;
-  margin: 1% 3% 0; /* Adjust top margin as needed, set left margin to create space on the left */
-  margin-left: 5%;
+  /* margin: 1% 3% 0;
+  margin-left: 5%; */
+  /* display: flex;
+  justify-content: center; */
   border-collapse: collapse;
 }
 

@@ -1,11 +1,11 @@
 .comment {
-  width: 799.3px;
-  height: 262px;
+  width: 80%;
+  height: 150px;
 
-  background: #ffffff;
-  border: 2px solid #8186d5;
-  border-radius: 10px;
-  padding: 20px;
+  /* background: #ffffff; */
+  /* border: 2px solid #8186d5; */
+  /* border-radius: 10px; */
+  /* padding: 20px; */
 }
 .commentUser {
   display: flex;
@@ -32,4 +32,22 @@
   align-items: center;
 
   color: #000000;
+}
+.commentDelete {
+  cursor: pointer;
+  background: transparent;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  /* identical to box height */
+  padding: 8px 16px;
+  color: #ef5c41;
+
+  margin: 10px;
+}
+.commentDelete:hover {
+  color: #d72808;
+  background: transparent;
+  /* background-color: #d72808; */
 }

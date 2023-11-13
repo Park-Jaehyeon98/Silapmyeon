@@ -1,14 +1,30 @@
 .container {
-  font-family: "Arial", sans-serif;
+  /* font-family: 'Arial', sans-serif; */
+
+  /* font-family: "Arial", sans-serif; */
+
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  /* margin: 0 auto;
+  padding: 20px; */
 }
 
 .header {
-  color: #4962a2;
+  /* color: #4962a2;
   font-size: 40px;
+
   margin-bottom: 40px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 61px;
+
+  color: #4962a2; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 60px;
+
+  color: #4962a2;
 }
 
 .subHeader {
@@ -25,6 +41,7 @@
 .gridContainer {
   background-color: #c6cbef;
   border-radius: 10px;
+  margin-top: 20px;
   padding: 30px 30px 30px 30px;
   box-shadow: 0 10px 15px 0px rgba(0, 0, 0, 0.2);
   background: linear-gradient(to right, #c6cbef, #a4a6db);
@@ -58,6 +75,7 @@
 
 .grid {
   display: grid;
+  margin-top: 20px;
   grid-template-columns: repeat(4, 120px); /* 4개의 열, 각 열의 크기는 120px */
   gap: 50px 13%; /* 행과 열 사이의 간격 */
   justify-content: center;
@@ -135,6 +153,22 @@
 }
 
 .searchInput {
+  width: 170px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background: #f5f6ff;
+  border: none;
+  height: 35px;
+  padding-left: 10px;
+  font-size: 13px;
+
+  margin-left: 10px;
+
+  /* font-size: 16px;
+  padding: 5px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+
   height: 36px;
   font-size: 16px;
   /* padding: 5px 10px; */
@@ -142,6 +176,7 @@
   padding-left: 10px;
   border: 1px solid #f5f6ff;
   border-radius: 10px;
+
   outline: none;
   background: #f5f6ff;
   font-size: medium;

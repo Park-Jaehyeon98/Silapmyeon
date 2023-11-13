@@ -26,6 +26,13 @@ function Comment({ comment }) {
 
   return (
     <div className="comment" style={{ marginBottom: "30px" }}>
+      <div
+        style={{
+          width: "100%",
+          border: "1px solid #d9d9d9",
+          marginBottom: "10px",
+        }}
+      ></div>
       <div className="commentUser">
         <img className="commentImg" src={comment.profileImg}></img>
         <div className="commentNickname">{comment.nickname}</div>
@@ -36,7 +43,7 @@ function Comment({ comment }) {
           display: "flex",
           marginLeft: "20px",
           marginTop: "20px",
-          height: "150px",
+          fontSize: "18px",
         }}
       >
         {comment.content}
@@ -45,6 +52,7 @@ function Comment({ comment }) {
         {comment.userid === userValue.userId && (
           <div
             style={{ margin: "5px", marginLeft: "auto" }}
+            className="commentDelete"
             onClick={handleDelete}
           >
             삭제
