@@ -94,7 +94,7 @@ const ReportListView = () => {
   if (Array.isArray(data) && currentData.length === 0) {
     return (
       <div className={styles.container}>
-        <div className={styles.header}>실전 연습 레포트</div>
+        <div className="head">실전 연습 리포트</div>
         <div className={styles.emptyGridContainer}>
           <div className={styles.subHeader}>
             🔎
@@ -120,7 +120,7 @@ const ReportListView = () => {
   // 데이터를 카드 형식으로 렌더링
   return (
     <div className={styles.container}>
-      <div className={styles.header}>실전 연습 레포트</div>
+      <div className="head">실전 연습 리포트</div>
       <div className={styles.gridContainer}>
         <div className={styles.subHeader}>
           🔎
