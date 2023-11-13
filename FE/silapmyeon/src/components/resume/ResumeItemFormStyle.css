@@ -8,6 +8,10 @@
   border-radius: 1vw;
   border: none;
   outline: none;
+
+  /* font-family: "nanum"; */
+  font-style: normal;
+
   font-weight: 600;
   font-size: 1.5vw; /* Adjust as needed */
   line-height: 2.5vw; /* Adjust as needed */
@@ -29,9 +33,13 @@
   font-style: normal;
   font-weight: 400;
   font-size: 1.1vw; /* Adjust as needed */
+
   display: flex;
   align-items: center;
   color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
 }
 
 .a {
@@ -44,6 +52,10 @@
   border-radius: 1vw;
   border: none;
   outline: none;
+
+  /* font-family: "nanum"; */
+  font-style: normal;
+
   font-weight: 600;
   font-size: 1.5vw; /* Adjust as needed */
   line-height: 2.5vw; /* Adjust as needed */
@@ -58,6 +70,7 @@
   width: 100%; /* Adjust as needed */
   height: 20vw; /* Adjust as needed */
   background: #ffffff;
+
   border: 0.2vw solid #8186d5;
   border-radius: 1vw;
   margin-top: 2%;
@@ -66,7 +79,11 @@
   font-weight: 400;
   font-size: 1.1vw; /* Adjust as needed */
   line-height: 1.8vw; /* Adjust as needed */
+
   display: flex;
   align-items: center;
   color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
 }

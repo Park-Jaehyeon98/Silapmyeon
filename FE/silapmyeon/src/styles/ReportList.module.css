@@ -1,5 +1,8 @@
 .container {
+  /* font-family: 'Arial', sans-serif; */
+
   font-family: "Arial", sans-serif;
+
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -8,7 +11,14 @@
 .header {
   color: #4962a2;
   font-size: 40px;
+
   margin-bottom: 40px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 61px;
+
+  color: #4962a2;
 }
 
 .subHeader {
@@ -135,6 +145,22 @@
 }
 
 .searchInput {
+  width: 170px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background: #f5f6ff;
+  border: none;
+  height: 35px;
+  padding-left: 10px;
+  font-size: 13px;
+
+  margin-left: 10px;
+
+  /* font-size: 16px;
+  padding: 5px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+
   height: 36px;
   font-size: 16px;
   /* padding: 5px 10px; */
@@ -142,6 +168,7 @@
   padding-left: 10px;
   border: 1px solid #f5f6ff;
   border-radius: 10px;
+
   outline: none;
   background: #f5f6ff;
   font-size: medium;
