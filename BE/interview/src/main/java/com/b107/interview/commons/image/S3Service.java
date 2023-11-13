@@ -30,6 +30,7 @@ public class S3Service {
 
         String fileName = generateUniqueFileName(file.getOriginalFilename());
 
+        log.info("fileName : " + fileName);
         //파일 형식 구하기
         String ext = fileName.split("\\.")[1];
         String contentType = "";
@@ -49,7 +50,7 @@ public class S3Service {
             case "csv":
                 contentType = "text/csv";
                 break;
-            case "mp4":
+            case "webm":
                 contentType = "video/webm";
                 break;
         }
