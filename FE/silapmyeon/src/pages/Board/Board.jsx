@@ -72,7 +72,7 @@ function Board() {
       <div className="head">면접 공유 커뮤니티</div>
       <div className="search">
         <div className="company">
-          🔍
+          🔎
           <input
             className="input"
             type="text"
