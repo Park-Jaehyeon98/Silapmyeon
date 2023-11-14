@@ -119,6 +119,7 @@
 
 .card:hover {
   transform: scale(1.05); /* Increase size by 5% */
+  cursor: pointer;
 }
 
 .clip {
@@ -199,6 +200,10 @@
   cursor: pointer;
   transition: opacity 0.3s ease-in-out; /* 0.5초 동안 부드럽게 효과 적용 */
   opacity: 0.5; /* 기본 투명도 값 */
+}
+
+.arrowHidden {
+  display: none;
 }
 
 .arrow:last-child {
