@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import InterviewImg from "../assets/intro_1.png";
+import IntroResume from "../assets/intro_resume.png";
+import IntroInterview from "../assets/intro_interview.png";
+import IntroReport from "../assets/intro_report.png";
 import styles from "./IntroPage.module.css";
 import LoginModal from "../components/modal/LoginModal";
 
@@ -39,10 +42,14 @@ const IntroPage = () => {
             자소서를 등록하여
             <br /> 모의면접을 시작해보세요
           </div>
-          <div className={styles.introImg} style={{ marginLeft: "auto" }}></div>
+          <div className={styles.introImg} style={{ marginLeft: "auto" }}>
+            <img src={IntroResume} className={styles.windowImg}></img>
+          </div>
         </div>
         <div className={styles.introBox}>
-          <div className={styles.introImg}></div>
+          <div className={styles.introImg}>
+            <img src={IntroInterview} className={styles.windowImg}></img>
+          </div>
           <div className={styles.content} style={{ marginLeft: "auto" }}>
             ChatGPT가 개인 맞춤으로 생성한
             <br /> 질문에 답해보세요
@@ -53,7 +60,13 @@ const IntroPage = () => {
             면접 종료 후 리포트를 참고하여
             <br /> 합격을 향해, 함께 나아가요
           </div>
-          <div className={styles.introImg} style={{ marginLeft: "auto" }}></div>
+          <div
+            className={styles.introImg}
+            src={IntroReport}
+            style={{ marginLeft: "auto" }}
+          >
+            <img src={IntroReport} className={styles.windowImg}></img>
+          </div>
         </div>
 
         <div className={styles.msg}>
