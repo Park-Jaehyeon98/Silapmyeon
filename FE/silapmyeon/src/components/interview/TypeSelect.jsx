@@ -8,9 +8,10 @@ import {
   resumeId,
   questionCount,
 } from "../../atoms/atoms";
-import { Link } from "react-router-dom";
 import Select from "react-select";
 import { useNavigate } from "react-router-dom";
+import InformationModal from "../modal/InformationModal";
+import InformationIcon from "./information.png";
 
 function TypeSelect() {
   const [selectedTypeState, setSelectedTypeState] =
@@ -25,6 +26,7 @@ function TypeSelect() {
     value: 0,
     label: "자소서 선택",
   });
+  const [isOpen, setOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -68,7 +70,27 @@ function TypeSelect() {
 
   return (
     <div className={styles.container}>
-      <h1>면접 유형을 선택해주세요.</h1>
+      {isOpen && (
+        <InformationModal
+          open={isOpen}
+          onClose={() => {
+            setOpen(false);
+          }}
+        />
+      )}
+      <div className={styles.imageTitleContainer}>
+        <img
+          src={InformationIcon}
+          alt="information"
+          width={40}
+          height={40}
+          onClick={() => {
+            setOpen(true);
+          }}
+        />
+        <h1>면접 유형을 선택해주세요.</h1>
+        <div style={{ width: "40px", height: "40px", marginLeft: "auto" }} />
+      </div>
       <h3>유형</h3>
       <div>
         <button
