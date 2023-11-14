@@ -59,7 +59,6 @@ function SpeechToText({ onData }) {
   const handleStartListening = () => {
     if (microphoneOn && !timerInterval) {
       //resetTranscript();
-      console.log("음성 시작");
       SpeechRecognition.startListening({ continuous: true, language: "ko-KR" });
 
       // 시작할 때 타이머 시작
@@ -71,7 +70,6 @@ function SpeechToText({ onData }) {
   };
 
   const handleStopListening = () => {
-    console.log("음성 정지");
     SpeechRecognition.stopListening();
 
     // 음성 정지할 때 타이머 중지
@@ -97,7 +95,6 @@ function SpeechToText({ onData }) {
   }, [elapsedSeconds]);
 
   useEffect(() => {
-    console.log("Transcript:", transcript);
     setAnswerText(transcript);
   }, [transcript]);
 
