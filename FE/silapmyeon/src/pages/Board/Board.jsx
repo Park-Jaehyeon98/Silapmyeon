@@ -25,7 +25,7 @@ function Board() {
     await axiosAuth
       .get(reqUrl)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         const responseData = response.data;
         const searchData = responseData.content;
 
@@ -62,8 +62,8 @@ function Board() {
     </a>
   );
   for (let index = startIndex; index < endIndex; index++) {
-    console.log("currentPage:", pageInfo.pageNumber);
-    console.log("index + 1:", index + 1);
+    // console.log("currentPage:", pageInfo.pageNumber);
+    // console.log("index + 1:", index + 1);
 
     pageNums.push(
       <a
@@ -91,13 +91,13 @@ function Board() {
   );
 
   useEffect(() => {
-    console.log(searchText);
+    // console.log(searchText);
     const reqUrl =
       "/boards/search?page=" + pageInfo.pageNumber + "&search=" + searchText;
     axiosAuth
       .get(reqUrl)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         const responseData = response.data;
         const searchData = responseData.content;
 
