@@ -33,7 +33,7 @@ function BoardRegist() {
         await axiosAuth
           .post(reqUrl, postData)
           .then((response) => {
-            console.log("글 작성 완료");
+            // console.log("글 작성 완료");
             window.location.href = "/community";
           })
           .catch((error) => {

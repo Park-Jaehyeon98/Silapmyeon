@@ -34,7 +34,7 @@ function BoardEdit() {
       await axiosAuth
         .put(reqUrl, editedBoard)
         .then((response) => {
-          console.log("게시글 수정 완료");
+          // console.log("게시글 수정 완료");
           const confirmed = window.confirm("게시글 수정이 완료 되었습니다.");
           window.location.href = "/community/detail/" + board.boardId;
         })

@@ -16,7 +16,7 @@ function Comment({ comment }) {
       await axiosAuth
         .delete(reqUrl)
         .then((response) => {
-          console.log("댓글 삭제 완료");
+          // console.log("댓글 삭제 완료");
           window.location.reload();
         })
         .catch((error) => {
