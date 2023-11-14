@@ -17,7 +17,7 @@ function Side() {
 
   useEffect(() => {
     const User = JSON.parse(sessionStorage.getItem("user"))?.UserAtom;
-    console.log("sidebar user---------------------->" + User);
+    // console.log("sidebar user---------------------->" + User);
     setUserProfileUrl(User?.userProfileUrl);
     setUserNickName(User?.userNickname);
   }, [isLogin, userProfileUrl, isOpen, userNickname]);
@@ -66,7 +66,7 @@ function Side() {
             <Link to={"/resume"} className="link">
               <div className="sidebarSmallText">자소서</div>
             </Link>
-            <Link to={"/report/list/" + userValue.userId} className="link">
+            <Link to={"/report/list"} className="link">
               <div className="sidebarSmallText">면접 리포트</div>
             </Link>
             <Link to={"/review"} className="link">

@@ -84,7 +84,7 @@ function App() {
 
                 {/* 모의면접 리포트 */}
                 <Route
-                  path="/report/list/:userId"
+                  path="/report/list"
                   element={<ReportListView />}
                 />
                 <Route
