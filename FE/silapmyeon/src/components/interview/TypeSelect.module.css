@@ -29,3 +29,21 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* font-family: "Arial", sans-serif; */
 }
+
+.imageTitleContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+/* 이미지에 대한 스타일 */
+.imageTitleContainer img {
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.imageTitleContainer img:hover {
+  border-radius: 50px;
+  background-color: lightgray;
+}

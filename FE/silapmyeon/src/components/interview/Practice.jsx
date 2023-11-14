@@ -99,7 +99,11 @@ function Practice() {
   }, []);
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <div className={styles.container}>
+        <Loading />
+      </div>
+    );
   }
 
   return (
