@@ -17,7 +17,7 @@ function Side() {
 
   useEffect(() => {
     const User = JSON.parse(sessionStorage.getItem("user"))?.UserAtom;
-    console.log("sidebar user---------------------->" + User);
+    // console.log("sidebar user---------------------->" + User);
     setUserProfileUrl(User?.userProfileUrl);
     setUserNickName(User?.userNickname);
   }, [isLogin, userProfileUrl, isOpen, userNickname]);
