@@ -46,7 +46,7 @@ const ReportListView = () => {
   }
 
   const handleSearch = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && data) {
       // 엔터 키가 눌렸을 때
       console.log("엔터키");
       const filtered = data.filter((item) =>
