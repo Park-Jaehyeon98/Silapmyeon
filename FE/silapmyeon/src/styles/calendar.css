@@ -1,7 +1,8 @@
 .react-calendar {
-    width: 800px;
-    height: 505px;
+    width: 1300px;
+    height: 570px;
     max-width: 100%;
+    border-radius: 20px;
     background: white;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
@@ -44,15 +45,27 @@
   
   .react-calendar__navigation {
     display: flex;
-    height: 44px;
+    height: 60px;
     margin-bottom: 1em;
   }
   
   .react-calendar__navigation button {
     min-width: 44px;
-    background: none;
+  }
+
+  .react-calendar__navigation__label .react-calendar__navigation__label__labelText {
+    font-size: 25px;
+  }
+
+  .react-calendar__navigation__arrow .react-calendar__navigation__prev-button {
+    font-size: 50px;
   }
   
+  .react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none; /* 밑줄 제거 */
+    font-size: 12px;
+  }
+
   .react-calendar__navigation button:disabled {
     background-color: #f0f0f0;
   }
@@ -149,4 +162,14 @@
   
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
+  }
+
+  .react-calendar__month-view__days__day {
+    position: relative; /* 부모 요소를 상대적 위치 컨테이너로 설정 */
+  }
+
+  .react-calendar__month-view__days__day > abbr {
+    position: absolute; /* 상대적 위치 */
+    top: 5px; /* 상단에서의 위치 */ 
+    left: 5px; /* 왼쪽에서의 위치 */
   }
