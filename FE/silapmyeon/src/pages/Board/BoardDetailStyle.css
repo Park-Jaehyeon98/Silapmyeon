@@ -11,7 +11,7 @@
 }
 
 .boardLine {
-  width: 1150px;
+  width: 100%;
   left: 309px;
   top: 367px;
   border: 3px solid #494ca2;
@@ -52,8 +52,7 @@
   color: #828282;
 }
 
-.boardDate {
-  width: 109px;
+.boardUser {
   height: 18px;
   margin-left: auto;
   padding: 5px;
@@ -76,19 +75,19 @@
 .boardMiddle {
   padding: 50px;
 }
-.boardComment {
-}
 .comments {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: center;
   align-items: center;
 }
 .commentRegist {
   display: flex;
-  width: 799.3px;
+  /* width: 799.3px; */
+  width: 80%;
   height: 150x;
+  justify-content: space-between;
 
   align-items: center;
   justify-items: center;
@@ -126,6 +125,7 @@
   width: 640px;
   height: 100px;
 
+  font-family: "nanum";
   /* font-family: "Inter"; */
   /* font-style: normal; */
   font-weight: 500;
@@ -137,6 +137,7 @@
   white-space: pre-line;
   border-radius: 10px;
   resize: none;
+  font-size: 18px;
 }
 .commentButton {
   /* width: 129.01px;
@@ -182,4 +183,35 @@
 }
 .back:hover {
   background-color: #c6cbef;
+}
+.delete {
+  cursor: pointer;
+  background: #ef5c41;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  /* identical to box height */
+  padding: 8px 16px;
+  color: #ffffff;
+
+  margin: 10px;
+}
+.delete:hover {
+  background-color: #d72808;
+}
+.edit {
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.edit:hover {
+  background: #494ca2;
+  color: #ffffff;
 }

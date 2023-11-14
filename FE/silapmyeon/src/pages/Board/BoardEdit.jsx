@@ -60,7 +60,12 @@ function BoardEdit() {
               type="text"
               value={editedBoard.title}
               onChange={handleTitleChange}
-              style={{ border: "none", outline: "none", width: "250px" }}
+              style={{
+                border: "none",
+                outline: "none",
+                width: "500px",
+                fontSize: "20px",
+              }}
             ></input>
             <div style={{ height: "0px", border: "1px solid #494CA2" }}></div>
           </div>
@@ -84,12 +89,10 @@ function BoardEdit() {
             ))}
           </select>
         </div>
-        <div style={{ display: "flex" }}>
-          <button
-            className="button"
-            style={{ marginLeft: "auto" }}
-            onClick={handleUpdate}
-          >
+        <div
+          style={{ display: "flex", justifyContent: "center", width: "80%" }}
+        >
+          <button className="button" onClick={handleUpdate}>
             수정하기
           </button>
         </div>

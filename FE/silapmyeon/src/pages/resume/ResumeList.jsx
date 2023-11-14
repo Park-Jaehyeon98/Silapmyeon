@@ -48,7 +48,9 @@ function ResumeList() {
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+        className={`${styles.pageNum} ${
+          currentPage == index ? styles.selectedPage : ""
+        }`}
       >
         {index + 1}
       </a>
@@ -57,7 +59,11 @@ function ResumeList() {
   pageNums.push(
     <a
       className={styles.pn}
-      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
     >
       다음
     </a>
@@ -77,43 +83,54 @@ function ResumeList() {
 
   return (
     <div style={{ height: "100vh" }}>
-      <div className={styles.resumeTitle}>나의 자기소개서</div>
-      <span className={styles.searchBoxText}>🔎</span>
-      <input
-        value={keyword}
-        className={styles.searchBox}
-        placeholder="기업명 검색"
-        onChange={handleKeywordChange}
-        onKeyUp={handleKeyPress}
-      />
-      <Link to={"create"}>
-        <button className={styles.plus}>+</button>
-      </Link>
-      <table className={styles.table}>
-        <thead className={styles.tableHeader}>
-          <tr>
-            <th className={styles.column1}>번호</th>
-            <th className={styles.column2}>기업명</th>
-            <th className={styles.column3}>면접일</th>
-            <th className={styles.column4}>작성일</th>
-          </tr>
-        </thead>
-        <tbody>
-          {resumes.map((resume, idx) => (
-            <Resume
-              key={resume.resumeId}
-              resumeId={resume.resumeId}
-              companyName={resume.companyName}
-              interviewDate={resume.interviewDate}
-              createdTime={resume.createdTime}
-              modifiedTime={resume.modifiedTime}
-              reviewId={resume.reviewId}
-              idx={currentPage * 10 + idx}
-            />
-          ))}
-        </tbody>
-      </table>
-      {pageNums.length === 2 ? null : <div className={styles.pageNums}>{pageNums}</div>}
+      <div className="head">나의 자기소개서</div>
+      <div className="search" style={{ marginBottom: "20px" }}>
+        <span className="company">🔎</span>
+        <input
+          value={keyword}
+          className="input"
+          placeholder="기업명 검색"
+          onChange={handleKeywordChange}
+          onKeyUp={handleKeyPress}
+        />
+        <Link to={"create"} style={{ marginLeft: "auto", marginRight: "70px" }}>
+          <button className="button">등록하기</button>
+        </Link>
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <table className={styles.table}>
+          <thead className={styles.tableHeader}>
+            <tr>
+              <th className={styles.column1}>번호</th>
+              <th className={styles.column2}>기업명</th>
+              <th className={styles.column3}>면접일</th>
+              <th className={styles.column4}>작성일</th>
+            </tr>
+          </thead>
+          <tbody>
+            {resumes.map((resume, idx) => (
+              <Resume
+                key={resume.resumeId}
+                resumeId={resume.resumeId}
+                companyName={resume.companyName}
+                interviewDate={resume.interviewDate}
+                createdTime={resume.createdTime}
+                modifiedTime={resume.modifiedTime}
+                reviewId={resume.reviewId}
+                idx={currentPage * 10 + idx}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        {pageNums.length === 2 ? null : (
+          <div className="pagenation">{pageNums}</div>
+        )}
+      </div>
+      {/* {pageNums.length === 2 ? null : (
+        <div className={styles.pageNums}>{pageNums}</div>
+      )} */}
     </div>
   );
 }

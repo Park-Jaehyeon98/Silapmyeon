@@ -19,18 +19,19 @@
   display: flex;
   align-items: center;
   color: #000000;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 .registInput {
-  width: 800px;
+  width: 80%;
   height: 200px;
   margin-top: 10px;
   margin-bottom: 5px;
+  padding: 10px;
 
   /* font-family: "Inter"; */
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
   background-color: white;
   border: 2px solid #8186d5;

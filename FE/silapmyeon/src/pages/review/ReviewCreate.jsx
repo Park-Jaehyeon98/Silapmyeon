@@ -29,7 +29,12 @@ function ReviewCreate() {
     }
   };
 
-  const handleModalChange = (flag, newCompanyName, newInterviewDate, newResumeId) => {
+  const handleModalChange = (
+    flag,
+    newCompanyName,
+    newInterviewDate,
+    newResumeId
+  ) => {
     if (newResumeId != null) {
       setInterviewDate(newInterviewDate);
       setCompanyName(newCompanyName);
@@ -141,14 +146,18 @@ function ReviewCreate() {
 
   return (
     <div style={{ height: "100vh" }}>
-      <div className={styles.title}>면접 후기 등록</div>
+      <div className="head">면접 후기 등록</div>
       {modal === true ? (
         <ReviewModal onModalChange={handleModalChange} /> //기업명, 면접 날짜 반환
       ) : null}
       <div className={styles.box}>
         <div className={styles.row1}>
           <span className={styles.companyNameText}>기업명 </span>{" "}
-          <input value={companyName} readOnly className={styles.companyNameInput} />
+          <input
+            value={companyName}
+            readOnly
+            className={styles.companyNameInput}
+          />
           <button className={styles.loadResumeButton} onClick={loadResume}>
             자소서 목록
           </button>
@@ -188,7 +197,9 @@ function ReviewCreate() {
           />
         </div>
         <div className={styles.row3}>
-          <div className={styles.qTitleText}>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
+          <div className={styles.qTitleText}>
+            가장 기억에 남는 질문 한 가지를 남겨주세요.
+          </div>
           <input
             className={styles.qInputBox}
             value={reviewQuestion}
@@ -196,7 +207,9 @@ function ReviewCreate() {
           />
         </div>
         <div className={styles.row4}>
-          <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
+          <div className={styles.aTitleText}>
+            자유롭게 면접 후기를 남겨주세요.
+          </div>
           <textarea
             className={styles.aInputBox}
             value={reviewContent}

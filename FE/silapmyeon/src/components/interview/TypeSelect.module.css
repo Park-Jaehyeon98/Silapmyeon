@@ -1,9 +1,9 @@
 .button {
-  background-color: #4e6cef;
+  background-color: #8186d5;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 10px;
   cursor: pointer;
   font-size: 16px;
@@ -11,7 +11,7 @@
 }
 
 .button:hover {
-  background-color: #405bcf;
+  background-color: #494ca2;
 }
 
 .selected {
@@ -27,5 +27,5 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-family: "Arial", sans-serif;
+  /* font-family: "Arial", sans-serif; */
 }
