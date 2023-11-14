@@ -66,7 +66,7 @@ function Side() {
             <Link to={"/resume"} className="link">
               <div className="sidebarSmallText">자소서</div>
             </Link>
-            <Link to={"/report/list/" + userValue.userId} className="link">
+            <Link to={"/report/list"} className="link">
               <div className="sidebarSmallText">면접 리포트</div>
             </Link>
             <Link to={"/review"} className="link">
