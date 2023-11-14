@@ -13,7 +13,11 @@ const instance = axios.create({
 // get list
 export const getReportsByUserId = async (userId) => {
   try {
-    const response = await axiosAuth.get('/report/list/' + userId);
+    const response = await axiosAuth.get('/report/list/', {
+      headers: {
+        'userId': userId
+      }
+    });
     return response.data;
   } catch (error) {
     // 에러를 호출한 쪽으로 전파
