@@ -14,7 +14,7 @@
   /* “입사 후 하고 싶은 업무는 무엇인가요? ” */
   /* margin-left: 5%; */
   /* width: 50%; Adjust as needed */
-  max-width: 45%;
+  max-width: 60%;
   font-style: normal;
   font-weight: 600;
   font-size: 24px; /* Adjust as needed */
@@ -36,7 +36,7 @@
   border: 2px solid #494ca2;
   border-radius: 1vw; */
   width: 80%;
-  height: 200px;
+  height: 45vh;
   margin-top: 10px;
   margin-bottom: 5px;
   padding: 10px;
@@ -52,6 +52,7 @@
   vertical-align: top;
   border-radius: 10px;
   resize: none;
+  overflow: auto;
 }
 
 .modifyButton,
@@ -114,11 +115,13 @@
   border-radius: 10px;
   padding: 12px;
   box-shadow: 0px 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
-  /* width: auto; */
+  width: auto;
   font-style: normal;
   font-weight: normal;
   font-size: 15px; /* Adjust as needed */
   color: #000000;
+  display: flex;
+  align-items: center;
   /* float: right; */
 }
 
