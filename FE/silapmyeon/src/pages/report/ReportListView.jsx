@@ -86,7 +86,7 @@ const ReportListView = () => {
   }
 
   // 에러가 발생했을 때 처리
-  if (errorMessage === "리포트가 존재하지 않습니다.") {
+  if (errorMessage === "레포트가 존재하지 않습니다.") {
     return (
       <div className={styles.container}>
         <div className={styles.header}>실전 연습 리포트</div>

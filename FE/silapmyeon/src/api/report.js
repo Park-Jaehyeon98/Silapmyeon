@@ -1,5 +1,6 @@
 // api.js
 import axios from 'axios';
+import { axiosAuth } from "./settingAxios";
 
 // API의 기본 URL 설정
 const API_BASE_URL = 'https://silapmyeon.com/api';
@@ -12,11 +13,7 @@ const instance = axios.create({
 // get list
 export const getReportsByUserId = async (userId) => {
   try {
-    const response = await instance.get('/report/list/' + userId, {
-        headers: {
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjoxMSxcInVzZXJFbWFpbFwiOlwiZWtjbHN0a2ZrYTQ0QG5hdmVyLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTg5ODQ1MTIsImV4cCI6MTcwMDE5NDExMn0.6V7Lb2oGxHLk4kyx8pYNBOZuO56H_-ClFR3TopSvYdM`
-          }
-    });
+    const response = await axiosAuth.get('/report/list/' + userId);
     return response.data;
   } catch (error) {
     // 에러를 호출한 쪽으로 전파
@@ -27,11 +24,7 @@ export const getReportsByUserId = async (userId) => {
 // get detail
 export const getReportById = async (id) => {
   try {
-    const response = await instance.get('/report/detail/' + id, {
-        headers: {
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjoxMSxcInVzZXJFbWFpbFwiOlwiZWtjbHN0a2ZrYTQ0QG5hdmVyLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTg5ODQ1MTIsImV4cCI6MTcwMDE5NDExMn0.6V7Lb2oGxHLk4kyx8pYNBOZuO56H_-ClFR3TopSvYdM`
-          }
-    });
+    const response = await axiosAuth.get('/report/detail/' + id);
     return response.data;
   } catch (error) {
     // 에러를 호출한 쪽으로 전파
@@ -42,11 +35,7 @@ export const getReportById = async (id) => {
 // get detail
 export const deleteReportById = async (id) => {
   try {
-    const response = await instance.delete('/report/' + id, {
-        headers: {
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjoxMSxcInVzZXJFbWFpbFwiOlwiZWtjbHN0a2ZrYTQ0QG5hdmVyLmNvbVwiLFwicm9sZVwiOlwiUk9MRV9VU0VSXCIsXCJ0eXBlXCI6XCJBVEtcIn0iLCJpYXQiOjE2OTg5ODQ1MTIsImV4cCI6MTcwMDE5NDExMn0.6V7Lb2oGxHLk4kyx8pYNBOZuO56H_-ClFR3TopSvYdM`
-          }
-    });
+    const response = await axiosAuth.delete('/report/' + id);
   } catch (error) {
     // 에러를 호출한 쪽으로 전파
     throw error;
