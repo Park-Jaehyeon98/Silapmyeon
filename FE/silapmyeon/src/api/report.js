@@ -13,7 +13,8 @@ const instance = axios.create({
 // get list
 export const getReportsByUserId = async (userId) => {
   try {
-    const response = await axiosAuth.post('/report/list', {
+    console.log("userId : " + userId)
+    const response = await axiosAuth.post('/report/list',{}, {
       headers: {
         'userId': userId
       }
