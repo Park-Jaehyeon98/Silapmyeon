@@ -24,7 +24,7 @@ function BoardDetail() {
       await axiosAuth
         .delete(reqUrl)
         .then((response) => {
-          console.log("글 삭제 완료");
+          // console.log("글 삭제 완료");
           window.location.href = "/community";
         })
         .catch((error) => {
@@ -38,7 +38,7 @@ function BoardDetail() {
       userId: userValue.userId,
       boardId: boardId,
     };
-    console.log(commentData);
+    // console.log(commentData);
     if (commentData.content === "") window.confirm("댓글을 작성해 주세요.");
     else {
       const confirmed = window.confirm("댓글을 등록하시겠습니까?");
@@ -47,7 +47,7 @@ function BoardDetail() {
         await axiosAuth
           .post(reqUrl, commentData)
           .then((response) => {
-            console.log("댓글 등록 완료");
+            // console.log("댓글 등록 완료");
             window.location.href = "/community/detail/" + board.boardId;
           })
           .catch((error) => {
@@ -61,7 +61,7 @@ function BoardDetail() {
     axiosAuth
       .get(reqUrl)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         const { boardResponse, reportResponse } = response.data;
         setBoard(boardResponse);
         if (reportResponse != null) setReport(reportResponse);

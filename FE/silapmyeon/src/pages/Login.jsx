@@ -24,7 +24,7 @@ var logoObj = { kakao: kakaoLogo, naver: naverLogo, google: googleLogo };
 
 export default function Login() {
   const isLogin = useRecoilValue(IsLoginSelector);
-  console.log("isLogin =>>>>>>" + isLogin);
+  // console.log("isLogin =>>>>>>" + isLogin);
 
   return (
     <div className="loginPage">

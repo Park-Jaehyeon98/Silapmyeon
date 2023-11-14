@@ -15,9 +15,8 @@ axiosAuth.interceptors.request.use(
     const TOKEN = JSON.parse(sessionStorage.getItem("user"))?.UserAtom
       .accessToken;
 
-    console.log("axiosAuth test >> " + TOKEN);
     config.headers["Authorization"] = `${TOKEN}`;
-    console.log("header: " + config.headers["Authorization"]);
+    // console.log("header: " + config.headers["Authorization"]);
     return config;
   },
   (error) => {
