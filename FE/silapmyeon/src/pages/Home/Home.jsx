@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from "react";
-import styles from "../../styles/Home.module.css";
+import { axiosAuth } from "../../api/settingAxios";
 import Calendar from 'react-calendar';
+import styles from "../../styles/Home.module.css";
 import 'react-calendar/dist/Calendar.css';
+import '../../styles/calendar.css'
 import { useRecoilValue } from "recoil";
 import { UserAtom } from "../../Recoil/UserAtom";
 import moment from 'moment';
@@ -10,6 +12,18 @@ function Home() {
   // 현재 날짜를 상태로 저장합니다.
   const [value, onChange] = useState(new Date())
   const userValue = useRecoilValue(UserAtom)
+  const [resumes, setResumes] = useState(null)
+  
+  useEffect(() => {
+    getResumes();
+  }, [])
+
+  const getResumes = async () => {
+    const res = await axiosAuth.get(`/resume?page=${0}&keyword=${""}&true`);
+    console.log("데이터 개수 : ", res.data.length);
+    console.log("데이터 : ", res.data);
+    setResumes(res.data.content);
+  };
   
   return (
     <div className={styles.container}>
@@ -20,7 +34,7 @@ function Home() {
             <p>면접 D-DAY</p>
           </div>
           <div className={styles.interviewContainer}>
-            
+            {/* 면접 날자 캐러셀 예정 */}
           </div>
         </div>
       </div>
@@ -33,7 +47,6 @@ function Home() {
             value={value}
             navigationLabel={null}
             showNeighboringMonth={false} //  이전, 이후 달의 날짜는 보이지 않도록 설정
-            className={`${styles.reactCalendar} ${styles.reactCalendar_navigation}`}
           />
         </div>
       </div>
