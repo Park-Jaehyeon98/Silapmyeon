@@ -26,6 +26,8 @@ const ReportListView = () => {
         const result = await getReportsByUserId(userId);
         setData(result);
         setFilteredData(result);
+        console.log("데이터 result", result);
+        console.log("데이터", data);
       } catch (error) {
         setErrorMessage(error.response.data);
         console.log("에러 객체 : ", errorMessage);
@@ -35,6 +37,7 @@ const ReportListView = () => {
     if (!data) {
       getData();
     }
+
   }, filteredData);
 
   function moveToReportDetail(id) {
@@ -56,7 +59,9 @@ const ReportListView = () => {
 
   // 페이지 이동 함수
   const nextPage = () => {
+    console.log("currentData : ", currentData);
     setCurrentPage((prev) => prev + 1);
+    console.log("currentPage : " + currentPage);
   };
 
   const prevPage = () => {
@@ -81,7 +86,7 @@ const ReportListView = () => {
   }
 
   // 에러가 발생했을 때 처리
-  if (errorMessage === "리포트가 존재하지 않습니다.") {
+  if (errorMessage === "레포트가 존재하지 않습니다.") {
     return (
       <div className={styles.container}>
         <div className={styles.header}>실전 연습 리포트</div>
@@ -189,7 +194,7 @@ const ReportListView = () => {
             src={leftArrow}
             alt="clip"
             className={styles.arrow}
-            onClick={currentData.length >= pageSize ? nextPage : null}
+            onClick={currentPage < (data.length / pageSize) - 1 ? nextPage : null}
           />
         </div>
       </div>
