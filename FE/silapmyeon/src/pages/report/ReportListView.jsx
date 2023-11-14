@@ -80,13 +80,11 @@ const ReportListView = () => {
     return datePart + " " + timePart;
   }
 
-  
-  
   // 에러가 발생했을 때 처리
-  if (errorMessage === "레포트가 존재하지 않습니다.") {
+  if (errorMessage === "리포트가 존재하지 않습니다.") {
     return (
       <div className={styles.container}>
-        <div className={styles.header}>실전 연습 레포트</div>
+        <div className={styles.header}>실전 연습 리포트</div>
         <div className={styles.emptyGridContainer}>
           <div className={styles.subHeader}>
             🔎
@@ -97,18 +95,18 @@ const ReportListView = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)} // 입력 값 상태 업데이트
               onKeyDown={handleSearch} // 엔터 키 이벤트 핸들러
-              />
+            />
           </div>
           {/* 내부 컨테이너 추가 */}
           <div className={styles.emptyContainer}>
-            <p className={styles.emptyText}>레포트가 존재하지 않습니다.</p>
+            <p className={styles.emptyText}>리포트가 존재하지 않습니다.</p>
             <p className={styles.emptyText}>면접 연습을 진행하세요.</p>
           </div>
         </div>
       </div>
     );
   }
-  
+
   // 데이터가 로딩 중일 때 처리
   if (!data) {
     return <div>Loading...</div>;
@@ -134,7 +132,7 @@ const ReportListView = () => {
           </div>
           {/* 내부 컨테이너 추가 */}
           <div className={styles.emptyContainer}>
-            <p className={styles.emptyText}>레포트가 존재하지 않습니다.</p>
+            <p className={styles.emptyText}>리포트가 존재하지 않습니다.</p>
             <p className={styles.emptyText}>면접 연습을 진행하세요.</p>
           </div>
         </div>
@@ -166,9 +164,9 @@ const ReportListView = () => {
             className={styles.arrow}
             onClick={currentPage > 0 ? prevPage : null}
           />
-          {/*레포트 부분*/}
+          {/*리포트 부분*/}
           <div className={styles.grid}>
-            {/*레포트*/}
+            {/*리포트*/}
             {currentData.map((item, index) => (
               <div
                 className={styles.card}
