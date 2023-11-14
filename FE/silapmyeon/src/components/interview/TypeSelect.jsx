@@ -44,7 +44,6 @@ function TypeSelect() {
   const handleResumeChange = (selectedOption) => {
     setSelectedOption(selectedOption);
     setResumeIdState(selectedOption.value);
-    console.log("id : " + selectedOption.value);
   };
 
   const handleNextButton = () => {
@@ -62,7 +61,6 @@ function TypeSelect() {
     setQCount(0);
 
     axiosAuth.get("/resume?isAll=true").then((response) => {
-      console.log(response.data);
       setResumeList(response.data);
     });
   }, []);
