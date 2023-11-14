@@ -46,7 +46,7 @@ public class ReportController {
 
     @PostMapping("/list")
     public ResponseEntity<Object> getReportsByUserId(HttpServletRequest request) {
-        long userId = Long.parseLong(request.getHeader("userId"));
+        Long userId = Long.parseLong(request.getHeader("userId"));
         log.info("[get] " + userId + " 레포트 목록 조회");
         List<ReportsResponse> reports = reportService.getReportsByUserId(userId);
         return ResponseEntity.ok()
