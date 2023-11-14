@@ -18,7 +18,7 @@ function ProfileModal({ onClose }) {
   }, []);
   const handleClose = () => {
     onClose?.();
-    console.log("close button");
+    // console.log("close button");
   };
 
   useOutSideClick(modalRef, handleClose);
@@ -31,7 +31,7 @@ function ProfileModal({ onClose }) {
     console.log(e);
     e.preventDefault();
     editUser(userNickname).then((res) => {
-      console.log("회원정보 수정 결과: " + JSON.stringify(res));
+      // console.log("회원정보 수정 결과: " + JSON.stringify(res));
       let editedUser = { ...userValue };
       editedUser.userNickname = res.data.userNickname;
       setUserValue(editedUser);

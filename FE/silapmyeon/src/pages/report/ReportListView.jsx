@@ -1,29 +1,30 @@
 // FetchData.js
 import React, { useState, useEffect } from "react";
 import { getReportsByUserId } from "../../api/report"; // api.js에서 함수를 임포트
-import { useParams } from "react-router-dom";
 import styles from "../../styles/ReportList.module.css";
 import clip from "../../assets/clip.png";
 import leftArrow from "../../assets/left-arrow.png";
 import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { UserAtom } from "../../Recoil/UserAtom";
 
 const ReportListView = () => {
+  const pageSize = 8; // 한 페이지에 표시될 항목 수
+
+  const userValue = useRecoilValue(UserAtom)
+  const navigate = useNavigate();
+  
   const [data, setData] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
-  const { userId } = useParams();
   const [currentPage, setCurrentPage] = useState(0);
-  const pageSize = 8; // 한 페이지에 표시될 항목 수
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태 추가
   const [filteredData, setFilteredData] = useState([]); // 필터링된 데이터 상태 추가
-  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("렌더링");
-
     const getData = async () => {
       try {
         // api.js의 fetchData 함수를 호출
-        const result = await getReportsByUserId(userId);
+        const result = await getReportsByUserId(userValue.userId);
         setData(result);
         setFilteredData(result);
         console.log("데이터 result", result);

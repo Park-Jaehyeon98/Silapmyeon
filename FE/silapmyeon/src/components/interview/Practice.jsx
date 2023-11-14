@@ -84,7 +84,6 @@ function Practice() {
     };
 
     axiosAuth.post("/interview", body).then((response) => {
-      console.log(response.data.question);
       setQuestion(response.data.question);
       setIsLoading((prev) => !prev);
     });

@@ -28,11 +28,11 @@ var logoObj = { kakao: kakaoLogo, naver: naverLogo, google: googleLogo };
 function LoginModal({ onClose }) {
   const modalRef = useRef(null);
   const isLogin = useRecoilValue(IsLoginSelector);
-  console.log("isLogin =>>>>>>" + isLogin);
+  // console.log("isLogin =>>>>>>" + isLogin);
 
   const handleClose = () => {
     onClose?.();
-    console.log("close button");
+    // console.log("close button");
   };
 
   useOutSideClick(modalRef, handleClose);
