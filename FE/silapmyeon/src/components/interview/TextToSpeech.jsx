@@ -12,7 +12,6 @@ const TextToSpeech = ({ question }) => {
   const [qCount, setQCount] = useRecoilState(questionCount);
 
   const speakText = () => {
-    console.log("tts");
     if (synthesis.speaking) {
       synthesis.cancel();
     }
@@ -20,7 +19,6 @@ const TextToSpeech = ({ question }) => {
     const utterance = new SpeechSynthesisUtterance(question);
     utterance.lang = "ko-KR";
     utterance.addEventListener("end", (event) => {
-      console.log("ok");
       setCompleteSpeechState(true);
       setTtsState(false);
     });

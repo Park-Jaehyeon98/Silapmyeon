@@ -222,29 +222,15 @@ function Mock() {
         )
       );
 
-      console.log(userValue.userId);
-      console.log(interviewData);
-
       setIsInterviewEnd(true);
     }
   }, [interviewData]);
 
   useEffect(() => {
-    console.log(videoData);
-  }, [videoData]);
-
-  useEffect(() => {
-    console.log(isInterviewEnd, isVideoEnd);
-
-    for (let [key, value] of formData.current.entries()) {
-      console.log(`${key}: ${value.name}`);
-    }
-
     if (isInterviewEnd && isVideoEnd) {
       axiosMulti
         .post("/report", formData.current)
         .then((response) => {
-          console.log(response);
           navigate("/report/detail/" + response.data.id);
         })
         .catch((error) => {
@@ -270,7 +256,6 @@ function Mock() {
     };
 
     axiosAuth.post("/interview", body).then((response) => {
-      console.log(response.data.question);
       setCompanyName(response.data.company);
       setQuestion(response.data.question);
       setIsLoading(false);
