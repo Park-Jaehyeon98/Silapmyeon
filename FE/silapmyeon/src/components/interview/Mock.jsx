@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { axiosMulti } from "../../api/axiosMultipart";
 import { axiosAuth } from "../../api/settingAxios";
-import AltCam from "./cam.png";
+import Interview from "./interview.png";
 import SpeechToText from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
 import {
@@ -290,7 +290,7 @@ function Mock() {
           className={styles.webcamImage}
           width={640}
           height={360}
-          src={AltCam}
+          src={Interview}
           alt="cam"
         />
       </div>
