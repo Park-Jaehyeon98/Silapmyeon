@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
@@ -43,8 +44,9 @@ public class ReportController {
                 .body(reportService.getReportDetailsById(id));
     }
 
-    @GetMapping("/list/{userId}")
-    public ResponseEntity<Object> getReportsByUserId(@PathVariable Long userId) {
+    @PostMapping("/list")
+    public ResponseEntity<Object> getReportsByUserId(HttpServletRequest request) {
+        long userId = Long.parseLong(request.getHeader("userId"));
         log.info("[get] " + userId + " 레포트 목록 조회");
         List<ReportsResponse> reports = reportService.getReportsByUserId(userId);
         return ResponseEntity.ok()
