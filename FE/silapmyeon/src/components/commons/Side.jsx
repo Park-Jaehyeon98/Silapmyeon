@@ -62,17 +62,17 @@ function Side() {
       </Link>
       <div className="sidebarItem">
         <div className="sidebarText">마이페이지</div>
-        <div className="sidebarSubMenu">
-          <Link to={"/resume"} className="link">
-            <div className="sidebarSmallText">자소서</div>
-          </Link>
-          <Link to={"/report/list/" + userValue.userId} className="link">
-            <div className="sidebarSmallText">면접 리포트</div>
-          </Link>
-          <Link to={"/review"} className="link">
-            <div className="sidebarSmallText">면접 후기</div>
-          </Link>
-        </div>
+          <div className="sidebarSubMenu">
+            <Link to={"/resume"} className="link">
+              <div className="sidebarSmallText">자소서</div>
+            </Link>
+            <Link to={"/report/list"} className="link">
+              <div className="sidebarSmallText">면접 리포트</div>
+            </Link>
+            <Link to={"/review"} className="link">
+              <div className="sidebarSmallText">면접 후기</div>
+            </Link>
+          </div>
       </div>
       <Link to={"/community"} className="link">
         <div className="sidebarText">면접 공유</div>
