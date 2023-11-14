@@ -10,6 +10,7 @@ import {
 } from "../../atoms/atoms";
 import { Link } from "react-router-dom";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 
 function TypeSelect() {
   const [selectedTypeState, setSelectedTypeState] =
@@ -24,6 +25,8 @@ function TypeSelect() {
     value: 0,
     label: "자소서 선택",
   });
+
+  const navigate = useNavigate();
 
   const options = resumeList.map((item) => ({
     value: item.resumeId,
@@ -44,15 +47,21 @@ function TypeSelect() {
     console.log("id : " + selectedOption.value);
   };
 
+  const handleNextButton = () => {
+    if (selectedQuestionState === "자소서" && selectedOption.value === 0) {
+    }
+    navigate("/interview/preparation");
+  };
+
   useEffect(() => {
     setSelectedTypeState("/interview/mock");
     setSelectedQuestionState("자소서");
     setResumeIdState(0);
     setQCount(0);
 
-    axiosAuth.get("/resume?page=0&size=10").then((response) => {
-      console.log(response.data.content);
-      setResumeList(response.data.content);
+    axiosAuth.get("/resume?isAll=true").then((response) => {
+      console.log(response.data);
+      setResumeList(response.data);
     });
   }, []);
 
@@ -138,9 +147,9 @@ function TypeSelect() {
         }}
       />
       <br />
-      <Link to={"/interview/preparation"}>
-        <button className={styles.button}>다음</button>
-      </Link>
+      <button className={styles.button} onClick={handleNextButton}>
+        다음
+      </button>
     </div>
   );
 }

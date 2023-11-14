@@ -20,6 +20,7 @@ import styles from "./Mock.module.css";
 import { useRecoilValue } from "recoil";
 import { UserAtom } from "../../Recoil/UserAtom";
 import Webcam from "react-webcam";
+import Loading from "./Loading";
 
 function Mock() {
   const videoConstraints = {
@@ -49,6 +50,7 @@ function Mock() {
   const [videoData, setVideoData] = useState([]);
   const [isVideoEnd, setIsVideoEnd] = useState(false);
   const [isInterviewEnd, setIsInterviewEnd] = useState(false);
+  const [companyName, setCompanyName] = useState("");
 
   // user 정보
   const userValue = useRecoilValue(UserAtom);
@@ -152,6 +154,16 @@ function Mock() {
     [setRecordedChunks]
   );
 
+  useEffect(() => {
+    if (timer >= 120) {
+      if (qCount === 5) {
+        handleEndButton();
+      } else {
+        handleNextButton();
+      }
+    }
+  }, [timer]);
+
   // tts 다 끝날 때 변경됨
   useEffect(() => {
     if (completeSpeechState) {
@@ -200,7 +212,7 @@ function Mock() {
           [
             JSON.stringify({
               userId: userValue.userId,
-              company: "",
+              company: companyName,
               interviews: interviewData,
             }),
           ],
@@ -231,8 +243,9 @@ function Mock() {
     if (isInterviewEnd && isVideoEnd) {
       axiosMulti
         .post("/report", formData.current)
-        .then((request) => {
-          console.log(request);
+        .then((response) => {
+          console.log(response);
+          navigate("/report/detail/" + response.data.id);
         })
         .catch((error) => {
           console.log(error);
@@ -258,17 +271,27 @@ function Mock() {
 
     axiosAuth.post("/interview", body).then((response) => {
       console.log(response.data.question);
+      setCompanyName(response.data.company);
       setQuestion(response.data.question);
       setIsLoading(false);
     });
 
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
+      webcamRef.current = null;
+      setQCount(0);
+      setTtsState(false);
+      setSttState(false);
+      setCompleteSpeechState(false);
     };
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.container}>
+        <Loading />
+      </div>
+    );
   }
 
   return (
@@ -290,7 +313,7 @@ function Mock() {
         {qCount !== 0 ? <TextToSpeech question={question[qCount]} /> : null}
         {qCount !== 0 ? <SpeechToText onData={handleSTTData} /> : null}
       </div>
-      {qCount === 5 ? (
+      {qCount >= 5 ? (
         <button
           onClick={handleEndButton}
           className={styles.button}

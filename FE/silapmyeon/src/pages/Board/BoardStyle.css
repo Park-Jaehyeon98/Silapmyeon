@@ -9,7 +9,6 @@
   text-decoration: none;
 }
 .head {
-  color: #494ca2;
   /* font-family: "soyoMaple"; */
   /* font-family: "notosanskr"; */
   /* font-family: "suite"; */
@@ -17,22 +16,26 @@
   /* font-family: "maruburi"; */
 
   font-style: normal;
-  font-size: 50px;
-  font-weight: 400;
-  line-height: 55px;
-  width: 643px;
-  height: 80px;
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 60px;
+
+  color: #4962a2;
 }
 .search {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  /* flex-direction: column; */
 }
 .company {
-  margin-left: auto;
-  padding-right: 100px;
-  padding-bottom: 10px;
+  /* margin-left: auto; */
+  /* padding-right: 100px;
+  padding-bottom: 10px; */
   display: flex;
   align-items: center;
+  margin-left: 5%;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -56,7 +59,7 @@
   padding: 8px 16px;
   border: none;
   border-radius: 10px;
-  margin: 10px;
+  /* margin: 10px; */
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
@@ -69,6 +72,13 @@
   width: 250px;
   height: 36px;
   border-radius: 10px;
+
+  /* background: #f5f6ff;
+  border: none;
+  height: 35px;
+  padding-left: 10px;
+  font-size: 13px; */
+
   padding-left: 10px;
   margin-left: 10px;
   background: #f5f6ff;

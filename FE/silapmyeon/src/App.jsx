@@ -82,7 +82,7 @@ function App() {
                 />
                 <Route path="/review/create" element={<ReviewCreate />} />
 
-                {/* 모의면접 레포트 */}
+                {/* 모의면접 리포트 */}
                 <Route
                   path="/report/list/:userId"
                   element={<ReportListView />}

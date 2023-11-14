@@ -24,6 +24,14 @@ Session = sessionmaker(bind=engine)
 
 session = Session()
 
+async def get_company_name(resume_id: int):
+    resume = session.execute(select(Resume).where(Resume.resume_id == resume_id)).scalar()
+    company_name = resume.company_name
+
+    return company_name
+
+
+
 async def select_question(request : InterviewTypeRequest):
 
     if request.question == '자소서':
