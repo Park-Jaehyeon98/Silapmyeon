@@ -17,6 +17,7 @@ function Home() {
   const [interviewDates, setInterviewDates] = useState([])
   const [interviewCompanies, setInterviewCompanies] = useState([])
   const [interviews, setInterviews] = useState([])
+  const currentDate = new Date();
 
   useEffect(() => {
     getResumes();
@@ -28,7 +29,10 @@ function Home() {
       const interviews = resumes.map(resume => ({
         date: new Date(resume.interviewDate),
         company: resume.companyName // 가정: resumes 객체에 companyName 속성이 있다고 가정
-      })).sort((a, b) => a.date - b.date); // 날짜 기준으로 정렬
+      }))
+      .filter(interview => interview.date >= currentDate)
+      .sort((a, b) => a.date - b.date); // 날짜 기준으로 정렬
+      
       // console.log("정렬 객체 : ", interviews);
       // 날짜와 회사 이름을 별도의 배열로 추출
       const interviewDates = interviews.map(interview => interview.date);
