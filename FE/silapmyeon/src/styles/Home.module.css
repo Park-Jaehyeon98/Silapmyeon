@@ -83,7 +83,7 @@
 
 .interviewItem {
   flex-shrink: 0; /* 아이템이 줄어들지 않도록 설정 */
-  width: 121px;
+  width: 123.5px;
   height: 100px;
   margin: 0 10px;
   padding: 10px 20px;
