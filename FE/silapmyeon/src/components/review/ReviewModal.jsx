@@ -18,11 +18,11 @@ function ReviewModal({ onModalChange }) {
 
   const getResumes = async (page) => {
     const res = await axiosAuth.get(`/resume?page=${page}&size=5`);
-    console.log(res.data.content);
-    console.log(res.data);
+    // console.log(res.data.content);
+    // console.log(res.data);
     setResumes(res.data.content);
     setTotalPages(res.data.totalPages);
-    console.log(currentPage);
+    // console.log(currentPage);
   };
 
   // 페이지네이션
@@ -43,14 +43,16 @@ function ReviewModal({ onModalChange }) {
     </a>
   );
   for (let index = startIndex; index < endIndex; index++) {
-    console.log("currentPage:", currentPage);
-    console.log("index + 1:", index + 1);
+    // console.log("currentPage:", currentPage);
+    // console.log("index + 1:", index + 1);
 
     pageNums.push(
       <a
         key={index}
         onClick={() => handlePageChange(index)}
-        className={`${styles.pageNum} ${currentPage == index ? styles.selectedPage : ""}`}
+        className={`${styles.pageNum} ${
+          currentPage == index ? styles.selectedPage : ""
+        }`}
       >
         {index + 1}
       </a>
@@ -59,7 +61,11 @@ function ReviewModal({ onModalChange }) {
   pageNums.push(
     <a
       className={styles.pn}
-      onClick={() => handlePageChange(endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1)}
+      onClick={() =>
+        handlePageChange(
+          endIndex + 1 >= totalPages ? totalPages - 1 : endIndex + 1
+        )
+      }
     >
       다음
     </a>
@@ -89,7 +95,13 @@ function ReviewModal({ onModalChange }) {
               <td>{currentPage * 5 + idx + 1}</td>
               <td
                 className={styles.tbCompanyName}
-                onClick={() => sendInfo(resume.companyName, resume.interviewDate, resume.resumeId)}
+                onClick={() =>
+                  sendInfo(
+                    resume.companyName,
+                    resume.interviewDate,
+                    resume.resumeId
+                  )
+                }
               >
                 {resume.companyName}
               </td>
@@ -100,7 +112,9 @@ function ReviewModal({ onModalChange }) {
         })}
       </table>
       <div className={styles.pageBox}>
-        {pageNums.length === 2 ? null : <div className={styles.pageNums}>{pageNums}</div>}
+        {pageNums.length === 2 ? null : (
+          <div className={styles.pageNums}>{pageNums}</div>
+        )}
       </div>
       <button className={styles.closeButton} onClick={closeModal}>
         닫기

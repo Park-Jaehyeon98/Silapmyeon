@@ -9,7 +9,7 @@ function ReviewDetail() {
 
   const getReview = async () => {
     const resp = await axiosAuth.get(`review/${reviewId}`);
-    console.log(resp.data);
+    // console.log(resp.data);
     setReview(resp.data);
   };
 
@@ -41,7 +41,7 @@ function ReviewDetail() {
   const removeReview = async () => {
     if (window.confirm("면접후기를 삭제하시겠습니까?")) {
       const res = await axiosAuth.delete(`/review/${reviewId}`);
-      console.log(res);
+      // console.log(res);
       navigate("/review");
     }
   };

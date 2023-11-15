@@ -57,7 +57,7 @@ function BoardRegist() {
         }
       )
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setReport(response.data);
       })
       .catch((error) => {

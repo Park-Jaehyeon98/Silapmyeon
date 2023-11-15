@@ -11,9 +11,9 @@ import { UserAtom } from "../../Recoil/UserAtom";
 const ReportListView = () => {
   const pageSize = 8; // 한 페이지에 표시될 항목 수
 
-  const userValue = useRecoilValue(UserAtom)
+  const userValue = useRecoilValue(UserAtom);
   const navigate = useNavigate();
-  
+
   const [data, setData] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
@@ -27,8 +27,8 @@ const ReportListView = () => {
         const result = await getReportsByUserId(userValue.userId);
         setData(result);
         setFilteredData(result);
-        console.log("데이터 result", result);
-        console.log("데이터", data);
+        // console.log("데이터 result", result);
+        // console.log("데이터", data);
       } catch (error) {
         setErrorMessage(error.response.data);
         console.log("에러 객체 : ", errorMessage);
@@ -38,7 +38,6 @@ const ReportListView = () => {
     if (!data) {
       getData();
     }
-
   }, filteredData);
 
   function moveToReportDetail(id) {
@@ -48,11 +47,11 @@ const ReportListView = () => {
   const handleSearch = (event) => {
     if (event.key === "Enter" && data) {
       // 엔터 키가 눌렸을 때
-      console.log("엔터키");
+      // console.log("엔터키");
       const filtered = data.filter((item) =>
         item.company.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      console.log(filtered);
+      // console.log(filtered);
       setFilteredData(filtered); // 필터링된 데이터 상태를 업데이트
       setCurrentPage(0); // 검색 후에는 첫 페이지로 리셋
     }
@@ -60,9 +59,9 @@ const ReportListView = () => {
 
   // 페이지 이동 함수
   const nextPage = () => {
-    console.log("currentData : ", currentData);
+    // console.log("currentData : ", currentData);
     setCurrentPage((prev) => prev + 1);
-    console.log("currentPage : " + currentPage);
+    // console.log("currentPage : " + currentPage);
   };
 
   const prevPage = () => {
@@ -195,7 +194,7 @@ const ReportListView = () => {
             src={leftArrow}
             alt="clip"
             className={styles.arrow}
-            onClick={currentPage < (data.length / pageSize) - 1 ? nextPage : null}
+            onClick={currentPage < data.length / pageSize - 1 ? nextPage : null}
           />
         </div>
       </div>
