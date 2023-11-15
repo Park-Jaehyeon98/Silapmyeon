@@ -94,7 +94,9 @@ function Home() {
             onChange={onChange}
             formatDay={(locale, date) => moment(date).format('DD')} // 날'일' 제외하고 숫자만 보이도록 설정
             value={value}
-            navigationLabel={null}
+            nextLabel={">"}
+            prevLabel={"<"}
+            // navigationLabel={null}
             showNeighboringMonth={false} //  이전, 이후 달의 날짜는 보이지 않도록 설정
             tileContent={({ date, view }) => 
               view === 'month' && countInterviews(date) > 0 

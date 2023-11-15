@@ -38,7 +38,7 @@ const InterviewCarousel = ({ interviews }) => {
   const transformStyle = {
     display: `flex`,
     flexWrap: `nowrap`, 
-    transition: `transform 3.5s ease`,
+    transition: `transform 1.0s ease`,
     transform: `translateX(-${index * 9.1}%)` // 수정된 부분
   };
 

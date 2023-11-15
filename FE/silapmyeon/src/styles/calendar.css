@@ -1,6 +1,6 @@
 .react-calendar {
     width: 1300px;
-    height: 615px;
+    /* height: 720px; */
     max-width: 100%;
     border-radius: 20px;
     background: white;
@@ -61,6 +61,12 @@
     font-size: 50px;
   }
   
+  .react-calendar__navigation__prev-button {
+    display: block; /* 또는 inline-block */
+    visibility: visible;
+    background-color: #5a3939;
+  }
+
   .react-calendar__month-view__weekdays__weekday abbr {
     text-decoration: none; /* 밑줄 제거 */
     font-size: 12px;
