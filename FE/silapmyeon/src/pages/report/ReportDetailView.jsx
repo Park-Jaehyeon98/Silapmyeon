@@ -4,8 +4,11 @@ import { deleteReportById } from "../../api/report";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import styles from "../../styles/ReportDetail.module.css";
+import { useRecoilValue } from "recoil";
+import { UserAtom } from "../../Recoil/UserAtom";
 
 const ReportDetailView = () => {
+  const userValue = useRecoilValue(UserAtom)
   const [data, setData] = useState();
   const [error, setError] = useState();
   const { id } = useParams();
@@ -102,7 +105,7 @@ const ReportDetailView = () => {
             <p>
               {formatCreatedTime(data.createdTime)}
               <br />
-              면접자 OOO
+              면접자 {userValue.userNickname}
             </p>
           </div>
         </div>
