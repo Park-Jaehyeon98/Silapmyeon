@@ -4,6 +4,7 @@ import { axiosAuth } from "../../api/settingAxios";
 
 import { useRecoilState } from "recoil";
 import { UserAtom } from "../../Recoil/UserAtom";
+import { getReportsByUserId } from "../../api/report"; // api.js에서 함수를 임포트
 
 function BoardRegist() {
   const [title, setTitle] = useState("");
@@ -43,9 +44,18 @@ function BoardRegist() {
     }
   };
   useEffect(() => {
-    const reqUrl = "report/list/" + userValue.userId;
+    const reqUrl = "report/list";
+
     axiosAuth
-      .get(reqUrl)
+      .post(
+        reqUrl,
+        {},
+        {
+          headers: {
+            userId: userValue.userId,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         setReport(response.data);
@@ -86,7 +96,7 @@ function BoardRegist() {
             <option value="">선택해 주세요.</option>
             {reports.map((report) => (
               <option key={report.id} value={report.id}>
-                {report.company}
+                {report.company} {report.createdTime.substring(0, 10)}
               </option>
             ))}
           </select>
