@@ -11,11 +11,11 @@ function ResumeList() {
 
   const getResumes = async (page) => {
     const res = await axiosAuth.get(`/resume?page=${page}&keyword=${keyword}`);
-    console.log(res.data.content);
-    console.log(res.data);
+    // console.log(res.data.content);
+    // console.log(res.data);
     setResumes(res.data.content);
     setTotalPages(res.data.totalPages);
-    console.log(currentPage);
+    // console.log(currentPage);
   };
 
   useEffect(() => {
@@ -41,8 +41,8 @@ function ResumeList() {
     </a>
   );
   for (let index = startIndex; index < endIndex; index++) {
-    console.log("currentPage:", currentPage);
-    console.log("index + 1:", index + 1);
+    // console.log("currentPage:", currentPage);
+    // console.log("index + 1:", index + 1);
 
     pageNums.push(
       <a
@@ -72,7 +72,7 @@ function ResumeList() {
   const [keyword, setKeyword] = useState("");
   const handleKeywordChange = (event) => {
     setKeyword(event.target.value);
-    console.log(keyword);
+    // console.log(keyword);
   };
 
   const handleKeyPress = (event) => {

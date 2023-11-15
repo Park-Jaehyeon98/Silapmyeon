@@ -1,9 +1,9 @@
 // api.js
-import axios from 'axios';
+import axios from "axios";
 import { axiosAuth } from "./settingAxios";
 
 // API의 기본 URL 설정
-const API_BASE_URL = 'https://silapmyeon.com/api';
+const API_BASE_URL = "https://silapmyeon.com/api";
 
 // Axios 인스턴스 생성
 const instance = axios.create({
@@ -13,12 +13,16 @@ const instance = axios.create({
 // get list
 export const getReportsByUserId = async (userId) => {
   try {
-    console.log("userId : " + userId)
-    const response = await axiosAuth.post('/report/list',{}, {
-      headers: {
-        'userId': userId
+    // console.log("userId : " + userId)
+    const response = await axiosAuth.post(
+      "/report/list",
+      {},
+      {
+        headers: {
+          userId: userId,
+        },
       }
-    });
+    );
     return response.data;
   } catch (error) {
     // 에러를 호출한 쪽으로 전파
@@ -29,7 +33,7 @@ export const getReportsByUserId = async (userId) => {
 // get detail
 export const getReportById = async (id) => {
   try {
-    const response = await axiosAuth.get('/report/detail/' + id);
+    const response = await axiosAuth.get("/report/detail/" + id);
     return response.data;
   } catch (error) {
     // 에러를 호출한 쪽으로 전파
@@ -40,7 +44,7 @@ export const getReportById = async (id) => {
 // get detail
 export const deleteReportById = async (id) => {
   try {
-    const response = await axiosAuth.delete('/report/' + id);
+    const response = await axiosAuth.delete("/report/" + id);
   } catch (error) {
     // 에러를 호출한 쪽으로 전파
     throw error;
