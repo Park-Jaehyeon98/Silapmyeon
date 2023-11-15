@@ -19,6 +19,7 @@ function Self() {
 
   const [timer, setTimer] = useState(0);
   const [hide, setHide] = useState(false);
+  const [text, setText] = useState("");
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60)
@@ -34,6 +35,10 @@ function Self() {
 
   function handleHideButton() {
     setHide((prev) => !prev);
+  }
+
+  function handleText(event) {
+    setText(event.target.value);
   }
 
   return (
@@ -71,6 +76,8 @@ function Self() {
         <textarea
           placeholder="연습 문항 답변을 입력하세요."
           className={styles.textArea}
+          onChange={handleText}
+          value={text}
         />
       )}
       <button onClick={handleHideButton} className={styles.button}>
