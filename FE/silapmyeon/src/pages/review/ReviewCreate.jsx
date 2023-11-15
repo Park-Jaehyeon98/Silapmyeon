@@ -43,10 +43,10 @@ function ReviewCreate() {
 
     setModal(flag);
 
-    console.log(modal);
-    console.log(companyName);
-    console.log(interviewDate);
-    console.log(resumeId);
+    // console.log(modal);
+    // console.log(companyName);
+    // console.log(interviewDate);
+    // console.log(resumeId);
   };
 
   const [employmentType, setEmploymentType] = useState("");
@@ -60,7 +60,7 @@ function ReviewCreate() {
       alert("3글자 이내로 입력하세요.");
     } else {
       setEmploymentType(event.target.value);
-      console.log(employmentType);
+      // console.log(employmentType);
     }
   };
 
@@ -69,7 +69,7 @@ function ReviewCreate() {
       alert("5글자 이내로 입력하세요.");
     } else {
       setReviewOrder(event.target.value);
-      console.log(reviewOrder);
+      // console.log(reviewOrder);
     }
   };
 
@@ -78,7 +78,7 @@ function ReviewCreate() {
       alert("10글자 이내로 입력하세요.");
     } else {
       setReviewJob(event.target.value);
-      console.log(reviewJob);
+      // console.log(reviewJob);
     }
   };
 
@@ -87,7 +87,7 @@ function ReviewCreate() {
       alert("50글자 이내로 입력하세요.");
     } else {
       setReviewQuestion(event.target.value);
-      console.log(reviewQuestion);
+      // console.log(reviewQuestion);
     }
   };
 
@@ -96,7 +96,7 @@ function ReviewCreate() {
       alert("2000글자 이내로 작성하세요.");
     } else {
       setReviewContent(event.target.value);
-      console.log(reviewContent);
+      // console.log(reviewContent);
     }
   };
 
@@ -139,7 +139,7 @@ function ReviewCreate() {
         reviewContent,
         resumeId,
       });
-      console.log(res);
+      // console.log(res);
       navigate(`/review`);
     }
   };

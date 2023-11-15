@@ -10,14 +10,14 @@ function ResumeDetail() {
 
   const getResume = async () => {
     const res = await axiosAuth.get(`/resume/${resumeId}`);
-    console.log(res.data);
+    // console.log(res.data);
     setResume(res.data);
   };
 
   const removeResume = async () => {
     if (window.confirm("자기소개서를 삭제하시겠습니까?")) {
       const res = await axiosAuth.delete(`/resume/${resumeId}`);
-      console.log(res.data);
+      // console.log(res.data);
       navigate("/resume");
     }
   };
