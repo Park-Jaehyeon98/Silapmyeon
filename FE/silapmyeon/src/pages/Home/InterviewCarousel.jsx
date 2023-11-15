@@ -10,6 +10,9 @@ const InterviewCarousel = ({ interviews }) => {
     return <div>Loading...</div>; // 또는 다른 적절한 대체 UI
   }
 
+  console.log("length : " + interviews.length);
+  console.log(interviews);
+
   const nextInterview = () => {
       if (index + 5 < interviews.length) { // 수정: 마지막 5개 아이템에 도달하면 더 이상 증가시키지 않음
         setIndex(index + 5);
@@ -35,8 +38,8 @@ const InterviewCarousel = ({ interviews }) => {
   const transformStyle = {
     display: `flex`,
     flexWrap: `nowrap`, 
-    transition: `transform 0.5s ease`,
-    transform: `translateX(-${index * 24.0}%)` // 수정된 부분
+    transition: `transform 3.5s ease`,
+    transform: `translateX(-${index * 8.33}%)` // 수정된 부분
   };
 
   return (
