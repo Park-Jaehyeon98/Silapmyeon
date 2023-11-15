@@ -41,8 +41,8 @@ function Home() {
   }, [resumes])
   
   const getResumes = async () => {
-    const res = await axiosAuth.get(`/resume?page=${0}&keyword=${""}&true`);
-    setResumes(res.data.content);
+    const res = await axiosAuth.get(`/resume?isAll=true&keyword=${""}`);
+    setResumes(res.data);
   };
   
   // 면접 날짜인지 확인하는 함수
