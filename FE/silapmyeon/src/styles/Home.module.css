@@ -1,21 +1,21 @@
 .container {
-  height: 100%;
+  /* height: 100%; */
 }
 
 .topContainer {
-  height: 40%;
+  height: 350px;
   margin-bottom: 35px;
 }
 
 .header {
-  color: #37397E;
+  color: #37397e;
   font-size: 25px;
   margin-bottom: 15px;
 }
 
 .topNavBody {
   height: 80%;
-  background-color: #C6CBEF;
+  background-color: #c6cbef;
   border-radius: 10px;
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
 }
@@ -26,7 +26,7 @@
 }
 
 .headerDday p {
-  color: #4962A2;
+  color: #4962a2;
   font-size: 25px;
 }
 
@@ -38,7 +38,7 @@
   margin-bottom: 30px;
   padding-left: 45%;
   font-size: 30px;
-  color: #37397E;
+  color: #37397e;
 }
 
 .interviewBox {
@@ -68,10 +68,9 @@
   color: #333;
 }
 
-
 .carouselBox {
   display: flex;
-  flex-wrap: nowrap; 
+  flex-wrap: nowrap;
   transition: transform 0.5s ease;
   overflow: hidden;
   height: 100%;
