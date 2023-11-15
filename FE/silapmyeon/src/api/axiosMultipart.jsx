@@ -12,11 +12,12 @@ const axiosMulti = axios.create({
 
 axiosMulti.interceptors.request.use(
   (config) => {
-    const TOKEN = JSON.parse(sessionStorage.getItem("user"))?.UserAtom.accessToken;
+    const TOKEN = JSON.parse(sessionStorage.getItem("user"))?.UserAtom
+      .accessToken;
 
-    console.log("axiosMulti test >> " + TOKEN);
+    // console.log("axiosMulti test >> " + TOKEN);
     config.headers["Authorization"] = `${TOKEN}`;
-    console.log("header: " + config.headers["Authorization"]);
+    // console.log("header: " + config.headers["Authorization"]);
     return config;
   },
   (error) => {
@@ -33,7 +34,8 @@ axiosMulti.interceptors.response.use(
       try {
         const originalRequest = error.config;
 
-        const RTK = JSON.parse(sessionStorage.getItem("user"))?.UserAtom.refreshToken;
+        const RTK = JSON.parse(sessionStorage.getItem("user"))?.UserAtom
+          .refreshToken;
         // 토큰 재발급
         const data = await axios({
           method: "POST",

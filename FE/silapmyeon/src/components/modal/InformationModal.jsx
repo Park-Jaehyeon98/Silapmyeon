@@ -18,7 +18,7 @@ function InformationModal({ onClose }) {
   }, []);
   const handleClose = () => {
     onClose?.();
-    console.log("close button");
+    // console.log("close button");
   };
 
   useOutSideClick(modalRef, handleClose);

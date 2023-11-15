@@ -17,7 +17,7 @@ function ReviewModify() {
       alert("3글자 이내로 입력하세요.");
     } else {
       setEmploymentType(event.target.value);
-      console.log(employmentType);
+      // console.log(employmentType);
     }
   };
 
@@ -26,7 +26,7 @@ function ReviewModify() {
       alert("5글자 이내로 입력하세요.");
     } else {
       setReviewOrder(event.target.value);
-      console.log(reviewOrder);
+      // console.log(reviewOrder);
     }
   };
 
@@ -35,7 +35,7 @@ function ReviewModify() {
       alert("10글자 이내로 입력하세요.");
     } else {
       setReviewJob(event.target.value);
-      console.log(reviewJob);
+      // console.log(reviewJob);
     }
   };
   const handleReviewQuestion = (event) => {
@@ -43,7 +43,7 @@ function ReviewModify() {
       alert("50글자 이내로 입력하세요.");
     } else {
       setReviewQuestion(event.target.value);
-      console.log(reviewQuestion);
+      // console.log(reviewQuestion);
     }
   };
   const handleReviewContent = (event) => {
@@ -51,7 +51,7 @@ function ReviewModify() {
       alert("2000글자 이내로 작성하세요.");
     } else {
       setReviewContent(event.target.value);
-      console.log(reviewContent);
+      // console.log(reviewContent);
     }
   };
 
@@ -104,7 +104,7 @@ function ReviewModify() {
         reviewQuestion,
         reviewContent,
       });
-      console.log(resp);
+      // console.log(resp);
       window.location.href = `/review/${review.reviewId}`;
     }
   };
@@ -114,7 +114,11 @@ function ReviewModify() {
       <div className={styles.box}>
         <div className={styles.row1}>
           <span className={styles.companyNameText}>기업명 </span>
-          <input className={styles.companyNameInput} value={review.companyName} readOnly />
+          <input
+            className={styles.companyNameInput}
+            value={review.companyName}
+            readOnly
+          />
         </div>
         <div className={styles.row2}>
           <input
@@ -153,7 +157,9 @@ function ReviewModify() {
           />
         </div>
         <div className={styles.row3}>
-          <div className={styles.qTitleText}>가장 기억에 남는 질문 한 가지를 남겨주세요.</div>
+          <div className={styles.qTitleText}>
+            가장 기억에 남는 질문 한 가지를 남겨주세요.
+          </div>
           <input
             className={styles.qInputBox}
             value={reviewQuestion}
@@ -161,7 +167,9 @@ function ReviewModify() {
           />
         </div>
         <div className={styles.row4}>
-          <div className={styles.aTitleText}>자유롭게 면접 후기를 남겨주세요.</div>
+          <div className={styles.aTitleText}>
+            자유롭게 면접 후기를 남겨주세요.
+          </div>
           <textarea
             className={styles.aInputBox}
             value={reviewContent}
