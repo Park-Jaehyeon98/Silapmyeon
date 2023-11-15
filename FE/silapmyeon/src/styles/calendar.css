@@ -1,0 +1,181 @@
+.react-calendar {
+    width: 1300px;
+    /* height: 720px; */
+    max-width: 100%;
+    border-radius: 20px;
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.125em;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+    border: none;
+  }
+  
+  .react-calendar--doubleView {
+    width: 1000px;
+  }
+  
+  .react-calendar--doubleView .react-calendar__viewContainer {
+    display: flex;
+    margin: -0.5em;
+  }
+  
+  .react-calendar--doubleView .react-calendar__viewContainer > * {
+    width: 50%;
+    margin: 0.5em;
+  }
+  
+  .react-calendar,
+  .react-calendar *,
+  .react-calendar *:before,
+  .react-calendar *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+  }
+  
+  .react-calendar button:enabled:hover {
+    cursor: pointer;
+  }
+  
+  .react-calendar__navigation {
+    display: flex;
+    height: 60px;
+    margin-bottom: 1em;
+  }
+  
+  .react-calendar__navigation button {
+    min-width: 44px;
+  }
+
+  .react-calendar__navigation__label .react-calendar__navigation__label__labelText {
+    font-size: 25px;
+  }
+
+  .react-calendar__navigation__arrow .react-calendar__navigation__prev-button {
+    font-size: 50px;
+  }
+  
+  .react-calendar__navigation__prev-button {
+    display: block; /* 또는 inline-block */
+    visibility: visible;
+    background-color: #5a3939;
+  }
+
+  .react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none; /* 밑줄 제거 */
+    font-size: 12px;
+  }
+
+  .react-calendar__navigation button:disabled {
+    background-color: #f0f0f0;
+  }
+  
+  .react-calendar__navigation button:enabled:hover,
+  .react-calendar__navigation button:enabled:focus {
+    background-color: #e6e6e6;
+  }
+
+  .react-calendar__month-view__weekdays {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: bold;
+    background-color: #d0d5ff;
+  }
+  
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 0.5em;
+  }
+  
+  .react-calendar__month-view__weekNumbers .react-calendar__tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    font-size: 0.75em;
+    font-weight: bold;
+  }
+  
+  .react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+  }
+  
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: #757575;
+  }
+  
+  .react-calendar__year-view .react-calendar__tile,
+  .react-calendar__decade-view .react-calendar__tile,
+  .react-calendar__century-view .react-calendar__tile {
+    padding: 2em 0.5em;
+  }
+  
+  .react-calendar__tile {
+    max-width: 100%;
+    padding: 10px 6.6667px;
+    background: none;
+    text-align: center;
+    line-height: 16px;
+    font-size: 0.833em;
+    height: 100px;
+  }
+  
+  .react-calendar__tile:disabled {
+    background-color: #f0f0f0;
+  }
+  
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background-color: #cdd3ff;
+    transition: background 0.5s ease;
+  }
+  
+  .react-calendar__tile--now {
+    background: #E3E7F1;
+  }
+  
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus {
+    background: #d1d8ec;
+    transition: background 0.3s ease;
+  }
+  
+  .react-calendar__tile--hasActive {
+    background: #9ba4e2;
+  }
+  
+  .react-calendar__tile--hasActive:enabled:hover,
+  .react-calendar__tile--hasActive:enabled:focus {
+    background: #9ba4e2;
+  }
+  
+  .react-calendar__tile--active {
+    background: #bfc5ef;
+    color: white;
+  }
+  
+  .react-calendar__tile--active:enabled:hover,
+  .react-calendar__tile--active:enabled:focus {
+    background: #9ba4e2;
+    transition: background 0.3s ease;
+  }
+  
+  .react-calendar--selectRange .react-calendar__tile--hover {
+    background-color: #e6e6e6;
+  }
+
+  .react-calendar__month-view__days__day {
+    position: relative; /* 부모 요소를 상대적 위치 컨테이너로 설정 */
+  }
+
+  .react-calendar__month-view__days__day > abbr {
+    position: absolute; /* 상대적 위치 */
+    top: 5px; /* 상단에서의 위치 */ 
+    left: 5px; /* 왼쪽에서의 위치 */
+  }

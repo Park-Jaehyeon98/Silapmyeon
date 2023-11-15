@@ -1,0 +1,49 @@
+.button {
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #494ca2;
+}
+
+.selected {
+  background-color: #233379;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* font-family: "Arial", sans-serif; */
+}
+
+.imageTitleContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+/* 이미지에 대한 스타일 */
+.imageTitleContainer img {
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.imageTitleContainer img:hover {
+  border-radius: 50px;
+  background-color: lightgray;
+}

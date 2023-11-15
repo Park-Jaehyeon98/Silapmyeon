@@ -1,0 +1,277 @@
+.title {
+  /* 면접 후기 등록 */
+
+  width: 70%;
+  /* margin: 3% 0% 0% 5%; */
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3vw;
+  line-height: 4vw;
+  color: #4962a2;
+}
+
+.companyNameText {
+  /* 기업명 */
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+
+  color: #000000;
+}
+
+.companyNameInput,
+.companyNameInput:focus {
+  /* Rectangle 112 */
+
+  box-sizing: border-box;
+
+  width: 30%;
+
+  background: #ffffff;
+  border: none;
+  border-bottom: 0.15vw solid #8186d5;
+  outline: none;
+  text-align: center;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 1.7vw;
+
+  color: #37397e;
+  text-align: center;
+}
+
+.yearBox,
+.yearBox:focus {
+  /* Rectangle 116 */
+
+  width: 10%;
+  height: 5vh;
+  float: left;
+
+  background: #e3e7f1;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 1.3vw;
+
+  color: #37397e;
+  text-align: center;
+  line-height: 3vw;
+}
+
+.quarterBox,
+.quarterBox:focus {
+  /* Rectangle 114 */
+
+  width: 10%;
+  height: 5vh;
+  margin-left: 1vw;
+
+  background: #e3e7f1;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 1.3vw;
+
+  color: #37397e;
+  text-align: center;
+  line-height: 3vw;
+}
+
+.etBox,
+.etBox:focus {
+  /* Rectangle 117 */
+
+  width: 10%;
+  height: 5vh;
+  margin-left: 1vw;
+
+  background: #e3e7f1;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 1.3vw;
+
+  color: #37397e;
+  text-align: center;
+  line-height: 3vw;
+}
+
+.roBox,
+.roBox:focus {
+  /* Rectangle 110 */
+
+  width: 10%;
+  height: 5vh;
+  margin-left: 1vw;
+
+  background: #e3e7f1;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 1.3vw;
+
+  color: #37397e;
+  text-align: center;
+  line-height: 3vw;
+}
+
+.rjBox,
+.rjBox:focus {
+  /* Rectangle 111 */
+
+  width: 40%;
+  height: 5vh;
+  margin-left: 1vw;
+
+  background: #e3e7f1;
+  box-shadow: 0px 0.3vw 0.3vw rgba(0, 0, 0, 0.25);
+  border-radius: 0.8vw;
+  border: none;
+  outline: none;
+
+  /* font-family: "Inter";
+  font-style: normal; */
+  font-weight: 600;
+  font-size: 1.3vw;
+
+  color: #37397e;
+  text-align: center;
+  line-height: 3vw;
+}
+
+.qTitleText {
+  /* 가장 기억에 남는 질문 한 가지를 남겨주세요 */
+
+  width: 90%;
+
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+
+  color: #000000;
+}
+
+.qInputBox,
+.qInputBox:focus {
+  /* Rectangle 113 */
+
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
+
+  width: 100%;
+  height: 6vh;
+
+  outline: none;
+
+  background: #ffffff;
+  border: 0.15vw solid #8186d5;
+  border-radius: 10px;
+
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-size: 18px;
+}
+
+.aTitleText {
+  color: #000000;
+  /* 자유롭게 면접 후기를 남겨주세요 */
+
+  width: 90%;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+
+  color: #000000;
+}
+
+.aInputBox,
+.aInputBox:focus {
+  margin-top: 1%;
+  /* Rectangle 115 */
+
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 35vh;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
+
+  outline: none;
+  background: #ffffff;
+  border: 0.15vw solid #8186d5;
+  border-radius: 10px;
+  /* font-family: "Inter"; */
+  font-style: normal;
+  font-size: 18px;
+}
+
+.completeButton {
+  /* Rectangle 99 */
+
+  margin-top: 2%;
+
+  background: #8186d5;
+  border-radius: 10px;
+
+  padding: 8px 16px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+
+  border: none;
+  color: #ffffff;
+  float: right;
+}
+
+.box {
+  width: 90%;
+  /* margin-left: 5%; */
+}
+
+.row1 {
+  margin-top: 3%;
+}
+.row2 {
+  margin-top: 3%;
+}
+.row3 {
+  margin-top: 3%;
+}
+
+.row4 {
+  margin-top: 3%;
+}
+.complete:hover {
+  background-color: #494ca2;
+}

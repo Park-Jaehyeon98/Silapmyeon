@@ -1,0 +1,132 @@
+.container {
+  /* height: 100%; */
+}
+
+.topContainer {
+  height: 350px;
+  margin-bottom: 35px;
+}
+
+.header {
+  color: #37397e;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.topNavBody {
+  height: 80%;
+  background-color: #c6cbef;
+  border-radius: 10px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+.headerDday {
+  display: flex;
+  justify-content: center;
+}
+
+.headerDday p {
+  color: #4962a2;
+  font-size: 25px;
+}
+
+.bottomContainer {
+  height: 90%;
+}
+
+.bottomHeader {
+  margin-bottom: 30px;
+  padding-left: 45%;
+  font-size: 30px;
+  color: #37397e;
+}
+
+.interviewBox {
+  background-color: rgb(235, 144, 144);
+  display: flex; /* Flex 컨테이너 설정 */
+  justify-content: center; /* 가로축 중앙 정렬 */
+  align-items: center; /* 세로축 중앙 정렬 */
+  width: 100%; /* 부모 요소의 전체 너비 차지 */
+  height: 50%;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  overflow: hidden;
+  height: 50%;
+}
+
+.carousel button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0 10px;
+  color: #333;
+}
+
+.carouselBox {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.interviewContainer {
+  height: 100%;
+}
+
+.interviewItem {
+  flex-shrink: 0; /* 아이템이 줄어들지 않도록 설정 */
+  width: 123.5px;
+  height: 100px;
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #fcfafa;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  align-self: center;
+  text-align: center;
+}
+
+.interviewItem > *:last-child {
+  margin-top: 5px;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out; /* 0.5초 동안 부드럽게 효과 적용 */
+  opacity: 0.5; /* 기본 투명도 값 */
+}
+
+.arrowHidden {
+  display: none;
+}
+
+.arrow:last-child {
+  transform: scaleX(-1);
+}
+
+.arrow:hover {
+  opacity: 1; /* 마우스를 올렸을 때의 투명도 값 (더 밝게 보임) */
+}
+
+.interviewItemChild {
+  font-size: 18px;
+}
+
+.pin {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  top: -20px;
+}

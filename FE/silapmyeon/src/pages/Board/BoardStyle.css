@@ -1,0 +1,121 @@
+.board {
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cardLink {
+  text-decoration: none;
+}
+.head {
+  /* font-family: "soyoMaple"; */
+  /* font-family: "notosanskr"; */
+  /* font-family: "suite"; */
+  /* font-family: "nanum"; */
+  /* font-family: "maruburi"; */
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 60px;
+
+  color: #4962a2;
+}
+.search {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  /* flex-direction: column; */
+}
+.company {
+  /* margin-left: auto; */
+  /* padding-right: 100px;
+  padding-bottom: 10px; */
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+.button {
+  /* width: 150px;
+  height: 45px;
+  background: #494ca2;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
+  border: none;
+  letter-spacing: 0.5px; */
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  /* margin: 10px; */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #494ca2;
+}
+.input {
+  width: 250px;
+  height: 36px;
+  border-radius: 10px;
+
+  /* background: #f5f6ff;
+  border: none;
+  height: 35px;
+  padding-left: 10px;
+  font-size: 13px; */
+
+  padding-left: 10px;
+  margin-left: 10px;
+  background: #f5f6ff;
+  outline: none;
+  /* border: none; */
+  border: 1px solid #f5f6ff;
+  transition: border-color 0.3s;
+  &:focus {
+    border-color: #e3e7f1;
+  }
+  font-size: medium;
+}
+/* .searchButton {
+  width: 50px;
+  letter-spacing: 0.5px;
+  height: 30px;
+  background: #494ca2;
+  border-radius: 10px;
+  font-style: normal;
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 29px;
+
+  background: #ffffff;
+  border: 1px solid #494ca2;
+  border-radius: 10px;
+} */
+.pagenation {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* margin-left: 430px; */
+  justify-content: center;
+  display: flex;
+}
+
+.pagenation button {
+  margin: 0 10px;
+  border-radius: 10px;
+  font-weight: 550;
+}

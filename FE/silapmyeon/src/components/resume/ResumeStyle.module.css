@@ -1,0 +1,9 @@
+.item {
+  height: 8%; /* Adjust as needed */
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border-bottom: 2px solid #8186d5;
+  text-align: center;
+}
