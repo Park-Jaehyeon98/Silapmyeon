@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* font-family: "Arial", sans-serif; */
+}
+
+.button {
+  background-color: #8186d5;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+  background-color: #494ca2;
+}
+
+.timerContainer {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #5c6bc0;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.timerLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+  margin: 10px;
+}
+
+.webcamImage {
+  width: 640px;
+  height: 360px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  margin: 10px;
+}

@@ -1,0 +1,89 @@
+.q {
+  /* Q1 */
+  margin-top: 3%;
+  width: 7vw; /* Adjust as needed */
+  height: 2.5vw; /* Adjust as needed */
+  background: #e3e7f1;
+  box-shadow: 0 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  /* font-family: "nanum"; */
+  font-style: normal;
+
+  font-weight: bold;
+  font-size: 20px; /* Adjust as needed */
+  line-height: 2.5vw; /* Adjust as needed */
+  color: black;
+  text-align: center;
+}
+
+.qInput,
+.qInput:focus {
+  /* Rectangle 87 */
+  box-sizing: border-box;
+  width: 100%; /* Adjust as needed */
+  height: 3.5vw; /* Adjust as needed */
+  background: #ffffff;
+  border: 2px solid #8186d5;
+  border-radius: 10px;
+  margin-top: 2%;
+  outline: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px; /* Adjust as needed */
+
+  display: flex;
+  align-items: center;
+  color: black;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.a {
+  /* A1 */
+  margin-top: 3%;
+  width: 7vw; /* Adjust as needed */
+  height: 2.5vw; /* Adjust as needed */
+  background: #e3e7f1;
+  box-shadow: 0 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
+  border-radius: 1vw;
+  border: none;
+  outline: none;
+
+  /* font-family: "nanum"; */
+  font-style: normal;
+
+  font-weight: bold;
+  font-size: 20px; /* Adjust as needed */
+  line-height: 2.5vw; /* Adjust as needed */
+  color: black;
+  text-align: center;
+}
+
+.aInput,
+.aInput:focus {
+  /* Rectangle 88 */
+  box-sizing: border-box;
+  width: 100%; /* Adjust as needed */
+  height: 20vw; /* Adjust as needed */
+  background: #ffffff;
+
+  border: 2px solid #8186d5;
+  border-radius: 10px;
+  margin-top: 2%;
+  outline: none;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px; /* Adjust as needed */
+  line-height: 1.8vw; /* Adjust as needed */
+
+  display: flex;
+  align-items: center;
+  color: black;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
