@@ -1,0 +1,205 @@
+[{
+  "_id": {
+    "$oid": "65547e1209b6185e5cbe8df2"
+  },
+  "userId": 2,
+  "company": "기술 면접",
+  "interviews": [
+    {
+      "question": " 프로세스와 스레드의 차이점을 설명해주세요.\n",
+      "answer": "자 잘 모르겠습니다",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/90f78267-6f59-41b5-a549-f0b01d1036b3.webm"
+    },
+    {
+      "question": " 가상 메모리는 어떻게 작동하며, 왜 필요한가요?\n",
+      "answer": "잘 모르겠습니다",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/cc1e26be-44e6-484e-aed9-be8fade90063.webm"
+    },
+    {
+      "question": " 정규화 과정을 설명하고, 어떤 문제를 해결하는지 말해주세요.\n",
+      "answer": "정주원은 잘 모르겠습니다",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/998f8d7e-bcf4-4334-b2f7-6bddc5806412.webm"
+    },
+    {
+      "question": " OSI 모델과 TCP/IP 모델의 주요 차이점은 무엇인가요?\n",
+      "answer": "뭐 했어요 내일이랑 잘 모르겠",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/d54bd204-93f4-40a7-9436-65aed9bb267e.webm"
+    },
+    {
+      "question": " 퀵소트와 병합정렬의 시간 복잡도를 비교해주세요.",
+      "answer": "소포는 종합 정리를 잘 모르겠어요",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/9e52f366-6df7-4876-a20e-57f5717ee1eb.webm"
+    }
+  ],
+  "createdDate": {
+    "$date": "2023-11-15T08:15:14.207Z"
+  },
+  "lastModifiedDate": {
+    "$date": "2023-11-15T08:15:14.207Z"
+  },
+  "_class": "com.b107.interview.domain.report.entity.Report"
+},
+{
+  "_id": {
+    "$oid": "6555920309b6185e5cbe8df3"
+  },
+  "userId": 3,
+  "company": "기술 면접",
+  "interviews": [
+    {
+      "question": " 메모리 계층 구조에서 L1, L2, L3 캐시 간의 차이점을 설명해주시겠어요?\n",
+      "answer": "작동이 안 하는 거야 어 지금 요걸 이렇게 했을 때 내가 완료",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/5d83cf20-1541-434c-97b7-c360f4b0fd48.webm"
+    },
+    {
+      "question": " 정규화는 무엇이며 데이터 베이스 설계에서 왜 중요한가요?\n",
+      "answer": "등록이 안",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/34f4c51a-5051-44fd-96c6-3d0fa1e2a442.webm"
+    },
+    {
+      "question": " OSI 모델과 TCP/IP 모델을 비교하여 설명해주세요.\n",
+      "answer": "조금만 싫어하는데 근데 이제",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/5fd08ac2-d355-49c4-beb6-2fb803438f31.webm"
+    },
+    {
+      "question": " 머지 소트와 퀵 소트의 시간복잡도는 어떻게 되나요?\n",
+      "answer": "한번 이거 껐다 켜야 될 것 같은데 빌드 다시 해야 될 것 같은데",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/590e3583-3124-4bac-a44a-1b7cb72f5c73.webm"
+    },
+    {
+      "question": " 객체 지향 설계 원칙 중 하나인 SOLID에 대해 설명해주세요.",
+      "answer": "",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/49c11ee6-fc05-4d99-8231-71af8088205d.webm"
+    }
+  ],
+  "createdDate": {
+    "$date": "2023-11-16T03:52:35.858Z"
+  },
+  "lastModifiedDate": {
+    "$date": "2023-11-16T03:52:35.858Z"
+  },
+  "_class": "com.b107.interview.domain.report.entity.Report"
+},
+{
+  "_id": {
+    "$oid": "6555a3255d6a72133be44bf4"
+  },
+  "userId": 1,
+  "company": "SSAFY",
+  "interviews": [
+    {
+      "question": " 첫 번째 백엔드 개발 프로젝트를 진행하면서 배운 점과 두 번째 프로젝트에서 어떤 방식으로 개선했는지 구체적으로 말씀해주세요.\n",
+      "answer": "이번 일",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/d553cc46-7213-4da5-b0c0-b642ea67f216.webm"
+    },
+    {
+      "question": " API를 설계할 때 가장 중요하게 생각한 부분은 무엇이었나요?\n",
+      "answer": "실제",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/bf442ae2-3e5e-4c5e-8504-2bdfefd914ca.webm"
+    },
+    {
+      "question": " 코드 모듈화와 소스 파일 분할을 진행하면서 어떤 기준으로 결정을 하셨는지 설명해 주세요.\n",
+      "answer": "퀄리티가 어",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/ccfacdf4-4198-44e8-a6b0-4488d616754f.webm"
+    },
+    {
+      "question": " 당신은 '기본이 탄탄한 소프트웨어 개발자'가 되고 싶다고 말씀하셨는데, '기본'이란 무엇을 말하는 건가요?\n",
+      "answer": "일단 용병",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/fd08a4ea-dd35-4e12-af07-a0d63a35fdb1.webm"
+    },
+    {
+      "question": " SSAFY에 지원하신 동기 중, 실무에 가까운 프로젝트 경험을 어떻게 통해 자신의 부족한 점을 보완하고 싶은지 구체적으로 말씀해주세요.",
+      "answer": "",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/73a2f8e2-5d34-4124-bb12-3e10202c579b.webm"
+    }
+  ],
+  "createdDate": {
+    "$date": "2023-11-16T05:05:41.728Z"
+  },
+  "lastModifiedDate": {
+    "$date": "2023-11-16T05:05:41.728Z"
+  },
+  "_class": "com.b107.interview.domain.report.entity.Report"
+},
+{
+  "_id": {
+    "$oid": "6555b222045ea138e58407bf"
+  },
+  "userId": 1,
+  "company": "SSAFY",
+  "interviews": [
+    {
+      "question": " 진행한 캡스톤 프로젝트에서 특히 어떤 코드 모듈화 기법을 적용했는지 설명해주실 수 있나요? \n",
+      "answer": "20",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/ac9e1820-ee49-444e-ad02-14de04064ca0.webm"
+    },
+    {
+      "question": " 백엔드 개발 과정에서 데이터 CRUD 관점에서 놓친 부분을 확인하는 데 어떤 절차나 기준을 사용하셨는지 구체적으로 말씀해주세요.\n",
+      "answer": "",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/8608e699-d9b9-4661-82f1-800e2d2715d5.webm"
+    },
+    {
+      "question": " SSAFY 프로그램을 통해 달성하고 싶은 구체적인 학습 목표나 기술을 가지고 계신가요?\n",
+      "answer": "",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/9677bcf9-6277-4f7c-b1f3-9804d6acb352.webm"
+    },
+    {
+      "question": " 첫 번째와 두 번째 캡스톤 프로젝트에서 느낀 자신의 개선점에 대한 구체적 사례를 제시해 주실 수 있나요?\n",
+      "answer": "",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/1856ab88-3640-45f4-beba-5deaa04a2b15.webm"
+    },
+    {
+      "question": " 실무에 가까운 프로젝트 경험이 본인의 성장에 어떻게 기여할 것이라고 보시는지, 그리고 그러한 환경에서 특히 어떤 점을 배우고 싶은지 이야기해주세요.",
+      "answer": "",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/4ef9b249-a369-43d4-9ed3-f7a5732f58c5.webm"
+    }
+  ],
+  "createdDate": {
+    "$date": "2023-11-16T06:09:37.989Z"
+  },
+  "lastModifiedDate": {
+    "$date": "2023-11-16T06:09:37.989Z"
+  },
+  "_class": "com.b107.interview.domain.report.entity.Report"
+},
+{
+  "_id": {
+    "$oid": "6555b2e5045ea138e58407c0"
+  },
+  "userId": 1,
+  "company": "신한은행",
+  "interviews": [
+    {
+      "question": " 모바일 기술 연구실에서 숙면을 위한 AI 모션베드 및 빅데이터 플랫폼 개발과제의 구체적인 빅데이터 플랫폼 설계 업무는 어떤 것이었나요? ",
+      "answer": "프리미엄에게 종료가 안 했는데 1.0",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/e92dd48f-3a21-45e4-83f8-827db925af65.webm"
+    },
+    {
+      "question": "\n",
+      "answer": "아까 내가 해 달랬거든",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/5f33efd4-c4e9-461a-868d-6b10c0d22c89.webm"
+    },
+    {
+      "question": " 캡스톤 프로젝트 중 Node.js와 MySQL을 이용한 백엔드 개발에 있어 가장 큰 도전과 그것을 극복하기 위해 사용한 방법은 무엇이었나요? ",
+      "answer": "2분 전에 글들을 새로 해 보려고",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/0b89657c-cf4d-4a00-9a5d-dd175ee9e024.webm"
+    },
+    {
+      "question": "\n",
+      "answer": "너무너무 상관이 없는데 무조건 종료는",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/9c17c390-1848-4ddb-801a-91d54654676f.webm"
+    },
+    {
+      "question": " 창업팀에서 개발한 군생활 플랫폼에서 겪었던 가장 도전적인 기술적 문제와 해결 과정을 설명해 주세요. ",
+      "answer": "",
+      "url": "https://yeongki.s3.ap-northeast-2.amazonaws.com/3b18d121-fcf8-4c95-a90d-150e9d1db6ed.webm"
+    }
+  ],
+  "createdDate": {
+    "$date": "2023-11-16T06:12:53.273Z"
+  },
+  "lastModifiedDate": {
+    "$date": "2023-11-16T06:12:53.273Z"
+  },
+  "_class": "com.b107.interview.domain.report.entity.Report"
+}]
