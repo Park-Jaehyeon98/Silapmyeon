@@ -103,6 +103,11 @@ function ResumeModify() {
       flag = false;
     }
 
+    if (interviewDate.length != 10) {
+      alert("형식에 맞는 날짜를 입력해주세요.");
+      flag = false;
+    }
+
     for (let index = 0; index < itemData.length; index++) {
       if (
         isEmpty(itemData[index].resumeAnswer) ||
