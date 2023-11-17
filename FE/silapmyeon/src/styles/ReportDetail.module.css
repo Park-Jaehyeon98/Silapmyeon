@@ -32,7 +32,7 @@
 }
 
 .interview :not(:first-child) {
-  margin-top: 26px;
+  margin-top: 20px;
 }
 
 .interviewItem:first-child {
@@ -48,6 +48,12 @@
 .qna {
   height: 50%;
   padding-left: 30px;
+  padding-right: 45px;
+  border:  #4962a2 solid 1px;
+  margin-right: 40px;
+  margin-left: 40px;
+  padding-top: 25px;
+  overflow: scroll;
 }
 
 .footerContainer {
