@@ -9,7 +9,7 @@ function ReviewList() {
 
   const getReviews = async (page) => {
     const resp = await axiosAuth.get(`/review?page=${page}&keyword=${keyword}`);
-    console.log(resp);
+    // console.log(resp);
     setReviews(resp.data.content);
     setTotalPages(resp.data.totalPages);
   };
@@ -51,8 +51,8 @@ function ReviewList() {
     </a>
   );
   for (let index = startIndex; index < endIndex; index++) {
-    console.log("currentPage:", currentPage);
-    console.log("index + 1:", index + 1);
+    // console.log("currentPage:", currentPage);
+    // console.log("index + 1:", index + 1);
 
     pageNums.push(
       <a
@@ -82,7 +82,7 @@ function ReviewList() {
   const [keyword, setKeyword] = useState("");
   const handleKeywordChange = (event) => {
     setKeyword(event.target.value);
-    console.log(keyword);
+    // console.log(keyword);
   };
 
   const handleKeyPress = (event) => {

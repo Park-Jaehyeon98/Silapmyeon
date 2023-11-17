@@ -29,7 +29,7 @@ function ResumeCreate() {
 
   const companyNameChange = (event) => {
     setCompanyName(event.target.value);
-    console.log(companyName);
+    // console.log(companyName);
   };
 
   const interviewDateChange = (event) => {
@@ -52,7 +52,7 @@ function ResumeCreate() {
     } else {
       setInterviewDate(formattedDate);
     }
-    console.log(interviewDate);
+    // console.log(interviewDate);
   };
 
   const [itemData, setItemData] = useState([]);
@@ -61,7 +61,7 @@ function ResumeCreate() {
     const updatedData = [...itemData];
     updatedData[index] = { ...updatedData[index], resumeQuestion: newQuestion };
     setItemData(updatedData);
-    console.log(itemData);
+    // console.log(itemData);
   };
 
   const handleAnswerChange = (index, newAnswer) => {
@@ -69,7 +69,7 @@ function ResumeCreate() {
     const updatedData = [...itemData];
     updatedData[index] = { ...updatedData[index], resumeAnswer: newAnswer };
     setItemData(updatedData);
-    console.log(itemData);
+    // console.log(itemData);
   };
 
   const navigate = useNavigate();
@@ -100,6 +100,11 @@ function ResumeCreate() {
       flag = false;
     }
 
+    if (interviewDate.length != 10) {
+      alert("형식에 맞는 날짜를 입력해주세요.");
+      flag = false;
+    }
+
     for (let index = 0; index < itemData.length; index++) {
       if (
         isEmpty(itemData[index].resumeAnswer) ||
@@ -119,7 +124,7 @@ function ResumeCreate() {
         interviewDate,
         resumeItems: itemData,
       });
-      console.log(res);
+      // console.log(res);
       navigate("/resume");
     }
   };
