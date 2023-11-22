@@ -198,7 +198,7 @@
 - 도커 컨테이너를 사용한 운영환경 분리 및 배포
 - 영상 저장을 위한 Amazon S3 저장소 사용
    
-<img src="exec/assets//아키텍처.jpg">
+<img src="exec/assets/아키텍처.jpg">
 
 ## 🔍기능 소개
 
